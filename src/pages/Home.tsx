@@ -594,7 +594,7 @@ export default function Home() {
 
               <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
                 <p>Há uma distinção silenciosa que os executivos de alto nível reconhecem rapidamente: <strong className="text-primary">quem sabe falar sobre estratégia digital — e quem já precisou entregar resultado com ela</strong>. Wellington pertence à segunda categoria, sem nenhuma concessão.</p>
-                <p>Ex-diretor em <strong className="text-primary">Sony, Honda, Rakuten e Shell</strong>, responsável por operações de marketing que movimentaram centenas de milhões em mercados altamente competitivos, ele sabe exatamente onde um executivo erra — e como corrigir com precisão cirúrgica.</p>
+                <p>Ex-executivo em <strong className="text-primary">Sony, Honda, Rakuten e Shell</strong>, responsável por operações de marketing que movimentaram centenas de milhões em mercados altamente competitivos, ele sabe exatamente onde um executivo erra — e como corrigir com precisão cirúrgica.</p>
                 <p>Seu método <strong className="text-primary">AI-First Framework™</strong> não é um curso online. É um sistema de aceleração construído a partir de 500 casos reais: do diagnóstico até a implementação, com KPIs definidos antes do primeiro encontro. Para quem não pode se dar ao luxo de errar o timing.</p>
               </div>
 
