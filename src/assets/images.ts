@@ -2,6 +2,9 @@
 // Do not edit manually
 
 export const IMAGES = {
+  IBM_37: "/images/ibm.png",
+  COBASI_38: "/images/cobasi.png",
+  PETZ_39: "/images/petz.png",
   ANIMA_19: "/images/anima.png",
   CEA_18: "/images/cea.png",
   COINBASE_26: "/images/coinbase.png",

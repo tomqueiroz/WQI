@@ -53,6 +53,9 @@ const ALL_LOGOS: { src: string; alt: string }[] = [
   { src: IMAGES.IMG_19_42,   alt: 'Cliente 19' },
   { src: IMAGES.IMG_20_46,   alt: 'Cliente 20' },
   { src: IMAGES.IMG_21_41,   alt: 'Cliente 21' },
+  { src: IMAGES.IBM_37,       alt: 'IBM' },
+  { src: IMAGES.COBASI_38,    alt: 'Cobasi' },
+  { src: IMAGES.PETZ_39,      alt: 'Petz' },
 ];
 
 // ─── Distribui logos em 3 grupos circulares ───

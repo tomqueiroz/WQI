@@ -133,7 +133,7 @@ const SLIDER_TESTIMONIALS = [
 // Cada coluna tem velocidade diferente para efeito orgânico
 const VERTICAL_MARQUEE_COLS: Array<{ keys: string[]; speed: number; left: string; width: string }> = [
   {
-    keys: ['ANIMA_19', 'GPA_17', 'ITAU_14', 'SPOTIFY_30', 'NVIDIA_28', 'REMAX_31'],
+    keys: ['ANIMA_19', 'GPA_17', 'ITAU_14', 'SPOTIFY_30', 'NVIDIA_28', 'REMAX_31', 'IBM_37'],
     speed: 28, left: '1%', width: '11%',
   },
   {
@@ -141,7 +141,7 @@ const VERTICAL_MARQUEE_COLS: Array<{ keys: string[]; speed: number; left: string
     speed: 38, left: '15%', width: '11%',
   },
   {
-    keys: ['GREENP_16', 'IMG_3_56', 'IMG_7_40', 'PEPSI_24', 'SAMS_22', 'IMG_11_55'],
+    keys: ['GREENP_16', 'IMG_3_56', 'IMG_7_40', 'PEPSI_24', 'SAMS_22', 'IMG_11_55', 'COBASI_38'],
     speed: 22, left: '29%', width: '11%',
   },
   {
@@ -149,7 +149,7 @@ const VERTICAL_MARQUEE_COLS: Array<{ keys: string[]; speed: number; left: string
     speed: 34, left: '43%', width: '11%',
   },
   {
-    keys: ['FLAM_33', 'IMG_9_37', 'IMG_15_52', 'NIVEA_36', 'SG_27', 'IMG_20_46'],
+    keys: ['FLAM_33', 'IMG_9_37', 'IMG_15_52', 'NIVEA_36', 'SG_27', 'IMG_20_46', 'PETZ_39'],
     speed: 26, left: '57%', width: '11%',
   },
   {
