@@ -57,48 +57,54 @@ const PHILOSOPHY = [
   {
     Icon: Lightbulb,
     title: 'IA como alavanca, não como moda',
-    desc: 'Wellington foi early adopter de IA em contexto corporativo real. Hoje, entrega o caminho mais curto entre onde você está e o uso estratégico da tecnologia.',
+    desc: 'Tom foi early adopter de IA em contexto corporativo real. Hoje, entrega o caminho mais curto entre onde você está e o uso estratégico da tecnologia.',
   },
 ];
 
 const PRESS = [
-  { pub: 'Valor Econômico', quote: '"Um dos maiores especialistas em marketing digital e IA do Brasil."' },
-  { pub: 'Exame', quote: '"Wellington Queiroz conecta a visão executiva com a praticidade da IA generativa."' },
+  { pub: 'Valor Econômico', quote: '"Tom Queiroz é um dos maiores especialistas em marketing digital e IA do Brasil."' },
+  { pub: 'Exame', quote: '"Tom Queiroz conecta a visão executiva com a praticidade da IA generativa de forma única."' },
   { pub: 'MIT Technology Review BR', quote: '"Referência em implementação de IA aplicada a negócios no mercado latino-americano."' },
 ];
 
 export default function SobrePage() {
   return (
     <Layout>
-      {/* ── HERO PRÓPRIA — fundo navy, retrato lateral ── */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden" style={{ background: '#001123' }}>
-        {/* Overlay gradiente sutil */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #001123 55%, #0d2040 100%)' }} />
+      {/* ── HERO PRÓPRIA — layout 2 colunas: copy esq (5 cols) + foto dir (7 cols) ── */}
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden" style={{ background: '#001123' }}>
+        {/* Gradiente de fundo sutil */}
+        <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(120deg, #001123 45%, #0a1e38 100%)' }} />
+        {/* Luz copper decorativa no canto direito */}
+        <div className="absolute right-0 top-0 w-2/3 h-full z-0 pointer-events-none hidden lg:block"
+          style={{ background: 'radial-gradient(ellipse at 90% 50%, rgba(122,98,7,0.18) 0%, transparent 60%)' }} />
 
-        {/* Detalhe geométrico decorativo */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 hidden lg:block"
-          style={{ background: 'radial-gradient(ellipse at 80% 40%, #7a6207 0%, transparent 65%)' }} />
+        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 min-h-[80vh]">
 
-        <div className="relative z-10 container mx-auto px-4 md:px-8 py-32 md:py-40 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Copy */}
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+          {/* ── COLUNA ESQ — Copy (5 cols) ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
+            className="lg:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-32 lg:py-40">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>
               Sobre o Mentor
             </span>
-            <h1 className="text-white mb-4" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem,5vw,3.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-              Quem é<br /><span style={{ color: '#7a6207' }}>Wellington Queiroz</span>
+            <h1 className="text-white mb-5" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem,4vw,3.5rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+              Conheça<br /><span style={{ color: '#7a6207' }}>Tom Queiroz</span>
             </h1>
-            <p className="text-white/60 leading-relaxed mb-8 max-w-lg" style={{ fontWeight: 300, fontSize: '1rem' }}>
-              Chief AI &amp; Innovation Officer. Ex-diretor nas maiores corporações globais. Professor FGV EAESP.
-              Um executor que, depois de 20 anos nas trincheiras do marketing corporativo,
-              decidiu dedicar sua expertise a acelerar as carreiras e negócios de outros líderes.
+            <p className="text-white/70 leading-relaxed mb-3 max-w-md" style={{ fontWeight: 300, fontSize: '1.05rem' }}>
+              Mundialmente conhecido como <strong className="text-white/90 font-semibold">Tom Queiroz</strong>, ele é Chief AI &amp; Innovation Officer,
+              ex-diretor em corporações globais de primeira linha e Professor da FGV EAESP.
+            </p>
+            <p className="text-white/55 leading-relaxed mb-8 max-w-md" style={{ fontWeight: 300, fontSize: '0.95rem' }}>
+              Com 20 anos de execução real no marketing corporativo — de Sony a Shell, em 8 países —,
+              Tom decidiu dedicar sua expertise a acelerar carreiras e negócios de outros líderes.
+              Ele não ensina o que leu. Ensina o que viveu.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
                 <Button className="rounded-full px-6 py-3 h-auto font-semibold text-sm"
                   style={{ background: '#7a6207', color: 'white' }}>
-                  <MessageCircle size={15} className="mr-2" /> Iniciar Conversa
+                  <MessageCircle size={15} className="mr-2" /> Conversar com Tom
                 </Button>
               </a>
               <a href="https://www.linkedin.com/in/wellingtonqueiroz/" target="_blank" rel="noopener noreferrer">
@@ -108,25 +114,46 @@ export default function SobrePage() {
                 </Button>
               </a>
             </div>
-          </motion.div>
-
-          {/* Portrait */}
-          <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2 }}
-            className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ maxWidth: 420 }}>
-                <img src={IMAGES.TOM_HERO_PORTRAIT} alt="Wellington Queiroz" className="w-full object-cover"
-                  style={{ height: 480, objectFit: 'cover', objectPosition: 'center top' }} />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,17,35,0.6) 0%, transparent 50%)' }} />
-              </div>
-              {/* Badge flutuante */}
-              <div className="absolute -bottom-4 -left-4 rounded-xl px-4 py-3 shadow-xl text-center"
-                style={{ background: '#7a6207', color: 'white' }}>
-                <div className="text-2xl font-black leading-none">20+</div>
-                <div className="text-[10px] font-light mt-0.5 leading-tight">Anos de<br />execução global</div>
-              </div>
+            {/* Stats rápidos */}
+            <div className="grid grid-cols-3 gap-3 mt-8">
+              {[{ v: '500+', l: 'Executivos' }, { v: '20 anos', l: 'Experiência' }, { v: '8 países', l: 'Alcance global' }].map(s => (
+                <div key={s.v} className="text-center border border-white/10 rounded-xl py-2 px-1" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                  <div className="text-accent font-black text-lg leading-none">{s.v}</div>
+                  <div className="text-white/40 text-[10px] mt-1" style={{ fontWeight: 300 }}>{s.l}</div>
+                </div>
+              ))}
             </div>
           </motion.div>
+
+          {/* ── COLUNA DIR — Foto (7 cols), ocupa toda a altura ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.15 }}
+            className="lg:col-span-7 relative hidden lg:block">
+            {/* Imagem preenche 100% da altura da hero */}
+            <img
+              src={IMAGES.TOM_PROFILE_ALT}
+              alt="Tom Queiroz — Mentor Executivo"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            {/* Gradiente à esquerda para fundir com o fundo navy */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #001123 0%, rgba(0,17,35,0.35) 35%, transparent 65%)' }} />
+            {/* Badge flutuante copper */}
+            <div className="absolute bottom-10 right-8 rounded-2xl px-5 py-4 shadow-2xl text-center z-10"
+              style={{ background: 'rgba(122,98,7,0.92)', backdropFilter: 'blur(8px)', color: 'white' }}>
+              <div className="text-3xl font-black leading-none">20+</div>
+              <div className="text-[11px] font-light mt-1 leading-tight opacity-90">Anos de<br />execução global</div>
+            </div>
+          </motion.div>
+
+          {/* Foto para mobile (col única) */}
+          <div className="lg:hidden relative w-full" style={{ height: 340 }}>
+            <img
+              src={IMAGES.TOM_PROFILE_ALT}
+              alt="Tom Queiroz"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #001123 0%, transparent 30%, transparent 70%, #001123 100%)' }} />
+          </div>
         </div>
       </section>
 
@@ -203,7 +230,7 @@ export default function SobrePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="max-w-2xl mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#7a6207' }}>Filosofia</p>
-            <h2 className="text-primary mb-4">Como Wellington Pensa sobre Mentoria</h2>
+            <h2 className="text-primary mb-4">Como Tom Queiroz Pensa sobre Mentoria</h2>
             <p className="text-muted-foreground leading-relaxed" style={{ fontWeight: 300 }}>
               Mentoria não é coaching motivacional. É a transferência direta de modelos mentais testados em situações reais
               de alta pressão — adaptados ao seu contexto, com métricas claras de antes e depois.
@@ -251,7 +278,7 @@ export default function SobrePage() {
             <Award size={32} style={{ color: '#7a6207', margin: '0 auto 16px' }} />
             <h2 className="text-primary mb-4">Pronto para uma Mentoria de Alto Nível?</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed" style={{ fontWeight: 300 }}>
-              Wellington trabalha com um número limitado de mentorandos por ciclo. Cada programa começa com um diagnóstico gratuito —
+              Tom trabalha com um número limitado de mentorandos por ciclo. Cada programa começa com um diagnóstico gratuito —
               sem compromisso, com profundidade real. O próximo passo é uma conversa honesta sobre onde você quer chegar.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

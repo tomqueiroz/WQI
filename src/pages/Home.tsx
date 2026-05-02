@@ -520,15 +520,13 @@ export default function Home() {
 
       {/* ============ QUOTE PARALLAX 1 ============ */}
       <section ref={quoteRef1} className="min-h-[45vh] relative overflow-hidden flex items-center">
-        <div
-          className="parallax-img absolute inset-0 z-0 will-change-transform"
-          style={{
-            backgroundImage: `url(${IMAGES.PARALLAX_AI_PRESENTATION})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '120%',
-            top: '-10%',
-          }}
+        {/* IMG real — translate3d move a imagem de verdade */}
+        <img
+          src={IMAGES.PARALLAX_AI_PRESENTATION}
+          alt=""
+          aria-hidden
+          className="parallax-img absolute left-0 w-full object-cover pointer-events-none will-change-transform"
+          style={{ top: '-15%', height: '130%', zIndex: 0 }}
         />
         <div className="absolute inset-0 z-10 bg-primary/80" />
         <div className="relative z-20 w-full flex items-center justify-center px-4 py-16">
@@ -540,7 +538,7 @@ export default function Home() {
             className="font-black text-2xl md:text-4xl text-white text-center italic max-w-3xl leading-snug"
           >
             "A IA não vai substituir você. Vai substituir quem não sabe usá-la."
-            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Wellington Queiroz</cite>
+            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz</cite>
           </motion.blockquote>
         </div>
       </section>
@@ -700,15 +698,12 @@ export default function Home() {
 
       {/* ============ QUOTE PARALLAX 2 ============ */}
       <section ref={quoteRef2} className="min-h-[45vh] relative overflow-hidden flex items-center">
-        <div
-          className="parallax-img absolute inset-0 z-0 will-change-transform"
-          style={{
-            backgroundImage: `url(${IMAGES.PARALLAX_HOLOGRAPHIC})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '120%',
-            top: '-10%',
-          }}
+        <img
+          src={IMAGES.PARALLAX_HOLOGRAPHIC}
+          alt=""
+          aria-hidden
+          className="parallax-img absolute left-0 w-full object-cover pointer-events-none will-change-transform"
+          style={{ top: '-15%', height: '130%', zIndex: 0 }}
         />
         <div className="absolute inset-0 z-10 bg-primary/80" />
         <div className="relative z-20 w-full flex items-center justify-center px-4 py-16">
@@ -720,7 +715,7 @@ export default function Home() {
             className="font-black text-2xl md:text-4xl text-white text-center italic max-w-3xl leading-snug"
           >
             "Marketing sem dados é opinião. Marketing sem IA é atraso."
-            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Wellington Queiroz</cite>
+            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz</cite>
           </motion.blockquote>
         </div>
       </section>
@@ -914,15 +909,12 @@ export default function Home() {
 
       {/* ============ QUOTE PARALLAX 3 ============ */}
       <section ref={quoteRef3} className="min-h-[45vh] relative overflow-hidden flex items-center">
-        <div
-          className="parallax-img absolute inset-0 z-0 will-change-transform"
-          style={{
-            backgroundImage: `url(${IMAGES.PARALLAX_HANDSHAKE_ROBOT})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '120%',
-            top: '-10%',
-          }}
+        <img
+          src={IMAGES.PARALLAX_HANDSHAKE_ROBOT}
+          alt=""
+          aria-hidden
+          className="parallax-img absolute left-0 w-full object-cover pointer-events-none will-change-transform"
+          style={{ top: '-15%', height: '130%', zIndex: 0 }}
         />
         <div className="absolute inset-0 z-10 bg-primary/80" />
         <div className="relative z-20 w-full flex items-center justify-center px-4 py-16">
@@ -934,7 +926,7 @@ export default function Home() {
             className="font-black text-2xl md:text-4xl text-white text-center italic max-w-3xl leading-snug"
           >
             "Liderar na era da IA não é uma vantagem competitiva. É o requisito mínimo."
-            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Wellington Queiroz</cite>
+            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz</cite>
           </motion.blockquote>
         </div>
       </section>

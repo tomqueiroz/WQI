@@ -56,6 +56,7 @@ export const IMAGES = {
   TOM_HERO_PORTRAIT: "/images/1.png",
   TOM_PROFILE_ALT: "/images/magnific_photo-a-40yearold-middle-_2905621111.png",
   TOM_SOBRE: "/images/tom speaking 11.png",
+  TOM_SPEAKING_YOUNG_58: "/images/tom speaking young.png",
   UNIVERSAL_20: "/images/universal.png",
   WMC_29: "/images/wmc.png",
 } as const;

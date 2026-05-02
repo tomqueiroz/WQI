@@ -4,181 +4,21 @@
   "tables_source_info": [],
   "images": [
     {
-      "original_name": "9",
-      "file_name": "9.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/9.png",
-      "rel_path": "images/9.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "10",
-      "file_name": "10.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/10.png",
-      "rel_path": "images/10.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "8",
-      "file_name": "8.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/8.png",
-      "rel_path": "images/8.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "7",
-      "file_name": "7.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/7.png",
-      "rel_path": "images/7.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "21",
-      "file_name": "21.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/21.png",
-      "rel_path": "images/21.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "19",
-      "file_name": "19.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/19.png",
-      "rel_path": "images/19.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "6",
-      "file_name": "6.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/6.png",
-      "rel_path": "images/6.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "5",
-      "file_name": "5.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/5.png",
-      "rel_path": "images/5.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "4",
-      "file_name": "4.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/4.png",
-      "rel_path": "images/4.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "20",
-      "file_name": "20.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/20.png",
-      "rel_path": "images/20.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "14",
-      "file_name": "14.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/14.png",
-      "rel_path": "images/14.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "18",
-      "file_name": "18.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/18.png",
-      "rel_path": "images/18.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "16",
-      "file_name": "16.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/16.png",
-      "rel_path": "images/16.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "17",
-      "file_name": "17.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/17.png",
-      "rel_path": "images/17.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "2",
-      "file_name": "2.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/2.png",
-      "rel_path": "images/2.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "15",
-      "file_name": "15.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/15.png",
-      "rel_path": "images/15.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "13",
-      "file_name": "13.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/13.png",
-      "rel_path": "images/13.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "1",
-      "file_name": "1.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/1.png",
-      "rel_path": "images/1.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "11",
-      "file_name": "11.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/11.png",
-      "rel_path": "images/11.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "3",
-      "file_name": "3.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/3.png",
-      "rel_path": "images/3.png",
-      "file_type": "png",
-      "category": "images"
-    },
-    {
-      "original_name": "12",
-      "file_name": "12.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/12.png",
-      "rel_path": "images/12.png",
+      "original_name": "tom speaking young",
+      "file_name": "tom speaking young.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/tom speaking young.png",
+      "rel_path": "images/tom speaking young.png",
       "file_type": "png",
       "category": "images"
     }
   ],
   "summary": {
-    "total_files": 21,
+    "total_files": 1,
     "by_category": {
       "documents": 0,
       "tables_parsed": 0,
       "tables_source_info": 0,
-      "images": 21
+      "images": 1
     },
     "processing_time": null
   }
