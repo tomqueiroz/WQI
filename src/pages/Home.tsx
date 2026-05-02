@@ -306,8 +306,8 @@ export default function Home() {
           <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* Overlay escuro — sobre o vídeo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/78 to-primary/45" style={{ zIndex: 2 }} />
+        {/* Overlay escuro — sobre o vídeo, mais leve no lado direito para logos ficarem visíveis */}
+        <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to right, rgba(0,17,35,0.93) 0%, rgba(0,17,35,0.80) 42%, rgba(0,17,35,0.55) 70%, rgba(0,17,35,0.40) 100%)' }} />
 
         {/* === VERTICAL MARQUEE LOGO COLUMNS — descendo continuamente ===
              7 colunas com velocidades distintas, usando CSS animation pura */}
@@ -320,7 +320,7 @@ export default function Home() {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 32px;
+            gap: 48px;
             animation: hero-scroll-down linear infinite;
             will-change: transform;
           }
@@ -344,7 +344,7 @@ export default function Home() {
               >
                 {/* logos originais + duplicados para loop seamless */}
                 {[...col.keys, ...col.keys].map((key, li) => (
-                  <div key={`${key}-${li}`} style={{ opacity: 0.22, flexShrink: 0 }}>
+                  <div key={`${key}-${li}`} style={{ opacity: 0.28, flexShrink: 0 }}>
                     <img
                       src={(IMAGES as Record<string, string>)[key]}
                       alt=""
