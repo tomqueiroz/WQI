@@ -287,29 +287,29 @@ export default function Home() {
           <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* === FLOATING BRAND LOGOS behind content, z-index 2 === */}
+        {/* Overlay escuro — sobre o vídeo */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/78 to-primary/45" style={{ zIndex: 2 }} />
+
+        {/* === FLOATING BRAND LOGOS — acima do overlay, abaixo do conteúdo === */}
         {HERO_LOGOS.map((logo, idx) => (
           <motion.div
             key={logo.key}
             className="absolute pointer-events-none select-none hidden md:block"
-            style={{ ...logo.style, zIndex: 2, opacity: 0.18 }}
-            animate={{ y: [0, -10, 0] }}
+            style={{ ...logo.style, zIndex: 3, opacity: 0.22 }}
+            animate={{ y: [0, -12, 0] }}
             transition={{ duration: LOGO_DURATIONS[idx], repeat: Infinity, ease: 'easeInOut', delay: LOGO_DELAYS[idx] }}
           >
             <img
               src={(IMAGES as Record<string, string>)[logo.key]}
               alt=""
               width={LOGO_WIDTHS[idx]}
-              style={{ filter: 'brightness(10) saturate(0)' }}
+              style={{ filter: 'brightness(10) saturate(0)', mixBlendMode: 'screen' }}
               aria-hidden
             />
           </motion.div>
         ))}
 
-        {/* Overlay escuro — acima do vídeo e logos */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/78 to-primary/45" style={{ zIndex: 3 }} />
-
-        {/* Content */}
+        {/* Content — z-index 4, acima dos logos */}
         <div className="relative container mx-auto px-4 flex flex-1 items-center" style={{ zIndex: 4, paddingTop: '80px', paddingBottom: '40px' }}>
           {/* 2-column layout: copy left (5/12) + photo right (7/12) */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
