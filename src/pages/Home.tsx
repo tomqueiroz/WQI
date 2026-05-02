@@ -128,68 +128,38 @@ const SLIDER_TESTIMONIALS = [
   { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'A Geração AI First™ não é slogan — é uma transformação real de mindset e habilidade. Seis meses depois do Cohort, minha equipe lidera a agenda de IA na empresa. Esse é o resultado que importa.' },
 ];
 
-// ─── 44 logos distribuídos por TODA a área da hero (8 faixas × ~5-6 logos) ───
-// top: 4%, 16%, 28%, 40%, 52%, 64%, 76%, 88% — cobre 100% da altura
-// Tamanho: 150px (40% menor que 250px)
-const HERO_LOGOS = [
-  // Faixa 1 — top ~4%
-  { key: 'ANIMA_19',    style: { top: '4%',  left:  '1%'  } },
-  { key: 'CEA_18',      style: { top: '4%',  left:  '16%' } },
-  { key: 'COINBASE_26', style: { top: '4%',  left:  '31%' } },
-  { key: 'EPIC_25',     style: { top: '4%',  left:  '47%' } },
-  { key: 'FLAM_33',     style: { top: '4%',  left:  '63%' } },
-  { key: 'GPA_17',      style: { top: '4%',  left:  '79%' } },
-  // Faixa 2 — top ~17%
-  { key: 'GREENP_16',   style: { top: '17%', left:  '1%'  } },
-  { key: 'HERING_15',   style: { top: '17%', left:  '16%' } },
-  { key: 'IMG_19_42',   style: { top: '17%', left:  '31%' } },
-  { key: 'IMG_2_51',    style: { top: '17%', left:  '47%' } },
-  { key: 'IMG_3_56',    style: { top: '17%', left:  '63%' } },
-  { key: 'IMG_4_45',    style: { top: '17%', left:  '79%' } },
-  // Faixa 3 — top ~30%
-  { key: 'IMG_5_44',    style: { top: '30%', left:  '1%'  } },
-  { key: 'IMG_6_43',    style: { top: '30%', left:  '16%' } },
-  { key: 'IMG_7_40',    style: { top: '30%', left:  '31%' } },
-  { key: 'IMG_8_39',    style: { top: '30%', left:  '47%' } },
-  { key: 'IMG_9_37',    style: { top: '30%', left:  '63%' } },
-  { key: 'IMG_10_38',   style: { top: '30%', left:  '79%' } },
-  // Faixa 4 — top ~43%
-  { key: 'IMG_11_55',   style: { top: '43%', left:  '1%'  } },
-  { key: 'IMG_12_57',   style: { top: '43%', left:  '16%' } },
-  { key: 'IMG_13_53',   style: { top: '43%', left:  '31%' } },
-  { key: 'IMG_14_47',   style: { top: '43%', left:  '47%' } },
-  { key: 'IMG_15_52',   style: { top: '43%', left:  '63%' } },
-  { key: 'IMG_16_49',   style: { top: '43%', left:  '79%' } },
-  // Faixa 5 — top ~56%
-  { key: 'IMG_17_50',   style: { top: '56%', left:  '1%'  } },
-  { key: 'IMG_18_48',   style: { top: '56%', left:  '16%' } },
-  { key: 'IMG_19_42',   style: { top: '56%', left:  '31%' } },
-  { key: 'IMG_20_46',   style: { top: '56%', left:  '47%' } },
-  { key: 'IMG_21_41',   style: { top: '56%', left:  '63%' } },
-  { key: 'ITAU_14',     style: { top: '56%', left:  '79%' } },
-  // Faixa 6 — top ~69%
-  { key: 'MCD_13',      style: { top: '69%', left:  '1%'  } },
-  { key: 'MULTIP_32',   style: { top: '69%', left:  '16%' } },
-  { key: 'NIVEA_36',    style: { top: '69%', left:  '31%' } },
-  { key: 'NVIDIA_28',   style: { top: '69%', left:  '47%' } },
-  { key: 'PEPSI_24',    style: { top: '69%', left:  '63%' } },
-  { key: 'PUBLI_23',    style: { top: '69%', left:  '79%' } },
-  // Faixa 7 — top ~81%
-  { key: 'REMAX_31',    style: { top: '81%', left:  '1%'  } },
-  { key: 'SALTA_35',    style: { top: '81%', left:  '16%' } },
-  { key: 'SAMS_22',     style: { top: '81%', left:  '31%' } },
-  { key: 'SG_27',       style: { top: '81%', left:  '47%' } },
-  { key: 'SHOPIFY_34',  style: { top: '81%', left:  '63%' } },
-  { key: 'SPOTIFY_30',  style: { top: '81%', left:  '79%' } },
-  // Faixa 8 — top ~91%
-  { key: 'STONE_21',    style: { top: '91%', left:  '1%'  } },
-  { key: 'UNIVERSAL_20',style: { top: '91%', left:  '20%' } },
-  { key: 'WMC_29',      style: { top: '91%', left:  '40%' } },
+// ─── Marquee vertical hero: 7 colunas com logos descendo continuamente ───
+// Cada coluna tem velocidade diferente para efeito orgânico
+const VERTICAL_MARQUEE_COLS: Array<{ keys: string[]; speed: number; left: string; width: string }> = [
+  {
+    keys: ['ANIMA_19', 'GPA_17', 'ITAU_14', 'SPOTIFY_30', 'NVIDIA_28', 'REMAX_31'],
+    speed: 28, left: '1%', width: '11%',
+  },
+  {
+    keys: ['CEA_18', 'HERING_15', 'IMG_2_51', 'COINBASE_26', 'MULTIP_32', 'WMC_29'],
+    speed: 38, left: '15%', width: '11%',
+  },
+  {
+    keys: ['GREENP_16', 'IMG_3_56', 'IMG_7_40', 'PEPSI_24', 'SAMS_22', 'IMG_11_55'],
+    speed: 22, left: '29%', width: '11%',
+  },
+  {
+    keys: ['IMG_4_45', 'IMG_8_39', 'IMG_14_47', 'SHOPIFY_34', 'PUBLI_23', 'UNIVERSAL_20'],
+    speed: 34, left: '43%', width: '11%',
+  },
+  {
+    keys: ['FLAM_33', 'IMG_9_37', 'IMG_15_52', 'NIVEA_36', 'SG_27', 'IMG_20_46'],
+    speed: 26, left: '57%', width: '11%',
+  },
+  {
+    keys: ['IMG_5_44', 'IMG_10_38', 'IMG_16_49', 'MCD_13', 'STONE_21', 'IMG_21_41'],
+    speed: 42, left: '71%', width: '11%',
+  },
+  {
+    keys: ['EPIC_25', 'IMG_6_43', 'IMG_13_53', 'SALTA_35', 'IMG_17_50', 'IMG_18_48'],
+    speed: 32, left: '85%', width: '11%',
+  },
 ];
-
-const LOGO_DELAYS    = [0,0.4,0.8,1.2,1.6,2.0, 0.2,0.6,1.0,1.4,1.8,2.2, 0.3,0.7,1.1,1.5,1.9,2.3, 0.1,0.5,0.9,1.3,1.7,2.1, 0.4,0.8,1.2,1.6,2.0,2.4, 0.2,0.6,1.0,1.4,1.8,2.2, 0.3,0.7,1.1,1.5,1.9,2.3, 0.5,0.9,1.3];
-const LOGO_WIDTHS    = Array(45).fill(150);
-const LOGO_DURATIONS = [4.5,5.2,4.1,5.8,3.9,5.5, 4.8,6.0,4.3,5.1,4.7,5.3, 4.0,5.9,4.4,5.0,4.6,5.7, 3.8,5.4,4.2,5.6,4.9,5.1, 4.5,5.2,4.1,5.8,3.9,5.5, 4.8,6.0,4.3,5.1,4.7,5.3, 4.0,5.9,4.4,5.0,4.6,5.7, 3.8,5.4,4.2];
 
 export default function Home() {
   const quoteRef1 = useRef<HTMLDivElement>(null);
@@ -339,24 +309,61 @@ export default function Home() {
         {/* Overlay escuro — sobre o vídeo */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/78 to-primary/45" style={{ zIndex: 2 }} />
 
-        {/* === FLOATING BRAND LOGOS — acima do overlay, abaixo do conteúdo === */}
-        {HERO_LOGOS.map((logo, idx) => (
-          <motion.div
-            key={logo.key}
-            className="absolute pointer-events-none select-none hidden md:block"
-            style={{ ...logo.style, zIndex: 3, opacity: 0.22 }}
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: LOGO_DURATIONS[idx], repeat: Infinity, ease: 'easeInOut', delay: LOGO_DELAYS[idx] }}
-          >
-            <img
-              src={(IMAGES as Record<string, string>)[logo.key]}
-              alt=""
-              width={LOGO_WIDTHS[idx]}
-              style={{ filter: 'brightness(10) saturate(0)', mixBlendMode: 'screen' }}
-              aria-hidden
-            />
-          </motion.div>
-        ))}
+        {/* === VERTICAL MARQUEE LOGO COLUMNS — descendo continuamente ===
+             7 colunas com velocidades distintas, usando CSS animation pura */}
+        <style>{`
+          @keyframes hero-scroll-down {
+            0%   { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+          }
+          .hero-vmq-track {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            animation: hero-scroll-down linear infinite;
+            will-change: transform;
+          }
+        `}</style>
+        <div className="absolute inset-0 pointer-events-none select-none hidden md:flex" style={{ zIndex: 3, overflow: 'hidden' }}>
+          {VERTICAL_MARQUEE_COLS.map((col, ci) => (
+            <div
+              key={ci}
+              className="absolute top-0 bottom-0"
+              style={{ left: col.left, width: col.width, overflow: 'hidden' }}
+            >
+              {/* track duplicado para loop infinito contínuo */}
+              <div
+                className="hero-vmq-track"
+                style={{
+                  animationDuration: `${col.speed}s`,
+                  /* offset de início diferente por coluna para não sincronizar */
+                  animationDelay: `${-(col.speed * (ci * 0.13)) % col.speed}s`,
+                  paddingTop: '16px',
+                }}
+              >
+                {/* logos originais + duplicados para loop seamless */}
+                {[...col.keys, ...col.keys].map((key, li) => (
+                  <div key={`${key}-${li}`} style={{ opacity: 0.22, flexShrink: 0 }}>
+                    <img
+                      src={(IMAGES as Record<string, string>)[key]}
+                      alt=""
+                      style={{
+                        width: '120px',
+                        height: 'auto',
+                        maxHeight: '52px',
+                        objectFit: 'contain',
+                        filter: 'brightness(10) saturate(0)',
+                        mixBlendMode: 'screen',
+                      }}
+                      aria-hidden
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* Content — z-index 4, acima dos logos */}
         <div className="relative container mx-auto px-4 flex flex-1 items-center" style={{ zIndex: 4, paddingTop: '80px', paddingBottom: '40px' }}>
