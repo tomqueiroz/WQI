@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin } from 'lucide-react';
+import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin, ChevronDown, ChevronRight } from 'lucide-react';
 import { FaLinkedinIn, FaInstagram, FaXTwitter, FaWhatsapp } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -25,6 +25,15 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+const PROGRAM_SUBMENU = [
+  { label: 'Mentoria Executiva 1:1', href: LMS_ROUTES.PROG_1ON1 },
+  { label: 'Cohort Executivo', href: LMS_ROUTES.PROG_COHORT },
+  { label: 'In-Company Transformation', href: LMS_ROUTES.PROG_INHOUSE },
+  { label: 'MasterClass AI-First', href: LMS_ROUTES.PROG_MASTERCLASS },
+  { label: 'Keynotes & Palestras', href: LMS_ROUTES.PROG_KEYNOTE },
+  { label: 'Cursos Digitais', href: LMS_ROUTES.PROG_DIGITAL },
+];
+
 export function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -34,6 +43,8 @@ export function Layout({ children }: LayoutProps) {
   const [exitFormData, setExitFormData] = useState({ full_name: '', email: '', whatsapp: '' });
   const [exitFormLoading, setExitFormLoading] = useState(false);
   const [exitFormSuccess, setExitFormSuccess] = useState(false);
+  const [showProgramasMenu, setShowProgramasMenu] = useState(false);
+  const [programasMobileOpen, setProgramasMobileOpen] = useState(false);
   const { user, profile, signOut } = useAuth();
 
   useEffect(() => {
@@ -142,6 +153,54 @@ export function Layout({ children }: LayoutProps) {
             <nav className="hidden md:flex items-center gap-6">
               {NAV_ITEMS.map((item) => {
                 const isRoute = item.href.startsWith('/');
+                const isProgramas = item.label === 'Programas';
+
+                if (isProgramas) {
+                  return (
+                    <div
+                      key={item.href}
+                      className="relative"
+                      onMouseEnter={() => setShowProgramasMenu(true)}
+                      onMouseLeave={() => setShowProgramasMenu(false)}
+                    >
+                      <Link
+                        to={item.href}
+                        className="text-white/85 hover:text-white transition nav-item flex items-center gap-1"
+                        style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                      >
+                        {item.label}
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </Link>
+
+                      <AnimatePresence>
+                        {showProgramasMenu && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 mt-2 w-72 bg-[#001123] rounded-xl border shadow-xl overflow-hidden"
+                            style={{ borderColor: 'rgba(122,98,7,0.25)' }}
+                          >
+                            {PROGRAM_SUBMENU.map((subItem) => (
+                              <Link
+                                key={subItem.href}
+                                to={subItem.href}
+                                className="flex items-center gap-2 px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                              >
+                                <ChevronRight className="w-4 h-4" style={{ color: '#7a6207' }} />
+                                <span className="text-sm" style={{ fontWeight: 300, letterSpacing: '0.03em' }}>
+                                  {subItem.label}
+                                </span>
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
                 if (isRoute) {
                   return (
                     <Link
@@ -238,6 +297,38 @@ export function Layout({ children }: LayoutProps) {
                   <nav className="flex flex-col gap-4 mt-8">
                     {NAV_ITEMS.map((item) => {
                       const isRoute = item.href.startsWith('/');
+                      const isProgramas = item.label === 'Programas';
+
+                      if (isProgramas) {
+                        return (
+                          <div key={item.href}>
+                            <button
+                              onClick={() => setProgramasMobileOpen(!programasMobileOpen)}
+                              className="w-full flex items-center justify-between px-4 py-2.5 text-foreground hover:bg-muted rounded-md transition-colors"
+                              style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                            >
+                              <span>{item.label}</span>
+                              <ChevronDown className={`w-4 h-4 transition-transform ${programasMobileOpen ? 'rotate-180' : ''}`} />
+                            </button>
+                            {programasMobileOpen && (
+                              <div className="ml-4 mt-2 flex flex-col gap-1">
+                                {PROGRAM_SUBMENU.map((subItem) => (
+                                  <Link
+                                    key={subItem.href}
+                                    to={subItem.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
+                                  >
+                                    <ChevronRight className="w-3.5 h-3.5" style={{ color: '#7a6207' }} />
+                                    {subItem.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      }
+
                       if (isRoute) {
                         return (
                           <Link

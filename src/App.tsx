@@ -25,6 +25,12 @@ import PrivacyPage from "@/pages/PrivacyPage";
 import TermsPage from "@/pages/TermsPage";
 import SobrePage from "@/pages/SobrePage";
 import ContatoPage from "@/pages/ContatoPage";
+import Mentoria1on1Page from "@/pages/programs/Mentoria1on1Page";
+import CohortPage from "@/pages/programs/CohortPage";
+import InhousePage from "@/pages/programs/InhousePage";
+import MasterclassPage from "@/pages/programs/MasterclassPage";
+import KeynotePage from "@/pages/programs/KeynotePage";
+import CursosDigitaisPage from "@/pages/programs/CursosDigitaisPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -61,6 +67,12 @@ const App = () => (
               }
             />
             <Route path={LMS_ROUTES.PROGRAMAS} element={<ProgramasPage />} />
+            <Route path={LMS_ROUTES.PROG_1ON1} element={<Mentoria1on1Page />} />
+            <Route path={LMS_ROUTES.PROG_COHORT} element={<CohortPage />} />
+            <Route path={LMS_ROUTES.PROG_INHOUSE} element={<InhousePage />} />
+            <Route path={LMS_ROUTES.PROG_MASTERCLASS} element={<MasterclassPage />} />
+            <Route path={LMS_ROUTES.PROG_KEYNOTE} element={<KeynotePage />} />
+            <Route path={LMS_ROUTES.PROG_DIGITAL} element={<CursosDigitaisPage />} />
             <Route path={LMS_ROUTES.BLOG} element={<BlogPage />} />
             <Route path={LMS_ROUTES.BLOG_POST} element={<BlogPostPage />} />
             <Route path={LMS_ROUTES.PRIVACY} element={<PrivacyPage />} />
