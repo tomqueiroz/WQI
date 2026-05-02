@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Layout } from '@/components/Layout'
 import { useSubmitLead } from '@/hooks/useSupabaseData'
@@ -6,20 +6,54 @@ import { IMAGES } from '@/assets/images'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
-import { CheckCircle2, TrendingUp, Users, Target, Zap, ArrowRight, Linkedin, MessageCircle, X } from 'lucide-react'
+import { CheckCircle2, TrendingUp, Users, Target, Zap, ArrowRight, Linkedin, MessageCircle, X, ChevronRight, Award, Brain, Shield, BarChart3 } from 'lucide-react'
+import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa6'
+
+const TABS = [
+  { id: 'para-quem', label: 'Para Quem É' },
+  { id: 'metodologia', label: 'Metodologia Exclusiva' },
+  { id: 'modulos', label: 'Módulos' },
+  { id: 'resultados', label: 'Resultados' },
+  { id: 'solicitar', label: 'Solicitar Diagnóstico' },
+]
+
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 }
+}
 
 export default function Mentoria1on1Page() {
   const { submitLead, loading, success, error, reset } = useSubmitLead('mentoria_1on1_leads')
-  const [formData, setFormData] = useState({
-    full_name: '',
-    email: '',
-    whatsapp: '',
-    company: '',
-    role: '',
-    message: ''
-  })
+  const [formData, setFormData] = useState({ full_name: '', email: '', whatsapp: '', company: '', role: '', message: '' })
+  const [activeTab, setActiveTab] = useState('para-quem')
+  const tabsRef = useRef<HTMLDivElement>(null)
+  const [tabsSticky, setTabsSticky] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [])
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (tabsRef.current) {
+        setTabsSticky(window.scrollY > tabsRef.current.offsetTop - 80)
+      }
+      const sections = TABS.map(t => document.getElementById(t.id))
+      let current = TABS[0].id
+      sections.forEach((sec) => {
+        if (sec && window.scrollY >= sec.offsetTop - 160) current = sec.id
+      })
+      setActiveTab(current)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,613 +66,383 @@ export default function Mentoria1on1Page() {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-background">
-        <section className="relative py-24 lg:py-32 overflow-hidden">
-          <div className="container mx-auto px-4">
+      <div className="min-h-screen" id="top">
+
+        {/* ── HERO ── dark navy */}
+        <section style={{ background: '#001123' }} className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none select-none">
+            <div style={{ background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(122,98,7,0.13) 0%, transparent 70%)' }} className="absolute inset-0" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <Badge className="mb-6 bg-accent text-accent-foreground px-4 py-2 text-sm font-medium">
-                  MENTORIA EXCLUSIVA
-                </Badge>
-                <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+              <motion.div {...fadeUp}>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6"
+                  style={{ borderColor: 'rgba(122,98,7,0.5)', background: 'rgba(122,98,7,0.12)' }}>
+                  <Award className="w-4 h-4" style={{ color: '#c4a217' }} />
+                  <span className="text-sm font-semibold tracking-widest" style={{ color: '#c4a217' }}>MENTORIA EXCLUSIVA 1:1</span>
+                </div>
+                <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#ffffff', lineHeight: 1.1 }}
+                  className="text-4xl lg:text-5xl xl:text-6xl mb-6">
                   O Caminho Mais Rápido Para o Seu Próximo Patamar
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                  A aceleração mais rara: atenção total de quem já navegou até onde você quer chegar.
+                <p className="text-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 300 }}>
+                  A aceleração mais rara: atenção total de quem já navegou até onde você quer chegar. 100% personalizado. Sem fórmulas. Sem atalhos falsos.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground"
-                    onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    Solicitar Diagnóstico
+                  <Button size="lg" className="text-white font-semibold px-8"
+                    style={{ background: '#7a6207', border: 'none' }}
+                    onClick={() => scrollTo('solicitar')}>
+                    Solicitar Diagnóstico Gratuito
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-border hover:bg-secondary"
-                    asChild
-                  >
+                  <Button size="lg" variant="outline"
+                    className="font-medium"
+                    style={{ borderColor: 'rgba(255,255,255,0.25)', color: 'rgba(255,255,255,0.85)', background: 'transparent' }}
+                    asChild>
                     <a href="https://linkedin.com/in/wellingtonqueiroz" target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="mr-2 h-5 w-5" />
-                      Conectar no LinkedIn
+                      <FaLinkedinIn className="mr-2 h-4 w-4" />
+                      Conectar com Tom
                     </a>
                   </Button>
                 </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative"
-              >
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent z-10" />
-                  <img
-                    src={IMAGES.TOM_PROFILE_ALT}
-                    alt="Wellington Queiroz - Mentor Executivo"
-                    className="w-full h-auto object-cover"
-                  />
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
+                className="relative hidden lg:block">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ border: '1px solid rgba(122,98,7,0.3)' }}>
+                  <img src={IMAGES.TOM_PROFILE_ALT} alt="Tom Queiroz Mentoria" className="w-full h-auto object-cover" style={{ maxHeight: '520px', objectPosition: 'top' }} />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,17,35,0.7) 0%, transparent 50%)' }} />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="rounded-xl px-5 py-4" style={{ background: 'rgba(0,17,35,0.85)', border: '1px solid rgba(122,98,7,0.3)' }}>
+                      <p className="text-sm font-semibold" style={{ color: '#c4a217' }}>Tom Queiroz</p>
+                      <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.7)', fontWeight: 300 }}>Ex-executivo Sony, Honda, Rakuten e Shell · 20 anos de C-Suite</p>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="py-24 bg-secondary/30">
+        {/* ── TABS / ÍNDICE ── sticky */}
+        <div ref={tabsRef} className={`z-30 transition-all duration-300 ${tabsSticky ? 'fixed top-[72px] left-0 right-0 shadow-lg' : 'relative'}`}
+          style={{ background: '#001123', borderBottom: '1px solid rgba(122,98,7,0.3)' }}>
           <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-8">
-                Mentoria não é consultoria. É a transferência direta de modelos mentais testados.
+            <div className="flex overflow-x-auto gap-0 scrollbar-hide">
+              {TABS.map(tab => (
+                <button key={tab.id} onClick={() => scrollTo(tab.id)}
+                  className="px-5 py-4 text-sm whitespace-nowrap transition-all font-medium border-b-2 flex-shrink-0"
+                  style={{
+                    color: activeTab === tab.id ? '#c4a217' : 'rgba(255,255,255,0.6)',
+                    borderBottomColor: activeTab === tab.id ? '#c4a217' : 'transparent',
+                    background: 'transparent',
+                    letterSpacing: '0.04em'
+                  }}>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+        {tabsSticky && <div style={{ height: '53px' }} />}
+
+        {/* ── PROPÓSITO ── white */}
+        <section className="py-20" style={{ background: '#ffffff' }}>
+          <div className="container mx-auto px-4 max-w-4xl text-center">
+            <motion.div {...fadeUp}>
+              <p className="text-xs font-bold tracking-widest mb-4" style={{ color: '#7a6207' }}>O PRINCÍPIO FUNDAMENTAL</p>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#001123', lineHeight: 1.15 }}
+                className="text-3xl lg:text-4xl xl:text-5xl mb-6">
+                "Mentoria não é consultoria. É a transferência direta de modelos mentais testados."
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Não existe atalho. Mas existe o caminho certo — percorrido com quem já mapeou cada obstáculo. Nossa Mentoria 1:1 é um compromisso de transformação: personalizado em cada detalhe, rigoroso em cada entrega, e construído inteiramente ao redor do seu momento, do seu mercado e dos seus objetivos. Quando você trabalha diretamente com quem já liderou times de 1.500 pessoas, implementou IA em escala global e navegou C-suites de marcas como Sony, Honda e Shell, você não aprende teoria — você absorve decisões reais, frameworks testados e a clareza que só vem da experiência.
+              <p className="text-lg leading-relaxed" style={{ color: '#334155', fontWeight: 300 }}>
+                Pesquisas da Harvard Business School mostram que executivos com mentores ativos atingem posições de liderança sênior 
+                em média 5 anos antes e reportam 23% mais satisfação com sua trajetória. A mentoria 1:1 com Tom Queiroz vai além da 
+                orientação — é uma parceria de transformação onde cada sessão é construída inteiramente ao redor do seu momento, do 
+                seu mercado e dos seus objetivos específicos.
               </p>
             </motion.div>
           </div>
         </section>
 
-        <section className="py-24">
+        {/* ── PARA QUEM É ── gray */}
+        <section id="para-quem" className="py-20" style={{ background: '#f8f9fa' }}>
           <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Para Quem É Esta Mentoria
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Três perfis executivos que encontram na mentoria 1:1 o catalisador que faltava
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <p className="text-xs font-bold tracking-widest mb-3" style={{ color: '#7a6207' }}>PERFIL IDEAL</p>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#001123' }}
+                className="text-3xl lg:text-4xl">Para Quem É Esta Mentoria</h2>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { icon: TrendingUp, title: 'Executivo em Transição', desc: 'Você está mirando o próximo nível — de VP para C-Suite, de gestor para líder estratégico — e precisa de um mapa claro, não de teoria.', tag: 'C-Suite Track' },
+                { icon: Zap, title: 'Founder Escalando', desc: 'Você fundou ou co-fundou uma empresa e enfrenta os desafios reais de escala: time, produto, mercado e o peso da liderança solitária.', tag: 'Startup & Scale-up' },
+                { icon: Brain, title: 'Líder Dominando IA', desc: 'Você sente a urgência da IA e quer ir além dos buzzwords — com implementação real, impacto mensurável e liderança de transformação.', tag: 'AI-First Leader' },
+              ].map((item, i) => (
+                <motion.div key={i} {...fadeUp} transition={{ delay: i * 0.1, duration: 0.6 }}
+                  className="rounded-2xl p-8 flex flex-col gap-4"
+                  style={{ background: '#fff', border: '1px solid #e2e8f0', boxShadow: '0 4px 24px rgba(0,17,35,0.07)' }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(122,98,7,0.1)' }}>
+                    <item.icon className="w-6 h-6" style={{ color: '#7a6207' }} />
+                  </div>
+                  <span className="text-xs font-bold tracking-widest px-3 py-1 rounded-full w-fit" style={{ background: 'rgba(122,98,7,0.1)', color: '#7a6207' }}>{item.tag}</span>
+                  <h3 className="text-xl font-bold" style={{ color: '#001123', fontFamily: 'Montserrat, sans-serif' }}>{item.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#64748b', fontWeight: 300 }}>{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── METODOLOGIA ── dark navy */}
+        <section id="metodologia" className="py-20" style={{ background: '#001123' }}>
+          <div className="container mx-auto px-4">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <p className="text-xs font-bold tracking-widest mb-3" style={{ color: '#c4a217' }}>PROCESSO EXCLUSIVO</p>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#ffffff' }}
+                className="text-3xl lg:text-4xl">Metodologia Exclusiva</h2>
+              <p className="mt-4 text-base max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>
+                Desenvolvida ao longo de 20 anos de execução em mercados complexos, nossa metodologia combina rigor analítico com intuição executiva.
               </p>
             </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                {
-                  icon: TrendingUp,
-                  title: 'Executivo em Transição de Carreira',
-                  description: 'Você está entre posições, buscando o próximo movimento estratégico, ou quer reposicionar sua marca pessoal para atrair oportunidades de maior impacto.'
-                },
-                {
-                  icon: Users,
-                  title: 'Founder Escalando para C-Suite',
-                  description: 'Você fundou, cresceu, e agora precisa dominar as dinâmicas políticas, de governança e de liderança executiva que separam founders de CEOs consolidados.'
-                },
-                {
-                  icon: Zap,
-                  title: 'Líder Buscando Domínio de IA',
-                  description: 'Você lidera marketing, estratégia ou inovação e sabe que IA não é mais opcional — mas precisa de um framework claro para implementar sem perder o controle estratégico.'
-                }
-              ].map((profile, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="p-8 h-full hover:shadow-xl transition-shadow border-border">
-                    <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                      <profile.icon className="h-7 w-7 text-accent" />
+                { num: '01', title: 'Pré-Diagnóstico Minucioso', desc: 'Assessment profundo de perfil, histórico, gaps e objetivos. Entendemos onde você está antes de definir onde quer chegar.' },
+                { num: '02', title: 'Mapeamento de Gaps', desc: 'Identificação precisa dos gaps de habilidade, mindset e visibilidade que impedem o próximo salto na carreira.' },
+                { num: '03', title: 'Plano Personalizado', desc: 'Roadmap único: metas mensuráveis, sessões estruturadas, recursos específicos e milestones de 30/60/90 dias.' },
+                { num: '04', title: 'Acompanhamento Contínuo', desc: 'Suporte assíncrono entre sessões, ajustes de rota em tempo real e accountability estruturado para manter o momentum.' },
+              ].map((step, i) => (
+                <motion.div key={i} {...fadeUp} transition={{ delay: i * 0.1, duration: 0.6 }}
+                  className="rounded-2xl p-7"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(122,98,7,0.25)' }}>
+                  <div className="text-4xl font-black mb-4" style={{ color: 'rgba(122,98,7,0.4)', fontFamily: 'Montserrat, sans-serif' }}>{step.num}</div>
+                  <h3 className="text-lg font-bold mb-3" style={{ color: '#ffffff', fontFamily: 'Montserrat, sans-serif' }}>{step.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 300 }}>{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── MÓDULOS ── white */}
+        <section id="modulos" className="py-20" style={{ background: '#ffffff' }}>
+          <div className="container mx-auto px-4">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <p className="text-xs font-bold tracking-widest mb-3" style={{ color: '#7a6207' }}>CONTEÚDO PROGRAMÁTICO</p>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#001123' }}
+                className="text-3xl lg:text-4xl">Módulos Programáticos</h2>
+              <p className="mt-4 text-base max-w-2xl mx-auto" style={{ color: '#64748b', fontWeight: 300 }}>
+                5 pilares de desenvolvimento para líderes de alto impacto — personalizados de acordo com seu momento e contexto.
+              </p>
+            </motion.div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Shield, title: 'Executive Presence & Personal Brand', duration: '3–4 semanas', topics: ['Autoridade executiva e comunicação de impacto', 'Construção de marca pessoal B2B e LinkedIn', 'Storytelling executivo para líderes', 'Presença em board e stakeholders sênior'] },
+                { icon: Brain, title: 'AI-First Decision Making', duration: '3–4 semanas', topics: ['Frameworks de decisão acelerada com IA', 'Ferramentas de análise preditiva para líderes', 'Implementação de IA em processos de gestão', 'AI literacy para o C-Suite'] },
+                { icon: TrendingUp, title: 'Career Architecture for Senior Leaders', duration: '2–3 semanas', topics: ['Mapeamento de trajetória para C-Suite', 'Negociação e posicionamento salarial sênior', 'Transições inter-setoriais estratégicas', 'Board readiness e advisory roles'] },
+                { icon: Users, title: 'Stakeholder Influence & Politics', duration: '2–3 semanas', topics: ['Navegação de política organizacional', 'Influência sem autoridade formal', 'Gestão de board e acionistas', 'Construção de coalizões internas'] },
+                { icon: BarChart3, title: 'Data-Driven Growth Strategy', duration: '2–4 semanas', topics: ['OKRs e KPIs estratégicos de marketing', 'Revenue architecture e pipeline management', 'Attribution modeling avançado', 'Growth loops e flywheel estratégico'] },
+              ].map((mod, i) => (
+                <motion.div key={i} {...fadeUp} transition={{ delay: i * 0.08, duration: 0.5 }}
+                  className="rounded-2xl p-7"
+                  style={{ background: '#f8f9fa', border: '1px solid #e2e8f0' }}>
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(122,98,7,0.1)' }}>
+                      <mod.icon className="w-5 h-5" style={{ color: '#7a6207' }} />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">
-                      {profile.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {profile.description}
-                    </p>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-24 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Metodologia de Transformação
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Quatro fases estruturadas para resultados mensuráveis
-              </p>
-            </motion.div>
-
-            <div className="max-w-5xl mx-auto space-y-8">
-              {[
-                {
-                  number: '01',
-                  title: 'Pré-Diagnóstico Minucioso',
-                  description: 'Análise profunda do seu contexto atual: carreira, mercado, objetivos, gaps de competência e oportunidades estratégicas. Não começamos sem clareza total.'
-                },
-                {
-                  number: '02',
-                  title: 'Mapeamento de Gaps',
-                  description: 'Identificação precisa das lacunas entre onde você está e onde precisa chegar — em habilidades, rede, posicionamento e execução.'
-                },
-                {
-                  number: '03',
-                  title: 'Plano Personalizado',
-                  description: 'Construção de um roadmap de 90 dias com marcos claros, entregáveis concretos e métricas de progresso. Cada sessão tem objetivo e resultado esperado.'
-                },
-                {
-                  number: '04',
-                  title: 'Acompanhamento Contínuo',
-                  description: 'Sessões regulares, acesso assíncrono via WhatsApp para decisões urgentes, e revisão constante de estratégia conforme o contexto evolui.'
-                }
-              ].map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="p-8 border-l-4 border-l-accent hover:shadow-lg transition-shadow">
-                    <div className="flex items-start gap-6">
-                      <div className="text-5xl font-bold text-accent/20">
-                        {step.number}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-foreground mb-3">
-                          {step.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
+                    <div>
+                      <h3 className="font-bold text-base mb-1" style={{ color: '#001123', fontFamily: 'Montserrat, sans-serif' }}>{mod.title}</h3>
+                      <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: 'rgba(122,98,7,0.1)', color: '#7a6207', fontWeight: 600 }}>{mod.duration}</span>
                     </div>
-                  </Card>
+                  </div>
+                  <ul className="space-y-2">
+                    {mod.topics.map((t, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm" style={{ color: '#475569', fontWeight: 300 }}>
+                        <ChevronRight className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#7a6207' }} />
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
               ))}
+
+              {/* Copper CTA card */}
+              <motion.div {...fadeUp} transition={{ delay: 0.4, duration: 0.5 }}
+                className="rounded-2xl p-7 flex flex-col justify-between"
+                style={{ background: 'linear-gradient(135deg, #7a6207 0%, #a07d08 100%)', border: 'none' }}>
+                <div>
+                  <p className="text-xs font-bold tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>PERSONALIZAÇÃO TOTAL</p>
+                  <h3 className="text-xl font-bold mb-4 text-white" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    Todos os programas são adaptados ao seu perfil após o pré-diagnóstico individual.
+                  </h3>
+                  <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 300 }}>
+                    Não existe uma mentoria igual a outra. Cada jornada é única.
+                  </p>
+                </div>
+                <Button variant="outline" className="w-fit font-semibold"
+                  style={{ borderColor: 'rgba(255,255,255,0.5)', color: '#fff', background: 'rgba(255,255,255,0.1)' }}
+                  onClick={() => scrollTo('solicitar')}>
+                  Iniciar Agora
+                </Button>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="py-24">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Módulos Programáticos
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Conteúdo adaptado ao seu contexto e objetivos específicos
-              </p>
+        {/* ── COMPARATIVO ── light gray */}
+        <section className="py-20" style={{ background: '#f1f5f9' }}>
+          <div className="container mx-auto px-4 max-w-4xl">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <p className="text-xs font-bold tracking-widest mb-3" style={{ color: '#7a6207' }}>REASON-WHY</p>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#001123' }}
+                className="text-3xl lg:text-4xl">Por Que Mentoria com Tom Queiroz</h2>
             </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {[
-                {
-                  title: 'Executive Presence & Personal Brand',
-                  topics: [
-                    'Construção de autoridade executiva',
-                    'LinkedIn como plataforma de influência',
-                    'Storytelling para liderança',
-                    'Gestão de reputação profissional'
-                  ]
-                },
-                {
-                  title: 'AI-First Decision Making',
-                  topics: [
-                    'Frameworks de decisão com IA',
-                    'Automação de processos estratégicos',
-                    'Análise preditiva e cenários',
-                    'Implementação prática de ferramentas'
-                  ]
-                },
-                {
-                  title: 'Career Architecture',
-                  topics: [
-                    'Mapeamento de trajetória executiva',
-                    'Negociação de pacotes C-level',
-                    'Transição entre indústrias',
-                    'Construção de advisory board pessoal'
-                  ]
-                },
-                {
-                  title: 'Stakeholder Influence',
-                  topics: [
-                    'Política organizacional estratégica',
-                    'Gestão de board e investidores',
-                    'Comunicação executiva de alto impacto',
-                    'Construção de coalizões'
-                  ]
-                },
-                {
-                  title: 'Data-Driven Growth',
-                  topics: [
-                    'Métricas que importam para C-suite',
-                    'Dashboards executivos eficazes',
-                    'Cultura de dados em organizações',
-                    'ROI de iniciativas estratégicas'
-                  ]
-                }
-              ].map((module, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="p-6 h-full hover:shadow-lg transition-shadow border-border">
-                    <h3 className="text-lg font-bold text-foreground mb-4">
-                      {module.title}
-                    </h3>
-                    <ul className="space-y-2">
-                      {module.topics.map((topic, topicIndex) => (
-                        <li key={topicIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                          <span>{topic}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-24 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                O Custo Real de Não Ter Mentoria
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <Card className="p-8 border-destructive/20 bg-destructive/5">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="rounded-2xl p-8" style={{ background: '#fff', border: '1px solid #e2e8f0' }}>
                 <div className="flex items-center gap-3 mb-6">
-                  <X className="h-8 w-8 text-destructive" />
-                  <h3 className="text-2xl font-bold text-foreground">Sem Mentoria</h3>
+                  <X className="w-6 h-6 text-red-400" />
+                  <h3 className="text-lg font-bold" style={{ color: '#334155' }}>Sem Mentoria Estratégica</h3>
                 </div>
                 <ul className="space-y-4">
-                  {[
-                    'Decisões baseadas em tentativa e erro',
-                    'Meses perdidos em caminhos sem saída',
-                    'Falta de clareza estratégica',
-                    'Rede limitada ao círculo atual',
-                    'Aprendizado lento e custoso',
-                    'Oportunidades perdidas por falta de timing'
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-muted-foreground">
-                      <X className="h-5 w-5 text-destructive mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
+                  {['Tentativa e erro custoso em transições críticas','Decisões sem respaldo de quem já passou pelo desafio','Crescimento lento sem accountability externo','Blind spots de carreira que você não vê','Network limitado ao círculo atual'].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm" style={{ color: '#64748b', fontWeight: 300 }}>
+                      <span className="mt-1.5 w-4 h-0.5 flex-shrink-0" style={{ background: '#cbd5e1' }} />
+                      {item}
                     </li>
                   ))}
                 </ul>
-              </Card>
-
-              <Card className="p-8 border-accent/20 bg-accent/5">
+              </div>
+              <div className="rounded-2xl p-8" style={{ background: '#001123' }}>
                 <div className="flex items-center gap-3 mb-6">
-                  <CheckCircle2 className="h-8 w-8 text-accent" />
-                  <h3 className="text-2xl font-bold text-foreground">Com Tom Queiroz</h3>
+                  <CheckCircle2 className="w-6 h-6" style={{ color: '#c4a217' }} />
+                  <h3 className="text-lg font-bold text-white">Com Tom Queiroz</h3>
                 </div>
                 <ul className="space-y-4">
-                  {[
-                    'Decisões validadas por 20+ anos de experiência',
-                    'Atalhos para resultados comprovados',
-                    'Clareza estratégica desde a primeira sessão',
-                    'Acesso a rede executiva de alto nível',
-                    'Frameworks prontos para aplicar',
-                    'Timing perfeito em cada movimento'
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-muted-foreground">
-                      <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
+                  {['Mapa claro e testado para o próximo salto','20 anos de experiência aplicados ao seu desafio','Accountability semanal que mantém o momentum','Perspectiva externa que expande suas possibilidades','Acesso à rede de 500+ executivos mentoreados'].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 300 }}>
+                      <ChevronRight className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#c4a217' }} />
+                      {item}
                     </li>
                   ))}
                 </ul>
-              </Card>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="py-24">
+        {/* ── RESULTADOS ── copper */}
+        <section id="resultados" style={{ background: 'linear-gradient(135deg, #7a6207 0%, #5c4a05 100%)' }} className="py-20">
           <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Resultados Mensuráveis
-              </h2>
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <p className="text-xs font-bold tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>IMPACTO MENSURÁVEL</p>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#ffffff' }}
+                className="text-3xl lg:text-4xl">Resultados Comprovados</h2>
             </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
               {[
-                {
-                  metric: '+40%',
-                  label: 'Clareza Estratégica',
-                  description: 'Média reportada após 90 dias'
-                },
-                {
-                  metric: '2.3x',
-                  label: 'Taxa de Promoção',
-                  description: 'Em 12 meses pós-mentoria'
-                },
-                {
-                  metric: '94%',
-                  label: 'NPS de Mentorados',
-                  description: 'Recomendariam a outros executivos'
-                }
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="p-8 text-center hover:shadow-xl transition-shadow border-border">
-                    <div className="text-5xl font-bold text-accent mb-3">
-                      {stat.metric}
-                    </div>
-                    <div className="text-xl font-semibold text-foreground mb-2">
-                      {stat.label}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {stat.description}
-                    </div>
-                  </Card>
+                { stat: '+40%', label: 'Clareza Estratégica', detail: 'em média após 90 dias de mentoria ativa' },
+                { stat: '500+', label: 'Executivos Mentoreados', detail: 'ao longo de 20 anos de carreira' },
+                { stat: '94', label: 'NPS Médio', detail: 'satisfaction score consistente em todos os programas' },
+              ].map((item, i) => (
+                <motion.div key={i} {...fadeUp} transition={{ delay: i * 0.1, duration: 0.6 }}
+                  className="text-center rounded-2xl p-8" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}>
+                  <div className="text-5xl font-black mb-2 text-white" style={{ fontFamily: 'Montserrat, sans-serif' }}>{item.stat}</div>
+                  <div className="text-lg font-bold mb-1 text-white">{item.label}</div>
+                  <div className="text-sm" style={{ color: 'rgba(255,255,255,0.7)', fontWeight: 300 }}>{item.detail}</div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="form-section" className="py-24 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-12"
-              >
-                <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                  Solicite Seu Diagnóstico Estratégico
-                </h2>
-                <p className="text-xl text-muted-foreground">
-                  Preencha o formulário abaixo e nossa equipe entrará em contato em até 24 horas
+        {/* ── FORMULÁRIO ── white */}
+        <section id="solicitar" className="py-20" style={{ background: '#ffffff' }}>
+          <div className="container mx-auto px-4 max-w-2xl">
+            <motion.div {...fadeUp} className="text-center mb-10">
+              <p className="text-xs font-bold tracking-widest mb-3" style={{ color: '#7a6207' }}>PRIMEIRO PASSO</p>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#001123' }}
+                className="text-3xl lg:text-4xl mb-4">Solicitar Diagnóstico Gratuito</h2>
+              <p style={{ color: '#64748b', fontWeight: 300 }}>Preencha o formulário abaixo. Tom ou um especialista WQI retornará em até 24h úteis.</p>
+            </motion.div>
+
+            {success ? (
+              <div className="rounded-2xl p-10 text-center" style={{ background: '#001123' }}>
+                <CheckCircle2 className="w-16 h-16 mx-auto mb-4" style={{ color: '#c4a217' }} />
+                <h3 className="text-2xl font-bold text-white mb-2">Solicitação Recebida</h3>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontWeight: 300 }}>Retornaremos em até 24h úteis para agendar seu diagnóstico.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl p-8"
+                style={{ background: '#f8f9fa', border: '1px solid #e2e8f0' }}>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001123' }}>Nome Completo *</label>
+                    <Input name="full_name" required value={formData.full_name} onChange={handleChange}
+                      className="bg-white border-slate-200" placeholder="Seu nome" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001123' }}>E-mail Profissional *</label>
+                    <Input name="email" type="email" required value={formData.email} onChange={handleChange}
+                      className="bg-white border-slate-200" placeholder="email@empresa.com" />
+                  </div>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001123' }}>WhatsApp</label>
+                    <Input name="whatsapp" value={formData.whatsapp} onChange={handleChange}
+                      className="bg-white border-slate-200" placeholder="+55 11 99999-9999" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001123' }}>Empresa</label>
+                    <Input name="company" value={formData.company} onChange={handleChange}
+                      className="bg-white border-slate-200" placeholder="Sua empresa" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#001123' }}>Cargo Atual</label>
+                  <Input name="role" value={formData.role} onChange={handleChange}
+                    className="bg-white border-slate-200" placeholder="Ex.: VP de Marketing, CMO, Founder" />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#001123' }}>Qual é o seu principal desafio agora?</label>
+                  <Textarea name="message" value={formData.message} onChange={handleChange}
+                    className="bg-white border-slate-200 min-h-[110px]"
+                    placeholder="Descreva brevemente onde você está e onde quer chegar..." />
+                </div>
+                {error && <p className="text-red-500 text-sm">{error}</p>}
+                <Button type="submit" size="lg" disabled={loading} className="w-full text-white font-semibold"
+                  style={{ background: '#7a6207' }}>
+                  {loading ? 'Enviando...' : 'Solicitar Diagnóstico Gratuito'}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <p className="text-xs text-center" style={{ color: '#94a3b8' }}>
+                  Seus dados são protegidos. Retorno em até 24h úteis.
                 </p>
-              </motion.div>
-
-              {success ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <Card className="p-12 text-center border-accent/20 bg-accent/5">
-                    <CheckCircle2 className="h-16 w-16 text-accent mx-auto mb-6" />
-                    <h3 className="text-2xl font-bold text-foreground mb-4">
-                      Solicitação Recebida!
-                    </h3>
-                    <p className="text-muted-foreground mb-8">
-                      Obrigado pelo seu interesse. Nossa equipe analisará seu perfil e entrará em contato em breve.
-                    </p>
-                    <Button
-                      onClick={() => {
-                        reset()
-                        setFormData({
-                          full_name: '',
-                          email: '',
-                          whatsapp: '',
-                          company: '',
-                          role: '',
-                          message: ''
-                        })
-                      }}
-                      variant="outline"
-                    >
-                      Enviar Nova Solicitação
-                    </Button>
-                  </Card>
-                </motion.div>
-              ) : (
-                <Card className="p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Nome Completo *
-                        </label>
-                        <Input
-                          name="full_name"
-                          value={formData.full_name}
-                          onChange={handleChange}
-                          required
-                          placeholder="Seu nome"
-                          className="w-full"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          E-mail *
-                        </label>
-                        <Input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          placeholder="seu@email.com"
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          WhatsApp
-                        </label>
-                        <Input
-                          name="whatsapp"
-                          value={formData.whatsapp}
-                          onChange={handleChange}
-                          placeholder="(11) 99999-9999"
-                          className="w-full"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Empresa
-                        </label>
-                        <Input
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          placeholder="Nome da empresa"
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Cargo Atual
-                      </label>
-                      <Input
-                        name="role"
-                        value={formData.role}
-                        onChange={handleChange}
-                        placeholder="Ex: CMO, VP Marketing, Founder"
-                        className="w-full"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Conte-nos sobre seus objetivos
-                      </label>
-                      <Textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={4}
-                        placeholder="Descreva brevemente seus principais desafios e o que espera alcançar com a mentoria..."
-                        className="w-full"
-                      />
-                    </div>
-
-                    {error && (
-                      <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm">
-                        {error}
-                      </div>
-                    )}
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={loading}
-                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                    >
-                      {loading ? 'Enviando...' : 'Solicitar Diagnóstico'}
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </form>
-                </Card>
-              )}
-            </div>
+              </form>
+            )}
           </div>
         </section>
 
-        <section className="py-24 bg-gradient-to-br from-accent via-accent/90 to-accent/80 text-accent-foreground">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Pronto Para Acelerar Sua Trajetória?
-              </h2>
-              <p className="text-xl mb-8 opacity-90">
-                Fale diretamente com nossa equipe via WhatsApp e agende sua sessão de diagnóstico
+        {/* ── CTA FINAL ── navy */}
+        <section className="py-16" style={{ background: '#001123' }}>
+          <div className="container mx-auto px-4 text-center">
+            <motion.div {...fadeUp}>
+              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#ffffff' }}
+                className="text-3xl lg:text-4xl mb-4">Pronto para o Próximo Nível?</h2>
+              <p className="mb-8 text-lg" style={{ color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>
+                Converse agora com um especialista WQI e descubra o programa ideal para você.
               </p>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-white text-accent hover:bg-white/90"
-                asChild
-              >
-                <a
-                  href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre a Mentoria Executiva 1:1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Falar no WhatsApp
+              <Button size="lg" asChild className="font-semibold text-white px-10"
+                style={{ background: '#7a6207', border: 'none' }}>
+                <a href="https://wa.me/5511915513210?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%201:1" target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp className="mr-2 h-5 w-5" />
+                  Falar com Especialista Agora
                 </a>
               </Button>
             </motion.div>
           </div>
         </section>
+
       </div>
     </Layout>
   )
