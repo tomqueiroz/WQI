@@ -515,7 +515,7 @@ function BlogSidebar() {
         </div>
         <div className="space-y-3">
           {topPosts.map((p, i) => (
-            <Link key={p.id} to={LMS_ROUTES.BLOG} className="flex items-start gap-3 group">
+            <Link key={p.id} to={`/blog/${p.slug}`} className="flex items-start gap-3 group">
               <span className="font-black text-xl leading-none flex-shrink-0 mt-0.5" style={{ color: 'rgba(0,17,35,0.1)', fontFamily: 'Montserrat, sans-serif' }}>
                 {String(i + 1).padStart(2, '0')}
               </span>
@@ -776,7 +776,7 @@ export default function BlogPage() {
                 </div>
 
                 {/* Card principal */}
-                <Link to={LMS_ROUTES.BLOG}>
+                <Link to={`/blog/${featuredPosts[0]?.slug}`}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                     whileHover={{ scale: 1.01 }}
@@ -827,7 +827,7 @@ export default function BlogPage() {
                 {/* Grid 2 cards secundários */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {featuredPosts.slice(1, 3).map((post, i) => (
-                    <Link key={post.id} to={LMS_ROUTES.BLOG}>
+                    <Link key={post.id} to={`/blog/${post.slug}`}>
                       <motion.div
                         initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
@@ -866,7 +866,7 @@ export default function BlogPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {(searchMain || activeCategory !== 'Todos' ? filteredPosts : regularPosts).map((post, i) => (
-                    <Link key={post.id} to={LMS_ROUTES.BLOG}>
+                    <Link key={post.id} to={`/blog/${post.slug}`}>
                       <motion.div
                         initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                         transition={{ delay: i * 0.06 }}

@@ -69,16 +69,21 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   cover_image_url?: string;
+  image_url?: string;
   category: string;
+  category_color?: string;
   tags: string[];
   author_name: string;
   author_bio?: string;
   read_time_minutes: number;
+  read_time?: number;
   is_published: boolean;
   is_featured: boolean;
   views_count: number;
   published_at?: string;
   created_at: string;
+  key_insight?: string;
+  sources?: string[];
 }
 
 export interface Profile {

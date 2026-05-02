@@ -980,7 +980,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="lg:col-span-7"
             >
-              <Link to={LMS_ROUTES.BLOG}>
+              <Link to="/blog/projetos-ia-falham">
                 <div
                   className="relative overflow-hidden rounded-2xl group cursor-pointer"
                   style={{ height: '380px', backgroundImage: `url(${IMAGES.PARALLAX_HUMAN_ROBOT})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
@@ -1033,7 +1033,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
                 >
-                  <Link to={LMS_ROUTES.BLOG}>
+                  <Link to={i === 0 ? '/blog/gap-talentos-ia-brasil' : '/blog/agentes-ia-risco-csuite'}>
                     <div
                       className="relative overflow-hidden rounded-2xl group cursor-pointer"
                       style={{ height: '175px', backgroundImage: `url(${art.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
