@@ -6,9 +6,13 @@ export const IMAGES = {
   LOGO_WQI_COLOR:   "/images/wqi copper.png",
 
   // === WELLINGTON QUEIROZ PORTRAITS ===
+  // Hero right column — arms crossed portrait
   TOM_HERO_PORTRAIT: "/images/1.png",
-  TOM_SOBRE:         "/images/tom_sobre_speaker_20260502_034950.png",
+  // Sobre Wellington Queiroz section — speaking at event
+  TOM_SOBRE:         "/images/tom speaking 11.png",
+  // Hero BG parallax — also speaking at event (same image, different usage)
   TOM_HERO_BG:       "/images/tom speaking 11.png",
+  // Alternate profile photo
   TOM_PROFILE_ALT:   "/images/magnific_photo-a-40yearold-middle-_2905621111.png",
 
   // === PARALLAX QUOTE SECTIONS ===
