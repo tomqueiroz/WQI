@@ -86,7 +86,7 @@ export default function SobrePage() {
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>
               Sobre o Mentor
             </span>
-            <h1 className="text-white mb-4" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 'clamp(2rem,5vw,3.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            <h1 className="text-white mb-4" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem,5vw,3.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Quem é<br /><span style={{ color: '#7a6207' }}>Wellington Queiroz</span>
             </h1>
             <p className="text-white/60 leading-relaxed mb-8 max-w-lg" style={{ fontWeight: 300, fontSize: '1rem' }}>

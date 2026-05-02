@@ -210,11 +210,11 @@
     letter-spacing: -0.02em;
   }
 
-  /* Hero h1 específico — Roboto Thin */
+  /* Hero h1 — Montserrat Bold (inline style sobrepõe se necessário) */
   #hero h1 {
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: 100 !important;
-    letter-spacing: -0.01em !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
   }
 
   h3, h4, h5, h6 {

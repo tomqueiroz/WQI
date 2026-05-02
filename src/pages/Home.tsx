@@ -237,23 +237,39 @@ export default function Home() {
     };
   }, []);
 
+  // ── Parallax robusto: rAF loop permanente ──────────────────────────────
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setShowScrollTop(y > 300);
+    let rafId: number;
+    let lastScrollY = -1;
 
-      // Parallax for quote sections
-      [quoteRef1, quoteRef2, quoteRef3].forEach((ref) => {
-        if (ref.current) {
+    const applyParallax = () => {
+      const y = window.scrollY;
+
+      // só recalcula se houve mudança de scroll
+      if (y !== lastScrollY) {
+        lastScrollY = y;
+        setShowScrollTop(y > 300);
+
+        [quoteRef1, quoteRef2, quoteRef3].forEach((ref) => {
+          if (!ref.current) return;
           const rect = ref.current.getBoundingClientRect();
-          const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.15;
-          const img = ref.current.querySelector('.parallax-img') as HTMLElement;
-          if (img) img.style.transform = `translateY(${offset}px)`;
-        }
-      });
+          // só aplica quando a seção está próxima do viewport (±200vh de margem)
+          if (rect.bottom < -window.innerHeight * 2 || rect.top > window.innerHeight * 3) return;
+          const centerOffset = (rect.top + rect.height / 2 - window.innerHeight / 2);
+          const shift = centerOffset * 0.18;
+          const img = ref.current.querySelector('.parallax-img') as HTMLElement | null;
+          if (img) {
+            img.style.transform = `translate3d(0, ${shift}px, 0)`;
+          }
+        });
+      }
+
+      rafId = requestAnimationFrame(applyParallax);
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+
+    rafId = requestAnimationFrame(applyParallax);
+    return () => cancelAnimationFrame(rafId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleContactSubmit = async (e: React.FormEvent) => {
@@ -366,11 +382,11 @@ export default function Home() {
 
               <h1
                 style={{
-                  fontFamily: "'Roboto', sans-serif",
-                  fontWeight: 100,
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
                   fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
                   lineHeight: 1.08,
-                  letterSpacing: '-0.01em',
+                  letterSpacing: '-0.02em',
                   color: 'white',
                   marginBottom: '1rem',
                 }}

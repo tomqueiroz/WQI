@@ -81,7 +81,7 @@ export default function ContatoPage() {
               Fale com W-Qi
             </span>
             <h1 className="text-white mb-5"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 'clamp(2rem,5vw,3.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem,5vw,3.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Sua Próxima Decisão<br /><span style={{ color: '#7a6207' }}>Começa com uma Conversa</span>
             </h1>
             <p className="text-white/60 leading-relaxed max-w-2xl" style={{ fontWeight: 300, fontSize: '1rem' }}>
