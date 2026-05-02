@@ -31,6 +31,7 @@ import { IMAGES } from '@/assets/images';
 import { LMS_ROUTES } from '@/lib/index';
 import { PRODUCTS_DATA } from '@/lib/products';
 import { Layout } from '@/components/Layout';
+import { LogoMarquee } from '@/components/LogoMarquee';
 import { useTestimonials, useSubmitLead } from '@/hooks/useSupabaseData';
 import { useFeaturedPosts } from '@/hooks/useBlog';
 import { Link } from 'react-router-dom';
@@ -119,22 +120,22 @@ const SLIDER_TESTIMONIALS = [
   { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'Wellington conecta academia e mercado de uma forma que só quem viveu os dois lados consegue fazer. Transformador.' },
 ];
 
-// ─── Floating brand logos in hero ───
+// ─── Floating brand logos in hero (10 selects, mix antigos + novos) ───
 const HERO_LOGOS = [
-  { key: 'MCD_13',     style: { top: '12%', left: '5%'   } },
-  { key: 'ITAU_14',    style: { top: '22%', left: '15%'  } },
-  { key: 'GREENP_16', style: { top: '55%', left: '3%'   } },
-  { key: 'GPA_17',    style: { top: '70%', left: '18%'  } },
-  { key: 'HERING_15', style: { top: '82%', left: '8%'   } },
-  { key: 'NVIDIA_28', style: { top: '10%', right: '6%'  } },
-  { key: 'SHOPIFY_34',style: { top: '30%', right: '4%'  } },
-  { key: 'SPOTIFY_30',style: { top: '60%', right: '7%'  } },
-  { key: 'STONE_21',  style: { top: '75%', right: '3%'  } },
-  { key: 'COINBASE_26',style:{ top: '45%', left: '7%'   } },
+  { key: 'MCD_13',      style: { top: '8%',  left: '4%'   } },
+  { key: 'NVIDIA_28',   style: { top: '8%',  right: '5%'  } },
+  { key: 'ITAU_14',     style: { top: '25%', left: '12%'  } },
+  { key: 'SHOPIFY_34',  style: { top: '28%', right: '4%'  } },
+  { key: 'COINBASE_26', style: { top: '48%', left: '5%'   } },
+  { key: 'SPOTIFY_30',  style: { top: '55%', right: '6%'  } },
+  { key: 'STONE_21',    style: { top: '70%', left: '14%'  } },
+  { key: 'IMG_3_56',    style: { top: '72%', right: '4%'  } },
+  { key: 'IMG_7_40',    style: { top: '84%', left: '5%'   } },
+  { key: 'IMG_11_55',   style: { top: '85%', right: '7%'  } },
 ];
 
-const LOGO_DELAYS = [0, 0.5, 1.1, 0.3, 1.8, 0.7, 1.4, 0.2, 1.6, 0.9];
-const LOGO_WIDTHS = [240, 300, 270, 255, 285, 330, 264, 276, 255, 300];
+const LOGO_DELAYS    = [0, 0.6, 1.2, 0.4, 1.9, 0.8, 1.5, 0.2, 1.7, 1.0];
+const LOGO_WIDTHS    = [240, 300, 270, 255, 285, 330, 264, 276, 255, 300];
 const LOGO_DURATIONS = [4.5, 5.2, 4.1, 5.8, 3.9, 5.5, 4.8, 6.0, 4.3, 5.1];
 
 export default function Home() {
@@ -417,6 +418,9 @@ export default function Home() {
           </motion.blockquote>
         </div>
       </section>
+
+      {/* ============ FAIXAS DE LOGOS CLIENTES ============ */}
+      <LogoMarquee />
 
       {/* ============ SOBRE ============ */}
       <section id="sobre" className="py-20 md:py-28 bg-background">
