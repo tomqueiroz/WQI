@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { AiFirstTm, GeracaoAiFirstTm } from '@/components/AiFirstTm';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Target,
@@ -393,7 +394,7 @@ export default function Home() {
                 }}
               >
                 Desenvolva uma Liderança{' '}
-                <span style={{ color: 'var(--color-accent)' }}>AI First</span>{' '}que o Mercado vai Seguir
+                <span style={{ color: 'var(--color-accent)' }}>AI First<sup style={{ fontSize: '0.5em', fontWeight: 700, verticalAlign: 'super', lineHeight: 0 }}>™</sup></span>{' '}que o Mercado vai Seguir
               </h1>
 
               <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0" style={{ fontWeight: 300 }}>
@@ -594,7 +595,7 @@ export default function Home() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Brain size={24} style={{ color: '#c9a227' }} />
-                <h3 className="text-white font-bold text-lg">A Resposta: Geração AI First™</h3>
+                <h3 className="text-white font-bold text-lg">A Resposta: <GeracaoAiFirstTm /></h3>
               </div>
               <p className="text-white/70 text-sm leading-relaxed mb-6" style={{ fontWeight: 300 }}>
                 O mote exclusivo da W-Qi que define um novo padrão de liderança e operação para a era que está começando. <strong style={{ color: '#c9a227' }}>Geração AI First™</strong> não é sobre aprender a usar ferramentas — é sobre desenvolver a habilidade de compreender, planejar, implementar e operar com IA como fator competitivo decisivo.
@@ -836,7 +837,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">AI-First Framework™</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Do Diagnóstico à Geração AI First™</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-primary">Do Diagnóstico à <GeracaoAiFirstTm /></h2>
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
               Quatro etapas rigorosas e modulares — personalizadas para a realidade de cada executivo, time ou organização. Com KPIs definidos antes de começar e métricas revisadas ao longo de todo o processo.
             </p>
@@ -878,7 +879,7 @@ export default function Home() {
             className="text-center"
           >
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Testemunhais</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Da Incerteza à Liderança AI First™</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-primary">Da Incerteza à Liderança <AiFirstTm /></h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm">
               Executivos e líderes que superaram o gap de habilidades em IA e passaram a liderar — e não mais a seguir — a transformação em suas organizações.
             </p>
@@ -936,7 +937,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Sua empresa está formando a <span style={{ color: '#c9a227' }}>Geração AI First™</span>?</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Sua empresa está formando a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span>?</h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
               O IDC estima US$ 5,5 trilhões em perdas globais pelo gap de talentos em IA até 2026. O custo de não agir já está sendo contabilizado. A W-Qi conecta você às lideranças e às metodologias que fecham esse gap — agora.
             </p>

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { renderAiFirst } from '@/components/AiFirstTm';
 import { ArrowRight, CheckCircle, Award, Users, Clock, Target, MessageCircle, ChevronDown, ChevronUp, Building2, Briefcase, Phone, Mail, User, Send } from 'lucide-react';
 import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa6';
 import { Layout } from '@/components/Layout';
@@ -215,14 +216,14 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
               className="text-white mb-6"
               style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1.1 }}
             >
-              {prog.title}
+              {renderAiFirst(prog.title)}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
               className="text-lg mb-4 font-light"
               style={{ color: '#7a6207', fontFamily: 'Roboto, sans-serif', fontWeight: 300 }}
             >
-              {prog.tagline}
+              {renderAiFirst(prog.tagline)}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
@@ -343,7 +344,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
                 Perfil Ideal
               </span>
               <h2 className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
-                {prog.targetTitle}
+                {renderAiFirst(prog.targetTitle)}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -377,7 +378,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
                 Metodologia Exclusiva
               </span>
               <h2 className="mb-6" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
-                {prog.methodologyTitle}
+                {renderAiFirst(prog.methodologyTitle)}
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8" style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 300 }}>
                 {prog.methodologyDesc}

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { GeracaoAiFirstTm } from '@/components/AiFirstTm';
 import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { IMAGES } from '@/assets/images';
@@ -97,7 +98,7 @@ export default function SobrePage() {
             className="lg:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-32 lg:py-40">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>
-              Criador da Geração AI First™
+              Criador da <GeracaoAiFirstTm />
             </span>
             <h1 className="text-white mb-5" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem,4vw,3.5rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Conheça<br /><span style={{ color: '#7a6207' }}>Tom Queiroz</span>
@@ -106,7 +107,7 @@ export default function SobrePage() {
               Mais conhecido como <strong className="text-white/90 font-semibold">Tom Queiroz</strong>, é CEO e CAIO da{' '}
               <a href="https://pareto.io" target="_blank" rel="noopener noreferrer" className="text-accent underline decoration-accent/40 hover:decoration-accent transition-colors">Pareto</a>,
               ex-executivo de corporações globais — Sony, Honda, Rakuten e Shell —, Professor da FGV EAESP e o criador do conceito{' '}
-              <strong className="text-white/90">Geração AI First™</strong> — pioneiro em IA Generativa aplicada a negócios no Brasil.
+              <strong className="text-white/90"><GeracaoAiFirstTm /></strong> — pioneiro em IA Generativa aplicada a negócios no Brasil.
             </p>
             <p className="text-white/55 leading-relaxed mb-3 max-w-md" style={{ fontWeight: 300, fontSize: '0.95rem' }}>
               Em 2021, antes mesmo do boom global da IA Generativa, Tom já trabalhava com{' '}

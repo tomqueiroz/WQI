@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { AiFirstTm, GeracaoAiFirstTm } from '@/components/AiFirstTm';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -276,7 +277,7 @@ export default function EmpresasPage() {
               className="text-white mb-6"
               style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(2.4rem, 5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
             >
-              Forme a <span style={{ color: '#c9a227' }}>Geração AI First™</span><br />
+              Forme a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span><br />
               na sua organização.
             </motion.h1>
 
@@ -435,7 +436,7 @@ export default function EmpresasPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Portfólio Corporativo · Geração AI First™</p>
-            <h2 className="text-primary mb-4">Soluções Modulares para<br />cada etapa da jornada AI First™</h2>
+            <h2 className="text-primary mb-4">Soluções Modulares para<br />cada etapa da jornada <AiFirstTm /></h2>
             <p className="text-muted-foreground max-w-xl mx-auto" style={{ fontWeight: 300 }}>
               Cada empresa tem um ponto de partida diferente e um gap específico de liderança e talentos em IA. A W-Qi desenvolve soluções 100% personalizadas — não pacotes genéricos, não teoria vazia. Do diagnóstico ao resultado mensurável.
             </p>
