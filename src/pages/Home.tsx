@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  TrendingUp,
-  Users,
   Target,
   CheckCircle,
   AlertCircle,
@@ -13,12 +11,12 @@ import {
   Rocket,
   Award,
   MessageCircle,
-  Mail,
-  MapPin,
+  Stethoscope,
+  X,
 } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -109,11 +107,42 @@ const MENTORIA_STEPS = [
   },
 ];
 
+// ─── Fictional testimonials for the slider ───
+const SLIDER_TESTIMONIALS = [
+  { id: 's1', name: 'Rodrigo Mendes', role: 'CMO', company: 'Grupo Saraiva', avatar: 'RM', content: 'Em 90 dias reduzi o CPA em 38% e estruturei meu time com metodologia AI-First. Wellington entrega clareza onde havia apenas ruído.' },
+  { id: 's2', name: 'Cláudia Ferreira', role: 'VP de Marketing', company: 'BTG Pactual', avatar: 'CF', content: 'Nunca imaginei que estratégia e inteligência artificial poderiam se conectar de forma tão prática. O ROI foi imediato e mensurável.' },
+  { id: 's3', name: 'André Nakamura', role: 'Head of Growth', company: 'iFood', avatar: 'AN', content: 'O Cohort Executivo foi divisor de águas. Além do conteúdo brutal, o networking com outros executivos valeu cada hora investida.' },
+  { id: 's4', name: 'Bianca Torres', role: 'Diretora de Estratégia', company: 'Ambev', avatar: 'BT', content: 'Wellington tem a rara habilidade de transformar complexidade em ação. Em 60 dias já colhíamos resultados mensuráveis.' },
+  { id: 's5', name: 'Felipe Carvalho', role: 'CEO', company: 'StartupBR', avatar: 'FC', content: 'A MasterClass AI-First foi a melhor decisão que tomei em 2025. Frameworks prontos, implementação imediata.' },
+  { id: 's6', name: 'Mariana Souza', role: 'CDO', company: 'Grupo Fleury', avatar: 'MS', content: 'A mentoria 1:1 me deu o mapa que eu precisava para liderar a transformação digital. Resultado em 45 dias.' },
+  { id: 's7', name: 'Lucas Prado', role: 'VP de Inovação', company: 'Embraer', avatar: 'LP', content: 'Executivo com 15 anos de carreira, nunca pensei que aprenderia tanto em tão pouco tempo. Altamente recomendado.' },
+  { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'Wellington conecta academia e mercado de uma forma que só quem viveu os dois lados consegue fazer. Transformador.' },
+];
+
+// ─── Floating brand logos in hero ───
+const HERO_LOGOS = [
+  { key: 'MCD_13',     style: { top: '12%', left: '5%'   } },
+  { key: 'ITAU_14',    style: { top: '22%', left: '15%'  } },
+  { key: 'GREENP_16', style: { top: '55%', left: '3%'   } },
+  { key: 'GPA_17',    style: { top: '70%', left: '18%'  } },
+  { key: 'HERING_15', style: { top: '82%', left: '8%'   } },
+  { key: 'NVIDIA_28', style: { top: '10%', right: '6%'  } },
+  { key: 'SHOPIFY_34',style: { top: '30%', right: '4%'  } },
+  { key: 'SPOTIFY_30',style: { top: '60%', right: '7%'  } },
+  { key: 'STONE_21',  style: { top: '75%', right: '3%'  } },
+  { key: 'COINBASE_26',style:{ top: '45%', left: '7%'   } },
+];
+
+const LOGO_DELAYS = [0, 0.5, 1.1, 0.3, 1.8, 0.7, 1.4, 0.2, 1.6, 0.9];
+const LOGO_WIDTHS = [80, 100, 90, 85, 95, 110, 88, 92, 85, 100];
+const LOGO_DURATIONS = [4.5, 5.2, 4.1, 5.8, 3.9, 5.5, 4.8, 6.0, 4.3, 5.1];
+
 export default function Home() {
   const heroBgRef = useRef<HTMLDivElement>(null);
   const quoteRef1 = useRef<HTMLDivElement>(null);
   const quoteRef2 = useRef<HTMLDivElement>(null);
   const quoteRef3 = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const { testimonials: dbTestimonials } = useTestimonials();
   const { submitLead, loading: submitLoading, success, error } = useSubmitLead();
@@ -127,6 +156,33 @@ export default function Home() {
     message: '',
   });
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [diagOpen, setDiagOpen] = useState(false);
+
+  // Auto-scroll testimonial slider
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    let animId: number;
+    let pos = 0;
+    const speed = 0.55;
+    const step = () => {
+      pos += speed;
+      const half = slider.scrollWidth / 2;
+      if (pos >= half) pos = 0;
+      slider.scrollLeft = pos;
+      animId = requestAnimationFrame(step);
+    };
+    animId = requestAnimationFrame(step);
+    const pause = () => cancelAnimationFrame(animId);
+    const resume = () => { animId = requestAnimationFrame(step); };
+    slider.addEventListener('mouseenter', pause);
+    slider.addEventListener('mouseleave', resume);
+    return () => {
+      cancelAnimationFrame(animId);
+      slider.removeEventListener('mouseenter', pause);
+      slider.removeEventListener('mouseleave', resume);
+    };
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -231,11 +287,30 @@ export default function Home() {
           <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* Overlay escuro — acima do vídeo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/78 to-primary/45" style={{ zIndex: 2 }} />
+        {/* === FLOATING BRAND LOGOS behind content, z-index 2 === */}
+        {HERO_LOGOS.map((logo, idx) => (
+          <motion.div
+            key={logo.key}
+            className="absolute pointer-events-none select-none hidden md:block"
+            style={{ ...logo.style, zIndex: 2, opacity: 0.18 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: LOGO_DURATIONS[idx], repeat: Infinity, ease: 'easeInOut', delay: LOGO_DELAYS[idx] }}
+          >
+            <img
+              src={(IMAGES as Record<string, string>)[logo.key]}
+              alt=""
+              width={LOGO_WIDTHS[idx]}
+              style={{ filter: 'brightness(10) saturate(0)' }}
+              aria-hidden
+            />
+          </motion.div>
+        ))}
+
+        {/* Overlay escuro — acima do vídeo e logos */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/78 to-primary/45" style={{ zIndex: 3 }} />
 
         {/* Content */}
-        <div className="relative container mx-auto px-4 flex flex-1 items-center" style={{ zIndex: 3, paddingTop: '80px', paddingBottom: '40px' }}>
+        <div className="relative container mx-auto px-4 flex flex-1 items-center" style={{ zIndex: 4, paddingTop: '80px', paddingBottom: '40px' }}>
           {/* 2-column layout: copy left (5/12) + photo right (7/12) */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
@@ -375,11 +450,21 @@ export default function Home() {
                 ))}
               </div>
 
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex mt-8">
-                <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-7 py-3 h-auto font-semibold">
-                  <MessageCircle className="mr-2" size={16} /> Falar com Especialista
-                </Button>
-              </a>
+              <div className="flex flex-wrap gap-3 mt-8">
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex">
+                  <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-7 py-3 h-auto font-semibold">
+                    <MessageCircle className="mr-2" size={16} /> Falar com Especialista
+                  </Button>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/wellingtonqueiroz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-primary/25 hover:border-accent hover:text-accent text-primary rounded-full px-5 py-3 text-sm font-semibold transition-colors"
+                >
+                  <FaLinkedinIn size={16} /> Conectar no LinkedIn
+                </a>
+              </div>
             </div>
 
             {/* Right */}
@@ -532,48 +617,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ RESULTADOS ============ */}
-      <section id="resultados" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      {/* ============ TESTEMUNHAIS — RÉGUA DINÂMICA AUTO-SCROLL ============ */}
+      <section id="resultados" className="py-20 bg-muted/30 overflow-hidden">
+        <div className="container mx-auto px-4 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center"
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Resultados</p>
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Testemunhais</p>
             <h2 className="text-3xl md:text-5xl font-black text-primary">O que Dizem os Mentorados</h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm">
+              Líderes de topo que transformaram resultados com a metodologia AI-First.
+            </p>
           </motion.div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.slice(0, 3).map((t, i) => (
-              <motion.div
-                key={t.id as string}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Card className="h-full p-6">
-                  <div className="flex mb-4">
-                    {[...Array(t.rating || 5)].map((_, j) => (
-                      <span key={j} className="text-accent text-sm">★</span>
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground text-sm italic mb-6">&ldquo;{t.content}&rdquo;</p>
-                  <div className="flex items-center gap-3 mt-auto">
-                    <div className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold text-sm">
-                      {t.name.charAt(0)}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-sm text-primary">{t.name}</div>
-                      <div className="text-xs text-muted-foreground">{t.role} · {t.company}</div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+        {/* Auto-scrolling rail — items duplicated for seamless infinite loop */}
+        <div
+          ref={sliderRef}
+          className="flex gap-5 overflow-x-hidden"
+          style={{ scrollBehavior: 'auto', userSelect: 'none' }}
+        >
+          {[...SLIDER_TESTIMONIALS, ...SLIDER_TESTIMONIALS].map((t, i) => (
+            <div
+              key={`${t.id}-${i}`}
+              className="flex-shrink-0 w-80 bg-background rounded-2xl p-6 shadow-sm border border-border/40"
+            >
+              <div className="flex mb-3">
+                {[...Array(5)].map((_, j) => (
+                  <span key={j} className="text-accent text-sm">★</span>
+                ))}
+              </div>
+              <p className="text-muted-foreground text-sm italic leading-relaxed mb-5">&ldquo;{t.content}&rdquo;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+                  {t.avatar}
+                </div>
+                <div>
+                  <div className="font-semibold text-sm text-primary">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role} · {t.company}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a
+            href="https://www.linkedin.com/in/wellingtonqueiroz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-primary/25 hover:border-accent hover:text-accent text-primary rounded-full px-6 py-3 text-sm font-semibold transition-colors"
+          >
+            <FaLinkedinIn size={16} /> Ver Recomendações no LinkedIn
+          </a>
         </div>
       </section>
 
@@ -718,7 +817,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ CONTATO ============ */}
+      {/* ============ CONTATO — somente form (dados de contato: footer e /contato) ============ */}
       <section id="contato" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
@@ -730,145 +829,97 @@ export default function Home() {
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contato</p>
             <h2 className="text-3xl md:text-5xl font-black text-primary">Vamos Conversar</h2>
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-              Sem compromisso. Retornamos em até 24h para agendar conversa estratégica.
+              Preencha o formulário e retornamos em até 24h para agendar sua conversa estratégica.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {/* Info */}
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="text-accent" size={18} />
-                </div>
-                <div>
-                  <p className="font-semibold text-primary text-sm">Email</p>
-                  <a href="mailto:tom@midia-digital.com" className="text-muted-foreground text-sm hover:text-accent">tom@midia-digital.com</a>
-                </div>
+          <form onSubmit={handleContactSubmit} className="space-y-4 max-w-2xl mx-auto">
+            {success ? (
+              <div className="flex items-center gap-3 p-4 bg-accent/10 border border-accent/20 rounded-xl">
+                <CheckCircle className="text-accent" size={20} />
+                <p className="text-primary text-sm font-medium">Mensagem enviada! Retornamos em até 24h.</p>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaWhatsapp className="text-accent" size={18} />
-                </div>
-                <div>
-                  <p className="font-semibold text-primary text-sm">WhatsApp</p>
-                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-muted-foreground text-sm hover:text-accent">
-                    +55 11 91551-3210
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="text-accent" size={18} />
-                </div>
-                <div>
-                  <p className="font-semibold text-primary text-sm">Endereço</p>
-                  <p className="text-muted-foreground text-sm">W-Qi Development<br />Av. Paulista, 2.022 - 2º andar<br />Consolação, São Paulo/SP</p>
-                </div>
-              </div>
-
-              <div className="bg-primary rounded-2xl p-6 mt-6">
-                <h3 className="text-white font-bold text-lg mb-3">Diagnóstico Gratuito</h3>
-                <p className="text-white/70 text-sm mb-4">
-                  Agende uma conversa de 30 minutos e receba uma análise inicial da maturidade digital da sua organização.
-                </p>
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-accent hover:bg-accent/90 text-white w-full rounded-full font-semibold">
-                    <FaWhatsapp className="mr-2" /> Agendar Agora
-                  </Button>
-                </a>
-              </div>
-            </div>
-
-            {/* Form */}
-            <form onSubmit={handleContactSubmit} className="space-y-4">
-              {success ? (
-                <div className="flex items-center gap-3 p-4 bg-accent/10 border border-accent/20 rounded-xl">
-                  <CheckCircle className="text-accent" size={20} />
-                  <p className="text-primary text-sm font-medium">Mensagem enviada! Retornamos em até 24h.</p>
-                </div>
-              ) : (
-                <>
-                  {error && (
-                    <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-xl">
-                      <AlertCircle className="text-destructive" size={20} />
-                      <p className="text-destructive text-sm">{error}</p>
-                    </div>
-                  )}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name" className="text-sm font-medium">Nome *</Label>
-                      <Input
-                        id="name"
-                        value={contactForm.name}
-                        onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                        placeholder="Seu nome completo"
-                        required
-                        className="mt-1"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email" className="text-sm font-medium">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={contactForm.email}
-                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                        placeholder="seu@email.com"
-                        required
-                        className="mt-1"
-                      />
-                    </div>
+            ) : (
+              <>
+                {error && (
+                  <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-xl">
+                    <AlertCircle className="text-destructive" size={20} />
+                    <p className="text-destructive text-sm">{error}</p>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="whatsapp" className="text-sm font-medium">WhatsApp</Label>
-                      <Input
-                        id="whatsapp"
-                        value={contactForm.whatsapp}
-                        onChange={(e) => setContactForm({ ...contactForm, whatsapp: e.target.value })}
-                        placeholder="+55 11 99999-9999"
-                        className="mt-1"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="company" className="text-sm font-medium">Empresa</Label>
-                      <Input
-                        id="company"
-                        value={contactForm.company}
-                        onChange={(e) => setContactForm({ ...contactForm, company: e.target.value })}
-                        placeholder="Nome da empresa"
-                        className="mt-1"
-                      />
-                    </div>
-                  </div>
+                )}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="message" className="text-sm font-medium">Mensagem *</Label>
-                    <Textarea
-                      id="message"
-                      value={contactForm.message}
-                      onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                      placeholder="Conte sobre seus objetivos e desafios..."
-                      rows={4}
+                    <Label htmlFor="name" className="text-sm font-medium">Nome *</Label>
+                    <Input
+                      id="name"
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                      placeholder="Seu nome completo"
                       required
                       className="mt-1"
                     />
                   </div>
-                  <Button
-                    type="submit"
-                    disabled={submitLoading}
-                    className="w-full bg-accent hover:bg-accent/90 text-white rounded-full py-3 h-auto font-semibold"
-                  >
-                    {submitLoading ? (
-                      <><Loader2 className="mr-2 animate-spin" size={16} /> Enviando...</>
-                    ) : (
-                      'Enviar Mensagem'
-                    )}
-                  </Button>
-                </>
-              )}
-            </form>
-          </div>
+                  <div>
+                    <Label htmlFor="email" className="text-sm font-medium">Email *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={contactForm.email}
+                      onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                      placeholder="seu@email.com"
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="whatsapp" className="text-sm font-medium">WhatsApp</Label>
+                    <Input
+                      id="whatsapp"
+                      value={contactForm.whatsapp}
+                      onChange={(e) => setContactForm({ ...contactForm, whatsapp: e.target.value })}
+                      placeholder="+55 11 99999-9999"
+                      className="mt-1"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="company" className="text-sm font-medium">Empresa</Label>
+                    <Input
+                      id="company"
+                      value={contactForm.company}
+                      onChange={(e) => setContactForm({ ...contactForm, company: e.target.value })}
+                      placeholder="Nome da empresa"
+                      className="mt-1"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="message" className="text-sm font-medium">Mensagem *</Label>
+                  <Textarea
+                    id="message"
+                    value={contactForm.message}
+                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                    placeholder="Conte sobre seus objetivos e desafios..."
+                    rows={4}
+                    required
+                    className="mt-1"
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  disabled={submitLoading}
+                  className="w-full bg-accent hover:bg-accent/90 text-white rounded-full py-3 h-auto font-semibold"
+                >
+                  {submitLoading ? (
+                    <><Loader2 className="mr-2 animate-spin" size={16} /> Enviando...</>
+                  ) : (
+                    'Enviar Mensagem'
+                  )}
+                </Button>
+              </>
+            )}
+          </form>
         </div>
       </section>
 
@@ -885,6 +936,60 @@ export default function Home() {
           >
             <ChevronUp size={20} />
           </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* ============ DIAGNÓSTICO GRATUITO — Pop-up flutuante fixo canto inferior esquerdo ============ */}
+      <AnimatePresence mode="wait">
+        {!diagOpen ? (
+          <motion.button
+            key="diag-btn"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -40 }}
+            onClick={() => setDiagOpen(true)}
+            className="fixed bottom-6 left-6 z-50 bg-accent hover:bg-accent/90 text-white rounded-full px-4 py-3 shadow-2xl font-semibold text-sm flex items-center gap-2 transition-colors"
+          >
+            <Stethoscope size={16} /> Diagnóstico Gratuito
+          </motion.button>
+        ) : (
+          <motion.div
+            key="diag-panel"
+            initial={{ opacity: 0, x: -60, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -60, scale: 0.95 }}
+            className="fixed bottom-6 left-6 z-50 w-80 bg-primary rounded-2xl shadow-2xl p-6 border border-accent/20"
+          >
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <h3 className="text-white font-bold text-base">Diagnóstico Gratuito</h3>
+                <p className="text-white/60 text-xs mt-0.5">30 min · sem compromisso</p>
+              </div>
+              <button
+                onClick={() => setDiagOpen(false)}
+                className="text-white/40 hover:text-white transition-colors mt-0.5 ml-2 flex-shrink-0"
+                aria-label="Fechar"
+              >
+                <X size={16} />
+              </button>
+            </div>
+            <p className="text-white/70 text-sm mb-4 leading-relaxed">
+              Agende 30 minutos e receba uma análise da maturidade digital da sua organização — sem custo, sem compromisso.
+            </p>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
+              <Button className="bg-accent hover:bg-accent/90 text-white w-full rounded-full font-semibold text-sm">
+                <FaWhatsapp className="mr-2" size={14} /> Agendar no WhatsApp
+              </Button>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wellingtonqueiroz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 mt-3 text-white/50 hover:text-white text-xs transition-colors"
+            >
+              <FaLinkedinIn size={12} /> Conectar no LinkedIn
+            </a>
+          </motion.div>
         )}
       </AnimatePresence>
     </Layout>

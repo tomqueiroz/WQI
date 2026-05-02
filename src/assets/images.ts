@@ -1,27 +1,42 @@
-// WQI Mentorship — Image Registry
+// Do not edit manually
 
 export const IMAGES = {
-  // === LOGOS ===
-  LOGO_WQI_BRANCO:  "/images/wqi branco.png",
-  LOGO_WQI_COLOR:   "/images/wqi copper.png",
-
-  // === WELLINGTON QUEIROZ PORTRAITS ===
-  // Hero right column — arms crossed portrait
+  ANIMA_19: "/images/anima.png",
+  CEA_18: "/images/cea.png",
+  COINBASE_26: "/images/coinbase.png",
+  EPIC_25: "/images/epic.png",
+  FLAM_33: "/images/flam.png",
+  GPA_17: "/images/gpa.png",
+  GREENP_16: "/images/greenp.png",
+  HERING_15: "/images/hering.png",
+  ITAU_14: "/images/itau.png",
+  LOGO_WQI_BRANCO: "/images/wqi branco.png",
+  LOGO_WQI_COLOR: "/images/wqi copper.png",
+  MCD_13: "/images/mcd.png",
+  MULTIP_32: "/images/multip.png",
+  NIVEA_36: "/images/nivea.png",
+  NVIDIA_28: "/images/nvidia.png",
+  PARALLAX_AI_MARKETING: "/images/1715.jpg",
+  PARALLAX_AI_PRESENTATION: "/images/11548.jpg",
+  PARALLAX_EXECUTIVE: "/images/105957.jpg",
+  PARALLAX_HANDSHAKE_ROBOT: "/images/1662.jpg",
+  PARALLAX_HOLOGRAPHIC: "/images/1657.jpg",
+  PARALLAX_HUMAN_ROBOT: "/images/1439.jpg",
+  PEPSI_24: "/images/pepsi.png",
+  PUBLI_23: "/images/publi.png",
+  REMAX_31: "/images/remax.png",
+  SALTA_35: "/images/salta.png",
+  SAMS_22: "/images/sams.png",
+  SG_27: "/images/sg.png",
+  SHOPIFY_34: "/images/shopify.png",
+  SPOTIFY_30: "/images/spotify.png",
+  STONE_21: "/images/stone.png",
+  TOM_HERO_BG: "/images/tom speaking 11.png",
   TOM_HERO_PORTRAIT: "/images/1.png",
-  // Sobre Wellington Queiroz section — speaking at event
-  TOM_SOBRE:         "/images/tom speaking 11.png",
-  // Hero BG parallax — also speaking at event (same image, different usage)
-  TOM_HERO_BG:       "/images/tom speaking 11.png",
-  // Alternate profile photo
-  TOM_PROFILE_ALT:   "/images/magnific_photo-a-40yearold-middle-_2905621111.png",
-
-  // === PARALLAX QUOTE SECTIONS ===
-  PARALLAX_EXECUTIVE:          "/images/105957.jpg",
-  PARALLAX_HUMAN_ROBOT:        "/images/1439.jpg",
-  PARALLAX_HOLOGRAPHIC:        "/images/1657.jpg",
-  PARALLAX_AI_PRESENTATION:    "/images/11548.jpg",
-  PARALLAX_HANDSHAKE_ROBOT:    "/images/1662.jpg",
-  PARALLAX_AI_MARKETING:       "/images/1715.jpg",
+  TOM_PROFILE_ALT: "/images/magnific_photo-a-40yearold-middle-_2905621111.png",
+  TOM_SOBRE: "/images/tom speaking 11.png",
+  UNIVERSAL_20: "/images/universal.png",
+  WMC_29: "/images/wmc.png",
 } as const;
 
 export type ImageKey = keyof typeof IMAGES;

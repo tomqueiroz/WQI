@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { CheckCircle2, Users, Target, Clock, TrendingUp, ChevronDown, ChevronUp } from 'lucide-react'
+import { CheckCircle2, Users, Target, Clock, TrendingUp, ChevronDown, ChevronUp, Stethoscope, X } from 'lucide-react'
+import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa6'
 import { Layout } from '@/components/Layout'
 import { ProductLeadModal } from '@/components/ProductLeadModal'
 import { PRODUCTS_DATA, type ProductData } from '@/lib/products'
@@ -326,6 +327,65 @@ export default function ProgramasPage() {
           </div>
         </section>
       </div>
+
+      {/* ── Diagnóstico Gratuito — pop-up flutuante canto inferior esquerdo ── */}
+      <DiagnosticoFloat />
     </Layout>
+  )
+}
+
+const WA_LINK_PROG = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi.';
+
+function DiagnosticoFloat() {
+  const [open, setOpen] = useState(false)
+  return (
+    <AnimatePresence mode="wait">
+      {!open ? (
+        <motion.button
+          key="btn"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -40 }}
+          onClick={() => setOpen(true)}
+          className="fixed bottom-6 left-6 z-50 bg-accent hover:bg-accent/90 text-white rounded-full px-4 py-3 shadow-2xl font-semibold text-sm flex items-center gap-2 transition-colors"
+        >
+          <Stethoscope size={16} /> Diagnóstico Gratuito
+        </motion.button>
+      ) : (
+        <motion.div
+          key="panel"
+          initial={{ opacity: 0, x: -60, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          exit={{ opacity: 0, x: -60, scale: 0.95 }}
+          className="fixed bottom-6 left-6 z-50 w-80 bg-[#001123] rounded-2xl shadow-2xl p-6 border border-[#7a6207]/25"
+        >
+          <div className="flex items-start justify-between mb-3">
+            <div>
+              <h3 className="text-white font-bold text-base">Diagnóstico Gratuito</h3>
+              <p className="text-white/60 text-xs mt-0.5">30 min · sem compromisso</p>
+            </div>
+            <button onClick={() => setOpen(false)} className="text-white/40 hover:text-white transition-colors mt-0.5 ml-2 flex-shrink-0">
+              <X size={16} />
+            </button>
+          </div>
+          <p className="text-white/70 text-sm mb-4 leading-relaxed">
+            Agende 30 minutos e receba uma análise da maturidade digital da sua organização — sem custo, sem compromisso.
+          </p>
+          <a href={WA_LINK_PROG} target="_blank" rel="noopener noreferrer">
+            <button className="w-full bg-[#7a6207] hover:bg-[#7a6207]/90 text-white rounded-full py-2.5 font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+              <FaWhatsapp size={14} /> Agendar no WhatsApp
+            </button>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/wellingtonqueiroz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 mt-3 text-white/50 hover:text-white text-xs transition-colors"
+          >
+            <FaLinkedinIn size={12} /> Conectar no LinkedIn
+          </a>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }

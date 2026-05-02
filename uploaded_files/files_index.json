@@ -4,29 +4,205 @@
   "tables_source_info": [],
   "images": [
     {
-      "original_name": "wqi copper",
-      "file_name": "wqi copper.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/wqi copper.png",
-      "rel_path": "images/wqi copper.png",
+      "original_name": "mcd",
+      "file_name": "mcd.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/mcd.png",
+      "rel_path": "images/mcd.png",
       "file_type": "png",
       "category": "images"
     },
     {
-      "original_name": "wqi branco",
-      "file_name": "wqi branco.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/wqi branco.png",
-      "rel_path": "images/wqi branco.png",
+      "original_name": "itau",
+      "file_name": "itau.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/itau.png",
+      "rel_path": "images/itau.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "hering",
+      "file_name": "hering.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/hering.png",
+      "rel_path": "images/hering.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "greenp",
+      "file_name": "greenp.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/greenp.png",
+      "rel_path": "images/greenp.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "gpa",
+      "file_name": "gpa.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/gpa.png",
+      "rel_path": "images/gpa.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "cea",
+      "file_name": "cea.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/cea.png",
+      "rel_path": "images/cea.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "anima",
+      "file_name": "anima.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/anima.png",
+      "rel_path": "images/anima.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "universal",
+      "file_name": "universal.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/universal.png",
+      "rel_path": "images/universal.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "stone",
+      "file_name": "stone.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/stone.png",
+      "rel_path": "images/stone.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "sams",
+      "file_name": "sams.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/sams.png",
+      "rel_path": "images/sams.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "publi",
+      "file_name": "publi.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/publi.png",
+      "rel_path": "images/publi.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "pepsi",
+      "file_name": "pepsi.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/pepsi.png",
+      "rel_path": "images/pepsi.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "epic",
+      "file_name": "epic.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/epic.png",
+      "rel_path": "images/epic.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "coinbase",
+      "file_name": "coinbase.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/coinbase.png",
+      "rel_path": "images/coinbase.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "sg",
+      "file_name": "sg.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/sg.png",
+      "rel_path": "images/sg.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "nvidia",
+      "file_name": "nvidia.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/nvidia.png",
+      "rel_path": "images/nvidia.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "wmc",
+      "file_name": "wmc.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/wmc.png",
+      "rel_path": "images/wmc.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "spotify",
+      "file_name": "spotify.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/spotify.png",
+      "rel_path": "images/spotify.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "remax",
+      "file_name": "remax.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/remax.png",
+      "rel_path": "images/remax.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "multip",
+      "file_name": "multip.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/multip.png",
+      "rel_path": "images/multip.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "flam",
+      "file_name": "flam.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/flam.png",
+      "rel_path": "images/flam.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "shopify",
+      "file_name": "shopify.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/shopify.png",
+      "rel_path": "images/shopify.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "salta",
+      "file_name": "salta.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/salta.png",
+      "rel_path": "images/salta.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "nivea",
+      "file_name": "nivea.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/nivea.png",
+      "rel_path": "images/nivea.png",
       "file_type": "png",
       "category": "images"
     }
   ],
   "summary": {
-    "total_files": 2,
+    "total_files": 24,
     "by_category": {
       "documents": 0,
       "tables_parsed": 0,
       "tables_source_info": 0,
-      "images": 2
+      "images": 24
     },
     "processing_time": null
   }
