@@ -120,64 +120,70 @@ const SLIDER_TESTIMONIALS = [
   { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'Wellington conecta academia e mercado de uma forma que só quem viveu os dois lados consegue fazer. Transformador.' },
 ];
 
-// ─── TODOS os logos flutuantes: top 25% (linhas 1-4) + bottom 25% (linhas 5-8) ───
-// 44 logos → 5-6 por linha, 8 linhas (4 top + 4 bottom)
+// ─── 44 logos distribuídos por TODA a área da hero (8 faixas × ~5-6 logos) ───
+// top: 4%, 16%, 28%, 40%, 52%, 64%, 76%, 88% — cobre 100% da altura
+// Tamanho: 150px (40% menor que 250px)
 const HERO_LOGOS = [
-  // ── TOP 25% — 4 linhas horizontais (top 4% a top 24%) ──
-  { key: 'ANIMA_19',    style: { top:  '3%',  left:  '0%'  } },
-  { key: 'CEA_18',      style: { top:  '3%',  left:  '14%' } },
-  { key: 'COINBASE_26', style: { top:  '3%',  left:  '28%' } },
-  { key: 'EPIC_25',     style: { top:  '3%',  left:  '42%' } },
-  { key: 'FLAM_33',     style: { top:  '3%',  left:  '56%' } },
-  { key: 'GPA_17',      style: { top:  '3%',  left:  '70%' } },
-  { key: 'GREENP_16',   style: { top:  '3%',  right: '0%'  } },
-  { key: 'HERING_15',   style: { top:  '10%', left:  '0%'  } },
-  { key: 'IMG_1_54',    style: { top:  '10%', left:  '14%' } },
-  { key: 'IMG_2_51',    style: { top:  '10%', left:  '28%' } },
-  { key: 'IMG_3_56',    style: { top:  '10%', left:  '42%' } },
-  { key: 'IMG_4_45',    style: { top:  '10%', left:  '56%' } },
-  { key: 'IMG_5_44',    style: { top:  '10%', left:  '70%' } },
-  { key: 'IMG_6_43',    style: { top:  '10%', right: '0%'  } },
-  { key: 'IMG_7_40',    style: { top:  '17%', left:  '0%'  } },
-  { key: 'IMG_8_39',    style: { top:  '17%', left:  '14%' } },
-  { key: 'IMG_9_37',    style: { top:  '17%', left:  '28%' } },
-  { key: 'IMG_10_38',   style: { top:  '17%', left:  '42%' } },
-  { key: 'IMG_11_55',   style: { top:  '17%', left:  '56%' } },
-  { key: 'IMG_12_57',   style: { top:  '17%', left:  '70%' } },
-  { key: 'IMG_13_53',   style: { top:  '17%', right: '0%'  } },
-  { key: 'IMG_14_47',   style: { top:  '24%', left:  '0%'  } },
-  { key: 'IMG_15_52',   style: { top:  '24%', left:  '14%' } },
-  { key: 'IMG_16_49',   style: { top:  '24%', left:  '28%' } },
-  // ── BOTTOM 25% — 4 linhas horizontais (bottom 24% a bottom 4%) ──
-  { key: 'IMG_17_50',   style: { bottom: '24%', left:  '0%'  } },
-  { key: 'IMG_18_48',   style: { bottom: '24%', left:  '14%' } },
-  { key: 'IMG_19_42',   style: { bottom: '24%', left:  '28%' } },
-  { key: 'IMG_20_46',   style: { bottom: '24%', left:  '42%' } },
-  { key: 'IMG_21_41',   style: { bottom: '24%', left:  '56%' } },
-  { key: 'ITAU_14',     style: { bottom: '24%', left:  '70%' } },
-  { key: 'MCD_13',      style: { bottom: '24%', right: '0%'  } },
-  { key: 'MULTIP_32',   style: { bottom: '17%', left:  '0%'  } },
-  { key: 'NIVEA_36',    style: { bottom: '17%', left:  '14%' } },
-  { key: 'NVIDIA_28',   style: { bottom: '17%', left:  '28%' } },
-  { key: 'PEPSI_24',    style: { bottom: '17%', left:  '42%' } },
-  { key: 'PUBLI_23',    style: { bottom: '17%', left:  '56%' } },
-  { key: 'REMAX_31',    style: { bottom: '17%', left:  '70%' } },
-  { key: 'SALTA_35',    style: { bottom: '17%', right: '0%'  } },
-  { key: 'SAMS_22',     style: { bottom: '10%', left:  '0%'  } },
-  { key: 'SG_27',       style: { bottom: '10%', left:  '14%' } },
-  { key: 'SHOPIFY_34',  style: { bottom: '10%', left:  '28%' } },
-  { key: 'SPOTIFY_30',  style: { bottom: '10%', left:  '42%' } },
-  { key: 'STONE_21',    style: { bottom: '10%', left:  '56%' } },
-  { key: 'UNIVERSAL_20',style: { bottom: '10%', left:  '70%' } },
-  { key: 'WMC_29',      style: { bottom:  '3%', left:  '0%'  } },
+  // Faixa 1 — top ~4%
+  { key: 'ANIMA_19',    style: { top: '4%',  left:  '1%'  } },
+  { key: 'CEA_18',      style: { top: '4%',  left:  '16%' } },
+  { key: 'COINBASE_26', style: { top: '4%',  left:  '31%' } },
+  { key: 'EPIC_25',     style: { top: '4%',  left:  '47%' } },
+  { key: 'FLAM_33',     style: { top: '4%',  left:  '63%' } },
+  { key: 'GPA_17',      style: { top: '4%',  left:  '79%' } },
+  // Faixa 2 — top ~17%
+  { key: 'GREENP_16',   style: { top: '17%', left:  '1%'  } },
+  { key: 'HERING_15',   style: { top: '17%', left:  '16%' } },
+  { key: 'IMG_1_54',    style: { top: '17%', left:  '31%' } },
+  { key: 'IMG_2_51',    style: { top: '17%', left:  '47%' } },
+  { key: 'IMG_3_56',    style: { top: '17%', left:  '63%' } },
+  { key: 'IMG_4_45',    style: { top: '17%', left:  '79%' } },
+  // Faixa 3 — top ~30%
+  { key: 'IMG_5_44',    style: { top: '30%', left:  '1%'  } },
+  { key: 'IMG_6_43',    style: { top: '30%', left:  '16%' } },
+  { key: 'IMG_7_40',    style: { top: '30%', left:  '31%' } },
+  { key: 'IMG_8_39',    style: { top: '30%', left:  '47%' } },
+  { key: 'IMG_9_37',    style: { top: '30%', left:  '63%' } },
+  { key: 'IMG_10_38',   style: { top: '30%', left:  '79%' } },
+  // Faixa 4 — top ~43%
+  { key: 'IMG_11_55',   style: { top: '43%', left:  '1%'  } },
+  { key: 'IMG_12_57',   style: { top: '43%', left:  '16%' } },
+  { key: 'IMG_13_53',   style: { top: '43%', left:  '31%' } },
+  { key: 'IMG_14_47',   style: { top: '43%', left:  '47%' } },
+  { key: 'IMG_15_52',   style: { top: '43%', left:  '63%' } },
+  { key: 'IMG_16_49',   style: { top: '43%', left:  '79%' } },
+  // Faixa 5 — top ~56%
+  { key: 'IMG_17_50',   style: { top: '56%', left:  '1%'  } },
+  { key: 'IMG_18_48',   style: { top: '56%', left:  '16%' } },
+  { key: 'IMG_19_42',   style: { top: '56%', left:  '31%' } },
+  { key: 'IMG_20_46',   style: { top: '56%', left:  '47%' } },
+  { key: 'IMG_21_41',   style: { top: '56%', left:  '63%' } },
+  { key: 'ITAU_14',     style: { top: '56%', left:  '79%' } },
+  // Faixa 6 — top ~69%
+  { key: 'MCD_13',      style: { top: '69%', left:  '1%'  } },
+  { key: 'MULTIP_32',   style: { top: '69%', left:  '16%' } },
+  { key: 'NIVEA_36',    style: { top: '69%', left:  '31%' } },
+  { key: 'NVIDIA_28',   style: { top: '69%', left:  '47%' } },
+  { key: 'PEPSI_24',    style: { top: '69%', left:  '63%' } },
+  { key: 'PUBLI_23',    style: { top: '69%', left:  '79%' } },
+  // Faixa 7 — top ~81%
+  { key: 'REMAX_31',    style: { top: '81%', left:  '1%'  } },
+  { key: 'SALTA_35',    style: { top: '81%', left:  '16%' } },
+  { key: 'SAMS_22',     style: { top: '81%', left:  '31%' } },
+  { key: 'SG_27',       style: { top: '81%', left:  '47%' } },
+  { key: 'SHOPIFY_34',  style: { top: '81%', left:  '63%' } },
+  { key: 'SPOTIFY_30',  style: { top: '81%', left:  '79%' } },
+  // Faixa 8 — top ~91%
+  { key: 'STONE_21',    style: { top: '91%', left:  '1%'  } },
+  { key: 'UNIVERSAL_20',style: { top: '91%', left:  '20%' } },
+  { key: 'WMC_29',      style: { top: '91%', left:  '40%' } },
 ];
 
-const LOGO_DELAYS    = [0,0.4,0.8,1.2,1.6,2.0,2.4,0.2,0.6,1.0,1.4,1.8,2.2,2.6,0.3,0.7,1.1,1.5,1.9,2.3,2.7,0.1,0.5,0.9,0.3,0.7,1.1,1.5,1.9,2.3,2.7,0.1,0.5,0.9,1.3,1.7,2.1,0.2,0.6,1.0,1.4,1.8,2.2];
-const LOGO_WIDTHS    = Array(43).fill(250);
-const LOGO_DURATIONS = [4.5,5.2,4.1,5.8,3.9,5.5,4.8,6.0,4.3,5.1,4.7,5.3,4.0,5.9,4.4,5.0,4.6,5.7,3.8,5.4,4.2,5.6,4.9,5.1,4.5,5.2,4.1,5.8,3.9,5.5,4.8,6.0,4.3,5.1,4.7,5.3,4.0,5.9,4.4,5.0,4.6,5.7,3.8];
+const LOGO_DELAYS    = [0,0.4,0.8,1.2,1.6,2.0, 0.2,0.6,1.0,1.4,1.8,2.2, 0.3,0.7,1.1,1.5,1.9,2.3, 0.1,0.5,0.9,1.3,1.7,2.1, 0.4,0.8,1.2,1.6,2.0,2.4, 0.2,0.6,1.0,1.4,1.8,2.2, 0.3,0.7,1.1,1.5,1.9,2.3, 0.5,0.9,1.3];
+const LOGO_WIDTHS    = Array(45).fill(150);
+const LOGO_DURATIONS = [4.5,5.2,4.1,5.8,3.9,5.5, 4.8,6.0,4.3,5.1,4.7,5.3, 4.0,5.9,4.4,5.0,4.6,5.7, 3.8,5.4,4.2,5.6,4.9,5.1, 4.5,5.2,4.1,5.8,3.9,5.5, 4.8,6.0,4.3,5.1,4.7,5.3, 4.0,5.9,4.4,5.0,4.6,5.7, 3.8,5.4,4.2];
 
 export default function Home() {
-  const heroBgRef = useRef<HTMLDivElement>(null);
   const quoteRef1 = useRef<HTMLDivElement>(null);
   const quoteRef2 = useRef<HTMLDivElement>(null);
   const quoteRef3 = useRef<HTMLDivElement>(null);
@@ -228,10 +234,6 @@ export default function Home() {
       const y = window.scrollY;
       setShowScrollTop(y > 300);
 
-      // Parallax for hero
-      if (heroBgRef.current) {
-        heroBgRef.current.style.transform = `translateY(${y * 0.3}px)`;
-      }
       // Parallax for quote sections
       [quoteRef1, quoteRef2, quoteRef3].forEach((ref) => {
         if (ref.current) {
@@ -300,20 +302,10 @@ export default function Home() {
     <Layout>
       {/* ============ HERO ============ */}
       <section id="hero" className="min-h-screen relative overflow-hidden flex flex-col">
-        {/* === BG FALLBACK (foto de palco) === */}
-        <div
-          ref={heroBgRef}
-          className="absolute inset-0 z-0 will-change-transform"
-          style={{
-            backgroundImage: `url(${IMAGES.TOM_HERO_BG})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-            height: '120%',
-            top: '-10%',
-          }}
-        />
+        {/* fundo azul escuro sólido enquanto o vídeo carrega */}
+        <div className="absolute inset-0 z-0" style={{ background: '#001123' }} />
 
-        {/* === VIDEO BG (loop, muted, lazy) — z-index 1 sobre o fallback === */}
+        {/* === VIDEO BG (loop, muted, lazy) === */}
         <video
           autoPlay
           muted
@@ -321,7 +313,7 @@ export default function Home() {
           playsInline
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ zIndex: 1, opacity: 0.35 }}
+          style={{ zIndex: 1, opacity: 0.45 }}
         >
           <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
@@ -364,9 +356,19 @@ export default function Home() {
                 Professor FGV EAESP · Ex-Sony · Ex-Honda · Ex-Rakuten
               </span>
 
-              <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.07] tracking-tight mb-4">
+              <h1
+                style={{
+                  fontFamily: "'Roboto', sans-serif",
+                  fontWeight: 100,
+                  fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
+                  lineHeight: 1.08,
+                  letterSpacing: '-0.01em',
+                  color: 'white',
+                  marginBottom: '1rem',
+                }}
+              >
                 Construa a Liderança Digital{' '}
-                <span className="text-accent">que o Mercado vai Seguir</span>
+                <span style={{ color: 'var(--color-accent)' }}>que o Mercado vai Seguir</span>
               </h1>
 
               <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0" style={{ fontWeight: 300 }}>
