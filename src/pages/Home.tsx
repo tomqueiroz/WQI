@@ -307,8 +307,9 @@ export default function Home() {
           <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* Overlay escuro — sobre o vídeo, mais leve no lado direito para logos ficarem visíveis */}
-        <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to right, rgba(0,17,35,0.93) 0%, rgba(0,17,35,0.80) 42%, rgba(0,17,35,0.55) 70%, rgba(0,17,35,0.40) 100%)' }} />
+        {/* Overlay escuro — sobre o vídeo, +15% opacidade para contraste nos textos */}
+        <div className="absolute inset-0" style={{ zIndex: 2, background: 'rgba(0,0,0,0.15)' }} />
+        <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to right, rgba(0,17,35,0.96) 0%, rgba(0,17,35,0.88) 42%, rgba(0,17,35,0.70) 70%, rgba(0,17,35,0.55) 100%)' }} />
 
         {/* === VERTICAL MARQUEE LOGO COLUMNS — descendo continuamente ===
              7 colunas com velocidades distintas, usando CSS animation pura */}
@@ -326,7 +327,7 @@ export default function Home() {
             will-change: transform;
           }
         `}</style>
-        <div className="absolute inset-0 pointer-events-none select-none hidden md:flex" style={{ zIndex: 3, overflow: 'hidden' }}>
+        <div className="absolute inset-0 pointer-events-none select-none hidden md:flex" style={{ zIndex: 4, overflow: 'hidden' }}>
           {VERTICAL_MARQUEE_COLS.map((col, ci) => (
             <div
               key={ci}
@@ -366,8 +367,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Content — z-index 4, acima dos logos */}
-        <div className="relative container mx-auto px-4 flex flex-1 items-center" style={{ zIndex: 4, paddingTop: '80px', paddingBottom: '40px' }}>
+        {/* Content — z-index 5, acima dos logos e overlays */}
+        <div className="relative container mx-auto px-4 flex flex-1 items-center" style={{ zIndex: 5, paddingTop: '80px', paddingBottom: '40px' }}>
           {/* 2-column layout: copy left (5/12) + photo right (7/12) */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 

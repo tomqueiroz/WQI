@@ -204,6 +204,15 @@
     letter-spacing: -0.02em !important;
   }
 
+  /* ™ em h1, h2, h3 — reduzido 50% e sobrescrito (cobre todos os sup dentro de headings) */
+  h1 sup, h2 sup, h3 sup {
+    font-size: 0.45em !important;
+    vertical-align: super !important;
+    font-weight: inherit !important;
+    line-height: 0 !important;
+    display: inline !important;
+  }
+
   /* h2 ajustado (−15% sobre base anterior) */
   h2 {
     font-size: clamp(1.38rem, 3.4vw, 2.21rem) !important;

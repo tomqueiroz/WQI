@@ -636,40 +636,38 @@ export function Layout({ children }: LayoutProps) {
             <div>
               <h6 className="text-white/40 text-xs uppercase tracking-widest mb-4">Links Rápidos</h6>
               <nav className="flex flex-col gap-2">
-                {NAV_ITEMS.map((item) => {
-                  const isRoute = item.href.startsWith('/');
-                  if (isRoute) {
-                    return (
-                      <Link
-                        key={item.href}
-                        to={item.href}
-                        className="text-white/70 hover:text-accent text-sm transition"
-                      >
-                        {item.label}
-                      </Link>
-                    );
-                  }
-                  return (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="text-white/70 hover:text-accent text-sm transition"
-                    >
-                      {item.label}
-                    </a>
-                  );
-                })}
-                <Link to={LMS_ROUTES.PROGRAMAS} className="text-white/70 hover:text-accent text-sm transition">
-                  Programas
-                </Link>
-                <Link to={LMS_ROUTES.BLOG} className="text-white/70 hover:text-accent text-sm transition">
-                  Blog
-                </Link>
-                <Link to={LMS_ROUTES.PRIVACY} className="text-white/70 hover:text-accent text-sm transition">
+                {/* Links principais — todos são rotas /*, usar Link + scroll to top */}
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="text-white/70 hover:text-accent text-sm transition"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                {/* Links extras sem duplicar NAV_ITEMS */}
+                <Link
+                  to={LMS_ROUTES.PRIVACY}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="text-white/70 hover:text-accent text-sm transition"
+                >
                   Privacidade
                 </Link>
-                <Link to={LMS_ROUTES.TERMS} className="text-white/70 hover:text-accent text-sm transition">
-                  Termos
+                <Link
+                  to={LMS_ROUTES.TERMS}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="text-white/70 hover:text-accent text-sm transition"
+                >
+                  Termos de Uso
+                </Link>
+                <Link
+                  to={`${LMS_ROUTES.BLOG}#coming-up`}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="text-white/70 hover:text-accent text-sm transition"
+                >
+                  Eventos de IA
                 </Link>
               </nav>
             </div>
