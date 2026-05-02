@@ -25,8 +25,10 @@ const TIMELINE = [
   { year: '2008', role: 'Executivo de Marketing', company: 'Honda Automóveis', desc: 'Estratégia de marca e campanhas digitais para reposicionamento em segmento premium com resultados recordes.' },
   { year: '2013', role: 'Executivo Digital', company: 'Rakuten Brasil', desc: 'Implantação do e-commerce data-driven e growth hacking com equipes internacionais em 6 países.' },
   { year: '2017', role: 'Chief Marketing Officer', company: 'Shell Brasil', desc: 'P&L de marketing de R$ 400M+, transformação digital full-stack e integração pioneira de IA nas operações.' },
-  { year: '2021', role: 'Chief AI & Innovation Officer', company: 'W-Qi Development', desc: 'Fundação da consultoria de mentoria executiva e metodologia AI-First Framework™.' },
-  { year: '2023', role: 'Professor Convidado', company: 'FGV EAESP', desc: 'MBA e Executive Education em Marketing Digital, IA Generativa e Estratégia de Negócios.' },
+  { year: '2021', role: 'Pioneiro em IA Generativa + CAIO', company: 'IBM Watson & W-Qi Development', desc: 'Iniciou projeto com IBM Watson — antes do boom global da IA Generativa. Fundação da consultoria de mentoria executiva e metodologia AI-First Framework™.' },
+  { year: '2022', role: 'CEO & Chief AI Innovation Officer', company: 'Pareto (pareto.io)', desc: 'Assumiu a liderança da startup brasileira referência em IA Generativa para empresas, com operações no Brasil e no Vale do Silício.' },
+  { year: '2023', role: 'Criador da TESS AI', company: 'Pareto — plataforma TESS AI (tess.im)', desc: 'Lançamento da plataforma proprietária de IA Generativa TESS AI — adotada por centenas de empresas brasileiras e internacionais.' },
+  { year: '2024', role: 'Professor Convidado', company: 'FGV EAESP', desc: 'MBA e Executive Education em Marketing Digital, IA Generativa e Estratégia de Negócios. Mentor e conselheiro selecionado para líderes de alto potencial.' },
 ];
 
 const CREDENTIALS = [
@@ -57,7 +59,7 @@ const PHILOSOPHY = [
   {
     Icon: Lightbulb,
     title: 'IA como alavanca, não como moda',
-    desc: 'Tom foi early adopter de IA em contexto corporativo real. Hoje, entrega o caminho mais curto entre onde você está e o uso estratégico da tecnologia.',
+    desc: 'Tom trabalhou com IBM Watson desde 2021 — 2 anos antes do ChatGPT popularizar a IA. Como CEO da Pareto e criador da TESS AI, entrega o caminho mais curto entre onde você está e o uso estratégico da IA Generativa.',
   },
 ];
 
@@ -92,13 +94,19 @@ export default function SobrePage() {
               Conheça<br /><span style={{ color: '#7a6207' }}>Tom Queiroz</span>
             </h1>
             <p className="text-white/70 leading-relaxed mb-3 max-w-md" style={{ fontWeight: 300, fontSize: '1.05rem' }}>
-              Mundialmente conhecido como <strong className="text-white/90 font-semibold">Tom Queiroz</strong>, é Chief AI &amp; Innovation Officer,
-              ex-executivo de corporações globais de primeira linha — Sony, Honda, Rakuten e Shell — e Professor da FGV EAESP.
+              Mais conhecido como <strong className="text-white/90 font-semibold">Tom Queiroz</strong>, é CEO e CAIO da{' '}
+              <a href="https://pareto.io" target="_blank" rel="noopener noreferrer" className="text-accent underline decoration-accent/40 hover:decoration-accent transition-colors">Pareto</a>,
+              ex-executivo de corporações globais — Sony, Honda, Rakuten e Shell —, Professor da FGV EAESP e pioneiro em IA Generativa no Brasil.
             </p>
-            <p className="text-white/55 leading-relaxed mb-8 max-w-md" style={{ fontWeight: 300, fontSize: '0.95rem' }}>
-              Com 20 anos de execução real no marketing corporativo — de Sony a Shell, em 8 países —,
-              Tom decidiu dedicar sua expertise a acelerar carreiras e negócios de outros líderes.
-              Ele não ensina o que leu. Ensina o que viveu.
+            <p className="text-white/55 leading-relaxed mb-3 max-w-md" style={{ fontWeight: 300, fontSize: '0.95rem' }}>
+              Em 2021, antes mesmo do boom global da IA Generativa, Tom já trabalhava com{' '}
+              <strong className="text-white/75 font-medium">IBM Watson</strong> em projetos corporativos de ponta.
+              Hoje lidera a <a href="https://tess.im" target="_blank" rel="noopener noreferrer" className="text-accent underline decoration-accent/40 hover:decoration-accent transition-colors">TESS AI</a>,
+              plataforma proprietária de IA Generativa da Pareto com operações no Brasil e no Vale do Silício.
+            </p>
+            <p className="text-white/45 leading-relaxed mb-8 max-w-md" style={{ fontWeight: 300, fontSize: '0.9rem' }}>
+              Entre uma rotina executiva, docente e criativa, Tom reserva um tempo especial para atuar como{' '}
+              <strong className="text-white/65 font-medium">mentor e conselheiro</strong> — acreditando no potencial inovador da troca de experiências.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href={WA_LINK} target="_blank" rel="noopener noreferrer">

@@ -244,35 +244,25 @@ export default function Home() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // ── Parallax: scroll listener + rAF throttle ─────────────────────────
+  // ── Parallax: rAF loop permanente — garante efeito sempre ativo ─────
   useEffect(() => {
-    let ticking = false;
+    let rafId: number;
+    const refs = [quoteRef1, quoteRef2, quoteRef3];
 
-    const updateParallax = () => {
-      [quoteRef1, quoteRef2, quoteRef3].forEach((ref) => {
+    const loop = () => {
+      refs.forEach((ref) => {
         if (!ref.current) return;
         const img = ref.current.querySelector('.parallax-img') as HTMLElement | null;
         if (!img) return;
         const rect = ref.current.getBoundingClientRect();
-        // centro da seção relativo ao centro do viewport
         const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
-        img.style.transform = `translate3d(0, ${centerOffset * 0.2}px, 0)`;
+        img.style.transform = `translate3d(0, ${centerOffset * 0.18}px, 0)`;
       });
-      ticking = false;
+      rafId = requestAnimationFrame(loop);
     };
 
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    };
-
-    // aplica imediatamente no mount (posição inicial)
-    updateParallax();
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    rafId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(rafId);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -381,7 +371,7 @@ export default function Home() {
               className="lg:col-span-5 text-center lg:text-left"
             >
               <span className="inline-flex items-center gap-2 text-accent bg-accent/10 border border-accent/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
-                Professor FGV EAESP · Ex-Sony · Ex-Honda · Ex-Rakuten
+                CEO Pareto · CAIO · FGV EAESP · IBM Watson · Ex-Sony · Ex-Shell
               </span>
 
               <h1
@@ -590,12 +580,13 @@ export default function Home() {
             >
               <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">O Arquiteto da Sua Virada</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-2">Wellington Queiroz</h2>
-              <p className="text-accent text-sm font-medium mb-6">Chief AI &amp; Innovation Officer · FGV EAESP · 8 países · 20 anos de execução global</p>
+              <p className="text-accent text-sm font-medium mb-6">CEO Pareto · CAIO · FGV EAESP · 20 anos de execução global</p>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
                 <p>Há uma distinção silenciosa que os executivos de alto nível reconhecem rapidamente: <strong className="text-primary">quem sabe falar sobre estratégia digital — e quem já precisou entregar resultado com ela</strong>. Wellington pertence à segunda categoria, sem nenhuma concessão.</p>
                 <p>Ex-executivo em <strong className="text-primary">Sony, Honda, Rakuten e Shell</strong>, responsável por operações de marketing que movimentaram centenas de milhões em mercados altamente competitivos, ele sabe exatamente onde um executivo erra — e como corrigir com precisão cirúrgica.</p>
-                <p>Seu método <strong className="text-primary">AI-First Framework™</strong> não é um curso online. É um sistema de aceleração construído a partir de 500 casos reais: do diagnóstico até a implementação, com KPIs definidos antes do primeiro encontro. Para quem não pode se dar ao luxo de errar o timing.</p>
+                <p>Pioneiro em IA Generativa no Brasil, Tom trabalhou com <strong className="text-primary">IBM Watson desde 2021</strong> — antes mesmo do boom global de 2023. Hoje é <strong className="text-primary">CEO e CAIO da <a href="https://pareto.io" target="_blank" rel="noopener noreferrer" className="underline decoration-accent/50 hover:decoration-accent transition-colors">Pareto</a></strong>, startup brasileira referência em IA Generativa para empresas com operações no Brasil e no Vale do Silício, criadora da plataforma proprietária <strong className="text-primary"><a href="https://tess.im" target="_blank" rel="noopener noreferrer" className="underline decoration-accent/50 hover:decoration-accent transition-colors">TESS AI</a></strong>.</p>
+                <p>Entre uma rotina executiva, docente e criativa, Tom Queiroz reserva um tempo especialmente para atuar como <strong className="text-primary">mentor e conselheiro</strong> — acreditando no potencial inovador da troca de experiências nesses projetos.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-3 mt-7 mb-7">
