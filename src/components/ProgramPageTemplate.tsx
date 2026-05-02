@@ -214,7 +214,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
             <motion.h1
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
               className="text-white mb-6"
-              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1.1 }}
+              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(1.7rem, 4.25vw, 2.975rem)', lineHeight: 1.1 }}
             >
               {renderAiFirst(prog.title)}
             </motion.h1>

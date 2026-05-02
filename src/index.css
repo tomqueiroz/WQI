@@ -204,9 +204,9 @@
     letter-spacing: -0.02em !important;
   }
 
-  /* h2 aumentado em 30% (base ~1.5rem → ~1.95rem; 2rem → 2.6rem) */
+  /* h2 ajustado (−15% sobre base anterior) */
   h2 {
-    font-size: clamp(1.625rem, 4vw, 2.6rem) !important;
+    font-size: clamp(1.38rem, 3.4vw, 2.21rem) !important;
   }
 
   h3, h4, h5, h6 {
@@ -215,9 +215,9 @@
     letter-spacing: -0.01em;
   }
 
-  /* h3 aumentado em 30% (base ~1.25rem → ~1.625rem) */
+  /* h3 ajustado (−15% sobre base anterior) */
   h3 {
-    font-size: clamp(1.3rem, 3vw, 1.95rem) !important;
+    font-size: clamp(1.105rem, 2.55vw, 1.66rem) !important;
   }
 
   /* Hero h1 específico */

@@ -386,7 +386,7 @@ export default function Home() {
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 700,
-                  fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
+                  fontSize: 'clamp(1.7rem, 3.83vw, 2.975rem)',
                   lineHeight: 1.08,
                   letterSpacing: '-0.02em',
                   color: 'white',
@@ -531,7 +531,7 @@ export default function Home() {
             className="text-center mb-14"
           >
             <span className="inline-block bg-accent/20 text-accent text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">O Diagnóstico Global</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">O Gap que está Custando Trilhões às Empresas</h2>
+            <h2 className="text-2xl md:text-4xl font-black text-white mb-4">O Gap que está Custando Trilhões às Empresas</h2>
             <p className="text-white/60 text-base md:text-lg max-w-3xl mx-auto" style={{ fontWeight: 300 }}>
               Os números são brutais — e a maioria das organizações ainda não percebeu o tamanho do problema que está construindo.
             </p>
@@ -688,7 +688,7 @@ export default function Home() {
               className="order-1 lg:order-2"
             >
               <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">O Arquiteto da Sua Virada</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-2">Wellington Queiroz</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-primary mb-2">Wellington Queiroz</h2>
               <p className="text-accent text-sm font-medium mb-6">CEO Pareto · CAIO · FGV EAESP · 20 anos de execução global</p>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
@@ -745,7 +745,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Soluções Modulares · Geração AI First™</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Programas 100% Customizáveis</h2>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">Programas 100% Customizáveis</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Para executivos individuais, times ou organizações — cada solução é desenhada após diagnóstico estratégico, endereçando o gap real de habilidades em IA da sua realidade. Sem preços públicos, sem modelos genéricos.
             </p>
@@ -837,7 +837,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">AI-First Framework™</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Do Diagnóstico à <GeracaoAiFirstTm /></h2>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">Do Diagnóstico à <GeracaoAiFirstTm /></h2>
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
               Quatro etapas rigorosas e modulares — personalizadas para a realidade de cada executivo, time ou organização. Com KPIs definidos antes de começar e métricas revisadas ao longo de todo o processo.
             </p>
@@ -879,7 +879,7 @@ export default function Home() {
             className="text-center"
           >
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Testemunhais</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Da Incerteza à Liderança <AiFirstTm /></h2>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">Da Incerteza à Liderança <AiFirstTm /></h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm">
               Executivos e líderes que superaram o gap de habilidades em IA e passaram a liderar — e não mais a seguir — a transformação em suas organizações.
             </p>
@@ -937,7 +937,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Sua empresa está formando a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span>?</h2>
+            <h2 className="text-2xl md:text-4xl font-black text-white mb-4">Sua empresa está formando a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span>?</h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
               O IDC estima US$ 5,5 trilhões em perdas globais pelo gap de talentos em IA até 2026. O custo de não agir já está sendo contabilizado. A W-Qi conecta você às lideranças e às metodologias que fecham esse gap — agora.
             </p>
@@ -957,7 +957,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ BLOG PREVIEW ============ */}
+      {/* ============ INSIGHTS & EVENTOS ============ */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
@@ -966,48 +966,160 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Blog</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Insights & Perspectivas</h2>
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Blog & Eventos</p>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">Insights & Perspectivas</h2>
+            <p className="text-muted-foreground mt-3 max-w-xl mx-auto text-sm">Análises executivas sobre IA, liderança e transformação digital — com dados reais, sem hype.</p>
           </motion.div>
 
-          {(featuredPosts && featuredPosts.length > 0) ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {(featuredPosts as import('@/lib/index').BlogPost[]).slice(0, 3).map((post, i: number) => (
-                <motion.div
-                  key={post.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+          {/* ── Grid premium de artigos estáticos ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-10">
+
+            {/* Card principal grande */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="lg:col-span-7"
+            >
+              <Link to={LMS_ROUTES.BLOG}>
+                <div
+                  className="relative overflow-hidden rounded-2xl group cursor-pointer"
+                  style={{ height: '380px', backgroundImage: `url(${IMAGES.PARALLAX_HUMAN_ROBOT})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                 >
-                  <Link to={`/blog/${post.slug}`}>
-                    <Card className="overflow-hidden hover:-translate-y-1 transition-all duration-300 h-full">
-                      {post.cover_image_url && (
-                        <div className="aspect-video overflow-hidden">
-                          <img src={post.cover_image_url} alt={post.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001123] via-[#001123]/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#001123]/60 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: 'rgba(122,98,7,0.25)', color: '#c9a227', border: '1px solid rgba(201,162,39,0.3)' }}>Insights</span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3
+                      className="text-white font-black leading-snug mb-3 group-hover:text-accent transition-colors"
+                      style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)', fontFamily: 'Montserrat, sans-serif' }}
+                    >
+                      95% dos projetos de IA nas empresas fracassam. O problema não é a tecnologia.
+                    </h3>
+                    <p className="text-white/65 text-sm line-clamp-2" style={{ fontWeight: 300 }}>MIT (2025) e RAND Corporation documentaram que o gap de liderança é o maior inibidor de ROI em IA nas organizações.</p>
+                    <div className="flex items-center justify-between mt-4">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-white text-[10px] font-bold">TQ</div>
+                        <span className="text-white/50 text-xs">Tom Queiroz · CEO Pareto · FGV</span>
+                      </div>
+                      <span className="text-accent text-xs font-semibold group-hover:underline">Ler artigo →</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Coluna direita — 2 cards médios */}
+            <div className="lg:col-span-5 flex flex-col gap-5">
+              {[
+                {
+                  img: IMAGES.PARALLAX_AI_MARKETING,
+                  cat: 'Liderança',
+                  title: 'O Brasil tem um gap gigantesco de talentos em IA. E agora?',
+                  excerpt: '98% das empresas relatam dificuldade em encontrar profissionais com skills em IA. TI Inside (2026).',
+                  time: '6 min',
+                },
+                {
+                  img: IMAGES.PARALLAX_HOLOGRAPHIC,
+                  cat: 'Tendências',
+                  title: 'Agentes de IA: o maior risco que o C-suite ainda não precificou',
+                  excerpt: 'Sistemas agentic chegam com autonomia real. E a maioria dos executivos ainda não sabe o que isso significa para seus negócios.',
+                  time: '8 min',
+                },
+              ].map((art, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                >
+                  <Link to={LMS_ROUTES.BLOG}>
+                    <div
+                      className="relative overflow-hidden rounded-2xl group cursor-pointer"
+                      style={{ height: '175px', backgroundImage: `url(${art.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#001123] via-[#001123]/65 to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: 'rgba(122,98,7,0.25)', color: '#c9a227', border: '1px solid rgba(201,162,39,0.3)' }}>{art.cat}</span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3
+                          className="text-white font-bold leading-snug mb-1 group-hover:text-accent transition-colors line-clamp-2"
+                          style={{ fontSize: '0.88rem', fontFamily: 'Montserrat, sans-serif' }}
+                        >
+                          {art.title}
+                        </h3>
+                        <div className="flex items-center justify-between">
+                          <span className="text-white/40 text-[10px]">{art.time} leitura</span>
+                          <span className="text-accent text-[10px] font-semibold group-hover:underline">Ler →</span>
                         </div>
-                      )}
-                      <CardContent className="p-5">
-                        <Badge variant="secondary" className="text-xs mb-2">{post.category}</Badge>
-                        <h3 className="font-bold text-primary text-base line-clamp-2">{post.title}</h3>
-                        <p className="text-muted-foreground text-sm mt-2 line-clamp-3">{post.excerpt}</p>
-                        <p className="text-accent text-xs font-semibold mt-4">Ler artigo →</p>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
                   </Link>
                 </motion.div>
               ))}
             </div>
-          ) : (
-            <div className="text-center text-muted-foreground py-8">
-              <p>Carregando artigos...</p>
-            </div>
-          )}
+          </div>
 
-          <div className="text-center mt-10">
+          {/* ── Próximos Eventos ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="mt-4"
+          >
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-3">
+                <Calendar size={18} style={{ color: '#7a6207' }} />
+                <span className="font-bold text-primary text-sm uppercase tracking-widest">Próximos Eventos de IA</span>
+              </div>
+              <Link to={LMS_ROUTES.BLOG + '#coming-up'} className="text-accent text-xs font-semibold hover:underline flex items-center gap-1">
+                Ver agenda completa <span>→</span>
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { name: 'FEBRABAN Tech 2026', date: '10–12 Jun', city: 'São Paulo', format: 'Presencial', flag: '🇧🇷', highlight: true, url: 'https://febrabantech.com.br' },
+                { name: 'AI Summit São Paulo 2026', date: '15–16 Set', city: 'São Paulo', format: 'Presencial', flag: '🇧🇷', highlight: true, url: 'https://aisummit.com.br' },
+                { name: 'Web Summit Lisboa 2026', date: '02–05 Nov', city: 'Lisboa', format: 'Presencial', flag: '🇵🇹', highlight: false, url: 'https://websummit.com' },
+                { name: 'MIT EmTech 2026', date: 'Out 2026', city: 'Cambridge', format: 'Presencial', flag: '🇺🇸', highlight: false, url: 'https://events.technologyreview.com' },
+              ].map((ev, i) => (
+                <motion.a
+                  key={i}
+                  href={ev.url} target="_blank" rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  whileHover={{ y: -3 }}
+                  className="block rounded-xl p-4 border transition-all cursor-pointer group"
+                  style={{
+                    background: ev.highlight ? 'linear-gradient(135deg, rgba(0,17,35,0.04) 0%, rgba(122,98,7,0.05) 100%)' : 'white',
+                    borderColor: ev.highlight ? 'rgba(122,98,7,0.25)' : '#e4e7ed',
+                    boxShadow: ev.highlight ? '0 2px 12px rgba(122,98,7,0.08)' : 'none',
+                  }}
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <span className="text-lg">{ev.flag}</span>
+                    {ev.highlight && (
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: 'rgba(122,98,7,0.15)', color: '#7a6207' }}>Destaque</span>
+                    )}
+                  </div>
+                  <p className="text-primary font-bold text-sm leading-snug mb-1 group-hover:text-accent transition-colors" style={{ fontFamily: 'Montserrat, sans-serif' }}>{ev.name}</p>
+                  <p className="text-muted-foreground text-xs" style={{ fontWeight: 300 }}>{ev.date} · {ev.city}</p>
+                  <div className="flex items-center justify-between mt-3">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{ev.format}</span>
+                    <span className="text-accent text-[10px] font-semibold group-hover:underline">Inscrição →</span>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="text-center mt-10 flex flex-wrap gap-3 justify-center">
             <Link to={LMS_ROUTES.BLOG}>
-              <Button variant="outline" className="border-primary text-primary rounded-full px-8 py-3 h-auto font-semibold">
+              <Button variant="outline" className="border-primary text-primary rounded-full px-8 py-3 h-auto font-semibold text-sm">
                 Ver Todos os Artigos
+              </Button>
+            </Link>
+            <Link to={LMS_ROUTES.BLOG + '#coming-up'}>
+              <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-3 h-auto font-semibold text-sm">
+                <Calendar size={14} className="mr-2" /> Agenda de Eventos
               </Button>
             </Link>
           </div>
@@ -1048,7 +1160,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">FAQ</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Perguntas Frequentes</h2>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">Perguntas Frequentes</h2>
           </motion.div>
 
           <Accordion type="single" collapsible className="space-y-3">
@@ -1079,7 +1191,7 @@ export default function Home() {
               transition={{ duration: 0.7 }}
             >
               <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Primeiro Passo</p>
-              <h2 className="text-3xl md:text-4xl text-white mb-4">Uma Conversa pode Mudar sua Trajetória</h2>
+              <h2 className="text-2xl md:text-3xl text-white mb-4">Uma Conversa pode Mudar sua Trajetória</h2>
               <p className="text-white/60 text-sm leading-relaxed mb-8">
                 Líderes de alto desempenho não esperam a situação ideal. Eles constroem a situação ideal — a partir de uma decisão precisa e bem assessorada. Esse é o ponto de partida.
               </p>

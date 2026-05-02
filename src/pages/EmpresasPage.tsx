@@ -275,7 +275,7 @@ export default function EmpresasPage() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
               className="text-white mb-6"
-              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(2.4rem, 5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
+              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(2.04rem, 4.25vw, 3.4rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
             >
               Forme a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span><br />
               na sua organização.
