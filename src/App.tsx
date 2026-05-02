@@ -23,6 +23,8 @@ import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
 import PrivacyPage from "@/pages/PrivacyPage";
 import TermsPage from "@/pages/TermsPage";
+import SobrePage from "@/pages/SobrePage";
+import ContatoPage from "@/pages/ContatoPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -63,6 +65,8 @@ const App = () => (
             <Route path={LMS_ROUTES.BLOG_POST} element={<BlogPostPage />} />
             <Route path={LMS_ROUTES.PRIVACY} element={<PrivacyPage />} />
             <Route path={LMS_ROUTES.TERMS} element={<TermsPage />} />
+            <Route path={LMS_ROUTES.SOBRE} element={<SobrePage />} />
+            <Route path={LMS_ROUTES.CONTATO} element={<ContatoPage />} />
             <Route path={LMS_ROUTES.COURSE_DETAIL} element={<CourseDetailPage />} />
             <Route
               path={LMS_ROUTES.COURSES}

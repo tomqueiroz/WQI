@@ -14,6 +14,8 @@ export const LMS_ROUTES = {
   BLOG: '/blog',
   BLOG_POST: '/blog/:slug',
   PROGRAMAS: '/programas',
+  SOBRE: '/sobre',
+  CONTATO: '/contato',
   PRIVACY: '/privacidade',
   TERMS: '/termos',
 } as const;
@@ -24,11 +26,11 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Início', href: '#hero' },
-  { label: 'Sobre', href: '#sobre' },
+  { label: 'Início', href: '/' },
+  { label: 'Sobre', href: '/sobre' },
   { label: 'Programas', href: '/programas' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Contato', href: '/contato' },
 ];
 
 export interface BlogCategory {

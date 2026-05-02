@@ -194,6 +194,7 @@
   body {
     @apply bg-background text-foreground font-sans min-h-screen;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-weight: 300;
   }
 
   h2 {
@@ -221,8 +222,21 @@
     @apply font-bold tracking-tight;
   }
 
-  p, li, span {
+  p {
     font-family: var(--font-sans);
+    font-weight: 300;
+  }
+
+  li {
+    font-family: var(--font-sans);
+    font-weight: 300;
+  }
+
+  /* Nav menu items — thin weight, increased spacing */
+  nav a, nav button, .nav-item {
+    font-weight: 300 !important;
+    letter-spacing: 0.05em !important;
+    font-size: 0.9375rem !important; /* 15px = sm(14px) * 1.25 */
   }
 
   code, pre {
