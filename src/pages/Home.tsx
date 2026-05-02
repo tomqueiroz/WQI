@@ -13,6 +13,14 @@ import {
   MessageCircle,
   Stethoscope,
   X,
+  GraduationCap,
+  Globe,
+  Zap,
+  TrendingUp,
+  Search,
+  Lock,
+  Calendar,
+  Star,
 } from 'lucide-react';
 import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
@@ -134,7 +142,7 @@ const HERO_LOGOS = [
   // Faixa 2 — top ~17%
   { key: 'GREENP_16',   style: { top: '17%', left:  '1%'  } },
   { key: 'HERING_15',   style: { top: '17%', left:  '16%' } },
-  { key: 'IMG_1_54',    style: { top: '17%', left:  '31%' } },
+  { key: 'IMG_19_42',   style: { top: '17%', left:  '31%' } },
   { key: 'IMG_2_51',    style: { top: '17%', left:  '47%' } },
   { key: 'IMG_3_56',    style: { top: '17%', left:  '63%' } },
   { key: 'IMG_4_45',    style: { top: '17%', left:  '79%' } },
@@ -432,6 +440,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ DEVELOPMENT & GROWTH — frase tipográfica ============ */}
+      <div
+        aria-hidden
+        className="relative overflow-hidden py-10 md:py-14 bg-background select-none"
+        style={{ borderTop: '1px solid rgba(0,17,35,0.06)', borderBottom: '1px solid rgba(0,17,35,0.06)' }}
+      >
+        {/* Watermark gigante — Roboto Thin, quase invisível */}
+        <p
+          style={{
+            fontFamily: "'Roboto', sans-serif",
+            fontWeight: 100,
+            fontSize: 'clamp(4rem, 13vw, 11rem)',
+            lineHeight: 1,
+            letterSpacing: '-0.04em',
+            color: 'rgba(0,17,35,0.07)',
+            whiteSpace: 'nowrap',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%,-50%)',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          DEVELOPMENT &amp; GROWTH
+        </p>
+        {/* Frase legível em cobre, 50% opaca */}
+        <div className="relative z-10 container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+          <p
+            style={{
+              fontFamily: "'Roboto', sans-serif",
+              fontWeight: 100,
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)',
+              letterSpacing: '0.18em',
+              color: '#7a6207',
+              opacity: 0.55,
+              textTransform: 'uppercase',
+              lineHeight: 1,
+            }}
+          >
+            Development
+          </p>
+          <span style={{ fontSize: 'clamp(1.2rem,2vw,2rem)', color: 'rgba(122,98,7,0.3)', fontWeight: 100, letterSpacing:'0.3em' }}>
+            &amp;
+          </span>
+          <p
+            style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 600,
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)',
+              letterSpacing: '0.18em',
+              color: '#7a6207',
+              opacity: 0.55,
+              textTransform: 'uppercase',
+              lineHeight: 1,
+            }}
+          >
+            Growth
+          </p>
+        </div>
+      </div>
+
       {/* ============ QUOTE PARALLAX 1 ============ */}
       <section ref={quoteRef1} className="min-h-[45vh] relative overflow-hidden flex items-center">
         <div
@@ -512,13 +582,13 @@ export default function Home() {
 
               <div className="grid grid-cols-2 gap-3 mt-7 mb-7">
                 {[
-                  { icon: '🎓', label: 'FGV EAESP', sub: 'Professor Convidado' },
-                  { icon: '🌎', label: '8 Países', sub: 'Mentorados Ativos' },
-                  { icon: '⚡', label: 'AI-First™', sub: 'Metodologia Proprietária' },
-                  { icon: '📈', label: 'ROI 10x', sub: 'Média em Projetos Reais' },
+                  { Icon: GraduationCap, label: 'FGV EAESP', sub: 'Professor Convidado' },
+                  { Icon: Globe,         label: '8 Países',  sub: 'Mentorados Ativos' },
+                  { Icon: Zap,           label: 'AI-First™', sub: 'Metodologia Proprietária' },
+                  { Icon: TrendingUp,    label: 'ROI 10x',   sub: 'Média em Projetos Reais' },
                 ].map((c) => (
                   <div key={c.label} className="flex items-start gap-3 bg-muted/40 rounded-xl p-3">
-                    <span className="text-lg">{c.icon}</span>
+                    <c.Icon size={18} style={{ color: '#7a6207', flexShrink: 0, marginTop: 2 }} />
                     <div>
                       <div className="text-primary font-bold text-sm">{c.label}</div>
                       <div className="text-muted-foreground text-xs">{c.sub}</div>
@@ -709,9 +779,9 @@ export default function Home() {
               key={`${t.id}-${i}`}
               className="flex-shrink-0 w-80 bg-background rounded-2xl p-6 shadow-sm border border-border/40"
             >
-              <div className="flex mb-3">
+              <div className="flex gap-0.5 mb-3">
                 {[...Array(5)].map((_, j) => (
-                  <span key={j} className="text-accent text-sm">★</span>
+                  <Star key={j} size={12} fill="#7a6207" style={{ color: '#7a6207' }} />
                 ))}
               </div>
               <p className="text-muted-foreground text-sm italic leading-relaxed mb-5">&ldquo;{t.content}&rdquo;</p>
@@ -901,13 +971,13 @@ export default function Home() {
 
               <div className="space-y-5">
                 {[
-                  { icon: '🎯', title: 'Diagnóstico sem custo', desc: 'Na primeira conversa, mapeamos gaps, oportunidades e o seu maior alavancador de resultado agora.' },
-                  { icon: '⚡', title: 'Proposta sob medida', desc: 'Cada programa é desenhado para o seu contexto — setor, momento de carreira, objetivos de negócio.' },
-                  { icon: '🔒', title: 'Confidencialidade total', desc: 'Seus desafios e planos estratégicos são tratados com o mesmo sigilo de um advisor de board.' },
-                  { icon: '📅', title: 'Resposta em 24h', desc: 'Sua mensagem chega direto ao time W-Qi. Sem burocracia, sem SDRs. Só conversa qualificada.' },
+                  { Icon: Search,   title: 'Diagnóstico sem custo',    desc: 'Na primeira conversa, mapeamos gaps, oportunidades e o seu maior alavancador de resultado agora.' },
+                  { Icon: Zap,      title: 'Proposta sob medida',       desc: 'Cada programa é desenhado para o seu contexto — setor, momento de carreira, objetivos de negócio.' },
+                  { Icon: Lock,     title: 'Confidencialidade total',   desc: 'Seus desafios e planos estratégicos são tratados com o mesmo sigilo de um advisor de board.' },
+                  { Icon: Calendar, title: 'Resposta em 24h',           desc: 'Sua mensagem chega direto ao time W-Qi. Sem burocracia, sem SDRs. Só conversa qualificada.' },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
+                    <item.Icon size={20} style={{ color: '#7a6207', flexShrink: 0, marginTop: 2 }} />
                     <div>
                       <div className="text-white font-semibold text-sm mb-1">{item.title}</div>
                       <div className="text-white/50 text-xs leading-relaxed">{item.desc}</div>

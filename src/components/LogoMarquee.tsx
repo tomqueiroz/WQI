@@ -32,8 +32,7 @@ const ALL_LOGOS: { src: string; alt: string }[] = [
   { src: IMAGES.SHOPIFY_34,  alt: 'Shopify' },
   { src: IMAGES.SALTA_35,    alt: 'Salta' },
   { src: IMAGES.NIVEA_36,    alt: 'Nivea' },
-  // 21 novos logos (numerados)
-  { src: IMAGES.IMG_1_54,    alt: 'Cliente 1' },
+  // 21 novos logos (numerados) — sem IMG_1_54 (foto, não logo)
   { src: IMAGES.IMG_2_51,    alt: 'Cliente 2' },
   { src: IMAGES.IMG_3_56,    alt: 'Cliente 3' },
   { src: IMAGES.IMG_4_45,    alt: 'Cliente 4' },
