@@ -23,6 +23,10 @@ export const LMS_ROUTES = {
   SOBRE: '/sobre',
   CONTATO: '/contato',
   EMPRESAS: '/para-empresas',
+  CORP_AI_LEADERSHIP: '/para-empresas/lideranca-ai-first',
+  CORP_AI_IMMERSION: '/para-empresas/imersao-ai-first',
+  CORP_MENTOR_FORM: '/para-empresas/formacao-mentores',
+  CORP_EXEC_ADVISORY: '/para-empresas/advisory-executivo',
   PRIVACY: '/privacidade',
   TERMS: '/termos',
 } as const;

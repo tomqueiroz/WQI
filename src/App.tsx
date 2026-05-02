@@ -32,6 +32,10 @@ import MasterclassPage from "@/pages/programs/MasterclassPage";
 import KeynotePage from "@/pages/programs/KeynotePage";
 import CursosDigitaisPage from "@/pages/programs/CursosDigitaisPage";
 import EmpresasPage from "@/pages/EmpresasPage";
+import CorpAiLeadershipPage from "@/pages/empresas/CorpAiLeadershipPage";
+import CorpAiImmersionPage from "@/pages/empresas/CorpAiImmersionPage";
+import CorpMentorFormPage from "@/pages/empresas/CorpMentorFormPage";
+import CorpExecAdvisoryPage from "@/pages/empresas/CorpExecAdvisoryPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -68,6 +72,10 @@ const App = () => (
               }
             />
 <Route path={LMS_ROUTES.EMPRESAS} element={<EmpresasPage />} />
+            <Route path={LMS_ROUTES.CORP_AI_LEADERSHIP} element={<CorpAiLeadershipPage />} />
+            <Route path={LMS_ROUTES.CORP_AI_IMMERSION} element={<CorpAiImmersionPage />} />
+            <Route path={LMS_ROUTES.CORP_MENTOR_FORM} element={<CorpMentorFormPage />} />
+            <Route path={LMS_ROUTES.CORP_EXEC_ADVISORY} element={<CorpExecAdvisoryPage />} />
             <Route path={LMS_ROUTES.PROGRAMAS} element={<ProgramasPage />} />
             <Route path={LMS_ROUTES.PROG_1ON1} element={<Mentoria1on1Page />} />
             <Route path={LMS_ROUTES.PROG_COHORT} element={<CohortPage />} />

@@ -25,6 +25,13 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+const EMPRESAS_SUBMENU = [
+  { label: 'Liderança AI First™ Corporativa', href: LMS_ROUTES.CORP_AI_LEADERSHIP },
+  { label: 'Imersão AI First™ in Company', href: LMS_ROUTES.CORP_AI_IMMERSION },
+  { label: 'Formação de Mentores IA', href: LMS_ROUTES.CORP_MENTOR_FORM },
+  { label: 'Advisory Executivo AI', href: LMS_ROUTES.CORP_EXEC_ADVISORY },
+];
+
 const PROGRAM_SUBMENU = [
   { label: 'Mentoria Executiva 1:1', href: LMS_ROUTES.PROG_1ON1 },
   { label: 'Cohort Executivo', href: LMS_ROUTES.PROG_COHORT },
@@ -45,7 +52,9 @@ export function Layout({ children }: LayoutProps) {
   const [exitFormLoading, setExitFormLoading] = useState(false);
   const [exitFormSuccess, setExitFormSuccess] = useState(false);
   const [showProgramasMenu, setShowProgramasMenu] = useState(false);
+  const [showEmpresasMenu, setShowEmpresasMenu] = useState(false);
   const [programasMobileOpen, setProgramasMobileOpen] = useState(false);
+  const [empresasMobileOpen, setEmpresasMobileOpen] = useState(false);
   const { user, profile, signOut } = useAuth();
 
   useEffect(() => {
@@ -222,15 +231,51 @@ export function Layout({ children }: LayoutProps) {
 
                 if (isEmpresas) {
                   return (
-                    <button
+                    <div
                       key={item.href}
-                      onClick={() => handleNavClick(item.href)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all hover:scale-105 nav-item cursor-pointer"
-                      style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.18)', color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}
+                      className="relative"
+                      onMouseEnter={() => setShowEmpresasMenu(true)}
+                      onMouseLeave={() => setShowEmpresasMenu(false)}
                     >
-                      <Building2 className="w-3.5 h-3.5" />
-                      {item.label}
-                    </button>
+                      <button
+                        onClick={() => handleNavClick(item.href)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all hover:scale-105 nav-item cursor-pointer"
+                        style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.18)', color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}
+                      >
+                        <Building2 className="w-3.5 h-3.5" />
+                        {item.label}
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </button>
+
+                      <AnimatePresence>
+                        {showEmpresasMenu && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 mt-2 w-72 bg-[#001123] rounded-xl border shadow-xl overflow-hidden"
+                            style={{ borderColor: 'rgba(122,98,7,0.35)' }}
+                          >
+                            <div className="px-4 py-2 border-b" style={{ borderColor: 'rgba(122,98,7,0.2)' }}>
+                              <span className="text-xs font-semibold uppercase" style={{ color: '#c9a227', letterSpacing: '0.1em' }}>Soluções para Empresas</span>
+                            </div>
+                            {EMPRESAS_SUBMENU.map((subItem) => (
+                              <button
+                                key={subItem.href}
+                                onClick={() => { handleNavClick(subItem.href); setShowEmpresasMenu(false); }}
+                                className="flex items-center gap-2 px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors w-full text-left"
+                              >
+                                <ChevronRight className="w-4 h-4" style={{ color: '#7a6207' }} />
+                                <span className="text-sm" style={{ fontWeight: 300, letterSpacing: '0.03em' }}>
+                                  {subItem.label}
+                                </span>
+                              </button>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   );
                 }
 
@@ -364,15 +409,38 @@ export function Layout({ children }: LayoutProps) {
 
                       if (isEmpresasMobile) {
                         return (
-                          <button
-                            key={item.href}
-                            onClick={() => handleNavClickMobile(item.href)}
-                            className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold transition-colors w-full text-left"
-                            style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.12)', color: '#7a6207', border: '1px solid rgba(122,98,7,0.25)' }}
-                          >
-                            <Building2 size={15} />
-                            {item.label}
-                          </button>
+                          <div key={item.href}>
+                            <button
+                              onClick={() => setEmpresasMobileOpen(!empresasMobileOpen)}
+                              className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg font-semibold transition-colors"
+                              style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.12)', color: '#7a6207', border: '1px solid rgba(122,98,7,0.25)' }}
+                            >
+                              <span className="flex items-center gap-2"><Building2 size={15} />{item.label}</span>
+                              <ChevronDown className={`w-4 h-4 transition-transform ${empresasMobileOpen ? 'rotate-180' : ''}`} />
+                            </button>
+                            {empresasMobileOpen && (
+                              <div className="ml-4 mt-2 flex flex-col gap-1">
+                                <button
+                                  onClick={() => handleNavClickMobile(item.href)}
+                                  className="flex items-center gap-2 px-4 py-2 text-sm rounded-md transition-colors w-full text-left"
+                                  style={{ color: '#c9a227', fontWeight: 600 }}
+                                >
+                                  <Building2 className="w-3.5 h-3.5" style={{ color: '#7a6207' }} />
+                                  Visão Geral Para Empresas
+                                </button>
+                                {EMPRESAS_SUBMENU.map((subItem) => (
+                                  <button
+                                    key={subItem.href}
+                                    onClick={() => handleNavClickMobile(subItem.href)}
+                                    className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors w-full text-left"
+                                  >
+                                    <ChevronRight className="w-3.5 h-3.5" style={{ color: '#7a6207' }} />
+                                    {subItem.label}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         );
                       }
 

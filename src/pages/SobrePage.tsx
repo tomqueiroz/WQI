@@ -21,23 +21,32 @@ import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa6';
 const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi.';
 
 const TIMELINE = [
-  { year: '2004', role: 'Executivo de Marketing', company: 'Sony Electronics', desc: 'Liderou lançamentos de produto no mercado brasileiro com campanhas multicanal de alto impacto e visibilidade nacional.' },
-  { year: '2008', role: 'Executivo de Marketing', company: 'Honda Automóveis', desc: 'Estratégia de marca e campanhas digitais para reposicionamento em segmento premium com resultados recordes.' },
-  { year: '2013', role: 'Executivo Digital', company: 'Rakuten Brasil', desc: 'Implantação do e-commerce data-driven e growth hacking com equipes internacionais em 6 países.' },
-  { year: '2017', role: 'Chief Marketing Officer', company: 'Shell Brasil', desc: 'P&L de marketing de R$ 400M+, transformação digital full-stack e integração pioneira de IA nas operações.' },
-  { year: '2021', role: 'Pioneiro em IA Generativa + CAIO', company: 'IBM Watson & W-Qi Development', desc: 'Iniciou projeto com IBM Watson — antes do boom global da IA Generativa. Fundação da consultoria de mentoria executiva e metodologia AI-First Framework™.' },
-  { year: '2022', role: 'CEO & Chief AI Innovation Officer', company: 'Pareto (pareto.io)', desc: 'Assumiu a liderança da startup brasileira referência em IA Generativa para empresas, com operações no Brasil e no Vale do Silício.' },
-  { year: '2023', role: 'Criador da TESS AI', company: 'Pareto — plataforma TESS AI (tess.im)', desc: 'Lançamento da plataforma proprietária de IA Generativa TESS AI — adotada por centenas de empresas brasileiras e internacionais.' },
-  { year: '2024', role: 'Professor Convidado', company: 'FGV EAESP', desc: 'MBA e Executive Education em Marketing Digital, IA Generativa e Estratégia de Negócios. Mentor e conselheiro selecionado para líderes de alto potencial.' },
+  { year: '1997–2000', role: 'Formação — Propaganda & Marketing', company: 'Universidade Mackenzie', desc: 'Bacharel em Propaganda e Marketing pela Universidade Presbiteriana Mackenzie. Base sólida em comunicação, branding e estratégia de mercado.' },
+  { year: '1994–1996', role: 'Técnico em Administração', company: 'Fundação Bradesco', desc: 'Formação técnica em Administração de Empresas pela Fundação Bradesco — base em gestão e negócios.' },
+  { year: '2003–2008', role: 'Coordenador de Marketing e Comunicação', company: 'Stihl — Porto Alegre', desc: 'Responsável pelo reposicionamento da marca e abertura de novos mercados além dos implementos agrícolas. Liderou equipe especializada, melhorou comunicação, otimizou publicidade offline e impulsionou crescimento de vendas.' },
+  { year: '2005', role: 'Consultor de Business Development', company: 'Shell — Programa Líderes do Futuro', desc: 'Selecionado para o altamente disputado Programa de Líderes do Futuro Shell. Abertura de novos mercados para Lubrificantes na Região Sul com ativação B2B e conquista de aumento de 18% em market share.' },
+  { year: '2006–2009', role: 'MBA — Inovação em Marketing', company: 'PUC-RS', desc: 'MBA em Inovação em Marketing pela PUC-RS. Aprofundamento em estratégias de inovação e desenvolvimento de produtos.' },
+  { year: '2008–2012', role: 'Gerente de Comunicação e Marcas', company: 'Sony Electronics', desc: 'Desenvolveu estratégia de posicionamento de marca com foco na nova Classe C brasileira — triplicou faturamento em 2 anos. Liderou trade marketing com mais de 1.500 promotores em todo o Brasil concorrendo com Samsung e LG.' },
+  { year: '2012–2014', role: 'Gerente de Marketing Digital LATAM', company: 'Kobo Inc. (Canadá)', desc: 'Responsável por introduzir a marca canadense na América Latina. Criou estratégias de marketing e liderou times internacionais no mercado de e-books e tablets, resultando em dezenas de contratos e receita expressiva.' },
+  { year: '2014–2017', role: 'Fundador & Empreendedor Digital', company: 'Digital MarTech XP + Pearson Brasil', desc: 'Fundou startup de educação online em parceria com a Pearson Brasil — maior editora do mundo. Abriu mais de 250 convênios, premiado por performance em vendas e inovação em marketing digital.' },
+  { year: '2014–2017', role: 'Gerente Sênior de Marketing Digital', company: 'Honda Automóveis do Brasil', desc: 'Liderou transformação digital com tecnologias 3D/CGI e Realidade Virtual no ponto de venda. Implementou CRM Salesforce. Alcançou crescimento de 50% em market share em SUVs. Responsável pelos lançamentos dos icônicos HR-V e WR-V.' },
+  { year: '2014–2017', role: 'MBA — Marketing Digital', company: 'FGV — Fundação Getúlio Vargas', desc: 'MBA em Marketing Digital pela FGV — uma das mais respeitadas instituições de negócios do Brasil. Aprofundamento em estratégias digitais e analytics.' },
+  { year: '2021', role: 'Gerente de Marketing Digital — Pioneiro em IA', company: 'Arco Educação + IBM Watson', desc: 'Integrou IA com tecnologia IBM-Watson como assistente virtual para ativação em eventos — antes do boom global da IA Generativa. Impulsionou crescimento de audiência e conversão superior a 10% YoY com estratégias inovadoras.' },
+  { year: '2021–2022', role: 'Full-Stack Developer & Fundação W-Qi', company: 'Digital MarTech + W-Qi Development', desc: 'Concluiu formação em Full-Stack Web Development (2021–2022) e fundou a W-Qi Development — consultoria de mentoria executiva e metodologia AI-First Framework™ para líderes e corporações.' },
+  { year: '2022–2023', role: 'Head de Marketing Digital Sênior', company: 'Faculdade São Leopoldo Mandic', desc: 'Reestruturou marketing com equipe de 25 profissionais em squads especializados, alcançando crescimento histórico de 10x em leads qualificados. Implementou IA em campanhas e automações com otimização de investimentos em mídia.' },
+  { year: '2023–Atual', role: 'Professor MsC — Generative AI Applied to Business', company: 'FGV EAESP', desc: 'Professor associado em Marketing Digital e Inteligência Artificial Generativa na Fundação Getúlio Vargas EAESP — compartilhando expertise com líderes de alto potencial em MBA e Executive Education.' },
+  { year: '2024–Atual', role: 'Diretor de IA Multimodal & CAIO', company: 'Pareto (pareto.io) · TESS AI (tess.im)', desc: 'Diretor de IA Generativa na Pareto Plus — referência brasileira em GenAI com operações no Brasil e Vale do Silício. Responsável estratégico da plataforma proprietária TESS AI, adotada por centenas de empresas. Certificado AI Leader em AI Ads, AI Social, AI Design, AI Email e Engenharia de Prompt.' },
 ];
 
 const CREDENTIALS = [
-  { Icon: GraduationCap, title: 'FGV EAESP', desc: 'Professor convidado em MBA e Executive Education, temas de Marketing Digital e IA.' },
+  { Icon: GraduationCap, title: 'FGV EAESP', desc: 'Professor associado em Marketing Digital e IA Generativa — MBA e Executive Education. Compartilha expertise com líderes de alto potencial.' },
   { Icon: Globe, title: '8 Países', desc: 'Mentoria ativa com executivos do Brasil, EUA, Portugal, Espanha, México, Colômbia, Argentina e Alemanha.' },
-  { Icon: Zap, title: 'AI-First Framework™', desc: 'Metodologia proprietária baseada em 500+ casos reais de transformação digital com IA.' },
+  { Icon: Zap, title: 'AI-First Framework™', desc: 'Metodologia proprietária baseada em 500+ casos reais de transformação digital com IA Generativa.' },
   { Icon: TrendingUp, title: 'ROI Médio 10x', desc: 'Resultado médio documentado em projetos de marketing com IA generativa nos últimos 3 anos.' },
-  { Icon: BookOpen, title: '20 Anos', desc: 'Duas décadas de execução em marketing corporativo nos mais exigentes mercados globais.' },
-  { Icon: Users, title: '500+ Executivos', desc: 'Líderes de C-Suite, VPs e diretores mentoreados em programas individuais e cohorts.' },
+  { Icon: BookOpen, title: '25+ Anos', desc: 'Executivo C-Level com mais de 25 anos em liderança estratégica de reposicionamento de operações e marcas globais.' },
+  { Icon: Users, title: '500+ Executivos', desc: 'Líderes de C-Suite, VPs e diretores mentoreados em programas individuais, cohorts e in-company.' },
+  { Icon: Award, title: 'Melhor Campanha 2015', desc: 'Prêmio The Advertising of The Year 2015 pelo lançamento do Honda HR-V — reposicionamento histórico de 50% em market share em SUVs.' },
+  { Icon: BarChart3, title: 'TESS AI · Pareto.io', desc: 'CEO e CAIO responsável pela plataforma proprietária de IA Generativa TESS AI (tess.im), adotada por centenas de empresas no Brasil e no Vale do Silício.' },
 ];
 
 const PHILOSOPHY = [
