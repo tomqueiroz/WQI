@@ -95,13 +95,13 @@ function MarqueeRow({ logos, direction, duration }: MarqueeRowProps) {
           <div
             key={idx}
             className="flex items-center justify-center flex-shrink-0 px-4"
-            style={{ height: '80px', minWidth: '160px' }}
+            style={{ height: '100px', minWidth: '200px' }}
           >
             <img
               src={logo.src}
               alt={logo.alt}
             className="w-auto object-contain transition-all duration-300"
-              style={{ maxHeight: '60px', maxWidth: '260px', opacity: 0.6, filter: 'brightness(10) saturate(0)' }}
+              style={{ maxHeight: '75px', maxWidth: '325px', opacity: 0.6, filter: 'brightness(10) saturate(0)' }}
               onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.opacity = '1'; (e.currentTarget as HTMLImageElement).style.filter = 'none'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.opacity = '0.55'; (e.currentTarget as HTMLImageElement).style.filter = 'brightness(10) saturate(0)'; }}
               loading="lazy"

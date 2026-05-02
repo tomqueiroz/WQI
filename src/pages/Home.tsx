@@ -237,38 +237,42 @@ export default function Home() {
     };
   }, []);
 
-  // ── Parallax robusto: rAF loop permanente ──────────────────────────────
+  // ── Scroll-top indicator ──────────────────────────────────────────────
   useEffect(() => {
-    let rafId: number;
-    let lastScrollY = -1;
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-    const applyParallax = () => {
-      const y = window.scrollY;
+  // ── Parallax: scroll listener + rAF throttle ─────────────────────────
+  useEffect(() => {
+    let ticking = false;
 
-      // só recalcula se houve mudança de scroll
-      if (y !== lastScrollY) {
-        lastScrollY = y;
-        setShowScrollTop(y > 300);
-
-        [quoteRef1, quoteRef2, quoteRef3].forEach((ref) => {
-          if (!ref.current) return;
-          const rect = ref.current.getBoundingClientRect();
-          // só aplica quando a seção está próxima do viewport (±200vh de margem)
-          if (rect.bottom < -window.innerHeight * 2 || rect.top > window.innerHeight * 3) return;
-          const centerOffset = (rect.top + rect.height / 2 - window.innerHeight / 2);
-          const shift = centerOffset * 0.18;
-          const img = ref.current.querySelector('.parallax-img') as HTMLElement | null;
-          if (img) {
-            img.style.transform = `translate3d(0, ${shift}px, 0)`;
-          }
-        });
-      }
-
-      rafId = requestAnimationFrame(applyParallax);
+    const updateParallax = () => {
+      [quoteRef1, quoteRef2, quoteRef3].forEach((ref) => {
+        if (!ref.current) return;
+        const img = ref.current.querySelector('.parallax-img') as HTMLElement | null;
+        if (!img) return;
+        const rect = ref.current.getBoundingClientRect();
+        // centro da seção relativo ao centro do viewport
+        const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+        img.style.transform = `translate3d(0, ${centerOffset * 0.2}px, 0)`;
+      });
+      ticking = false;
     };
 
-    rafId = requestAnimationFrame(applyParallax);
-    return () => cancelAnimationFrame(rafId);
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    };
+
+    // aplica imediatamente no mount (posição inicial)
+    updateParallax();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

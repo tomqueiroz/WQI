@@ -21,10 +21,10 @@ import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa6';
 const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi.';
 
 const TIMELINE = [
-  { year: '2004', role: 'Marketing Manager', company: 'Sony Electronics', desc: 'Liderou lançamentos de produto no mercado brasileiro, com campanhas multicanal de alto impacto.' },
-  { year: '2008', role: 'Head of Marketing', company: 'Honda Automóveis', desc: 'Estratégia de marca e campanhas digitais para reposicionamento em mercado premium.' },
-  { year: '2013', role: 'Director of Digital', company: 'Rakuten Brasil', desc: 'Implantação do e-commerce data-driven e growth hacking com equipes internacionais.' },
-  { year: '2017', role: 'Chief Marketing Officer', company: 'Shell Brasil', desc: 'P&L de marketing de R$ 400M+, transformação digital e integração de IA nas operações.' },
+  { year: '2004', role: 'Executivo de Marketing', company: 'Sony Electronics', desc: 'Liderou lançamentos de produto no mercado brasileiro com campanhas multicanal de alto impacto e visibilidade nacional.' },
+  { year: '2008', role: 'Executivo de Marketing', company: 'Honda Automóveis', desc: 'Estratégia de marca e campanhas digitais para reposicionamento em segmento premium com resultados recordes.' },
+  { year: '2013', role: 'Executivo Digital', company: 'Rakuten Brasil', desc: 'Implantação do e-commerce data-driven e growth hacking com equipes internacionais em 6 países.' },
+  { year: '2017', role: 'Chief Marketing Officer', company: 'Shell Brasil', desc: 'P&L de marketing de R$ 400M+, transformação digital full-stack e integração pioneira de IA nas operações.' },
   { year: '2021', role: 'Chief AI & Innovation Officer', company: 'W-Qi Development', desc: 'Fundação da consultoria de mentoria executiva e metodologia AI-First Framework™.' },
   { year: '2023', role: 'Professor Convidado', company: 'FGV EAESP', desc: 'MBA e Executive Education em Marketing Digital, IA Generativa e Estratégia de Negócios.' },
 ];
@@ -92,8 +92,8 @@ export default function SobrePage() {
               Conheça<br /><span style={{ color: '#7a6207' }}>Tom Queiroz</span>
             </h1>
             <p className="text-white/70 leading-relaxed mb-3 max-w-md" style={{ fontWeight: 300, fontSize: '1.05rem' }}>
-              Mundialmente conhecido como <strong className="text-white/90 font-semibold">Tom Queiroz</strong>, ele é Chief AI &amp; Innovation Officer,
-              ex-diretor em corporações globais de primeira linha e Professor da FGV EAESP.
+              Mundialmente conhecido como <strong className="text-white/90 font-semibold">Tom Queiroz</strong>, é Chief AI &amp; Innovation Officer,
+              ex-executivo de corporações globais de primeira linha — Sony, Honda, Rakuten e Shell — e Professor da FGV EAESP.
             </p>
             <p className="text-white/55 leading-relaxed mb-8 max-w-md" style={{ fontWeight: 300, fontSize: '0.95rem' }}>
               Com 20 anos de execução real no marketing corporativo — de Sony a Shell, em 8 países —,
