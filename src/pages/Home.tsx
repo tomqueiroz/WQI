@@ -134,7 +134,7 @@ const HERO_LOGOS = [
 ];
 
 const LOGO_DELAYS = [0, 0.5, 1.1, 0.3, 1.8, 0.7, 1.4, 0.2, 1.6, 0.9];
-const LOGO_WIDTHS = [80, 100, 90, 85, 95, 110, 88, 92, 85, 100];
+const LOGO_WIDTHS = [240, 300, 270, 255, 285, 330, 264, 276, 255, 300];
 const LOGO_DURATIONS = [4.5, 5.2, 4.1, 5.8, 3.9, 5.5, 4.8, 6.0, 4.3, 5.1];
 
 export default function Home() {
