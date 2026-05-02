@@ -1,0 +1,33 @@
+{
+  "documents": [],
+  "tables_parsed": [],
+  "tables_source_info": [],
+  "images": [
+    {
+      "original_name": "wqi copper",
+      "file_name": "wqi copper.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/wqi copper.png",
+      "rel_path": "images/wqi copper.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "wqi branco",
+      "file_name": "wqi branco.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/wqi branco.png",
+      "rel_path": "images/wqi branco.png",
+      "file_type": "png",
+      "category": "images"
+    }
+  ],
+  "summary": {
+    "total_files": 2,
+    "by_category": {
+      "documents": 0,
+      "tables_parsed": 0,
+      "tables_source_info": 0,
+      "images": 2
+    },
+    "processing_time": null
+  }
+}

@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&family=Roboto+Condensed:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+==========================================================================
+【AI HANDOVER NOTE】
+1. DESIGN PHILOSOPHY:
+   - Executive Premium Minimalism: A plataforma WQI exige um design que transmita autoridade executiva, sofisticação e confiança institucional. O conceito visual é "Corporate Luxury" — combinando a seriedade de instituições financeiras premium com a modernidade de plataformas SaaS de alto padrão.
+   - Visual Strategy: Navy Blue como âncora de credibilidade (referência: Goldman Sachs, McKinsey), Gold Accents para exclusividade e prestígio (sem exagero), e superfícies com sutil profundidade física (rim-light, soft shadows) para criar hierarquia visual sem ruído.
+   - Bento Surfaces com Grid Suíço: Layout modular inspirado em dashboards executivos, com cartões bem definidos, espaçamento generoso (24-32px gaps), e alinhamento preciso. Cada módulo deve respirar — evitar densidade excessiva.
+
+2. TYPOGRAPHY:
+   - Sans (Inter): Escolhida por sua neutralidade profissional, excelente legibilidade em interfaces digitais, e ampla adoção em produtos SaaS corporativos. Pesos 400-700 cobrem desde corpo de texto até CTAs de impacto.
+   - Serif Display (Cormorant Garamond): Reservada para headlines de hero sections, títulos de cursos premium, e elementos de branding que exigem elegância editorial. Transmite sofisticação acadêmica (conexão com FGV EAESP) e diferenciação de plataformas genéricas.
+   - Mono (JetBrains Mono): Para exibição de métricas, códigos de cupom, timestamps de aulas, e elementos técnicos relacionados a IA/dados.
+
+3. COLOR SYSTEM:
+   - Brand Navy (Hue 240°): Azul escuro profissional como cor primária, evocando confiança, estabilidade e expertise executiva. Saturação moderada (C: 0.08-0.12) para evitar aspecto "corporativo frio" — mantém sofisticação sem rigidez.
+   - Gold Accent (Hue 45°): Dourado sutil (não metálico brilhante) usado estrategicamente em: badges de certificação, ícones de features premium, hover states de CTAs principais, e detalhes de UI de alto valor. Lightness calibrada para funcionar em ambos os modos sem perder legibilidade.
+   - Semantic Colors: Success (verde institucional, Hue 150°) para conclusões de módulos e aprovações; Warning (âmbar, Hue 50°) para prazos e notificações importantes; Destructive (vermelho contido, Hue 10°) apenas para ações críticas.
+   - Mapeamento: --brand (navy) → --primary (ações principais, navegação ativa); --accent (gold) → highlights, badges, premium features; --ring (gold com alpha) → focus states elegantes.
+
+4. USAGE GUIDE:
+   - Layout: Dashboard full-width com sidebar fixa (desktop), collapsible (tablet). Hero sections com max-width 1280px, conteúdo centrado. Cards com aspect ratio 16:9 para vídeos de aulas.
+   - Efeitos Premium: Sutil backdrop-blur (blur-sm) em modals e dropdowns; rim-light effect (inset shadow dourado) em cards de cursos premium; soft ambient shadows (shadow-lg com opacity reduzida) para criar profundidade sem peso visual.
+   - Hierarquia de Informação: Preços sempre em destaque com typography scale maior (+2 steps); depoimentos com aspas estilizadas em serif; métricas de ROI em mono bold.
+   - Acessibilidade: Todos os pares de cores atendem WCAG 2.1 AA (mínimo 4.5:1 para texto normal). Gold accent nunca usado sozinho para informação crítica — sempre acompanhado de ícone ou label.
+   - Responsividade: Breakpoints em 640px (mobile), 1024px (tablet), 1280px (desktop). Sidebar colapsa em hamburger menu abaixo de 1024px. Typography scale reduz 10% em mobile.
+==========================================================================
+*/
+
+:root {
+  /* Typography */
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-heading: 'Montserrat', 'Roboto Condensed', 'Roboto', sans-serif;
+
+  /* Radius */
+  --radius: 0.625rem;
+
+  /* ============================================================
+     WQI BRAND COLORS — EXACT HEX VALUES
+     PRIMARY (Navy): #001123
+     ACCENT  (Copper): #7a6207
+     ============================================================ */
+
+  --background: #ffffff;
+  --foreground: #0a0f1a;
+  --card: #f9f9fb;
+  --card-foreground: #0a0f1a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0f1a;
+
+  /* PRIMARY = WQI Navy #001123 */
+  --primary: #001123;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f0f2f5;
+  --secondary-foreground: #001123;
+  --muted: #f4f5f7;
+  --muted-foreground: #6b7280;
+
+  /* ACCENT = WQI Copper #7a6207 */
+  --accent: #7a6207;
+  --accent-foreground: #ffffff;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e4e7ed;
+  --input: #eaecf0;
+  --ring: #7a6207;
+
+  /* Chart Tokens */
+  --chart-1: #001123;
+  --chart-2: #7a6207;
+  --chart-3: #0f766e;
+  --chart-4: #6d28d9;
+  --chart-5: #dc2626;
+
+  /* Sidebar Tokens */
+  --sidebar: #001123;
+  --sidebar-foreground: #f9f9f9;
+  --sidebar-primary: #7a6207;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0d2040;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #0d2040;
+  --sidebar-ring: #7a6207;
+}
+
+.dark {
+  /* Dark mode preserves WQI brand identity */
+  --background: #050d1a;
+  --foreground: #f0f2f5;
+  --card: #091525;
+  --card-foreground: #f0f2f5;
+  --popover: #050d1a;
+  --popover-foreground: #f0f2f5;
+  --primary: #001123;
+  --primary-foreground: #ffffff;
+  --secondary: #0d2040;
+  --secondary-foreground: #f0f2f5;
+  --muted: #0d1e35;
+  --muted-foreground: #94a3b8;
+  --accent: #9a7d0a;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1e3452;
+  --input: #162b48;
+  --ring: #9a7d0a;
+
+  /* Chart Tokens */
+  --chart-1: #3b82f6;
+  --chart-2: #9a7d0a;
+  --chart-3: #10b981;
+  --chart-4: #8b5cf6;
+  --chart-5: #ef4444;
+
+  /* Sidebar Tokens */
+  --sidebar: #000d1e;
+  --sidebar-foreground: #f0f2f5;
+  --sidebar-primary: #9a7d0a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0d2040;
+  --sidebar-accent-foreground: #f0f2f5;
+  --sidebar-border: #1e3452;
+  --sidebar-ring: #9a7d0a;
+}
+
+@theme inline {
+  /* Shadcn Core Mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts Mapping */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
+
+  /* Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2 {
+    font-family: 'Montserrat', var(--font-heading);
+    @apply font-extrabold tracking-tight;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-bold tracking-tight;
+  }
+
+  p, li, span {
+    font-family: var(--font-sans);
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}
