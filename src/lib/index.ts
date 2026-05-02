@@ -22,6 +22,7 @@ export const LMS_ROUTES = {
   PROG_DIGITAL: '/programas/cursos-digitais',
   SOBRE: '/sobre',
   CONTATO: '/contato',
+  EMPRESAS: '/para-empresas',
   PRIVACY: '/privacidade',
   TERMS: '/termos',
 } as const;
@@ -35,6 +36,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Início', href: '/' },
   { label: 'Sobre', href: '/sobre' },
   { label: 'Programas', href: '/programas' },
+  { label: 'Para Empresas', href: '/para-empresas' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contato', href: '/contato' },
 ];

@@ -31,6 +31,7 @@ import InhousePage from "@/pages/programs/InhousePage";
 import MasterclassPage from "@/pages/programs/MasterclassPage";
 import KeynotePage from "@/pages/programs/KeynotePage";
 import CursosDigitaisPage from "@/pages/programs/CursosDigitaisPage";
+import EmpresasPage from "@/pages/EmpresasPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -66,6 +67,7 @@ const App = () => (
                 </PublicOnlyRoute>
               }
             />
+<Route path={LMS_ROUTES.EMPRESAS} element={<EmpresasPage />} />
             <Route path={LMS_ROUTES.PROGRAMAS} element={<ProgramasPage />} />
             <Route path={LMS_ROUTES.PROG_1ON1} element={<Mentoria1on1Page />} />
             <Route path={LMS_ROUTES.PROG_COHORT} element={<CohortPage />} />

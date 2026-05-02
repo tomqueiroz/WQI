@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin, ChevronDown, ChevronRight, Building2 } from 'lucide-react';
 import { FaLinkedinIn, FaInstagram, FaXTwitter, FaWhatsapp } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -154,6 +154,7 @@ export function Layout({ children }: LayoutProps) {
               {NAV_ITEMS.map((item) => {
                 const isRoute = item.href.startsWith('/');
                 const isProgramas = item.label === 'Programas';
+                const isEmpresas = item.label === 'Para Empresas';
 
                 if (isProgramas) {
                   return (
@@ -198,6 +199,20 @@ export function Layout({ children }: LayoutProps) {
                         )}
                       </AnimatePresence>
                     </div>
+                  );
+                }
+
+                if (isEmpresas) {
+                  return (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all hover:scale-105 nav-item"
+                      style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.18)', color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}
+                    >
+                      <Building2 className="w-3.5 h-3.5" />
+                      {item.label}
+                    </Link>
                   );
                 }
 
@@ -298,6 +313,7 @@ export function Layout({ children }: LayoutProps) {
                     {NAV_ITEMS.map((item) => {
                       const isRoute = item.href.startsWith('/');
                       const isProgramas = item.label === 'Programas';
+                      const isEmpresasMobile = item.label === 'Para Empresas';
 
                       if (isProgramas) {
                         return (
@@ -326,6 +342,21 @@ export function Layout({ children }: LayoutProps) {
                               </div>
                             )}
                           </div>
+                        );
+                      }
+
+                      if (isEmpresasMobile) {
+                        return (
+                          <Link
+                            key={item.href}
+                            to={item.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold transition-colors"
+                            style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.12)', color: '#7a6207', border: '1px solid rgba(122,98,7,0.25)' }}
+                          >
+                            <Building2 size={15} />
+                            {item.label}
+                          </Link>
                         );
                       }
 
