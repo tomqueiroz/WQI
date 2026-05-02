@@ -197,29 +197,24 @@
     font-weight: 300;
   }
 
-  h2 {
+  /* ── Tipografia global padronizada ─────────────────────────────────────── */
+  h1, h2 {
     font-family: 'Montserrat', var(--font-heading) !important;
-    font-weight: 600 !important;
-    letter-spacing: -0.02em;
-  }
-
-  /* h1 fora da hero usa Montserrat SemiBold; h1 da hero sobrepõe via inline style */
-  h1 {
-    font-family: 'Montserrat', var(--font-heading);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  /* Hero h1 — Montserrat Bold (inline style sobrepõe se necessário) */
-  #hero h1 {
-    font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
     letter-spacing: -0.02em !important;
   }
 
   h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    @apply font-bold tracking-tight;
+    font-family: 'Montserrat', var(--font-heading) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+  }
+
+  /* Hero h1 específico */
+  #hero h1 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
   }
 
   p {
@@ -234,9 +229,15 @@
 
   /* Nav menu items — thin weight, increased spacing */
   nav a, nav button, .nav-item {
+    font-family: 'Roboto', var(--font-sans) !important;
     font-weight: 300 !important;
     letter-spacing: 0.05em !important;
-    font-size: 0.9375rem !important; /* 15px = sm(14px) * 1.25 */
+    font-size: 0.9375rem !important;
+  }
+
+  /* Garante que spans e divs de conteúdo usem Roboto, não Montserrat */
+  p, li, span, label, input, textarea, select {
+    font-family: 'Roboto', var(--font-sans);
   }
 
   code, pre {

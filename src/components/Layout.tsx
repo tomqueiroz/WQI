@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin, ChevronDown, ChevronRight, Building2 } from 'lucide-react';
 import { FaLinkedinIn, FaInstagram, FaXTwitter, FaWhatsapp } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -35,6 +35,7 @@ const PROGRAM_SUBMENU = [
 ];
 
 export function Layout({ children }: LayoutProps) {
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -101,6 +102,19 @@ export function Layout({ children }: LayoutProps) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Navega para rota e rola para o topo imediatamente
+  const handleNavClick = (href: string) => {
+    navigate(href);
+    // Garante scroll ao topo após a navegação (funciona com HashRouter)
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }), 0);
+  };
+
+  const handleNavClickMobile = (href: string) => {
+    setMobileMenuOpen(false);
+    navigate(href);
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }), 0);
+  };
+
   const handleExitFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setExitFormLoading(true);
@@ -141,14 +155,18 @@ export function Layout({ children }: LayoutProps) {
           }`}
         >
           <div className="flex items-center justify-between h-full px-4 md:px-6">
-            <a href="#hero" className="flex items-center">
+            <button
+              onClick={() => handleNavClick('/')}
+              className="flex items-center cursor-pointer"
+              aria-label="Ir para página inicial"
+            >
               <img
                 src={IMAGES.LOGO_WQI_BRANCO}
                 alt="WQI"
                 className="h-10 md:h-[52px] w-auto object-contain"
                 style={{ minWidth: '120px' }}
               />
-            </a>
+            </button>
 
             <nav className="hidden md:flex items-center gap-6">
               {NAV_ITEMS.map((item) => {
@@ -164,14 +182,14 @@ export function Layout({ children }: LayoutProps) {
                       onMouseEnter={() => setShowProgramasMenu(true)}
                       onMouseLeave={() => setShowProgramasMenu(false)}
                     >
-                      <Link
-                        to={item.href}
-                        className="text-white/85 hover:text-white transition nav-item flex items-center gap-1"
-                        style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                      <button
+                        onClick={() => handleNavClick(item.href)}
+                        className="text-white/85 hover:text-white transition nav-item flex items-center gap-1 cursor-pointer"
+                        style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
                       >
                         {item.label}
                         <ChevronDown className="w-3.5 h-3.5" />
-                      </Link>
+                      </button>
 
                       <AnimatePresence>
                         {showProgramasMenu && (
@@ -184,16 +202,16 @@ export function Layout({ children }: LayoutProps) {
                             style={{ borderColor: 'rgba(122,98,7,0.25)' }}
                           >
                             {PROGRAM_SUBMENU.map((subItem) => (
-                              <Link
+                              <button
                                 key={subItem.href}
-                                to={subItem.href}
-                                className="flex items-center gap-2 px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                                onClick={() => { handleNavClick(subItem.href); setShowProgramasMenu(false); }}
+                                className="flex items-center gap-2 px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors w-full text-left"
                               >
                                 <ChevronRight className="w-4 h-4" style={{ color: '#7a6207' }} />
                                 <span className="text-sm" style={{ fontWeight: 300, letterSpacing: '0.03em' }}>
                                   {subItem.label}
                                 </span>
-                              </Link>
+                              </button>
                             ))}
                           </motion.div>
                         )}
@@ -204,28 +222,28 @@ export function Layout({ children }: LayoutProps) {
 
                 if (isEmpresas) {
                   return (
-                    <Link
+                    <button
                       key={item.href}
-                      to={item.href}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all hover:scale-105 nav-item"
+                      onClick={() => handleNavClick(item.href)}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all hover:scale-105 nav-item cursor-pointer"
                       style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.18)', color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}
                     >
                       <Building2 className="w-3.5 h-3.5" />
                       {item.label}
-                    </Link>
+                    </button>
                   );
                 }
 
                 if (isRoute) {
                   return (
-                    <Link
+                    <button
                       key={item.href}
-                      to={item.href}
-                      className="text-white/85 hover:text-white transition nav-item"
-                      style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                      onClick={() => handleNavClick(item.href)}
+                      className="text-white/85 hover:text-white transition nav-item cursor-pointer"
+                      style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
                     >
                       {item.label}
-                    </Link>
+                    </button>
                   );
                 }
                 return (
@@ -329,15 +347,14 @@ export function Layout({ children }: LayoutProps) {
                             {programasMobileOpen && (
                               <div className="ml-4 mt-2 flex flex-col gap-1">
                                 {PROGRAM_SUBMENU.map((subItem) => (
-                                  <Link
+                                  <button
                                     key={subItem.href}
-                                    to={subItem.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
+                                    onClick={() => handleNavClickMobile(subItem.href)}
+                                    className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors w-full text-left"
                                   >
                                     <ChevronRight className="w-3.5 h-3.5" style={{ color: '#7a6207' }} />
                                     {subItem.label}
-                                  </Link>
+                                  </button>
                                 ))}
                               </div>
                             )}
@@ -347,30 +364,28 @@ export function Layout({ children }: LayoutProps) {
 
                       if (isEmpresasMobile) {
                         return (
-                          <Link
+                          <button
                             key={item.href}
-                            to={item.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold transition-colors"
+                            onClick={() => handleNavClickMobile(item.href)}
+                            className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold transition-colors w-full text-left"
                             style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.12)', color: '#7a6207', border: '1px solid rgba(122,98,7,0.25)' }}
                           >
                             <Building2 size={15} />
                             {item.label}
-                          </Link>
+                          </button>
                         );
                       }
 
                       if (isRoute) {
                         return (
-                          <Link
+                          <button
                             key={item.href}
-                            to={item.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="px-4 py-2.5 text-foreground hover:bg-muted rounded-md transition-colors"
-                            style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                            onClick={() => handleNavClickMobile(item.href)}
+                            className="px-4 py-2.5 text-foreground hover:bg-muted rounded-md transition-colors w-full text-left"
+                            style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none' }}
                           >
                             {item.label}
-                          </Link>
+                          </button>
                         );
                       }
                       return (

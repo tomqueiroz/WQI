@@ -648,9 +648,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ FAIXAS DE LOGOS CLIENTES ============ */}
-      <LogoMarquee />
-
       {/* ============ SOBRE ============ */}
       <section id="sobre" className="py-20 md:py-32 bg-background overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
@@ -732,6 +729,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ============ FAIXAS DE LOGOS CLIENTES ============ */}
+      <LogoMarquee />
 
       {/* ============ PROGRAMAS PREVIEW ============ */}
       <section id="produtos" className="py-20 bg-muted/30">
