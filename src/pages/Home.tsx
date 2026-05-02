@@ -121,21 +121,22 @@ const SLIDER_TESTIMONIALS = [
 ];
 
 // ─── Floating brand logos in hero (10 selects, mix antigos + novos) ───
+// Logos flutuantes — todos na faixa inferior do hero (abaixo dos botões)
 const HERO_LOGOS = [
-  { key: 'MCD_13',      style: { top: '8%',  left: '4%'   } },
-  { key: 'NVIDIA_28',   style: { top: '8%',  right: '5%'  } },
-  { key: 'ITAU_14',     style: { top: '25%', left: '12%'  } },
-  { key: 'SHOPIFY_34',  style: { top: '28%', right: '4%'  } },
-  { key: 'COINBASE_26', style: { top: '48%', left: '5%'   } },
-  { key: 'SPOTIFY_30',  style: { top: '55%', right: '6%'  } },
-  { key: 'STONE_21',    style: { top: '70%', left: '14%'  } },
-  { key: 'IMG_3_56',    style: { top: '72%', right: '4%'  } },
-  { key: 'IMG_7_40',    style: { top: '84%', left: '5%'   } },
-  { key: 'IMG_11_55',   style: { top: '85%', right: '7%'  } },
+  { key: 'MCD_13',      style: { bottom: '18%', left:  '2%'  } },
+  { key: 'ITAU_14',     style: { bottom: '18%', left:  '16%' } },
+  { key: 'COINBASE_26',style: { bottom: '18%', left:  '30%' } },
+  { key: 'STONE_21',   style: { bottom: '18%', left:  '44%' } },
+  { key: 'NVIDIA_28',  style: { bottom: '18%', left:  '58%' } },
+  { key: 'SHOPIFY_34', style: { bottom: '5%',  left:  '2%'  } },
+  { key: 'SPOTIFY_30', style: { bottom: '5%',  left:  '16%' } },
+  { key: 'IMG_3_56',   style: { bottom: '5%',  left:  '30%' } },
+  { key: 'IMG_7_40',   style: { bottom: '5%',  left:  '44%' } },
+  { key: 'IMG_11_55',  style: { bottom: '5%',  left:  '58%' } },
 ];
 
-const LOGO_DELAYS    = [0, 0.6, 1.2, 0.4, 1.9, 0.8, 1.5, 0.2, 1.7, 1.0];
-const LOGO_WIDTHS    = [240, 300, 270, 255, 285, 330, 264, 276, 255, 300];
+const LOGO_DELAYS    = [0, 0.5, 1.0, 1.5, 2.0, 0.3, 0.8, 1.3, 1.8, 2.3];
+const LOGO_WIDTHS    = [250, 250, 250, 250, 250, 250, 250, 250, 250, 250];
 const LOGO_DURATIONS = [4.5, 5.2, 4.1, 5.8, 3.9, 5.5, 4.8, 6.0, 4.3, 5.1];
 
 export default function Home() {
