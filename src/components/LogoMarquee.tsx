@@ -66,9 +66,9 @@ const ROWS = chunk(ALL_LOGOS, 3);
 
 // ─── Cada faixa recebe direção e velocidade distintas ───
 const ROW_CONFIG = [
-  { direction: 'left',  duration: '38s', label: 'Faixa 1' },
-  { direction: 'right', duration: '28s', label: 'Faixa 2' },
-  { direction: 'left',  duration: '48s', label: 'Faixa 3' },
+  { direction: 'left',  duration: '50s', label: 'Faixa 1' },
+  { direction: 'right', duration: '37s', label: 'Faixa 2' },
+  { direction: 'left',  duration: '62s', label: 'Faixa 3' },
 ] as const;
 
 interface MarqueeRowProps {
@@ -95,14 +95,14 @@ function MarqueeRow({ logos, direction, duration }: MarqueeRowProps) {
         {items.map((logo, idx) => (
           <div
             key={idx}
-            className="flex items-center justify-center flex-shrink-0 px-2"
-            style={{ height: '48px', minWidth: '100px' }}
+            className="flex items-center justify-center flex-shrink-0 px-4"
+            style={{ height: '80px', minWidth: '160px' }}
           >
             <img
               src={logo.src}
               alt={logo.alt}
-            className="max-h-10 w-auto object-contain transition-all duration-300"
-              style={{ maxWidth: '130px', opacity: 0.55, filter: 'brightness(10) saturate(0)' }}
+            className="w-auto object-contain transition-all duration-300"
+              style={{ maxHeight: '60px', maxWidth: '260px', opacity: 0.6, filter: 'brightness(10) saturate(0)' }}
               onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.opacity = '1'; (e.currentTarget as HTMLImageElement).style.filter = 'none'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.opacity = '0.55'; (e.currentTarget as HTMLImageElement).style.filter = 'brightness(10) saturate(0)'; }}
               loading="lazy"

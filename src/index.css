@@ -198,7 +198,7 @@
 
   h1, h2 {
     font-family: 'Montserrat', var(--font-heading) !important;
-    font-weight: 300 !important;
+    font-weight: 600 !important;
     letter-spacing: -0.02em;
   }
 
@@ -228,5 +228,36 @@
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}
+
+/* ─── Mobile-first tweaks ─────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Hero: prevent content overflow on small screens */
+  #hero .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Logo marquee: smaller logos on mobile */
+  .logo-marquee-img {
+    max-height: 36px !important;
+    max-width: 120px !important;
+  }
+
+  /* Ensure no horizontal overflow */
+  section {
+    overflow-x: hidden;
+  }
+
+  /* Stack grid columns properly */
+  .grid {
+    min-width: 0;
+  }
+
+  /* Buttons: full-width on very small screens */
+  .btn-mobile-full {
+    width: 100%;
+    justify-content: center;
   }
 }

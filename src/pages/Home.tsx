@@ -120,24 +120,61 @@ const SLIDER_TESTIMONIALS = [
   { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'Wellington conecta academia e mercado de uma forma que só quem viveu os dois lados consegue fazer. Transformador.' },
 ];
 
-// ─── Floating brand logos in hero (10 selects, mix antigos + novos) ───
-// Logos flutuantes — todos na faixa inferior do hero (abaixo dos botões)
+// ─── TODOS os logos flutuantes: top 25% (linhas 1-4) + bottom 25% (linhas 5-8) ───
+// 44 logos → 5-6 por linha, 8 linhas (4 top + 4 bottom)
 const HERO_LOGOS = [
-  { key: 'MCD_13',      style: { bottom: '18%', left:  '2%'  } },
-  { key: 'ITAU_14',     style: { bottom: '18%', left:  '16%' } },
-  { key: 'COINBASE_26',style: { bottom: '18%', left:  '30%' } },
-  { key: 'STONE_21',   style: { bottom: '18%', left:  '44%' } },
-  { key: 'NVIDIA_28',  style: { bottom: '18%', left:  '58%' } },
-  { key: 'SHOPIFY_34', style: { bottom: '5%',  left:  '2%'  } },
-  { key: 'SPOTIFY_30', style: { bottom: '5%',  left:  '16%' } },
-  { key: 'IMG_3_56',   style: { bottom: '5%',  left:  '30%' } },
-  { key: 'IMG_7_40',   style: { bottom: '5%',  left:  '44%' } },
-  { key: 'IMG_11_55',  style: { bottom: '5%',  left:  '58%' } },
+  // ── TOP 25% — 4 linhas horizontais (top 4% a top 24%) ──
+  { key: 'ANIMA_19',    style: { top:  '3%',  left:  '0%'  } },
+  { key: 'CEA_18',      style: { top:  '3%',  left:  '14%' } },
+  { key: 'COINBASE_26', style: { top:  '3%',  left:  '28%' } },
+  { key: 'EPIC_25',     style: { top:  '3%',  left:  '42%' } },
+  { key: 'FLAM_33',     style: { top:  '3%',  left:  '56%' } },
+  { key: 'GPA_17',      style: { top:  '3%',  left:  '70%' } },
+  { key: 'GREENP_16',   style: { top:  '3%',  right: '0%'  } },
+  { key: 'HERING_15',   style: { top:  '10%', left:  '0%'  } },
+  { key: 'IMG_1_54',    style: { top:  '10%', left:  '14%' } },
+  { key: 'IMG_2_51',    style: { top:  '10%', left:  '28%' } },
+  { key: 'IMG_3_56',    style: { top:  '10%', left:  '42%' } },
+  { key: 'IMG_4_45',    style: { top:  '10%', left:  '56%' } },
+  { key: 'IMG_5_44',    style: { top:  '10%', left:  '70%' } },
+  { key: 'IMG_6_43',    style: { top:  '10%', right: '0%'  } },
+  { key: 'IMG_7_40',    style: { top:  '17%', left:  '0%'  } },
+  { key: 'IMG_8_39',    style: { top:  '17%', left:  '14%' } },
+  { key: 'IMG_9_37',    style: { top:  '17%', left:  '28%' } },
+  { key: 'IMG_10_38',   style: { top:  '17%', left:  '42%' } },
+  { key: 'IMG_11_55',   style: { top:  '17%', left:  '56%' } },
+  { key: 'IMG_12_57',   style: { top:  '17%', left:  '70%' } },
+  { key: 'IMG_13_53',   style: { top:  '17%', right: '0%'  } },
+  { key: 'IMG_14_47',   style: { top:  '24%', left:  '0%'  } },
+  { key: 'IMG_15_52',   style: { top:  '24%', left:  '14%' } },
+  { key: 'IMG_16_49',   style: { top:  '24%', left:  '28%' } },
+  // ── BOTTOM 25% — 4 linhas horizontais (bottom 24% a bottom 4%) ──
+  { key: 'IMG_17_50',   style: { bottom: '24%', left:  '0%'  } },
+  { key: 'IMG_18_48',   style: { bottom: '24%', left:  '14%' } },
+  { key: 'IMG_19_42',   style: { bottom: '24%', left:  '28%' } },
+  { key: 'IMG_20_46',   style: { bottom: '24%', left:  '42%' } },
+  { key: 'IMG_21_41',   style: { bottom: '24%', left:  '56%' } },
+  { key: 'ITAU_14',     style: { bottom: '24%', left:  '70%' } },
+  { key: 'MCD_13',      style: { bottom: '24%', right: '0%'  } },
+  { key: 'MULTIP_32',   style: { bottom: '17%', left:  '0%'  } },
+  { key: 'NIVEA_36',    style: { bottom: '17%', left:  '14%' } },
+  { key: 'NVIDIA_28',   style: { bottom: '17%', left:  '28%' } },
+  { key: 'PEPSI_24',    style: { bottom: '17%', left:  '42%' } },
+  { key: 'PUBLI_23',    style: { bottom: '17%', left:  '56%' } },
+  { key: 'REMAX_31',    style: { bottom: '17%', left:  '70%' } },
+  { key: 'SALTA_35',    style: { bottom: '17%', right: '0%'  } },
+  { key: 'SAMS_22',     style: { bottom: '10%', left:  '0%'  } },
+  { key: 'SG_27',       style: { bottom: '10%', left:  '14%' } },
+  { key: 'SHOPIFY_34',  style: { bottom: '10%', left:  '28%' } },
+  { key: 'SPOTIFY_30',  style: { bottom: '10%', left:  '42%' } },
+  { key: 'STONE_21',    style: { bottom: '10%', left:  '56%' } },
+  { key: 'UNIVERSAL_20',style: { bottom: '10%', left:  '70%' } },
+  { key: 'WMC_29',      style: { bottom:  '3%', left:  '0%'  } },
 ];
 
-const LOGO_DELAYS    = [0, 0.5, 1.0, 1.5, 2.0, 0.3, 0.8, 1.3, 1.8, 2.3];
-const LOGO_WIDTHS    = [250, 250, 250, 250, 250, 250, 250, 250, 250, 250];
-const LOGO_DURATIONS = [4.5, 5.2, 4.1, 5.8, 3.9, 5.5, 4.8, 6.0, 4.3, 5.1];
+const LOGO_DELAYS    = [0,0.4,0.8,1.2,1.6,2.0,2.4,0.2,0.6,1.0,1.4,1.8,2.2,2.6,0.3,0.7,1.1,1.5,1.9,2.3,2.7,0.1,0.5,0.9,0.3,0.7,1.1,1.5,1.9,2.3,2.7,0.1,0.5,0.9,1.3,1.7,2.1,0.2,0.6,1.0,1.4,1.8,2.2];
+const LOGO_WIDTHS    = Array(43).fill(250);
+const LOGO_DURATIONS = [4.5,5.2,4.1,5.8,3.9,5.5,4.8,6.0,4.3,5.1,4.7,5.3,4.0,5.9,4.4,5.0,4.6,5.7,3.8,5.4,4.2,5.6,4.9,5.1,4.5,5.2,4.1,5.8,3.9,5.5,4.8,6.0,4.3,5.1,4.7,5.3,4.0,5.9,4.4,5.0,4.6,5.7,3.8];
 
 export default function Home() {
   const heroBgRef = useRef<HTMLDivElement>(null);
@@ -424,63 +461,83 @@ export default function Home() {
       <LogoMarquee />
 
       {/* ============ SOBRE ============ */}
-      <section id="sobre" className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-          >
-            {/* Left */}
-            <div>
-              <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Sobre o Mentor</p>
-              <h2 className="text-3xl md:text-5xl font-black text-primary mb-6">Wellington Queiroz</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Com mais de 20 anos liderando marketing digital em Sony, Honda, Rakuten e Shell, Wellington Queiroz construiu um histórico raro: ele não apenas teoriza sobre transformação digital — ele a entrega.
-                </p>
-                <p>
-                  Como Chief AI & Innovation Officer (CAIO) desde 2021 e Professor convidado na FGV EAESP, une a profundidade acadêmica à brutalidade da execução corporativa — um diferencial que seus mais de 500 mentorados em 8 países reconhecem imediatamente.
-                </p>
-                <p>
-                  Sua metodologia AI-First foi desenhada para executivos que não têm tempo a perder: clareza estratégica, implementação acelerada e resultados mensuráveis desde as primeiras semanas.
-                </p>
+      <section id="sobre" className="py-20 md:py-32 bg-background overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Image — comes second on mobile, first on desktop */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative order-2 lg:order-1"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={IMAGES.TOM_SOBRE}
+                  alt="Wellington Queiroz palestrando"
+                  className="w-full h-[380px] md:h-[540px] object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
+                <blockquote className="absolute bottom-5 left-5 right-5 text-white/90 text-sm font-light italic border-l-2 border-accent pl-3">
+                  "Não ensino o que li. Ensino o que executei — em salas de conselho, em campanhas de 9 dígitos."
+                </blockquote>
+              </div>
+              <div className="absolute -top-3 -right-3 bg-accent text-white rounded-xl px-4 py-3 shadow-xl text-center hidden md:block">
+                <div className="text-2xl font-black leading-none">500+</div>
+                <div className="text-[10px] font-light mt-0.5 leading-tight">Executivos<br/>mentoreados</div>
+              </div>
+            </motion.div>
+
+            {/* Copy */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="order-1 lg:order-2"
+            >
+              <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">O Arquiteto da Sua Virada</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-2">Wellington Queiroz</h2>
+              <p className="text-accent text-sm font-medium mb-6">Chief AI &amp; Innovation Officer · FGV EAESP · 8 países · 20 anos de execução global</p>
+
+              <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
+                <p>Há uma distinção silenciosa que os executivos de alto nível reconhecem rapidamente: <strong className="text-primary">quem sabe falar sobre estratégia digital — e quem já precisou entregar resultado com ela</strong>. Wellington pertence à segunda categoria, sem nenhuma concessão.</p>
+                <p>Ex-diretor em <strong className="text-primary">Sony, Honda, Rakuten e Shell</strong>, responsável por operações de marketing que movimentaram centenas de milhões em mercados altamente competitivos, ele sabe exatamente onde um executivo erra — e como corrigir com precisão cirúrgica.</p>
+                <p>Seu método <strong className="text-primary">AI-First Framework™</strong> não é um curso online. É um sistema de aceleração construído a partir de 500 casos reais: do diagnóstico até a implementação, com KPIs definidos antes do primeiro encontro. Para quem não pode se dar ao luxo de errar o timing.</p>
               </div>
 
-              <div className="flex flex-wrap gap-2 mt-6">
-                {['FGV EAESP', 'Sony', 'Honda', 'Rakuten', 'Shell', '500+ Mentorados', 'CAIO', '8 Países'].map((b) => (
-                  <Badge key={b} variant="secondary" className="text-xs">{b}</Badge>
+              <div className="grid grid-cols-2 gap-3 mt-7 mb-7">
+                {[
+                  { icon: '🎓', label: 'FGV EAESP', sub: 'Professor Convidado' },
+                  { icon: '🌎', label: '8 Países', sub: 'Mentorados Ativos' },
+                  { icon: '⚡', label: 'AI-First™', sub: 'Metodologia Proprietária' },
+                  { icon: '📈', label: 'ROI 10x', sub: 'Média em Projetos Reais' },
+                ].map((c) => (
+                  <div key={c.label} className="flex items-start gap-3 bg-muted/40 rounded-xl p-3">
+                    <span className="text-lg">{c.icon}</span>
+                    <div>
+                      <div className="text-primary font-bold text-sm">{c.label}</div>
+                      <div className="text-muted-foreground text-xs">{c.sub}</div>
+                    </div>
+                  </div>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3 mt-8">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex">
-                  <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-7 py-3 h-auto font-semibold">
-                    <MessageCircle className="mr-2" size={16} /> Falar com Especialista
+              <div className="flex flex-wrap gap-3">
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-6 py-3 h-auto font-semibold text-sm">
+                    <MessageCircle className="mr-2" size={15} /> Agendar Conversa Estratégica
                   </Button>
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/wellingtonqueiroz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-primary/25 hover:border-accent hover:text-accent text-primary rounded-full px-5 py-3 text-sm font-semibold transition-colors"
-                >
-                  <FaLinkedinIn size={16} /> Conectar no LinkedIn
+                <a href="https://www.linkedin.com/in/wellingtonqueiroz/" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-primary/20 hover:border-accent hover:text-accent text-primary rounded-full px-5 py-3 text-sm font-medium transition-colors">
+                  <FaLinkedinIn size={15} /> Ver no LinkedIn
                 </a>
               </div>
-            </div>
-
-            {/* Right */}
-            <div>
-              <img
-                src={IMAGES.TOM_SOBRE}
-                alt="Wellington Queiroz — Sobre"
-                className="w-full h-96 md:h-[520px] rounded-2xl object-cover object-top shadow-xl"
-              />
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -822,109 +879,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ CONTATO — somente form (dados de contato: footer e /contato) ============ */}
-      <section id="contato" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Contato</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Vamos Conversar</h2>
-            <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-              Preencha o formulário e retornamos em até 24h para agendar sua conversa estratégica.
-            </p>
-          </motion.div>
+      {/* ============ CONTATO ============ */}
+      <section id="contato" className="py-20 md:py-28" style={{ background: '#001123' }}>
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-          <form onSubmit={handleContactSubmit} className="space-y-4 max-w-2xl mx-auto">
-            {success ? (
-              <div className="flex items-center gap-3 p-4 bg-accent/10 border border-accent/20 rounded-xl">
-                <CheckCircle className="text-accent" size={20} />
-                <p className="text-primary text-sm font-medium">Mensagem enviada! Retornamos em até 24h.</p>
+            {/* Left — value proposition */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Primeiro Passo</p>
+              <h2 className="text-3xl md:text-4xl text-white mb-4">Uma Conversa pode Mudar sua Trajetória</h2>
+              <p className="text-white/60 text-sm leading-relaxed mb-8">
+                Líderes de alto desempenho não esperam a situação ideal. Eles constroem a situação ideal — a partir de uma decisão precisa e bem assessorada. Esse é o ponto de partida.
+              </p>
+
+              <div className="space-y-5">
+                {[
+                  { icon: '🎯', title: 'Diagnóstico sem custo', desc: 'Na primeira conversa, mapeamos gaps, oportunidades e o seu maior alavancador de resultado agora.' },
+                  { icon: '⚡', title: 'Proposta sob medida', desc: 'Cada programa é desenhado para o seu contexto — setor, momento de carreira, objetivos de negócio.' },
+                  { icon: '🔒', title: 'Confidencialidade total', desc: 'Seus desafios e planos estratégicos são tratados com o mesmo sigilo de um advisor de board.' },
+                  { icon: '📅', title: 'Resposta em 24h', desc: 'Sua mensagem chega direto ao time W-Qi. Sem burocracia, sem SDRs. Só conversa qualificada.' },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
+                    <div>
+                      <div className="text-white font-semibold text-sm mb-1">{item.title}</div>
+                      <div className="text-white/50 text-xs leading-relaxed">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ) : (
-              <>
-                {error && (
-                  <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-xl">
-                    <AlertCircle className="text-destructive" size={20} />
-                    <p className="text-destructive text-sm">{error}</p>
-                  </div>
-                )}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name" className="text-sm font-medium">Nome *</Label>
-                    <Input
-                      id="name"
-                      value={contactForm.name}
-                      onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                      placeholder="Seu nome completo"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email" className="text-sm font-medium">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={contactForm.email}
-                      onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                      placeholder="seu@email.com"
-                      required
-                      className="mt-1"
-                    />
-                  </div>
+
+              <div className="mt-10 pt-8 border-t border-white/10">
+                <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Prefere falar agora?</p>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-semibold rounded-full px-6 py-3 text-sm transition-colors">
+                  <FaWhatsapp size={16} /> Chamar no WhatsApp
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right — form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8"
+            >
+
+              <p className="text-white/50 text-xs mb-4">Preencha o formulário — resposta garantida em até 24h.</p>
+              {success ? (
+                <div className="flex items-center gap-3 p-4 bg-accent/10 border border-accent/20 rounded-xl">
+                  <CheckCircle className="text-accent" size={20} />
+                  <p className="text-white text-sm font-medium">Mensagem recebida! Retornamos em até 24h.</p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="whatsapp" className="text-sm font-medium">WhatsApp</Label>
-                    <Input
-                      id="whatsapp"
-                      value={contactForm.whatsapp}
-                      onChange={(e) => setContactForm({ ...contactForm, whatsapp: e.target.value })}
-                      placeholder="+55 11 99999-9999"
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="company" className="text-sm font-medium">Empresa</Label>
-                    <Input
-                      id="company"
-                      value={contactForm.company}
-                      onChange={(e) => setContactForm({ ...contactForm, company: e.target.value })}
-                      placeholder="Nome da empresa"
-                      className="mt-1"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <Label htmlFor="message" className="text-sm font-medium">Mensagem *</Label>
-                  <Textarea
-                    id="message"
-                    value={contactForm.message}
-                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                    placeholder="Conte sobre seus objetivos e desafios..."
-                    rows={4}
-                    required
-                    className="mt-1"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  disabled={submitLoading}
-                  className="w-full bg-accent hover:bg-accent/90 text-white rounded-full py-3 h-auto font-semibold"
-                >
-                  {submitLoading ? (
-                    <><Loader2 className="mr-2 animate-spin" size={16} /> Enviando...</>
-                  ) : (
-                    'Enviar Mensagem'
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                  {error && (
+                    <div className="flex items-center gap-3 p-3 bg-destructive/10 border border-destructive/20 rounded-xl">
+                      <AlertCircle className="text-destructive" size={18} />
+                      <p className="text-destructive text-xs">{error}</p>
+                    </div>
                   )}
-                </Button>
-              </>
-            )}
-          </form>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="name2" className="text-white/70 text-xs font-medium">Nome *</Label>
+                      <Input id="name2" value={contactForm.name} onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })} placeholder="Seu nome" required className="mt-1 bg-white/5 border-white/15 text-white placeholder:text-white/30 focus:border-accent" />
+                    </div>
+                    <div>
+                      <Label htmlFor="email2" className="text-white/70 text-xs font-medium">Email *</Label>
+                      <Input id="email2" type="email" value={contactForm.email} onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })} placeholder="seu@email.com" required className="mt-1 bg-white/5 border-white/15 text-white placeholder:text-white/30 focus:border-accent" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="whatsapp2" className="text-white/70 text-xs font-medium">WhatsApp</Label>
+                      <Input id="whatsapp2" value={contactForm.whatsapp} onChange={(e) => setContactForm({ ...contactForm, whatsapp: e.target.value })} placeholder="+55 11 99999-9999" className="mt-1 bg-white/5 border-white/15 text-white placeholder:text-white/30 focus:border-accent" />
+                    </div>
+                    <div>
+                      <Label htmlFor="company2" className="text-white/70 text-xs font-medium">Empresa</Label>
+                      <Input id="company2" value={contactForm.company} onChange={(e) => setContactForm({ ...contactForm, company: e.target.value })} placeholder="Sua empresa" className="mt-1 bg-white/5 border-white/15 text-white placeholder:text-white/30 focus:border-accent" />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="message2" className="text-white/70 text-xs font-medium">Mensagem *</Label>
+                    <Textarea id="message2" value={contactForm.message} onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })} placeholder="Qual é o seu principal desafio hoje? Onde você quer chegar nos próximos 12 meses?" rows={4} required className="mt-1 bg-white/5 border-white/15 text-white placeholder:text-white/30 focus:border-accent resize-none" />
+                  </div>
+                  <Button type="submit" disabled={submitLoading} className="w-full bg-accent hover:bg-accent/90 text-white rounded-full py-3 h-auto font-semibold text-sm">
+                    {submitLoading ? <><Loader2 className="mr-2 animate-spin" size={15} /> Enviando...</> : 'Solicitar Conversa Estratégica'}
+                  </Button>
+                </form>
+              )}
+            </motion.div>
+          </div>
         </div>
       </section>
 
