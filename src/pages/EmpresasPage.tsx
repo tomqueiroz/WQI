@@ -267,7 +267,7 @@ export default function EmpresasPage() {
             <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6"
                 style={{ background: `rgba(122,98,7,0.18)`, color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}>
-                <Building2 size={12} /> Soluções Corporativas
+                <Building2 size={12} /> Geração AI First™ · Soluções Corporativas
               </span>
             </motion.div>
 
@@ -276,8 +276,8 @@ export default function EmpresasPage() {
               className="text-white mb-6"
               style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(2.4rem, 5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
             >
-              Prepare sua empresa<br />
-              <span style={{ color: '#c9a227' }}>para liderar</span> na Era da IA.
+              Forme a <span style={{ color: '#c9a227' }}>Geração AI First™</span><br />
+              na sua organização.
             </motion.h1>
 
             <motion.p
@@ -285,7 +285,7 @@ export default function EmpresasPage() {
               className="text-white/65 mb-4 max-w-2xl"
               style={{ fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.7 }}
             >
-              A W-Qi é a referência no Brasil para empresas que precisam acelerar a preparação de lideranças e times para compreender, planejar, implementar e operar com excelência com IA Generativa como fator competitivo decisivo.
+              Mais de 95% dos projetos de IA nas empresas falham — não por falta de tecnologia, mas por ausência de líderes e times capacitados para operá-la. A W-Qi é a referência no Brasil para acelerar a formação da Geração AI First™: lideranças e times que compreendem, planejam, implementam e operam IA como vantagem competitiva real e decisiva.
             </motion.p>
 
             <motion.p
@@ -327,7 +327,12 @@ export default function EmpresasPage() {
           style={{ background: 'rgba(0,17,35,0.85)', backdropFilter: 'blur(12px)', borderTop: '1px solid rgba(122,98,7,0.2)' }}
         >
           <div className="container mx-auto px-4 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {IMPACT_STATS.map((s) => (
+            {[
+              { value: '95%', label: 'dos projetos de IA falham · MIT 2025', icon: BarChart3 },
+              { value: '$5,5T', label: 'em perdas pelo gap de talentos · IDC', icon: TrendingUp },
+              { value: '72%', label: 'empresas sem talentos em IA · ManpowerGroup', icon: Users },
+              { value: '500+', label: 'Líderes AI First formados pela W-Qi', icon: Award },
+            ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <s.icon size={20} style={{ color: COPPER, flexShrink: 0 }} />
                 <div>
@@ -367,19 +372,19 @@ export default function EmpresasPage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-4xl mx-auto text-center mb-14">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>O Cenário Real</p>
-              <h2 className="text-primary mb-5">Sua empresa está pronta para<br />competir na Era da IA?</h2>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>O Diagnóstico Global · Geração AI First™</p>
+              <h2 className="text-primary mb-5">O gap que está custando<br />trilhões às empresas</h2>
               <p className="text-muted-foreground leading-relaxed text-base md:text-lg" style={{ fontWeight: 300 }}>
-                A IA Generativa não é mais uma tendência futura — é o fator de competitividade mais urgente do presente. Empresas que adiarem a preparação de suas lideranças e times estão, hoje, acumulando uma desvantagem que será exponencialmente difícil de recuperar.
+                Os números são brutais. Mais de 95% dos projetos de IA falham antes de ir à produção (MIT, 2025). O IDC projeta US$ 5,5 trilhões em perdas globais pelo gap de talentos em IA até 2026. E o ManpowerGroup revela que 72% dos empregadores globais não encontram profissionais com habilidades em IA. A questão não é se sua empresa vai enfrentar esse problema — é se ela vai agir antes ou depois da concorrência.
               </p>
             </motion.div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { stat: '72%', text: 'dos CEOs acreditam que IA é o maior fator de competitividade do próximo ciclo.', source: 'PwC CEO Survey 2025' },
-              { stat: '61%', text: 'dos gestores de RH apontam desenvolvimento de líderes em IA como principal desafio.', source: 'ISK Consultoria 2024' },
-              { stat: '98%', text: 'das empresas Fortune 500 possuem programas estruturados de mentoria corporativa.', source: 'MentorCliQ Impact Report' },
+              { stat: '95%', text: 'dos projetos de IA Generativa em empresas falham antes de atingir produção.', source: 'MIT · 2025' },
+              { stat: '$5,5T', text: 'em perdas globais projetadas pelo gap de talentos em IA até 2026.', source: 'IDC · 2026' },
+              { stat: '72%', text: 'dos empregadores globais relatam dificuldade crítica em encontrar talentos em IA.', source: 'ManpowerGroup · 2026' },
             ].map((item, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -400,13 +405,13 @@ export default function EmpresasPage() {
           >
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a227' }}>A diferença que muda tudo</p>
+                <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a227' }}>A resposta: Geração AI First™</p>
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Empresas não falham em IA por falta de tecnologia.
-                  <span style={{ color: '#c9a227' }}> Falham por falta de líderes preparados.</span>
+                  <span style={{ color: '#c9a227' }}> Falham por falta de líderes da Geração AI First™.</span>
                 </h3>
                 <p className="text-white/60 leading-relaxed" style={{ fontWeight: 300 }}>
-                  A W-Qi resolve exatamente esse problema — com a experiência única de quem não apenas entende de IA, mas a constrói e a opera em escala empresarial real.
+                  A W-Qi forma a Geração AI First™ dentro da sua organização — com a experiência única de quem não apenas entende de IA, mas a constrói, opera e implementa em escala real, com casos documentados em dezenas de setores.
                 </p>
               </div>
               <div className="flex flex-col gap-4">
@@ -429,10 +434,10 @@ export default function EmpresasPage() {
         <div className="container mx-auto px-4 md:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Portfólio Corporativo</p>
-            <h2 className="text-primary mb-4">Soluções para cada etapa<br />da sua transformação</h2>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Portfólio Corporativo · Geração AI First™</p>
+            <h2 className="text-primary mb-4">Soluções Modulares para<br />cada etapa da jornada AI First™</h2>
             <p className="text-muted-foreground max-w-xl mx-auto" style={{ fontWeight: 300 }}>
-              Cada empresa tem um ponto de partida diferente. A W-Qi desenvolve soluções personalizadas — não pacotes genéricos.
+              Cada empresa tem um ponto de partida diferente e um gap específico de liderança e talentos em IA. A W-Qi desenvolve soluções 100% personalizadas — não pacotes genéricos, não teoria vazia. Do diagnóstico ao resultado mensurável.
             </p>
           </motion.div>
 

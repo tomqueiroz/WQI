@@ -48,44 +48,44 @@ const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20
 
 const FAQ_ITEMS = [
   {
-    question: 'Para quem são os programas WQI?',
+    question: 'O que é a Geração AI First™ e por que isso importa?',
     answer:
-      'Nossos programas são desenhados para executivos C-Suite, diretores de marketing, VPs de estratégia, fundadores e líderes que buscam dominar IA aplicada ao marketing e acelerar resultados de negócio.',
+      'A Geração AI First™ é o mote exclusivo da W-Qi que define um novo padrão de liderança para a era da inteligência artificial. Ser AI First não significa usar ferramentas de IA — significa desenvolver a habilidade estratégica de compreender, planejar, implementar e operar com IA como fator competitivo decisivo. Segundo o IDC, 90%+ das empresas enfrentarão escassez crítica de habilidades em IA até 2026. A Geração AI First™ é a resposta estruturada a esse gap.',
   },
   {
-    question: 'Qual é a diferença entre os programas disponíveis?',
+    question: 'Por que 95% dos projetos de IA falham nas empresas?',
     answer:
-      'A Mentoria 1:1 oferece atenção 100% personalizada para executivos sênior. O Cohort reúne 8-12 líderes por 6 meses. A MasterClass é uma imersão de 8h. O In-Company transforma times inteiros. Keynotes inspiram eventos corporativos.',
+      'Segundo MIT (2025) e RAND Corporation, mais de 80-95% dos projetos de IA falham antes de ir à produção. A causa principal não é a tecnologia — é a ausência de lideranças que saibam o que pedir à IA, como estruturar iniciativas com âncora estratégica e como gerar adoção real nos times. É exatamente esse gap que a W-Qi foi criada para resolver.',
   },
   {
-    question: 'Wellington Queiroz tem experiência no meu setor?',
+    question: 'Para quem são os programas W-Qi?',
     answer:
-      'Wellington liderou marketing em Sony, Honda, Rakuten e Shell, cobrindo tecnologia, automotivo, e-commerce e energia. Como CAIO desde 2021 e Professor FGV EAESP, trabalhou com executivos de 8 países e dezenas de indústrias.',
+      'Para executivos C-Suite, diretores, VPs, gerentes sênior, fundadores e líderes corporativos que precisam desenvolver ou expandir sua capacidade de operar com IA no contexto estratégico dos seus negócios. Também para empresas que precisam formar times e lideranças preparadas para a nova era competitiva.',
+  },
+  {
+    question: 'Quais são as soluções disponíveis?',
+    answer:
+      'Mentoria 1:1 (executivos sênior, 100% personalizada), Cohort Executivo (8-12 líderes por 6 meses), In-Company (transformação de times e organizações), MasterClass (imersão intensiva de 8h), Keynotes inspiracionais e Cursos Digitais sob demanda. Todos modulares e customizáveis para a realidade de cada contexto.',
   },
   {
     question: 'Quais resultados posso esperar?',
     answer:
-      'Cases documentados: -35% em CPA, 3x em leads qualificados, ROI de 10x em campanhas com IA, e +40% em clareza estratégica após 90 dias. Cada programa define KPIs específicos no início para mensuração rigorosa.',
-  },
-  {
-    question: 'Como funciona o Programa de Cohort Executivo?',
-    answer:
-      'O Cohort reúne 8-12 executivos selecionados em sessões semanais ao vivo por 6 meses. Inclui peer learning, mentor office hours, projetos práticos e networking de alto nível. Próxima turma: Agosto 2026.',
+      'Os programas definem KPIs específicos antes de começar. Cases documentados incluem: redução de 35% em CPA, 3x em leads qualificados, ROI de 10x em iniciativas com IA, +40% em clareza estratégica após 90 dias, e formação de times operando com IA em produção — não apenas em pilotos.',
   },
   {
     question: 'Os programas são personalizados?',
     answer:
-      'Sim. Todos os programas WQI são 100% personalizados. Não exibimos preços públicos porque cada proposta é construída individualmente após diagnóstico estratégico completo.',
+      'Sim, 100%. Não existem modelos genéricos na W-Qi. Cada programa começa com um diagnóstico estratégico completo — de maturidade em IA, gaps de liderança e objetivos de negócio — e a proposta é construída a partir dessa realidade. Por isso não exibimos preços públicos.',
   },
   {
-    question: 'Qual é o investimento necessário?',
+    question: 'Tom Queiroz tem experiência no meu setor?',
     answer:
-      'O investimento varia conforme escopo, duração e formato. Após contato inicial, realizamos diagnóstico estratégico e apresentamos proposta personalizada. O retorno documentado supera 10x o investimento em até 90 dias.',
+      'Tom foi ex-executivo em Sony, Honda, Rakuten e Shell — cobrindo tecnologia, automotivo, e-commerce e energia. Como CEO e CAIO da Pareto (pareto.io) e criador da plataforma TESS AI (tess.im), trabalha com IA Generativa aplicada a negócios desde 2021. Como mentor e Professor FGV EAESP, atendeu executivos de 8 países e dezenas de setores.',
   },
   {
     question: 'Como posso começar?',
     answer:
-      'Clique em Falar com Especialista em qualquer seção do site ou use o formulário de contato. Retornamos em até 24h para agendar conversa estratégica sem compromisso.',
+      'Clique em Falar com Especialista em qualquer seção do site ou use o formulário de contato. Retornamos em até 24h úteis para agendar uma conversa estratégica sem compromisso — onde entendemos sua realidade antes de propor qualquer solução.',
   },
 ];
 
@@ -98,34 +98,34 @@ const MENTORIA_STEPS = [
   },
   {
     icon: Rocket,
-    title: 'Plano de 90 Dias',
+    title: 'Plano de Habilidades AI First™',
     description:
-      'Roadmap personalizado com OKRs claros, marcos de execução e quick wins para gerar tração desde a primeira semana.',
+      'Mapa personalizado de gaps e competências — do contexto atual à capacidade de operar IA com autonomia e impacto estratégico.',
   },
   {
     icon: Target,
-    title: 'Implementação Guiada',
+    title: 'Desenvolvimento e Aplicação',
     description:
-      'Acompanhamento contínuo com revisão de estratégias, campanhas e decisões de time em tempo real.',
+      'Desenvolvimento das habilidades com cases reais, ferramentas aplicadas e projetos práticos ancorados nos OKRs de negócio.',
   },
   {
     icon: Award,
-    title: 'Resultados Mensuráveis',
+    title: 'Liderança AI First Consolidada',
     description:
-      'Métricas rigorosas de ROI, redução de CPA, aumento de leads e transformação cultural reportados mensalmente.',
+      'Resultados mensuráveis, mudança cultural documentada e o executivo ou time operando IA em produção — não apenas em pilotos.',
   },
 ];
 
 // ─── Fictional testimonials for the slider ───
 const SLIDER_TESTIMONIALS = [
-  { id: 's1', name: 'Rodrigo Mendes', role: 'CMO', company: 'Grupo Saraiva', avatar: 'RM', content: 'Em 90 dias reduzi o CPA em 38% e estruturei meu time com metodologia AI-First. Wellington entrega clareza onde havia apenas ruído.' },
-  { id: 's2', name: 'Cláudia Ferreira', role: 'VP de Marketing', company: 'BTG Pactual', avatar: 'CF', content: 'Nunca imaginei que estratégia e inteligência artificial poderiam se conectar de forma tão prática. O ROI foi imediato e mensurável.' },
-  { id: 's3', name: 'André Nakamura', role: 'Head of Growth', company: 'iFood', avatar: 'AN', content: 'O Cohort Executivo foi divisor de águas. Além do conteúdo brutal, o networking com outros executivos valeu cada hora investida.' },
-  { id: 's4', name: 'Bianca Torres', role: 'Diretora de Estratégia', company: 'Ambev', avatar: 'BT', content: 'Wellington tem a rara habilidade de transformar complexidade em ação. Em 60 dias já colhíamos resultados mensuráveis.' },
-  { id: 's5', name: 'Felipe Carvalho', role: 'CEO', company: 'StartupBR', avatar: 'FC', content: 'A MasterClass AI-First foi a melhor decisão que tomei em 2025. Frameworks prontos, implementação imediata.' },
-  { id: 's6', name: 'Mariana Souza', role: 'CDO', company: 'Grupo Fleury', avatar: 'MS', content: 'A mentoria 1:1 me deu o mapa que eu precisava para liderar a transformação digital. Resultado em 45 dias.' },
-  { id: 's7', name: 'Lucas Prado', role: 'VP de Inovação', company: 'Embraer', avatar: 'LP', content: 'Executivo com 15 anos de carreira, nunca pensei que aprenderia tanto em tão pouco tempo. Altamente recomendado.' },
-  { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'Wellington conecta academia e mercado de uma forma que só quem viveu os dois lados consegue fazer. Transformador.' },
+  { id: 's1', name: 'Rodrigo Mendes', role: 'CMO', company: 'Grupo Saraiva', avatar: 'RM', content: 'Em 90 dias meu time passou de pilotos sem resultado para IA em produção — com KPIs mensuráveis desde a semana 1. A metodologia Geração AI First™ é o que diferencia a W-Qi de tudo que vi no mercado.' },
+  { id: 's2', name: 'Cláudia Ferreira', role: 'VP de Estratégia', company: 'BTG Pactual', avatar: 'CF', content: 'Eramos o clichê: muito investimento em IA, resultados perto de zero. Tom Queiroz identificou o problema em menos de uma sessão: faltava liderança AI First. Em 60 dias a história mudou.' },
+  { id: 's3', name: 'André Nakamura', role: 'Head of Innovation', company: 'iFood', avatar: 'AN', content: 'O Cohort Executivo foi a decisão mais estratégica do meu ano. Além de frameworks práticos de IA aplicada, o peer learning com outros C-levels foi transformador para a minha visão.' },
+  { id: 's4', name: 'Bianca Torres', role: 'Diretora de Transformação Digital', company: 'Ambev', avatar: 'BT', content: 'Nossa iniciativa de IA havia fracassado duas vezes por falta de liderança qualificada. Com a formação da W-Qi, construímos o comitê interno de IA e entregamos resultado no Q3.' },
+  { id: 's5', name: 'Felipe Carvalho', role: 'CEO', company: 'Scale-Up BR', avatar: 'FC', content: 'A MasterClass AI-First foi investimento com ROI imediato. No dia seguinte já implementei dois frameworks no nosso processo de decisão. Execução real, sem teoria vazia.' },
+  { id: 's6', name: 'Mariana Souza', role: 'CDO', company: 'Grupo Fleury', avatar: 'MS', content: 'Tom tem algo raro: experiência real de C-suite somada a profundidade técnica em IA Generativa. Ele não fala de IA — ele fez IA acontecer em grandes organizações. A mentoria 1:1 me deu essa clareza.' },
+  { id: 's7', name: 'Lucas Prado', role: 'VP de Inovação', company: 'Embraer', avatar: 'LP', content: 'Participamos do programa In-Company com 20 líderes. O nível de personalização foi surpreendente. Saímos com um roadmap de IA construído internamente — com competência e autonomia.' },
+  { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'A Geração AI First™ não é slogan — é uma transformação real de mindset e habilidade. Seis meses depois do Cohort, minha equipe lidera a agenda de IA na empresa. Esse é o resultado que importa.' },
 ];
 
 // ─── 44 logos distribuídos por TODA a área da hero (8 faixas × ~5-6 logos) ───
@@ -371,7 +371,7 @@ export default function Home() {
               className="lg:col-span-5 text-center lg:text-left"
             >
               <span className="inline-flex items-center gap-2 text-accent bg-accent/10 border border-accent/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
-                CEO Pareto · CAIO · FGV EAESP · IBM Watson · Ex-Sony · Ex-Shell
+                Geração AI First™ · W-Qi Development
               </span>
 
               <h1
@@ -385,12 +385,12 @@ export default function Home() {
                   marginBottom: '1rem',
                 }}
               >
-                Construa a Liderança Digital{' '}
-                <span style={{ color: 'var(--color-accent)' }}>que o Mercado vai Seguir</span>
+                Desenvolva uma Liderança{' '}
+                <span style={{ color: 'var(--color-accent)' }}>AI First</span>{' '}que o Mercado vai Seguir
               </h1>
 
               <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0" style={{ fontWeight: 300 }}>
-                Na interseção entre estratégia, dados e IA, formamos os líderes que definirão os próximos dez anos do marketing global.
+                Mais de 95% dos projetos de IA nas empresas falham — não por falta de tecnologia, mas por falta de líderes preparados. A W-Qi forma a <strong style={{ color: '#c9a227', fontWeight: 600 }}>Geração AI First™</strong>: executivos e times que compreendem, implementam e operam IA como vantagem competitiva real.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8 justify-center lg:justify-start">
@@ -409,10 +409,10 @@ export default function Home() {
               {/* Stats row */}
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { value: '-35% CPA', label: 'Média em Campanhas' },
-                  { value: 'ROI 10x', label: 'Em Projetos Reais' },
-                  { value: '500+', label: 'Executivos Formados' },
-                  { value: '20 anos', label: 'De Experiência' },
+                  { value: '95%', label: 'projetos de IA falham · MIT 2025' },
+                  { value: '$5,5T', label: 'perdidos no gap · IDC' },
+                  { value: '500+', label: 'Líderes AI First formados' },
+                  { value: '72%', label: 'sem talento em IA · ManpowerGroup' },
                 ].map((s) => (
                   <div key={s.value} className="border border-white/10 rounded-xl p-3 text-center bg-white/5 backdrop-blur-sm">
                     <div className="text-xl font-black text-accent">{s.value}</div>
@@ -512,6 +512,110 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ============ O GRANDE DESAFIO — KEY PAIN POINTS ============ */}
+      <section className="py-20 md:py-28 bg-[#001123]">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <span className="inline-block bg-accent/20 text-accent text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">O Diagnóstico Global</span>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">O Gap que está Custando Trilhões às Empresas</h2>
+            <p className="text-white/60 text-base md:text-lg max-w-3xl mx-auto" style={{ fontWeight: 300 }}>
+              Os números são brutais — e a maioria das organizações ainda não percebeu o tamanho do problema que está construindo.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+            {[
+              { stat: '95%', label: 'dos projetos de IA Generativa em empresas falham antes de ir à produção', source: 'MIT · 2025' },
+              { stat: '$5,5T', label: 'em perdas globais projetadas pelo gap de talentos em IA até 2026', source: 'IDC' },
+              { stat: '72%', label: 'dos empregadores globais relatam dificuldade crítica em encontrar talentos em IA', source: 'ManpowerGroup 2026' },
+              { stat: '90%+', label: 'das empresas globais enfrentarão escassez crítica de habilidades em IA este ano', source: 'IDC · 2026' },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center"
+              >
+                <div className="text-4xl md:text-5xl font-black" style={{ color: '#c9a227' }}>{item.stat}</div>
+                <p className="text-white/70 text-sm mt-2 leading-relaxed" style={{ fontWeight: 300 }}>{item.label}</p>
+                <p className="text-white/30 text-xs mt-3 font-semibold tracking-wider">{item.source}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-5">Os 5 Grandes Key Pain Points das Corporações</h3>
+              <div className="space-y-4">
+                {[
+                  { n: '01', title: 'Líderes que não sabem o que pedir à IA', desc: 'C-suites aprovam investimentos em IA sem ter clareza sobre casos de uso, KPIs ou governança — resultando em projetos sem tração.' },
+                  { n: '02', title: 'Times operacionais sem reskilling estruturado', desc: 'Ferramentas chegam antes da capacitação. O resultado: adoção superficial, resistência cultural e ROI próximo de zero.' },
+                  { n: '03', title: 'Iniciativas de IA sem âncora estratégica', desc: 'IA implementada como projeto de TI, não como alavanca de negócio — desconectada dos OKRs que importam.' },
+                  { n: '04', title: 'Ausência de lideranças que traduzem IA em resultado', desc: 'O gap não é tecnológico — é de liderança. Faltam executivos que entendam IA o suficiente para tomar as decisões certas.' },
+                  { n: '05', title: 'Velocidade da mudança vs. capacidade de adaptação', desc: 'O ciclo de inovação em IA é medido em semanas. As estruturas corporativas de aprendizado, em anos. A distância cresce.' },
+                ].map((kpp) => (
+                  <div key={kpp.n} className="flex gap-4">
+                    <span className="text-accent font-black text-lg flex-shrink-0 w-8">{kpp.n}</span>
+                    <div>
+                      <p className="text-white font-semibold text-sm">{kpp.title}</p>
+                      <p className="text-white/50 text-xs mt-1 leading-relaxed" style={{ fontWeight: 300 }}>{kpp.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="bg-white/5 border border-accent/20 rounded-2xl p-8"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <Brain size={24} style={{ color: '#c9a227' }} />
+                <h3 className="text-white font-bold text-lg">A Resposta: Geração AI First™</h3>
+              </div>
+              <p className="text-white/70 text-sm leading-relaxed mb-6" style={{ fontWeight: 300 }}>
+                O mote exclusivo da W-Qi que define um novo padrão de liderança e operação para a era que está começando. <strong style={{ color: '#c9a227' }}>Geração AI First™</strong> não é sobre aprender a usar ferramentas — é sobre desenvolver a habilidade de compreender, planejar, implementar e operar com IA como fator competitivo decisivo.
+              </p>
+              <div className="space-y-3 mb-8">
+                {[
+                  'Compreender o potencial transformador da IA em cada área do negócio',
+                  'Planejar iniciativas com âncora estratégica e KPIs claros desde o início',
+                  'Implementar com governança, metodologia e foco em adoção real',
+                  'Operar com IA integrada ao dia a dia — não como projeto isolado',
+                  'Liderar equipes através da mudança cultural que a IA exige',
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-3 items-start">
+                    <CheckCircle size={15} style={{ color: '#c9a227', flexShrink: 0, marginTop: 2 }} />
+                    <p className="text-white/70 text-sm" style={{ fontWeight: 300 }}>{item}</p>
+                  </div>
+                ))}
+              </div>
+              <a href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Gera%C3%A7%C3%A3o%20AI%20First%20W-Qi." target="_blank" rel="noopener noreferrer">
+                <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-6 py-3 h-auto font-semibold text-sm w-full">
+                  <Zap size={15} className="mr-2" /> Quero Fazer Parte da Geração AI First™
+                </Button>
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ============ QUOTE PARALLAX 1 ============ */}
       <section ref={quoteRef1} className="min-h-[45vh] relative overflow-hidden flex items-center">
         {/* IMG real — translate3d move a imagem de verdade */}
@@ -531,8 +635,8 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="font-black text-2xl md:text-4xl text-white text-center italic max-w-3xl leading-snug"
           >
-            "A IA não vai substituir você. Vai substituir quem não sabe usá-la."
-            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz</cite>
+            "95% dos projetos de IA falham. O problema nunca foi a tecnologia — foi a ausência de líderes da Geração AI First™ capazes de operá-la."
+            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz · CEO Pareto · CAIO · IBM Watson Alumni</cite>
           </motion.blockquote>
         </div>
       </section>
@@ -632,10 +736,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Programas</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Alta Performance Executive</h2>
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Soluções Modulares · Geração AI First™</p>
+            <h2 className="text-3xl md:text-5xl font-black text-primary">Programas 100% Customizáveis</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Cada programa é personalizado ao seu momento e mercado. Sem preços públicos — cada proposta é construída individualmente.
+              Para executivos individuais, times ou organizações — cada solução é desenhada após diagnóstico estratégico, endereçando o gap real de habilidades em IA da sua realidade. Sem preços públicos, sem modelos genéricos.
             </p>
           </motion.div>
 
@@ -709,8 +813,8 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="font-black text-2xl md:text-4xl text-white text-center italic max-w-3xl leading-snug"
           >
-            "Marketing sem dados é opinião. Marketing sem IA é atraso."
-            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz</cite>
+            "A vantagem competitiva do próximo ciclo não é de quem tem mais IA. É de quem formou líderes da Geração AI First™ — capazes de transformar potencial em resultado."
+            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz · CEO Pareto · CAIO</cite>
           </motion.blockquote>
         </div>
       </section>
@@ -724,10 +828,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Metodologia</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">Como Funciona</h2>
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">AI-First Framework™</p>
+            <h2 className="text-3xl md:text-5xl font-black text-primary">Do Diagnóstico à Geração AI First™</h2>
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-              Um processo de 4 etapas rigoroso, personalizado e orientado a resultados mensuráveis.
+              Quatro etapas rigorosas e modulares — personalizadas para a realidade de cada executivo, time ou organização. Com KPIs definidos antes de começar e métricas revisadas ao longo de todo o processo.
             </p>
           </motion.div>
 
@@ -767,9 +871,9 @@ export default function Home() {
             className="text-center"
           >
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Testemunhais</p>
-            <h2 className="text-3xl md:text-5xl font-black text-primary">O que Dizem os Mentorados</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-primary">Da Incerteza à Liderança AI First™</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm">
-              Líderes de topo que transformaram resultados com a metodologia AI-First.
+              Executivos e líderes que superaram o gap de habilidades em IA e passaram a liderar — e não mais a seguir — a transformação em suas organizações.
             </p>
           </motion.div>
         </div>
@@ -825,9 +929,9 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Pronto para o Próximo Nível?</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Sua empresa está formando a <span style={{ color: '#c9a227' }}>Geração AI First™</span>?</h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Cada dia sem uma estratégia AI-First é uma vantagem competitiva que você deixa para o concorrente.
+              O IDC estima US$ 5,5 trilhões em perdas globais pelo gap de talentos em IA até 2026. O custo de não agir já está sendo contabilizado. A W-Qi conecta você às lideranças e às metodologias que fecham esse gap — agora.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to={LMS_ROUTES.PROGRAMAS}>

@@ -79,14 +79,14 @@ export default function Mentoria1on1Page() {
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6"
                   style={{ borderColor: 'rgba(122,98,7,0.5)', background: 'rgba(122,98,7,0.12)' }}>
                   <Award className="w-4 h-4" style={{ color: '#c4a217' }} />
-                  <span className="text-sm font-semibold tracking-widest" style={{ color: '#c4a217' }}>MENTORIA EXCLUSIVA 1:1</span>
+                  <span className="text-sm font-semibold tracking-widest" style={{ color: '#c4a217' }}>GERAÇÃO AI FIRST™ · MENTORIA EXCLUSIVA 1:1</span>
                 </div>
                 <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#ffffff', lineHeight: 1.1 }}
                   className="text-4xl lg:text-5xl xl:text-6xl mb-6">
-                  O Caminho Mais Rápido Para o Seu Próximo Patamar
+                  Desenvolva a Liderança AI First que o mercado vai seguir
                 </h1>
                 <p className="text-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 300 }}>
-                  A aceleração mais rara: atenção total de quem já navegou até onde você quer chegar. 100% personalizado. Sem fórmulas. Sem atalhos falsos.
+                  A jornada mais curta e direta para operar IA com inteligência estratégica. Com Tom Queiroz ao seu lado — 100% personalizado, baseado no seu contexto real, com KPIs definidos antes da primeira sessão.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" className="text-white font-semibold px-8"
