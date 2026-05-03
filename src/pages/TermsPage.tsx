@@ -33,13 +33,13 @@ export default function TermsPage() {
           </CardHeader>
           <CardContent className="text-muted-foreground space-y-3">
             <p>
-              Ao acessar e utilizar a plataforma W-Qi Development ("WQI", "nós", "nosso"), você ("usuário", "você") concorda em cumprir e estar vinculado aos presentes Termos de Uso.
+              Ao acessar e utilizar a plataforma Recognise ("Recognise", "nós", "nosso"), você ("usuário", "você") concorda em cumprir e estar vinculado aos presentes Termos de Uso.
             </p>
             <p>
               Se você não concordar com qualquer parte destes termos, não deverá utilizar nossos serviços.
             </p>
             <p>
-              Estes Termos constituem um acordo legal vinculante entre você e a W-Qi Development, CNPJ 00.000.000/0001-00, com sede na Av. Paulista, 2.022 - 2º andar - Consolação, São Paulo/SP.
+              Estes Termos constituem um acordo legal vinculante entre você e a Recognise, CNPJ 00.000.000/0001-00, com sede na Av. Paulista, 2.022 - 2º andar - Consolação, São Paulo/SP.
             </p>
           </CardContent>
         </Card>
@@ -95,7 +95,7 @@ export default function TermsPage() {
           </CardHeader>
           <CardContent className="text-muted-foreground space-y-3">
             <p>
-              Todo o conteúdo disponibilizado na plataforma WQI — incluindo, mas não se limitando a, textos, vídeos, áudios, imagens, gráficos, logotipos, frameworks, metodologias, materiais didáticos e código-fonte — é de propriedade exclusiva da W-Qi Development ou de seus licenciadores.
+              Todo o conteúdo disponibilizado na plataforma Recognise — incluindo, mas não se limitando a, textos, vídeos, áudios, imagens, gráficos, logotipos, frameworks, metodologias, materiais didáticos e código-fonte — é de propriedade exclusiva da Recognise ou de seus licenciadores.
             </p>
             <p>
               É expressamente proibido:
@@ -177,7 +177,7 @@ export default function TermsPage() {
           </CardHeader>
           <CardContent className="text-muted-foreground space-y-3">
             <p>
-              A W-Qi Development não se responsabiliza por:
+              A Recognise não se responsabiliza por:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Resultados específicos de carreira, promoções ou aumentos salariais decorrentes da participação nos programas</li>
@@ -277,7 +277,7 @@ export default function TermsPage() {
                 <div>
                   <p className="font-semibold text-foreground">Endereço</p>
                   <p className="text-sm">
-                    W-Qi Development<br />
+                    Recognise<br />
                     Av. Paulista, 2.022 - 2º andar<br />
                     Consolação, São Paulo/SP
                   </p>
@@ -312,7 +312,7 @@ export default function TermsPage() {
               className="border-white/30 text-white hover:bg-white/10 rounded-full font-semibold"
             >
               <a
-                href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi."
+                href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise."
                 target="_blank"
                 rel="noopener noreferrer"
               >

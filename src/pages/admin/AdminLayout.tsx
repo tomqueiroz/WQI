@@ -43,8 +43,8 @@ export function AdminLayout({ children, title }: AdminLayoutProps) {
     <div className="flex flex-col h-full">
       <div className="p-6 border-b border-white/10">
         <img 
-          src={IMAGES.LOGO_WQI_BRANCO} 
-          alt="WQI" 
+          src={IMAGES.LOGO_RECOGNISE_BRANCO} 
+          alt="Recognise" 
           className="h-10 w-auto object-contain"
         />
       </div>

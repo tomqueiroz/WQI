@@ -986,13 +986,13 @@ export default function BlogPage() {
                 </div>
               )}
 
-              {/* CTA W-Qi */}
+              {/* CTA Recognise */}
               <div className="mt-10 rounded-2xl p-6 md:p-8 text-center text-white" style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #0d2040 100%)` }}>
                 <p className="font-black mb-2" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.4rem)', fontFamily: 'Montserrat, sans-serif' }}>
                   Quer participar ao lado de Tom Queiroz?
                 </p>
                 <p className="text-white/60 text-sm mb-5" style={{ fontWeight: 300 }}>
-                  A W-Qi marca presença nos principais eventos de IA do Brasil e do mundo. Fale com a equipe para saber sobre próximas participações e eventos exclusivos.
+                  A Recognise marca presença nos principais eventos de IA do Brasil e do mundo. Fale com a equipe para saber sobre próximas participações e eventos exclusivos.
                 </p>
                 <a
                   href="https://wa.me/5511915513210?text=Quero%20saber%20sobre%20eventos%20com%20Tom%20Queiroz"

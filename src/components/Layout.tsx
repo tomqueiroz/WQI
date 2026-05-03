@@ -170,10 +170,10 @@ export function Layout({ children }: LayoutProps) {
               aria-label="Ir para página inicial"
             >
               <img
-                src={IMAGES.LOGO_WQI_BRANCO}
-                alt="WQI"
+                src={IMAGES.LOGO_RECOGNISE_BRANCO}
+                alt="Recognise"
                 className="h-10 md:h-[52px] w-auto object-contain"
-                style={{ minWidth: '120px' }}
+                style={{ minWidth: '130px' }}
               />
             </button>
 
@@ -509,7 +509,7 @@ export function Layout({ children }: LayoutProps) {
 
       <AnimatePresence>
         <motion.a
-          href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi."
+          href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise."
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
@@ -595,12 +595,12 @@ export function Layout({ children }: LayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div>
               <img
-                src={IMAGES.LOGO_WQI_BRANCO}
-                alt="WQI"
+                src={IMAGES.LOGO_RECOGNISE_BRANCO}
+                alt="Recognise"
                 className="h-10 mb-4"
               />
-              <p className="text-white/60 text-sm mb-4">
-                Marketing Digital e IA para Líderes Executivos
+              <p className="text-white/60 text-sm mb-4 leading-relaxed" style={{ fontWeight: 300 }}>
+                Especialistas em desenvolvimento de habilidades baseadas em IA para profissionais e corporações que já decidiram liderar na nova Era da Inteligência Artificial.
               </p>
               <div className="flex items-center gap-3">
                 <a
@@ -698,7 +698,7 @@ export function Layout({ children }: LayoutProps) {
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-white/60 mt-0.5 flex-shrink-0" />
                   <p className="text-white/60 text-sm">
-                    W-Qi Development | Av. Paulista, 2.022 - 2º andar - Consolação, São Paulo/SP
+                    Recognise | Av. Paulista, 2.022 - 2º andar - Consolação, São Paulo/SP
                   </p>
                 </div>
               </div>
@@ -706,7 +706,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/40 text-xs">© 2026 W-Qi Development. Todos os direitos reservados.</p>
+            <p className="text-white/40 text-xs">© 2026 Recognise. Todos os direitos reservados.</p>
             <div className="flex items-center gap-4">
               <Link to={LMS_ROUTES.PRIVACY} className="text-white/40 hover:text-white/70 text-xs transition">
                 Política de Privacidade

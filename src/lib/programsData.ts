@@ -308,7 +308,7 @@ export const INDIVIDUAL_PROGRAMS_DATA: Record<string, IndividualProgram> = {
       'Peer coaching sessions: aprendizado horizontal entre executivos',
       'Projeto capstone: cada participante entrega um AI First Roadmap para sua organização',
       'Acesso a comunidade exclusiva de alumni por 12 meses após o programa',
-      'Certificado W-Qi AI First Leadership — reconhecido pelo mercado',
+      'Certificado Recognise AI First Leadership — reconhecido pelo mercado',
     ],
     modules: [
       { number: '01', title: 'AI First Mindset & Business Context', duration: '1 semana · 4h', topics: ['O que separa líderes AI First dos demais', 'Contexto global e brasileiro da IA', 'Estatísticas e impacto no seu setor', 'Diagnóstico individual de maturidade'], benchmark: 'MIT Sloan AI Implications + HBS AI for Leaders Week 1' },
@@ -533,7 +533,7 @@ export const INDIVIDUAL_PROGRAMS_DATA: Record<string, IndividualProgram> = {
       'Exercícios práticos aplicados ao seu contexto profissional',
       'Ferramentas e templates prontos para usar no trabalho',
       'Acesso por 12 meses após a compra',
-      'Certificado de conclusão W-Qi AI First',
+      'Certificado de conclusão Recognise AI First',
       'Comunidade Discord exclusiva para alunos',
     ],
     modules: [
@@ -545,7 +545,7 @@ export const INDIVIDUAL_PROGRAMS_DATA: Record<string, IndividualProgram> = {
     outcomes: [
       { metric: '16h+', desc: 'de conteúdo estruturado por especialistas' },
       { metric: '12 meses', desc: 'de acesso para aprender no seu ritmo' },
-      { metric: 'Certificado', desc: 'W-Qi AI First reconhecido pelo mercado' },
+      { metric: 'Certificado', desc: 'Recognise AI First reconhecido pelo mercado' },
       { metric: 'Templates', desc: 'prontos para implementar IA no seu trabalho' },
     ],
     format: '100% Online · Self-paced · Acesso imediato',
@@ -749,11 +749,11 @@ export const CORPORATE_PROGRAMS_DATA: Record<string, CorporateProgram> = {
       { number: 'Sem 3', title: 'Metodologia de Mentoria AI First', duration: '4h online + 2h live', topics: ['Princípios de mentoria executiva aplicados à IA', 'Como conduzir uma sessão de mentoria AI First 1:1', 'Frameworks de diagnóstico e planejamento para mentorandos', 'Role play e simulações práticas'], benchmark: 'LBS Coaching for Leadership + Erlich Corporate Mentoring' },
       { number: 'Sem 4', title: 'Facilitação de Workshops AI First', duration: '4h online + 2h live', topics: ['Como planejar e facilitar workshops de AI upskilling', 'Gestão de resistência e objeções à IA', 'Dinâmicas e atividades práticas para times', 'Como medir e reportar o impacto das sessões'], benchmark: 'Stanford d.school Facilitation + Erlich Workshop Design' },
       { number: 'Sem 5', title: 'AI Change Leadership & Culture', duration: '4h online', topics: ['Como liderar mudança cultural para IA', 'Estratégias de engajamento e comunicação interna', 'Construindo uma comunidade AI First internamente', 'Criando incentivos e reconhecimento para adoção de IA'], benchmark: 'Stanford GSB AI Culture + LBS Change Management' },
-      { number: 'Sem 6', title: 'Certificação e Plano de Multiplicação', duration: '4h online + 1 dia presencial', topics: ['Apresentação do Plano de Multiplicação AI First (capstone)', 'Banca de certificação com Tom Queiroz', 'Toolbox final: todos os materiais para replicar', 'Comunidade de Mentores AI First W-Qi'], benchmark: 'MIT Executive Certification + LBS Leadership Capstone' },
+      { number: 'Sem 6', title: 'Certificação e Plano de Multiplicação', duration: '4h online + 1 dia presencial', topics: ['Apresentação do Plano de Multiplicação AI First (capstone)', 'Banca de certificação com Tom Queiroz', 'Toolbox final: todos os materiais para replicar', 'Comunidade de Mentores AI First Recognise'], benchmark: 'MIT Executive Certification + LBS Leadership Capstone' },
     ],
     outcomes: [
       { metric: '6 semanas', desc: 'de formação intensiva online + 1 dia presencial' },
-      { metric: 'Certificado', desc: 'Mentor AI First W-Qi — reconhecido pelo mercado' },
+      { metric: 'Certificado', desc: 'Mentor AI First Recognise — reconhecido pelo mercado' },
       { metric: 'Toolbox', desc: 'completo de materiais prontos para multiplicar internamente' },
       { metric: '3x', desc: 'mais velocidade de adoção de IA com champions certificados' },
     ],

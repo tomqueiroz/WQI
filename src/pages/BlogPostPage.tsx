@@ -777,7 +777,7 @@ export default function BlogPostPage() {
             >
               <h3 className="text-white font-black text-xl mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>Pronto para desenvolver sua liderança <span style={{ color: COPPER_LIGHT }}>AI First</span>?</h3>
               <p className="text-white/70 text-sm mb-6 max-w-xl mx-auto leading-relaxed" style={{ fontWeight: 300 }}>
-                Transforme teoria em prática com os programas de mentoria executiva da W-Qi. Desenvolvidos por quem viveu a transformação por dentro.
+                Transforme teoria em prática com os programas de mentoria executiva da Recognise. Desenvolvidos por quem viveu a transformação por dentro.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to={LMS_ROUTES.PROGRAMAS}>
@@ -785,7 +785,7 @@ export default function BlogPostPage() {
                     Explorar Programas
                   </Button>
                 </Link>
-                <a href="https://wa.me/5511915513210?text=Olá%2C%20li%20um%20artigo%20da%20W-Qi%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5511915513210?text=Olá%2C%20li%20um%20artigo%20da%20Recognise%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="rounded-full px-6" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'white' }}>
                     Falar com Especialista
                   </Button>

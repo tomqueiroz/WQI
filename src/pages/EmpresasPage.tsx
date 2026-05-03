@@ -16,7 +16,7 @@ import { supabase } from '@/integrations/supabase/client';
 // ── Constantes de marca ──────────────────────────────────────────────
 const NAVY = '#001123';
 const COPPER = '#7a6207';
-const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20corporativas%20da%20W-Qi%20para%20empresas.';
+const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20corporativas%20da%20Recognise%20para%20empresas.';
 
 // ── Seções da página (índice) ────────────────────────────────────────
 const PAGE_SECTIONS = [
@@ -148,14 +148,14 @@ const IMPACT_STATS = [
 const METHODOLOGY = [
   { step: '01', icon: Target, title: 'Diagnóstico Organizacional', desc: 'Mapeamento profundo da maturidade digital, gaps de competências em IA e oportunidades de alto impacto nos primeiros 30 dias.' },
   { step: '02', icon: Lightbulb, title: 'Desenho da Solução', desc: 'Programa 100% personalizado para a cultura, setor, tamanho e objetivos estratégicos da empresa — sem soluções genéricas.' },
-  { step: '03', icon: Zap, title: 'Implementação Acelerada', desc: 'Execução com times mistos (W-Qi + empresa), acelerando adoção e garantindo transferência real de conhecimento.' },
+  { step: '03', icon: Zap, title: 'Implementação Acelerada', desc: 'Execução com times mistos (Recognise + empresa), acelerando adoção e garantindo transferência real de conhecimento.' },
   { step: '04', icon: BarChart3, title: 'Medição de Resultados', desc: 'KPIs definidos desde o início. Dashboards de acompanhamento e sessões de revisão periódica com a alta liderança.' },
 ];
 
 // ── FAQ ──────────────────────────────────────────────────────────────
 const FAQ = [
   { q: 'Em quanto tempo vemos resultados mensuráveis?', a: 'Para programas de imersão executiva, os primeiros resultados aparecem já nas primeiras 4 semanas, com líderes tomando decisões mais qualificadas sobre IA. Para transformação sistêmica, o marco mais significativo ocorre entre 90 e 120 dias.' },
-  { q: 'Como a W-Qi se diferencia de cursos online e plataformas de IA?', a: 'A diferença é radicalmente simples: Tom Queiroz é CEO de uma empresa de IA (Pareto), criador de uma plataforma proprietária (TESS AI) e já implementou IA em multinacionais. Não ensinamos teoria — compartilhamos o que funciona na prática, com responsabilidade de resultado.' },
+  { q: 'Como a Recognise se diferencia de cursos online e plataformas de IA?', a: 'A diferença é radicalmente simples: Tom Queiroz é CEO de uma empresa de IA (Pareto), criador de uma plataforma proprietária (TESS AI) e já implementou IA em multinacionais. Não ensinamos teoria — compartilhamos o que funciona na prática, com responsabilidade de resultado.' },
   { q: 'É possível personalizar para diferentes níveis hierárquicos?', a: 'Sim. Desenvolvemos trilhas distintas por nível (C-Level, média gerência, times operacionais) com linguagem, profundidade e ferramentas apropriadas para cada público — sempre integradas em uma visão organizacional única.' },
   { q: 'Como funciona o programa de Formação de Mentores?', a: 'Com 16h de duração (podendo ser distribuídas em módulos), o programa certifica líderes internos como mentores especializados em IA e transformação digital. Inclui metodologia exclusiva, suporte da plataforma LMS e acompanhamento de 8 meses.' },
   { q: 'Existe um número mínimo de participantes?', a: 'Para programas in-company, recomendamos turmas de 12 a 25 participantes por cohort, garantindo qualidade na experiência e na dinâmica de grupo. Para consultoria executiva, atendemos empresas a partir de 50 colaboradores.' },
@@ -286,7 +286,7 @@ export default function EmpresasPage() {
               className="text-white/65 mb-4 max-w-2xl"
               style={{ fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.7 }}
             >
-              Mais de 95% dos projetos de IA nas empresas falham — não por falta de tecnologia, mas por ausência de líderes e times capacitados para operá-la. A W-Qi é a referência no Brasil para acelerar a formação da Geração AI First™: lideranças e times que compreendem, planejam, implementam e operam IA como vantagem competitiva real e decisiva.
+              Mais de 95% dos projetos de IA nas empresas falham — não por falta de tecnologia, mas por ausência de líderes e times capacitados para operá-la. A Recognise é a referência no Brasil para acelerar a formação da Geração AI First™: lideranças e times que compreendem, planejam, implementam e operam IA como vantagem competitiva real e decisiva.
             </motion.p>
 
             <motion.p
@@ -332,7 +332,7 @@ export default function EmpresasPage() {
               { value: '95%', label: 'dos projetos de IA falham · MIT 2025', icon: BarChart3 },
               { value: '$5,5T', label: 'em perdas pelo gap de talentos · IDC', icon: TrendingUp },
               { value: '72%', label: 'empresas sem talentos em IA · ManpowerGroup', icon: Users },
-              { value: '500+', label: 'Líderes AI First formados pela W-Qi', icon: Award },
+              { value: '500+', label: 'Líderes AI First formados pela Recognise', icon: Award },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <s.icon size={20} style={{ color: COPPER, flexShrink: 0 }} />
@@ -412,11 +412,11 @@ export default function EmpresasPage() {
                   <span style={{ color: '#c9a227' }}> Falham por falta de líderes da Geração AI First™.</span>
                 </h3>
                 <p className="text-white/60 leading-relaxed" style={{ fontWeight: 300 }}>
-                  A W-Qi forma a Geração AI First™ dentro da sua organização — com a experiência única de quem não apenas entende de IA, mas a constrói, opera e implementa em escala real, com casos documentados em dezenas de setores.
+                  A Recognise forma a Geração AI First™ dentro da sua organização — com a experiência única de quem não apenas entende de IA, mas a constrói, opera e implementa em escala real, com casos documentados em dezenas de setores.
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                {['IA sem estratégia de pessoas gera desperdício', 'Treinamento genérico não cria vantagem competitiva', 'Sem mentoria, o gap de liderança aumenta', 'Com a W-Qi: resultado com responsabilidade'].map((item, i) => (
+                {['IA sem estratégia de pessoas gera desperdício', 'Treinamento genérico não cria vantagem competitiva', 'Sem mentoria, o gap de liderança aumenta', 'Com a Recognise: resultado com responsabilidade'].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircle size={16} style={{ color: i === 3 ? '#c9a227' : 'rgba(255,255,255,0.4)', flexShrink: 0 }} />
                     <span className={`text-sm ${i === 3 ? 'font-semibold text-white' : 'text-white/55'}`} style={{ fontWeight: i === 3 ? 600 : 300 }}>
@@ -438,7 +438,7 @@ export default function EmpresasPage() {
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Portfólio Corporativo · Geração AI First™</p>
             <h2 className="text-primary mb-4">Soluções Modulares para<br />cada etapa da jornada <AiFirstTm /></h2>
             <p className="text-muted-foreground max-w-xl mx-auto" style={{ fontWeight: 300 }}>
-              Cada empresa tem um ponto de partida diferente e um gap específico de liderança e talentos em IA. A W-Qi desenvolve soluções 100% personalizadas — não pacotes genéricos, não teoria vazia. Do diagnóstico ao resultado mensurável.
+              Cada empresa tem um ponto de partida diferente e um gap específico de liderança e talentos em IA. A Recognise desenvolve soluções 100% personalizadas — não pacotes genéricos, não teoria vazia. Do diagnóstico ao resultado mensurável.
             </p>
           </motion.div>
 
@@ -657,7 +657,7 @@ export default function EmpresasPage() {
           >
             <div className="grid md:grid-cols-2">
               <div className="p-8 md:p-10" style={{ background: NAVY }}>
-                <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#c9a227' }}>Por que a W-Qi</p>
+                <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#c9a227' }}>Por que a Recognise</p>
                 <h3 className="text-white text-xl font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                   Você aprende com quem faz — não com quem fala sobre fazer.
                 </h3>
@@ -729,7 +729,7 @@ export default function EmpresasPage() {
               Saiba em 30 dias exatamente onde<br />sua empresa está e onde precisa chegar.
             </h3>
             <p className="text-white/50 mb-8" style={{ fontWeight: 300 }}>
-              Uma sessão de diagnóstico de Maturidade em IA — gratuita, sem compromisso — com a equipe da W-Qi.
+              Uma sessão de diagnóstico de Maturidade em IA — gratuita, sem compromisso — com a equipe da Recognise.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button onClick={() => scrollToSection('contato')}
@@ -811,7 +811,7 @@ export default function EmpresasPage() {
               <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#c9a227' }}>Fale Conosco</p>
               <h2 className="text-white mb-5">Comece com um<br />diagnóstico gratuito.</h2>
               <p className="text-white/55 mb-8 leading-relaxed" style={{ fontWeight: 300 }}>
-                Preencha o formulário e um especialista da W-Qi entrará em contato em até 24 horas para entender os desafios da sua empresa e apresentar as melhores soluções.
+                Preencha o formulário e um especialista da Recognise entrará em contato em até 24 horas para entender os desafios da sua empresa e apresentar as melhores soluções.
               </p>
 
               <div className="space-y-5">

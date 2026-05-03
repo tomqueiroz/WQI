@@ -135,7 +135,7 @@ export function LogoMarquee() {
 
       <div className="container mx-auto px-4 mb-8 text-center">
         <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.4)', letterSpacing: '0.2em' }}>
-          Empresas que já transformaram resultados com W-Qi
+          Empresas que já transformaram resultados com a Recognise
         </p>
       </div>
 

@@ -45,88 +45,88 @@ import { useTestimonials, useSubmitLead } from '@/hooks/useSupabaseData';
 import { useFeaturedPosts } from '@/hooks/useBlog';
 import { Link } from 'react-router-dom';
 
-const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi.';
+const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise.';
 
 const FAQ_ITEMS = [
   {
-    question: 'O que é a Geração AI First™ e por que isso importa?',
+    question: 'O que diferencia a Recognise de outros programas de IA no mercado?',
     answer:
-      'A Geração AI First™ é o mote exclusivo da W-Qi que define um novo padrão de liderança para a era da inteligência artificial. Ser AI First não significa usar ferramentas de IA — significa desenvolver a habilidade estratégica de compreender, planejar, implementar e operar com IA como fator competitivo decisivo. Segundo o IDC, 90%+ das empresas enfrentarão escassez crítica de habilidades em IA até 2026. A Geração AI First™ é a resposta estruturada a esse gap.',
+      'A Recognise não é uma escola de tecnologia. Somos uma empresa especializada em desenvolvimento de novas capacidades cognitivas e culturais para a era da IA — formada por talentos reconhecidos no mercado LATAM de IA Aplicada. Nossa metodologia, a Geração AI First™, não ensina ferramentas: desenvolve um novo modelo mental que parte da cultura, know-how e valores de cada profissional ou organização.',
   },
   {
     question: 'Por que 95% dos projetos de IA falham nas empresas?',
     answer:
-      'Segundo MIT (2025) e RAND Corporation, mais de 80-95% dos projetos de IA falham antes de ir à produção. A causa principal não é a tecnologia — é a ausência de lideranças que saibam o que pedir à IA, como estruturar iniciativas com âncora estratégica e como gerar adoção real nos times. É exatamente esse gap que a W-Qi foi criada para resolver.',
+      'Segundo MIT (2025) e RAND Corporation, mais de 80-95% dos projetos de IA falham antes de ir à produção. A causa não é tecnológica — é humana. Faltam lideranças com o modelo mental adequado para estruturar iniciativas de IA com real âncora estratégica. É exatamente este gap — cultural, cognitivo e de liderança — que a Recognise foi criada para resolver.',
   },
   {
-    question: 'Para quem são os programas W-Qi?',
+    question: 'Para quem são os programas da Recognise?',
     answer:
-      'Para executivos C-Suite, diretores, VPs, gerentes sênior, fundadores e líderes corporativos que precisam desenvolver ou expandir sua capacidade de operar com IA no contexto estratégico dos seus negócios. Também para empresas que precisam formar times e lideranças preparadas para a nova era competitiva.',
+      'Para executivos e organizações que já tomaram a decisão de se transformar. Não trabalhamos com quem ainda precisa ser convencido sobre a IA — trabalhamos com visionários que buscam ativamente um novo conjunto de habilidades operacionais baseadas em IA estratégica. Nossa prioridade são profissionais C-Suite, diretores, fundadores e empresas que entendem que liderar na nova era exige mais do que adotar ferramentas.',
+  },
+  {
+    question: 'Como funciona o processo de diagnóstico?',
+    answer:
+      'Antes de propor qualquer programa, realizamos um diagnóstico aprofundado — mapeando contexto setorial, cultura, know-how existente, valores, prioridades estratégicas e gaps reais de liderança em IA. Este diagnóstico é o ponto de partida obrigatório, pois é a personalização total que garante que nossos módulos sejam recriados especificamente para a realidade de cada cliente.',
   },
   {
     question: 'Quais são as soluções disponíveis?',
     answer:
-      'Mentoria 1:1 (executivos sênior, 100% personalizada), Cohort Executivo (8-12 líderes por 6 meses), In-Company (transformação de times e organizações), MasterClass (imersão intensiva de 8h), Keynotes inspiracionais e Cursos Digitais sob demanda. Todos modulares e customizáveis para a realidade de cada contexto.',
+      'Dividimos nossas soluções em Para Profissionais (Mentoria Executiva 1:1, Cohort AI First Leadership, MasterClass, Keynotes e Cursos Digitais) e Para Empresas (Liderança AI First Corporativa, Imersão In-Company, Formação de Mentores de IA e Advisory Executivo). Todos modulares e completamente customizáveis — não há solução pronta na Recognise.',
   },
   {
-    question: 'Quais resultados posso esperar?',
+    question: 'Os programas têm preço fixo?',
     answer:
-      'Os programas definem KPIs específicos antes de começar. Cases documentados incluem: redução de 35% em CPA, 3x em leads qualificados, ROI de 10x em iniciativas com IA, +40% em clareza estratégica após 90 dias, e formação de times operando com IA em produção — não apenas em pilotos.',
+      'Não. A natureza contextual e personalizada dos nossos programas torna impossível — e indesejável — um preço público. Cada jornada é construída após o diagnóstico, de acordo com escopo, duração, formato e objetivos específicos. Nossos especialistas apresentam proposta personalizada após entender sua realidade.',
   },
   {
-    question: 'Os programas são personalizados?',
+    question: 'Quem são os especialistas da Recognise?',
     answer:
-      'Sim, 100%. Não existem modelos genéricos na W-Qi. Cada programa começa com um diagnóstico estratégico completo — de maturidade em IA, gaps de liderança e objetivos de negócio — e a proposta é construída a partir dessa realidade. Por isso não exibimos preços públicos.',
-  },
-  {
-    question: 'Tom Queiroz tem experiência no meu setor?',
-    answer:
-      'Tom foi ex-executivo em Sony, Honda, Rakuten e Shell — cobrindo tecnologia, automotivo, e-commerce e energia. Como CEO e CAIO da Pareto (pareto.io) e criador da plataforma TESS AI (tess.im), trabalha com IA Generativa aplicada a negócios desde 2021. Como mentor e Professor FGV EAESP, atendeu executivos de 8 países e dezenas de setores.',
+      'Nossa equipe é formada por talentos reconhecidos no mercado LATAM de IA Aplicada: executivos que lideraram suas próprias empresas de IA, desenvolveram plataformas proprietárias, ensinaram em universidades de topo, treinaram a próxima geração de talentos e construíram padrões de implementação de IA no Brasil. São profissionais que não falam sobre IA — eles constroem com ela, diariamente.',
   },
   {
     question: 'Como posso começar?',
     answer:
-      'Clique em Falar com Especialista em qualquer seção do site ou use o formulário de contato. Retornamos em até 24h úteis para agendar uma conversa estratégica sem compromisso — onde entendemos sua realidade antes de propor qualquer solução.',
+      'O primeiro passo é uma conversa com nossos especialistas — sem formulário genérico, sem automação. Clique em Falar com Especialista e nossa equipe retornará em até 24h úteis para agendar uma sessão de diagnóstico gratuita. Se você já tomou a decisão de se transformar — estamos prontos para caminhar com você.',
   },
 ];
 
 const MENTORIA_STEPS = [
   {
     icon: Brain,
-    title: 'Diagnóstico Estratégico',
+    title: 'Diagnóstico Profundo',
     description:
-      'Análise completa da maturidade de IA na sua organização e identificação de oportunidades de alto impacto.',
+      'Mapeamos seu contexto setorial, cultura, know-how, valores e lacunas reais de liderança em IA. É aqui que a personalização começa — antes de qualquer proposta.',
   },
   {
     icon: Rocket,
-    title: 'Plano de Habilidades AI First™',
+    title: 'Novo Modelo Mental',
     description:
-      'Mapa personalizado de gaps e competências — do contexto atual à capacidade de operar IA com autonomia e impacto estratégico.',
+      'Co-criamos um plano de desenvolvimento focado em crenças, frameworks cognitivos e habilidades operacionais — não em ferramentas. O modelo mental muda tudo o que vem depois.',
   },
   {
     icon: Target,
-    title: 'Desenvolvimento e Aplicação',
+    title: 'Desenvolvimento com Especialistas',
     description:
-      'Desenvolvimento das habilidades com cases reais, ferramentas aplicadas e projetos práticos ancorados nos OKRs de negócio.',
+      'Nossa equipe LATAM de referência em IA caminha com você — com metodologia modular, casos reais, KPIs definidos e personalização total ao seu ritmo e realidade.',
   },
   {
     icon: Award,
     title: 'Liderança AI First Consolidada',
     description:
-      'Resultados mensuráveis, mudança cultural documentada e o executivo ou time operando IA em produção — não apenas em pilotos.',
+      'Mudança cultural documentada e o executivo ou time operando IA como vantagem competitiva real — não em piloto, não no papel.',
   },
 ];
 
-// ─── Fictional testimonials for the slider ───
+// ─── Depoimentos Recognise ───
 const SLIDER_TESTIMONIALS = [
-  { id: 's1', name: 'Rodrigo Mendes', role: 'CMO', company: 'Grupo Saraiva', avatar: 'RM', content: 'Em 90 dias meu time passou de pilotos sem resultado para IA em produção — com KPIs mensuráveis desde a semana 1. A metodologia Geração AI First™ é o que diferencia a W-Qi de tudo que vi no mercado.' },
-  { id: 's2', name: 'Cláudia Ferreira', role: 'VP de Estratégia', company: 'BTG Pactual', avatar: 'CF', content: 'Eramos o clichê: muito investimento em IA, resultados perto de zero. Tom Queiroz identificou o problema em menos de uma sessão: faltava liderança AI First. Em 60 dias a história mudou.' },
-  { id: 's3', name: 'André Nakamura', role: 'Head of Innovation', company: 'iFood', avatar: 'AN', content: 'O Cohort Executivo foi a decisão mais estratégica do meu ano. Além de frameworks práticos de IA aplicada, o peer learning com outros C-levels foi transformador para a minha visão.' },
-  { id: 's4', name: 'Bianca Torres', role: 'Diretora de Transformação Digital', company: 'Ambev', avatar: 'BT', content: 'Nossa iniciativa de IA havia fracassado duas vezes por falta de liderança qualificada. Com a formação da W-Qi, construímos o comitê interno de IA e entregamos resultado no Q3.' },
-  { id: 's5', name: 'Felipe Carvalho', role: 'CEO', company: 'Scale-Up BR', avatar: 'FC', content: 'A MasterClass AI-First foi investimento com ROI imediato. No dia seguinte já implementei dois frameworks no nosso processo de decisão. Execução real, sem teoria vazia.' },
-  { id: 's6', name: 'Mariana Souza', role: 'CDO', company: 'Grupo Fleury', avatar: 'MS', content: 'Tom tem algo raro: experiência real de C-suite somada a profundidade técnica em IA Generativa. Ele não fala de IA — ele fez IA acontecer em grandes organizações. A mentoria 1:1 me deu essa clareza.' },
-  { id: 's7', name: 'Lucas Prado', role: 'VP de Inovação', company: 'Embraer', avatar: 'LP', content: 'Participamos do programa In-Company com 20 líderes. O nível de personalização foi surpreendente. Saímos com um roadmap de IA construído internamente — com competência e autonomia.' },
-  { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'A Geração AI First™ não é slogan — é uma transformação real de mindset e habilidade. Seis meses depois do Cohort, minha equipe lidera a agenda de IA na empresa. Esse é o resultado que importa.' },
+  { id: 's1', name: 'Rodrigo Mendes', role: 'CMO', company: 'Grupo Saraiva', avatar: 'RM', content: 'A Recognise mudou algo que nenhuma ferramenta muda: a forma como penso sobre IA. Em 90 dias, meu time passou de pilotos sem resultado para IA em produção — com KPIs reais desde a semana 1.' },
+  { id: 's2', name: 'Cláudia Ferreira', role: 'VP de Estratégia', company: 'BTG Pactual', avatar: 'CF', content: 'Éramos o clichê: muito investimento, resultado zero. O diagnóstico da Recognise identificou o problema em menos de uma sessão: faltava um novo modelo mental de liderança. Em 60 dias, a história mudou.' },
+  { id: 's3', name: 'André Nakamura', role: 'Head of Innovation', company: 'iFood', avatar: 'AN', content: 'O Cohort Executivo foi a decisão mais estratégica do ano. A profundidade da personalização e o nível dos especialistas é diferente de tudo que vi. Isso não é curso — é transformação real.' },
+  { id: 's4', name: 'Bianca Torres', role: 'Diretora de Transformação Digital', company: 'Ambev', avatar: 'BT', content: 'Nossa iniciativa de IA havia fracassado duas vezes. O que faltava não era tecnologia — era cultura e liderança preparada. Com a Recognise, construímos o comitê interno de IA e entregamos resultado no Q3.' },
+  { id: 's5', name: 'Felipe Carvalho', role: 'CEO', company: 'Scale-Up BR', avatar: 'FC', content: 'A MasterClass foi investimento com ROI imediato. O que me surpreendeu foi o quanto o modelo mental muda tudo — antes mesmo das ferramentas. No dia seguinte já apliquei dois frameworks nas nossas decisões.' },
+  { id: 's6', name: 'Mariana Souza', role: 'CDO', company: 'Grupo Fleury', avatar: 'MS', content: 'A equipe da Recognise tem algo raro: experiência real de C-suite somada à profundidade técnica em IA Generativa. Eles não falam de IA — eles constroem com ela. A mentoria 1:1 me deu esta clareza.' },
+  { id: 's7', name: 'Lucas Prado', role: 'VP de Inovação', company: 'Embraer', avatar: 'LP', content: 'Fizemos o In-Company com 20 líderes. O nível de personalização ao nosso contexto foi surpreendente — nada genérico. Saímos com um roadmap construído de dentro para fora, com competência real.' },
+  { id: 's8', name: 'Tatiana Vieira', role: 'Chief Marketing Officer', company: 'Magazine Luiza', avatar: 'TV', content: 'Geração AI First™ não é slogan — é uma transformação real de mindset. Seis meses depois do Cohort, minha equipe lidera a agenda de IA na empresa. A Recognise entregou: líderes, não usuários.' },
 ];
 
 // ─── Marquee vertical hero: 7 colunas com logos descendo continuamente ───
@@ -380,7 +380,7 @@ export default function Home() {
               className="lg:col-span-5 text-center lg:text-left"
             >
               <span className="inline-flex items-center gap-2 text-accent bg-accent/10 border border-accent/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
-                Geração AI First™ · W-Qi Development
+                Geração AI First™ · Recognise
               </span>
 
               <h1
@@ -394,12 +394,12 @@ export default function Home() {
                   marginBottom: '1rem',
                 }}
               >
-                Desenvolva uma Liderança{' '}
-                <span style={{ color: 'var(--color-accent)' }}>AI First<sup style={{ fontSize: '0.5em', fontWeight: 700, verticalAlign: 'super', lineHeight: 0 }}>™</sup></span>{' '}que o Mercado vai Seguir
+                Geração AI First™.{' '}
+                <span style={{ color: 'var(--color-accent)' }}>Nova Era. Nova Liderança.</span>
               </h1>
 
               <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0" style={{ fontWeight: 300 }}>
-                Mais de 95% dos projetos de IA nas empresas falham — não por falta de tecnologia, mas por falta de líderes preparados. A W-Qi forma a <strong style={{ color: '#c9a227', fontWeight: 600 }}>Geração AI First™</strong>: executivos e times que compreendem, implementam e operam IA como vantagem competitiva real.
+                A Recognise não forma usuários de IA. Desenvolvemos um <strong style={{ color: '#c9a227', fontWeight: 600 }}>novo modelo mental</strong> — com especialistas LATAM ao seu lado em cada etapa. Para visionários que já decidiram agir: a revolução da IA está em curso. Só quem se move agora vai liderar.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8 justify-center lg:justify-start">
@@ -531,10 +531,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-14"
           >
-            <span className="inline-block bg-accent/20 text-accent text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">O Diagnóstico Global</span>
-            <h2 className="text-2xl md:text-4xl font-black text-white mb-4">O Gap que está Custando Trilhões às Empresas</h2>
+            <span className="inline-block bg-accent/20 text-accent text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">O Diagnóstico Real</span>
+            <h2 className="text-2xl md:text-4xl font-black text-white mb-4">O Gap que Está Custando o Futuro das Organizações</h2>
             <p className="text-white/60 text-base md:text-lg max-w-3xl mx-auto" style={{ fontWeight: 300 }}>
-              Os números são brutais — e a maioria das organizações ainda não percebeu o tamanho do problema que está construindo.
+              Os números são brutais — e a maioria ainda atribui o fracasso à tecnologia, quando o problema é cultural, cognitivo e de liderança.
             </p>
           </motion.div>
 
@@ -596,18 +596,18 @@ export default function Home() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Brain size={24} style={{ color: '#c9a227' }} />
-                <h3 className="text-white font-bold text-lg">A Resposta: <GeracaoAiFirstTm /></h3>
+                <h3 className="text-white font-bold text-lg">A Resposta da Recognise: <GeracaoAiFirstTm /></h3>
               </div>
               <p className="text-white/70 text-sm leading-relaxed mb-6" style={{ fontWeight: 300 }}>
-                O mote exclusivo da W-Qi que define um novo padrão de liderança e operação para a era que está começando. <strong style={{ color: '#c9a227' }}>Geração AI First™</strong> não é sobre aprender a usar ferramentas — é sobre desenvolver a habilidade de compreender, planejar, implementar e operar com IA como fator competitivo decisivo.
+                Nossa metodologia proprietária que define um novo padrão de liderança para a era que já chegou. <strong style={{ color: '#c9a227' }}>Geração AI First™</strong> não ensina ferramentas — desenvolve um novo modelo mental que parte da cultura, do know-how e dos valores de cada profissional ou organização, transformando-os em líderes AI First de dentro para fora.
               </p>
               <div className="space-y-3 mb-8">
                 {[
-                  'Compreender o potencial transformador da IA em cada área do negócio',
-                  'Planejar iniciativas com âncora estratégica e KPIs claros desde o início',
-                  'Implementar com governança, metodologia e foco em adoção real',
-                  'Operar com IA integrada ao dia a dia — não como projeto isolado',
-                  'Liderar equipes através da mudança cultural que a IA exige',
+                  'Novo modelo mental: IA como extensão do seu raciocínio estratégico',
+                  'Diagnóstico profundo antes de qualquer programa — sem templates',
+                  'Especialistas LATAM ao seu lado em cada etapa da jornada',
+                  'Programas modulares recriados para a sua realidade específica',
+                  'Transformação que parte de dentro: cultura, valores e know-how',
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3 items-start">
                     <CheckCircle size={15} style={{ color: '#c9a227', flexShrink: 0, marginTop: 2 }} />
@@ -615,7 +615,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <a href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Gera%C3%A7%C3%A3o%20AI%20First%20W-Qi." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Gera%C3%A7%C3%A3o%20AI%20First%20Recognise." target="_blank" rel="noopener noreferrer">
                 <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-6 py-3 h-auto font-semibold text-sm w-full">
                   <Zap size={15} className="mr-2" /> Quero Fazer Parte da Geração AI First™
                 </Button>
@@ -644,8 +644,8 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="font-black text-2xl md:text-4xl text-white text-center italic max-w-3xl leading-snug"
           >
-            "95% dos projetos de IA falham. O problema nunca foi a tecnologia — foi a ausência de líderes da Geração AI First™ capazes de operá-la."
-            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz · CEO Pareto · CAIO · IBM Watson Alumni</cite>
+            "95% dos projetos de IA falham. O problema nunca foi a tecnologia. Foi a ausência de um novo modelo mental — e de líderes dispostos a desenvolvê-lo. É isso que a Recognise resolve."
+            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Time Recognise · Especialistas LATAM em IA Aplicada</cite>
           </motion.blockquote>
         </div>
       </section>
@@ -688,21 +688,20 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="order-1 lg:order-2"
             >
-              <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">O Arquiteto da Sua Virada</p>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-primary mb-2">Wellington Queiroz</h2>
-              <p className="text-accent text-sm font-medium mb-6">CEO Pareto · CAIO · FGV EAESP · 20 anos de execução global</p>
+              <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Especialistas LATAM em IA Aplicada</p>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-primary mb-2">Reconhecidos pelo Mercado.<br />Comprometidos com Resultado.</h2>
+              <p className="text-accent text-sm font-medium mb-6">Time Recognise · Talentos de referência em IA no Brasil e LATAM</p>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-                <p>Há uma distinção silenciosa que os executivos de alto nível reconhecem rapidamente: <strong className="text-primary">quem sabe falar sobre estratégia digital — e quem já precisou entregar resultado com ela</strong>. Wellington pertence à segunda categoria, sem nenhuma concessão.</p>
-                <p>Ex-executivo em <strong className="text-primary">Sony, Honda, Rakuten e Shell</strong>, responsável por operações de marketing que movimentaram centenas de milhões em mercados altamente competitivos, ele sabe exatamente onde um executivo erra — e como corrigir com precisão cirúrgica.</p>
-                <p>Pioneiro em IA Generativa no Brasil, Tom trabalhou com <strong className="text-primary">IBM Watson desde 2021</strong> — antes mesmo do boom global de 2023. Hoje é <strong className="text-primary">CEO e CAIO da <a href="https://pareto.io" target="_blank" rel="noopener noreferrer" className="underline decoration-accent/50 hover:decoration-accent transition-colors">Pareto</a></strong>, startup brasileira referência em IA Generativa para empresas com operações no Brasil e no Vale do Silício, criadora da plataforma proprietária <strong className="text-primary"><a href="https://tess.im" target="_blank" rel="noopener noreferrer" className="underline decoration-accent/50 hover:decoration-accent transition-colors">TESS AI</a></strong>.</p>
-                <p>Entre uma rotina executiva, docente e criativa, Tom Queiroz reserva um tempo especialmente para atuar como <strong className="text-primary">mentor e conselheiro</strong> — acreditando no potencial inovador da troca de experiências nesses projetos.</p>
+                <p>A Recognise é uma <strong className="text-primary">vertical especializada em desenvolvimento de capacidades baseadas em IA</strong> para profissionais e corporações, nascida de dentro de uma empresa de implementação de IA. Nossa equipe não fala sobre IA — a constrói, diariamente: liderando empresas de IA, desenvolvendo plataformas proprietárias, ensinando em universidades de topo e formando a próxima geração de líderes AI First no Brasil.</p>
+                <p>Tom Queiroz, nosso head de conteúdo e mentor sênior, é <strong className="text-primary">CEO e CAIO da <a href="https://pareto.io" target="_blank" rel="noopener noreferrer" className="underline decoration-accent/50 hover:decoration-accent transition-colors">Pareto</a></strong> — startup de referência em IA Generativa com operações no Brasil e Vale do Silício — e criador da <strong className="text-primary"><a href="https://tess.im" target="_blank" rel="noopener noreferrer" className="underline decoration-accent/50 hover:decoration-accent transition-colors">TESS AI</a></strong>. Pioneiro em IA Generativa no Brasil, trabalhou com IBM Watson desde 2021, antes do boom global de 2023.</p>
+                <p>Nosso diferencial não é o que ensinamos — é <strong className="text-primary">como desenvolvemos o novo modelo mental</strong> de cada profissional a partir da sua cultura, know-how, valores e indústria. É por isso que cada programa Recognise começa com um diagnóstico profundo e termina com uma liderança AI First consolidada.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-3 mt-7 mb-7">
                 {[
-                  { Icon: GraduationCap, label: 'FGV EAESP', sub: 'Professor Convidado' },
-                  { Icon: Globe,         label: '8 Países',  sub: 'Mentorados Ativos' },
+                  { Icon: GraduationCap, label: 'FGV EAESP', sub: 'Prof. Me. em IA Aplicada' },
+                  { Icon: Globe,         label: 'LATAM',     sub: 'Especialistas Reconhecidos' },
                   { Icon: Zap,           label: 'AI-First™', sub: 'Metodologia Proprietária' },
                   { Icon: TrendingUp,    label: 'ROI 10x',   sub: 'Média em Projetos Reais' },
                 ].map((c) => (
@@ -745,10 +744,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Soluções Modulares · Geração AI First™</p>
-            <h2 className="text-2xl md:text-4xl font-black text-primary">Programas 100% Customizáveis</h2>
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Geração AI First™ · Soluções Recognise</p>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">Programas Criados para a Sua Realidade</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Para executivos individuais, times ou organizações — cada solução é desenhada após diagnóstico estratégico, endereçando o gap real de habilidades em IA da sua realidade. Sem preços públicos, sem modelos genéricos.
+              Nenhuma solução genérica. Cada programa é recriado a partir de módulos proprietários, calibrado ao contexto específico de cada profissional ou organização — após diagnóstico profundo de cultura, know-how, valores e objetivos.
             </p>
           </motion.div>
 
@@ -822,8 +821,8 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="font-black text-2xl md:text-4xl text-white text-center italic max-w-3xl leading-snug"
           >
-            "A vantagem competitiva do próximo ciclo não é de quem tem mais IA. É de quem formou líderes da Geração AI First™ — capazes de transformar potencial em resultado."
-            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Tom Queiroz · CEO Pareto · CAIO</cite>
+            "A vantagem competitiva do próximo ciclo não será de quem tem mais tecnologia. Será de quem desenvolveu um novo modelo mental para operá-la — com especialistas que já percorreram este caminho."
+            <cite className="block text-accent text-base font-semibold not-italic mt-4">— Recognise · A nova era começa agora. Só quem se move vai liderar.</cite>
           </motion.blockquote>
         </div>
       </section>
@@ -837,10 +836,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">AI-First Framework™</p>
-            <h2 className="text-2xl md:text-4xl font-black text-primary">Do Diagnóstico à <GeracaoAiFirstTm /></h2>
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Nossa Metodologia Proprietária</p>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">A Jornada Recognise: Do Diagnóstico à <GeracaoAiFirstTm /></h2>
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-              Quatro etapas rigorosas e modulares — personalizadas para a realidade de cada executivo, time ou organização. Com KPIs definidos antes de começar e métricas revisadas ao longo de todo o processo.
+              Quatro etapas estruturadas e completamente personalizadas — porque nenhuma jornada de transformação real começa com um template. Começa com escuta, profundidade e co-criação.
             </p>
           </motion.div>
 
@@ -879,10 +878,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Testemunhais</p>
-            <h2 className="text-2xl md:text-4xl font-black text-primary">Da Incerteza à Liderança <AiFirstTm /></h2>
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Quem já deu o próximo passo</p>
+            <h2 className="text-2xl md:text-4xl font-black text-primary">Da Decisão à Liderança <AiFirstTm /></h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm">
-              Executivos e líderes que superaram o gap de habilidades em IA e passaram a liderar — e não mais a seguir — a transformação em suas organizações.
+              Executivos e organizações que compartilhavam a mesma visão — e encontraram na Recognise o parceiro para transformar essa visão em liderança real na era da IA.
             </p>
           </motion.div>
         </div>
@@ -940,7 +939,7 @@ export default function Home() {
           >
             <h2 className="text-2xl md:text-4xl font-black text-white mb-4">Sua empresa está formando a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span>?</h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              O IDC estima US$ 5,5 trilhões em perdas globais pelo gap de talentos em IA até 2026. O custo de não agir já está sendo contabilizado. A W-Qi conecta você às lideranças e às metodologias que fecham esse gap — agora.
+            O IDC estima US$ 5,5 trilhões em perdas globais pelo gap de talentos em IA até 2026. O custo de não agir já está sendo contabilizado. A Recognise conecta você às lideranças e às metodologias que fecham esse gap — agora.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to={LMS_ROUTES.PROGRAMAS}>
@@ -1202,7 +1201,7 @@ export default function Home() {
                   { Icon: Search,   title: 'Diagnóstico sem custo',    desc: 'Na primeira conversa, mapeamos gaps, oportunidades e o seu maior alavancador de resultado agora.' },
                   { Icon: Zap,      title: 'Proposta sob medida',       desc: 'Cada programa é desenhado para o seu contexto — setor, momento de carreira, objetivos de negócio.' },
                   { Icon: Lock,     title: 'Confidencialidade total',   desc: 'Seus desafios e planos estratégicos são tratados com o mesmo sigilo de um advisor de board.' },
-                  { Icon: Calendar, title: 'Resposta em 24h',           desc: 'Sua mensagem chega direto ao time W-Qi. Sem burocracia, sem SDRs. Só conversa qualificada.' },
+                  { Icon: Calendar, title: 'Resposta em 24h',           desc: 'Sua mensagem chega direto ao time Recognise. Sem burocracia, sem SDRs. Só conversa qualificada.' },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
                     <item.Icon size={20} style={{ color: '#7a6207', flexShrink: 0, marginTop: 2 }} />

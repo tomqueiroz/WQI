@@ -110,7 +110,7 @@ export function StudentLayout({ children, title }: StudentLayoutProps) {
     <div className="flex min-h-screen">
       <aside className="fixed left-0 top-0 w-64 h-screen bg-primary flex-col hidden md:flex">
         <div className="px-4 pt-4 mb-6">
-          <img src={IMAGES.LOGO_WQI_BRANCO} alt="WQI" className="h-10 w-auto object-contain" />
+          <img src={IMAGES.LOGO_RECOGNISE_BRANCO} alt="Recognise" className="h-10 w-auto object-contain" />
         </div>
 
         <NavContent />
@@ -126,7 +126,7 @@ export function StudentLayout({ children, title }: StudentLayoutProps) {
             </SheetTrigger>
             <SheetContent side="left" className="w-64 p-0 bg-primary border-0">
               <div className="px-4 pt-4 mb-6">
-                <img src={IMAGES.LOGO_WQI_BRANCO} alt="WQI" className="h-10 w-auto object-contain" />
+                <img src={IMAGES.LOGO_RECOGNISE_BRANCO} alt="Recognise" className="h-10 w-auto object-contain" />
               </div>
               <NavContent />
             </SheetContent>

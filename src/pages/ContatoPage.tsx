@@ -9,7 +9,7 @@ import { CheckCircle, AlertCircle, Loader2, MapPin, Mail, Phone, Clock, MessageS
 import { FaWhatsapp, FaLinkedinIn, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 import { useSubmitLead } from '@/hooks/useSupabaseData';
 
-const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi.';
+const WA_LINK = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise.';
 
 const CONTACT_OPTIONS = [
   {
@@ -31,7 +31,7 @@ const CONTACT_OPTIONS = [
   {
     Icon: Building2,
     title: 'Escritório',
-    desc: 'Reuniões presenciais sob agendamento. W-Qi Development.',
+    desc: 'Reuniões presenciais sob agendamento. Recognise.',
     action: 'https://maps.google.com/?q=Av.+Paulista+2022+São+Paulo',
     label: 'Av. Paulista, 2.022 — SP',
     external: true,
@@ -78,16 +78,14 @@ export default function ContatoPage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>
-              Fale com W-Qi
+              Fale com a Recognise
             </span>
             <h1 className="text-white mb-5"
               style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem,5vw,3.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-              Sua Próxima Decisão<br /><span style={{ color: '#7a6207' }}>Começa com uma Conversa</span>
+              Você já decidiu.<br /><span style={{ color: '#7a6207' }}>A Recognise está pronta.</span>
             </h1>
             <p className="text-white/60 leading-relaxed max-w-2xl" style={{ fontWeight: 300, fontSize: '1rem' }}>
-              Líderes que chegam até aqui não estão procurando mais informação.
-              Estão prontos para ter uma conversa honesta sobre o que está impedindo o próximo salto.
-              Nosso time responde pessoalmente — sem automações, sem scripts.
+              Líderes e organizações que chegam até aqui já tomaram a decisão de se transformar. Estão prontos para uma conversa honesta — sem scripts, sem automações. Nossa equipe de especialistas responde pessoalmente, porque cada contexto é único e merece atenção real.
             </p>
           </motion.div>
         </div>
@@ -118,14 +116,12 @@ export default function ContatoPage() {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="lg:col-span-2">
-              <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#7a6207' }}>Por que nos contatar?</p>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#7a6207' }}>O Primeiro Passo</p>
               <h2 className="text-primary mb-5 text-2xl md:text-3xl">
-                Cada Conversa é Única.<br />Cada Proposta, Personalizada.
+                Cada Contexto é Único.<br />Cada Programa, Cocriado.
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-8" style={{ fontWeight: 300 }}>
-                Não trabalhamos com tabelas de preços públicas nem com produtos de prateleira.
-                O primeiro passo é sempre entender <strong className="text-primary">quem você é, onde está e para onde quer ir</strong>.
-                A partir daí, construímos o caminho mais eficiente.
+                A Recognise não começa com uma proposta — começa com escuta. O primeiro contato é sempre um diagnóstico: entender <strong className="text-primary">sua cultura, seu contexto, seu know-how e seus objetivos estratégicos</strong>. A partir daí, cocriamos a jornada mais eficiente para a sua realidade.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -142,7 +138,7 @@ export default function ContatoPage() {
                 <div className="flex items-start gap-3">
                   <MapPin size={16} style={{ color: '#7a6207', flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div className="text-sm font-semibold text-primary mb-0.5">W-Qi Development</div>
+                    <div className="text-sm font-semibold text-primary mb-0.5">Recognise</div>
                     <p className="text-xs text-muted-foreground" style={{ fontWeight: 300 }}>
                       Av. Paulista, 2.022 — 2º andar<br />
                       Consolação · São Paulo / SP
@@ -174,7 +170,7 @@ export default function ContatoPage() {
               className="lg:col-span-3">
               <div className="rounded-2xl p-8 border border-border/40 bg-background shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: '#7a6207' }}>Formulário de Contato</p>
-                <h3 className="text-primary text-xl font-bold mb-6">Inicie sua jornada com W-Qi</h3>
+                <h3 className="text-primary text-xl font-bold mb-6">Inicie sua jornada com a Recognise</h3>
 
                 {success ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
@@ -218,7 +214,7 @@ export default function ContatoPage() {
                     <div className="space-y-1.5">
                       <Label className="text-xs font-medium text-primary">Contexto &amp; Objetivo *</Label>
                       <Textarea
-                        placeholder="Descreva brevemente seu momento atual e o que espera de uma mentoria ou consultoria com W-Qi..."
+                        placeholder="Descreva brevemente seu momento atual e o que espera de uma mentoria ou consultoria com a Recognise..."
                         rows={4} required value={form.message}
                         onChange={e => setForm(f => ({ ...f, message: e.target.value }))} className="text-sm resize-none" />
                     </div>

@@ -255,7 +255,7 @@ export default function ProgramasPage() {
 
             <div className="mt-8">
               <a
-                href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi."
+                href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-accent text-white rounded-full px-6 py-3 font-semibold hover:bg-accent/90 transition text-sm md:text-base"
@@ -316,7 +316,7 @@ export default function ProgramasPage() {
                 Explorar Programas
               </Link>
               <a
-                href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi."
+                href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 border border-white/30 text-white rounded-full px-8 py-4 font-semibold hover:bg-white/10 transition"
@@ -334,7 +334,7 @@ export default function ProgramasPage() {
   )
 }
 
-const WA_LINK_PROG = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20W-Qi.';
+const WA_LINK_PROG = 'https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise.';
 
 function DiagnosticoFloat() {
   const [open, setOpen] = useState(false)

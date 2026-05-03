@@ -751,7 +751,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
             Pronto para dar o próximo passo?
           </h2>
           <p className="text-white/80 mb-8 text-sm max-w-xl mx-auto" style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 300 }}>
-            Fale com um especialista W-Qi e descubra qual programa faz mais sentido para o seu momento profissional ou para a sua organização.
+            Fale com um especialista Recognise e descubra qual programa faz mais sentido para o seu momento profissional ou para a sua organização.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

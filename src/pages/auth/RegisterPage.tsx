@@ -76,8 +76,8 @@ export default function RegisterPage() {
           <div className="text-center mb-8">
             <Link to={LMS_ROUTES.HOME} className="inline-block mb-6">
               <img
-                src={IMAGES.LOGO_WQI_BRANCO}
-                alt="WQI"
+                src={IMAGES.LOGO_RECOGNISE_BRANCO}
+                alt="Recognise"
                 className="h-12 w-auto mx-auto object-contain"
               />
             </Link>

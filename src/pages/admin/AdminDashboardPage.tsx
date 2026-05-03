@@ -141,7 +141,7 @@ export default function AdminDashboardPage() {
       <div className="flex">
         <aside className="w-64 min-h-screen bg-primary border-r border-primary/20 flex flex-col">
           <div className="p-6 border-b border-primary/20">
-            <img src={IMAGES.LOGO_WQI_BRANCO} alt="WQI" className="h-10 w-auto" />
+            <img src={IMAGES.LOGO_RECOGNISE_BRANCO} alt="Recognise" className="h-10 w-auto" />
           </div>
 
           <nav className="flex-1 p-4 space-y-2">
