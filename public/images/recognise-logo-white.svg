@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="56" viewBox="0 0 220 56">
-  <!-- R mark icon -->
-  <rect x="0" y="4" width="38" height="38" rx="5" fill="rgba(255,255,255,0.12)"/>
-  <text x="19" y="30" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="26" fill="white" text-anchor="middle" dominant-baseline="auto">R</text>
-  <!-- Brand name -->
-  <text x="48" y="28" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="22" fill="white" letter-spacing="0.5">Recognise</text>
-  <!-- Tagline -->
-  <text x="48" y="44" font-family="Montserrat, Arial, sans-serif" font-weight="300" font-size="9" fill="rgba(201,162,39,0.95)" letter-spacing="3.5">AI FIRST™</text>
-</svg>

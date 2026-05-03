@@ -394,8 +394,11 @@ export default function Home() {
                   marginBottom: '1rem',
                 }}
               >
-                Geração AI First™.{' '}
-                <span style={{ color: 'var(--color-accent)' }}>Nova Era. Nova Liderança.</span>
+                Geração AI First<sup style={{fontSize:'0.5em',verticalAlign:'super',lineHeight:0}}>™</sup>.{' '}
+                <br />
+                <span style={{ color: 'var(--color-accent)' }}>Nova Era.</span>
+                <br />
+                <span style={{ color: 'var(--color-accent)' }}>Nova Liderança.</span>
               </h1>
 
               <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0" style={{ fontWeight: 300 }}>

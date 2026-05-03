@@ -4,21 +4,29 @@
   "tables_source_info": [],
   "images": [
     {
-      "original_name": "tom speaking young",
-      "file_name": "tom speaking young.png",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/tom speaking young.png",
-      "rel_path": "images/tom speaking young.png",
+      "original_name": "logo color",
+      "file_name": "logo color.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/logo color.png",
+      "rel_path": "images/logo color.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "logo branco",
+      "file_name": "logo branco.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/logo branco.png",
+      "rel_path": "images/logo branco.png",
       "file_type": "png",
       "category": "images"
     }
   ],
   "summary": {
-    "total_files": 1,
+    "total_files": 2,
     "by_category": {
       "documents": 0,
       "tables_parsed": 0,
       "tables_source_info": 0,
-      "images": 1
+      "images": 2
     },
     "processing_time": null
   }
