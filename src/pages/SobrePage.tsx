@@ -173,6 +173,19 @@ export default function SobrePage() {
       {/* ── O QUE É A RECOGNISE ── */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-8">
+          {/* Logo parallax no topo da seção */}
+          <div className="flex justify-center mb-10">
+            <motion.img
+              src={IMAGES.LOGO_RECOGNISE_COLOR}
+              alt="Recognise"
+              className="h-16 md:h-24 w-auto object-contain"
+              style={{ opacity: 0.3 }}
+              initial={{ y: -20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 0.3 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
+            />
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1 rounded-full" style={{ color: '#7a6207', background: 'rgba(122,98,7,0.1)' }}>Nossa Origem</span>

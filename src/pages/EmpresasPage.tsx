@@ -44,6 +44,7 @@ const SOLUTIONS = [
     color: NAVY,
     bg: 'bg-[#001123]',
     textClass: 'text-white',
+    link: '/para-empresas/lideranca-ai-first',
   },
   {
     icon: Users,
@@ -58,6 +59,7 @@ const SOLUTIONS = [
     color: COPPER,
     bg: 'bg-white',
     textClass: 'text-[#001123]',
+    link: '/para-empresas/imersao-ai-first',
   },
   {
     icon: Building2,
@@ -72,6 +74,7 @@ const SOLUTIONS = [
     color: '#f4f5f7',
     bg: 'bg-[#f4f5f7]',
     textClass: 'text-[#001123]',
+    link: '/para-empresas/advisory-executivo',
   },
   {
     icon: Brain,
@@ -87,6 +90,7 @@ const SOLUTIONS = [
     bg: 'bg-[#001123]',
     textClass: 'text-white',
     featured: true,
+    link: '/para-empresas/formacao-mentores',
   },
   {
     icon: Star,
@@ -101,6 +105,7 @@ const SOLUTIONS = [
     color: COPPER,
     bg: 'bg-white',
     textClass: 'text-[#001123]',
+    link: '/para-empresas/imersao-ai-first',
   },
   {
     icon: Rocket,
@@ -115,6 +120,7 @@ const SOLUTIONS = [
     color: '#f4f5f7',
     bg: 'bg-[#f4f5f7]',
     textClass: 'text-[#001123]',
+    link: '/para-empresas/advisory-executivo',
   },
 ];
 
@@ -508,17 +514,34 @@ export default function EmpresasPage() {
                   ))}
                 </div>
 
-                <Button
-                  onClick={() => scrollToSection('contato')}
-                  className="w-full rounded-xl font-semibold text-sm"
-                  style={{
-                    background: COPPER,
-                    color: 'white',
-                    border: 'none',
-                  }}
-                >
-                  Solicitar Proposta <ArrowRight size={14} className="ml-1" />
-                </Button>
+                <div className="flex flex-col gap-2">
+                  {sol.link && (
+                    <Link to={sol.link} onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}>
+                      <Button
+                        variant="outline"
+                        className="w-full rounded-xl font-semibold text-sm"
+                        style={{
+                          borderColor: sol.textClass === 'text-white' ? 'rgba(255,255,255,0.25)' : COPPER,
+                          color: sol.textClass === 'text-white' ? 'rgba(255,255,255,0.85)' : COPPER,
+                          background: 'transparent',
+                        }}
+                      >
+                        Saiba Mais <ArrowRight size={14} className="ml-1" />
+                      </Button>
+                    </Link>
+                  )}
+                  <Button
+                    onClick={() => scrollToSection('contato')}
+                    className="w-full rounded-xl font-semibold text-sm"
+                    style={{
+                      background: COPPER,
+                      color: 'white',
+                      border: 'none',
+                    }}
+                  >
+                    Solicitar Proposta <ArrowRight size={14} className="ml-1" />
+                  </Button>
+                </div>
               </motion.div>
             ))}
           </div>

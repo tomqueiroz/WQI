@@ -130,6 +130,11 @@ export const IMAGES = {
   TOM_SPEAKING_YOUNG_58: "/images/tom speaking young.png",
   UNIVERSAL_20: "/images/universal.png",
   WMC_29: "/images/wmc.png",
+  HANDSHAKE_STARS: "/images/handshake-stars.jpg",
+  ROCKET_BULB: "/images/rocket-bulb.jpg",
+  AI_FACE_BLUE: "/images/ai-face-blue.jpg",
+  DEVELOPER_AI: "/images/developer-ai.jpg",
+  AI_GLOBE_HAND: "/images/ai-globe-hand.jpg",
 } as const;
 
 export type ImageKey = keyof typeof IMAGES;

@@ -70,25 +70,27 @@ export interface BlogPost {
   content: string;
   cover_image_url?: string;
   image_url?: string;
+  image?: string;
   category: string;
   category_color?: string;
+  categoryColor?: string;
   tags: string[];
   author_name: string;
+  author?: string;
   author_bio?: string;
   read_time_minutes: number;
   read_time?: number;
   readTime?: number;
   date?: string;
   views?: number;
-  image?: string;
+  views_count: number;
   isFeatured?: boolean;
-  categoryColor?: string;
   is_published: boolean;
   is_featured: boolean;
-  views_count: number;
   published_at?: string;
   created_at: string;
   key_insight?: string;
+  keyInsight?: string;
   sources?: string[];
 }
 

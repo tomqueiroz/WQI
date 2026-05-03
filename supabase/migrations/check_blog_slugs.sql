@@ -1,0 +1,1 @@
+SELECT slug, title, is_published FROM blog_posts ORDER BY created_at DESC LIMIT 30;

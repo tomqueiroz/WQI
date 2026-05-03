@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Layout } from '@/components/Layout';
 import { LMS_ROUTES } from '@/lib/index';
+import type { BlogPost } from '@/lib/index';
 import { IMAGES } from '@/assets/images';
 import {
   Search, Calendar, MapPin, ExternalLink, Star, ChevronRight,
@@ -10,7 +11,7 @@ import {
 } from 'lucide-react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { AiFirstTm } from '@/components/AiFirstTm';
-import { useBlogPosts } from '@/hooks/useBlog';
+import { useAllBlogPosts } from '@/hooks/useBlog';
 
 // ─── Constantes de cores ──────────────────────────────────────────────────────
 const NAVY = '#001123';
@@ -638,7 +639,7 @@ export default function BlogPage() {
   const [showAllPosts, setShowAllPosts] = useState(false);
   const [allPostsPage, setAllPostsPage] = useState(1);
   const [allPostsSearch, setAllPostsSearch] = useState('');
-  const { data: supabasePosts, loading: supabaseLoading } = useBlogPosts();
+  const { data: supabasePosts, loading: supabaseLoading } = useAllBlogPosts();
   const ALL_POSTS_PER_PAGE = 10;
 
   const heroRef = useRef<HTMLDivElement>(null);
@@ -646,15 +647,20 @@ export default function BlogPage() {
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const featuredPosts = STATIC_POSTS.filter(p => p.isFeatured);
-  const regularPosts = STATIC_POSTS.filter(p => !p.isFeatured);
+  // Usa posts do Supabase quando disponíveis, fallback para STATIC_POSTS
+  // Cast para BlogPost[] para garantir type safety unificado
+  const displayPosts: BlogPost[] = (supabasePosts && supabasePosts.length > 0)
+    ? supabasePosts
+    : (STATIC_POSTS as unknown as BlogPost[]);
+  const featuredPosts = displayPosts.filter(p => p.isFeatured || p.is_featured);
+  const regularPosts = displayPosts.filter(p => !p.isFeatured && !p.is_featured);
 
-  const filteredPosts = STATIC_POSTS.filter(p => {
+  const filteredPosts = displayPosts.filter(p => {
     const matchCat = activeCategory === 'Todos' || p.category === activeCategory;
     const matchSearch = !searchMain ||
       p.title.toLowerCase().includes(searchMain.toLowerCase()) ||
-      p.excerpt.toLowerCase().includes(searchMain.toLowerCase()) ||
-      p.tags.some(t => t.toLowerCase().includes(searchMain.toLowerCase()));
+      (p.excerpt || '').toLowerCase().includes(searchMain.toLowerCase()) ||
+      (p.tags || []).some((t: string) => t.toLowerCase().includes(searchMain.toLowerCase()));
     return matchCat && matchSearch;
   });
 
@@ -794,7 +800,7 @@ export default function BlogPage() {
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                     whileHover={{ scale: 1.01 }}
                     className="relative overflow-hidden rounded-2xl group mb-5 cursor-pointer"
-                    style={{ height: '360px', backgroundImage: `url(${featuredPosts[0]?.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                    style={{ height: '360px', backgroundImage: `url(${featuredPosts[0]?.image || featuredPosts[0]?.cover_image_url || featuredPosts[0]?.image_url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                   >
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,17,35,0.95) 0%, rgba(0,17,35,0.6) 50%, rgba(0,17,35,0.2) 100%)' }} />
                     <div className="absolute top-5 left-5 flex items-center gap-2">
@@ -802,14 +808,14 @@ export default function BlogPage() {
                         {featuredPosts[0]?.category}
                       </span>
                       <span className="text-[10px] font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70">
-                        {featuredPosts[0]?.readTime} min leitura
+                        {featuredPosts[0]?.readTime || featuredPosts[0]?.read_time_minutes || 7} min leitura
                       </span>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      {featuredPosts[0]?.keyInsight && (
+                      {(featuredPosts[0]?.keyInsight || featuredPosts[0]?.key_insight) && (
                         <div className="mb-3 rounded-lg px-3 py-2 inline-block" style={{ background: 'rgba(201,162,39,0.15)', border: '1px solid rgba(201,162,39,0.2)' }}>
                           <p className="text-[10px] font-bold uppercase tracking-wider mb-0.5" style={{ color: COPPER_LIGHT }}>Insight-chave</p>
-                          <p className="text-white/85 text-xs">{featuredPosts[0].keyInsight}</p>
+                          <p className="text-white/85 text-xs">{featuredPosts[0].keyInsight || featuredPosts[0].key_insight}</p>
                         </div>
                       )}
                       <h2
@@ -825,8 +831,8 @@ export default function BlogPage() {
                             <img src={IMAGES.TOM_HERO_PORTRAIT} alt="" className="w-full h-full object-cover object-top" />
                           </div>
                           <div>
-                            <p className="text-white text-xs font-semibold">{featuredPosts[0]?.author}</p>
-                            <p className="text-white/40 text-[10px]">{featuredPosts[0]?.date} · {featuredPosts[0]?.views.toLocaleString('pt-BR')} visualizações</p>
+                            <p className="text-white text-xs font-semibold">{featuredPosts[0]?.author || featuredPosts[0]?.author_name || 'Tom Queiroz'}</p>
+                            <p className="text-white/40 text-[10px]">{featuredPosts[0]?.date} · {(featuredPosts[0]?.views || featuredPosts[0]?.views_count || 0).toLocaleString('pt-BR')} visualizações</p>
                           </div>
                         </div>
                         <span className="text-xs font-semibold flex items-center gap-1 group-hover:underline" style={{ color: COPPER_LIGHT }}>
@@ -846,7 +852,7 @@ export default function BlogPage() {
                         transition={{ delay: i * 0.1 }}
                         whileHover={{ scale: 1.01 }}
                         className="relative overflow-hidden rounded-2xl group cursor-pointer"
-                        style={{ height: '220px', backgroundImage: `url(${post.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                        style={{ height: '220px', backgroundImage: `url(${post.image || post.cover_image_url || post.image_url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                       >
                         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,17,35,0.92) 0%, rgba(0,17,35,0.5) 60%, transparent 100%)' }} />
                         <div className="absolute top-3 left-3">
@@ -860,7 +866,7 @@ export default function BlogPage() {
                             {post.title}
                           </h3>
                           <div className="flex items-center justify-between">
-                            <span className="text-white/40 text-[10px]">{post.readTime} min · {post.date}</span>
+                            <span className="text-white/40 text-[10px]">{post.readTime || post.read_time_minutes || 7} min · {post.date}</span>
                             <span className="text-[10px] font-semibold group-hover:underline" style={{ color: COPPER_LIGHT }}>Ler →</span>
                           </div>
                         </div>
@@ -889,10 +895,10 @@ export default function BlogPage() {
                       >
                         <div
                           className="aspect-video"
-                          style={{ backgroundImage: `url(${post.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                          style={{ backgroundImage: `url(${post.image || post.cover_image_url || post.image_url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                         />
                         <div className="p-4">
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: `${post.categoryColor}18`, color: post.categoryColor }}>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: 'rgba(122,98,7,0.1)', color: post.categoryColor || COPPER }}>
                             {post.category}
                           </span>
                           <h3
@@ -903,7 +909,7 @@ export default function BlogPage() {
                           </h3>
                           <p className="text-xs line-clamp-2 mt-1 leading-relaxed" style={{ color: '#6b7280', fontWeight: 300 }}>{post.excerpt}</p>
                           <div className="flex items-center justify-between mt-3">
-                            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{post.date} · {post.readTime} min</span>
+                            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{post.date} · {post.readTime || post.read_time_minutes || 7} min</span>
                             <span className="text-[10px] font-semibold group-hover:underline" style={{ color: COPPER }}>Ler →</span>
                           </div>
                         </div>
@@ -958,7 +964,7 @@ export default function BlogPage() {
 
                   {/* Lista de posts */}
                   {(() => {
-                    const sourcePosts = supabasePosts && supabasePosts.length > 0 ? supabasePosts : STATIC_POSTS;
+                    const sourcePosts: BlogPost[] = (supabasePosts && supabasePosts.length > 0 ? supabasePosts : STATIC_POSTS) as unknown as BlogPost[];
                     const searched = allPostsSearch
                       ? sourcePosts.filter(p =>
                           p.title?.toLowerCase().includes(allPostsSearch.toLowerCase()) ||
@@ -989,7 +995,7 @@ export default function BlogPage() {
                                   {post.category}
                                 </span>
                                 <p className="text-sm font-semibold mt-1 group-hover:text-accent transition-colors leading-snug" style={{ color: NAVY }}>{post.title}</p>
-                                <p className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>{(post as {date?: string; published_at?: string}).date || (post as {published_at?: string}).published_at || ''} · {(post as {readTime?: number}).readTime || (post as {read_time?: number}).read_time || 8} min leitura</p>
+                                <p className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>{post.date || (post.published_at ? post.published_at.split('T')[0] : '')} · {post.readTime || post.read_time_minutes || 8} min leitura</p>
                               </div>
                               <ChevronRight size={14} className="flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" style={{ color: COPPER }} />
                             </Link>

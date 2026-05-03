@@ -173,7 +173,7 @@ export function Layout({ children }: LayoutProps) {
                 src={IMAGES.LOGO_RECOGNISE_BRANCO}
                 alt="Recognise"
                 className="h-10 md:h-[52px] w-auto object-contain"
-                style={{ minWidth: '130px' }}
+                style={{ minWidth: '130px', opacity: 0.8 }}
               />
             </button>
 

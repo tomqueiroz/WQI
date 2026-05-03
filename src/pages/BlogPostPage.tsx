@@ -4,12 +4,13 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowLeft, Clock, Calendar, Eye, Share2, BookOpen,
   TrendingUp, ChevronRight, ExternalLink, MessageCircle,
-  Linkedin, Twitter, Link2, Tag,
+  Linkedin, Twitter, Link2, Tag, Home,
 } from 'lucide-react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { Layout } from '@/components/Layout';
-import { useBlogPost } from '@/hooks/useBlog';
+import { useBlogPost, useAllBlogPosts } from '@/hooks/useBlog';
 import { LMS_ROUTES } from '@/lib/index';
+import type { BlogPost } from '@/lib/index';
 import { Button } from '@/components/ui/button';
 import { IMAGES } from '@/assets/images';
 
@@ -467,8 +468,11 @@ function parseMarkdown(content: string): React.ReactNode[] {
   return elements;
 }
 
-// ─── Outros artigos para sidebar ─────────────────────────────────────────────
+// ─── Outros artigos para sidebar (estáticos como fallback) ───────────────────
 const OTHER_POSTS = Object.values(STATIC_POSTS_MAP);
+
+// ─── Categorias para crossnavigation ─────────────────────────────────────────
+const BLOG_CATEGORIES_NAV = ['Insights', 'Liderança', 'Estratégia', 'IA & Negócios', 'Tendências', 'Carreira'];
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -478,9 +482,12 @@ export default function BlogPostPage() {
   const heroParallax = useTransform(scrollY, [0, 500], [0, 80]);
   const [copied, setCopied] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
+  const [activeCatFilter, setActiveCatFilter] = useState<string | null>(null);
 
-  // Try Supabase first, fallback to static
+  // Supabase: post individual
   const { data: dbPost, loading, error } = useBlogPost(slug || '');
+  // Supabase: todos os posts para sidebar e crossnavigation
+  const { data: allPosts } = useAllBlogPosts();
 
   const staticPost = slug ? STATIC_POSTS_MAP[slug] : null;
   const post = dbPost || (staticPost ? {
@@ -490,23 +497,30 @@ export default function BlogPostPage() {
     excerpt: staticPost.excerpt,
     content: staticPost.content,
     cover_image_url: staticPost.image,
+    image: staticPost.image,
     category: staticPost.category,
+    categoryColor: staticPost.categoryColor,
     tags: staticPost.tags,
     author_name: staticPost.author,
     author_bio: staticPost.authorTitle,
     read_time_minutes: staticPost.readTime,
+    readTime: staticPost.readTime,
     is_published: true,
     is_featured: true,
     views_count: staticPost.views,
+    views: staticPost.views,
     published_at: staticPost.date,
+    date: staticPost.date,
     created_at: staticPost.date,
+    key_insight: staticPost.keyInsight,
+    sources: staticPost.sources,
   } : null);
 
-  const postKeyInsight = (dbPost as unknown as { key_insight?: string })?.key_insight || staticPost?.keyInsight;
-  const postSources = (dbPost as unknown as { sources?: string[] })?.sources || staticPost?.sources || [];
-  const postImage = (dbPost as unknown as { image_url?: string })?.image_url || staticPost?.image || '';
+  const postKeyInsight = post?.key_insight || staticPost?.keyInsight;
+  const postSources = (post?.sources as string[]) || staticPost?.sources || [];
+  const postImage = post?.cover_image_url || post?.image_url || staticPost?.image || '';
   const postAuthorLinkedIn = staticPost?.linkedIn || 'https://www.linkedin.com/in/wellingtonqueiroz/';
-  const postReadTime = (dbPost as unknown as { read_time?: number })?.read_time || staticPost?.readTime || 5;
+  const postReadTime = post?.read_time_minutes || staticPost?.readTime || 7;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -525,8 +539,9 @@ export default function BlogPostPage() {
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return '';
-    if (dateString.includes(' ')) return dateString; // already formatted
-    return new Date(dateString).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+    if (dateString.includes(' ')) return dateString;
+    try { return new Date(dateString).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }); }
+    catch { return dateString; }
   };
 
   const handleShare = async () => {
@@ -540,7 +555,18 @@ export default function BlogPostPage() {
     }
   };
 
-  const sidebarPosts = OTHER_POSTS.filter(p => p.slug !== slug).slice(0, 5);
+  // Sidebar: usa posts do Supabase (ou fallback estático), excluindo o atual
+  const supabaseSidebar = (allPosts || []).filter(p => p.slug !== slug).slice(0, 6);
+  const sidebarPostsRaw = supabaseSidebar.length > 0
+    ? supabaseSidebar
+    : OTHER_POSTS.filter(p => p.slug !== slug).slice(0, 5);
+  // Cast para BlogPost[] para ter type safety unificado
+  const sidebarPosts = sidebarPostsRaw as unknown as BlogPost[];
+
+  // Crossnavigation: posts filtrados por categoria
+  const filteredByCategory = activeCatFilter
+    ? (allPosts || []).filter(p => p.category === activeCatFilter && p.slug !== slug).slice(0, 4)
+    : (allPosts || []).filter(p => p.slug !== slug).slice(0, 4);
 
   if (loading && !staticPost) {
     return (
@@ -594,12 +620,18 @@ export default function BlogPostPage() {
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${NAVY} 0%, rgba(0,17,35,0.75) 50%, rgba(0,17,35,0.3) 100%)` }} />
 
         {/* Back button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-8 left-4 md:left-8 z-30 flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
-        >
-          <ArrowLeft size={16} /> Voltar ao Blog
-        </button>
+        <div className="absolute top-8 left-4 md:left-8 z-30 flex items-center gap-3">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1.5 text-white/60 hover:text-white transition-colors text-sm"
+          >
+            <ArrowLeft size={15} /> Voltar
+          </button>
+          <span className="text-white/30 text-xs">|</span>
+          <Link to={LMS_ROUTES.BLOG} onClick={() => window.scrollTo(0,0)} className="flex items-center gap-1.5 text-white/60 hover:text-white transition-colors text-sm">
+            <Home size={13} /> Blog
+          </Link>
+        </div>
 
         {/* Hero content */}
         <div className="absolute bottom-0 left-0 right-0 pb-10 px-4 md:px-8 z-20">
@@ -699,9 +731,77 @@ export default function BlogPostPage() {
               {parseMarkdown(post.content)}
             </motion.article>
 
+            {/* ── CROSS NAVIGATION: Temas ─────────────────────────────── */}
+            <div className="mt-12 pt-8 border-t" style={{ borderColor: '#e4e7ed' }}>
+              <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: '#9ca3af' }}>Explorar por Tema</p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <button
+                  onClick={() => setActiveCatFilter(null)}
+                  className="text-xs px-3 py-1.5 rounded-full font-semibold transition-all"
+                  style={{
+                    background: activeCatFilter === null ? NAVY : 'rgba(0,17,35,0.05)',
+                    color: activeCatFilter === null ? 'white' : NAVY,
+                    border: `1px solid ${activeCatFilter === null ? NAVY : 'rgba(0,17,35,0.15)'}`,
+                  }}
+                >
+                  Todos
+                </button>
+                {BLOG_CATEGORIES_NAV.map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCatFilter(cat === activeCatFilter ? null : cat)}
+                    className="text-xs px-3 py-1.5 rounded-full font-semibold transition-all"
+                    style={{
+                      background: activeCatFilter === cat ? COPPER : 'rgba(122,98,7,0.06)',
+                      color: activeCatFilter === cat ? 'white' : COPPER,
+                      border: `1px solid ${activeCatFilter === cat ? COPPER : 'rgba(122,98,7,0.2)'}`,
+                    }}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+              {filteredByCategory.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {filteredByCategory.map(p => (
+                    <Link
+                      key={p.slug}
+                      to={`/blog/${p.slug}`}
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="rounded-xl p-4 border group hover:shadow-md transition-all"
+                      style={{ borderColor: '#e4e7ed', background: 'white' }}
+                    >
+                      <span
+                        className="text-[10px] font-bold px-2 py-0.5 rounded-full inline-block mb-2"
+                        style={{ background: `rgba(122,98,7,0.1)`, color: COPPER }}
+                      >
+                        {p.category}
+                      </span>
+                      <p className="text-xs font-semibold leading-snug line-clamp-2 group-hover:opacity-70 transition-opacity" style={{ color: NAVY }}>
+                        {p.title}
+                      </p>
+                      <p className="text-[10px] mt-1" style={{ color: '#9ca3af' }}>{p.readTime || p.read_time_minutes} min</p>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm" style={{ color: '#9ca3af' }}>Nenhum artigo nessa categoria ainda.</p>
+              )}
+              <div className="mt-4 text-center">
+                <Link
+                  to={LMS_ROUTES.BLOG}
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold hover:opacity-80 transition-opacity"
+                  style={{ color: COPPER }}
+                >
+                  Ver todos os artigos <ChevronRight size={12} />
+                </Link>
+              </div>
+            </div>
+
             {/* Tags */}
             {post.tags && post.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t" style={{ borderColor: '#e4e7ed' }}>
+              <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t" style={{ borderColor: '#e4e7ed' }}>
                 <Tag size={14} className="mt-0.5" style={{ color: COPPER }} />
                 {post.tags.map((tag, idx) => (
                   <span key={idx} className="text-xs px-3 py-1 rounded-full font-medium" style={{ background: 'rgba(122,98,7,0.08)', color: COPPER, border: `1px solid rgba(122,98,7,0.2)` }}>
@@ -795,9 +895,9 @@ export default function BlogPostPage() {
 
           </div>
 
-          {/* ── SIDEBAR ────────────────────────────────────────────────────────── */}
+          {/* ── SIDEBAR ─────────────────────────────────────────────────── */}
           <aside className="lg:w-72 flex-shrink-0">
-            <div className="sticky top-24 space-y-6">
+            <div className="space-y-6">
 
               {/* Author mini card */}
               <div className="rounded-2xl p-5" style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #0d2040 100%)` }}>
@@ -831,7 +931,12 @@ export default function BlogPostPage() {
                 </div>
                 <div className="space-y-4">
                   {sidebarPosts.map((p, i) => (
-                    <Link key={p.slug} to={`/blog/${p.slug}`} className="flex items-start gap-3 group" onClick={() => window.scrollTo(0, 0)}>
+                    <Link
+                      key={p.slug || i}
+                      to={`/blog/${p.slug}`}
+                      className="flex items-start gap-3 group"
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
                       <span className="font-black text-xl leading-none flex-shrink-0 mt-0.5" style={{ color: 'rgba(0,17,35,0.12)', fontFamily: 'Montserrat, sans-serif' }}>
                         {String(i + 1).padStart(2, '0')}
                       </span>
@@ -840,8 +945,15 @@ export default function BlogPostPage() {
                           {p.title}
                         </p>
                         <div className="flex items-center gap-1.5 mt-1">
-                          <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: `${p.categoryColor}18`, color: p.categoryColor }}>{p.category}</span>
-                          <span className="text-[10px]" style={{ color: '#94a3b8' }}>{p.readTime} min</span>
+                          <span
+                            className="text-[10px] px-2 py-0.5 rounded-full"
+                            style={{ background: `rgba(122,98,7,0.1)`, color: p.categoryColor || COPPER }}
+                          >
+                            {p.category}
+                          </span>
+                          <span className="text-[10px]" style={{ color: '#94a3b8' }}>
+                            {p.readTime || p.read_time_minutes || 7} min
+                          </span>
                         </div>
                       </div>
                     </Link>

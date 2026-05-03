@@ -16,6 +16,7 @@ export interface ProductData {
   target: string;
   objectives: string[];
   metrics: string;
+  link?: string;
   cohort_info: {
     next: string;
     spots: number | null;
@@ -49,6 +50,7 @@ export const PRODUCTS_DATA: ProductData[] = [
       "Ampliação de network estratégico"
     ],
     metrics: "Líderes reportam média de +40% em clareza estratégica após 90 dias",
+    link: '/programas/mentoria-1on1',
     cohort_info: null
   },
   {
@@ -77,6 +79,7 @@ export const PRODUCTS_DATA: ProductData[] = [
       "Capacidade de liderança em ambientes de incerteza"
     ],
     metrics: "Taxa de promoção 2.3x maior em 12 meses pós-programa",
+    link: '/programas/cohort',
     cohort_info: {
       next: "Agosto 2026",
       spots: 3
@@ -108,6 +111,7 @@ export const PRODUCTS_DATA: ProductData[] = [
       "ROI mensurável em 90 dias"
     ],
     metrics: "Média de +35% em performance de marketing digital em 90 dias",
+    link: '/programas/inhouse',
     cohort_info: null
   },
   {
@@ -136,6 +140,7 @@ export const PRODUCTS_DATA: ProductData[] = [
       "Certificação reconhecida pelo mercado"
     ],
     metrics: "93% dos participantes aplicam ao menos 3 ferramentas na semana seguinte",
+    link: '/programas/masterclass-ai',
     cohort_info: {
       next: "Junho 2026",
       spots: 50
@@ -167,6 +172,7 @@ export const PRODUCTS_DATA: ProductData[] = [
       "Criar momentos memoráveis que ecoam além do evento"
     ],
     metrics: "NPS médio de 94 em eventos realizados",
+    link: '/programas/keynote',
     cohort_info: null
   },
   {
@@ -195,6 +201,7 @@ export const PRODUCTS_DATA: ProductData[] = [
       "Acesso à comunidade de praticantes"
     ],
     metrics: "4.9/5 de satisfação média. 89% completam os cursos.",
+    link: '/programas/cursos-digitais',
     cohort_info: {
       next: "Disponível agora",
       spots: null

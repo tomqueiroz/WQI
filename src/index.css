@@ -152,6 +152,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-gold: #d4a017;
+  --color-mustard: #e5b800;
 
   /* Charts Mapping */
   --color-chart-1: var(--chart-1);

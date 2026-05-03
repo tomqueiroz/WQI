@@ -96,6 +96,16 @@ function ProductCard({ product }: { product: ProductData }) {
           )}
 
           <div className="flex gap-2 mt-4">
+            {product.link && (
+              <Link to={product.link} onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}>
+                <Button
+                  size="sm"
+                  className="bg-primary text-white hover:bg-primary/90 text-xs rounded-full"
+                >
+                  Saiba Mais
+                </Button>
+              </Link>
+            )}
             <Button
               variant="outline"
               size="sm"
@@ -104,11 +114,11 @@ function ProductCard({ product }: { product: ProductData }) {
             >
               {expanded ? (
                 <>
-                  Ocultar Detalhes <ChevronUp className="w-3 h-3 ml-1" />
+                  Ocultar <ChevronUp className="w-3 h-3 ml-1" />
                 </>
               ) : (
                 <>
-                  Ver Detalhes <ChevronDown className="w-3 h-3 ml-1" />
+                  Detalhes <ChevronDown className="w-3 h-3 ml-1" />
                 </>
               )}
             </Button>
@@ -117,7 +127,7 @@ function ProductCard({ product }: { product: ProductData }) {
               onClick={() => setModalOpen(true)}
               className="bg-accent text-white hover:bg-accent/90 text-xs rounded-full flex-1"
             >
-              Solicitar Mais Infos
+              Falar com Especialista
             </Button>
           </div>
 
@@ -219,6 +229,83 @@ function ProductCard({ product }: { product: ProductData }) {
   )
 }
 
+function ProgramContactForm() {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
+  const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSending(true)
+    try {
+      await new Promise(r => setTimeout(r, 800))
+      setSent(true)
+    } finally {
+      setSending(false)
+    }
+  }
+
+  if (sent) {
+    return (
+      <div className="rounded-2xl p-8 text-center" style={{ background: 'rgba(122,98,7,0.1)', border: '1px solid rgba(122,98,7,0.3)' }}>
+        <CheckCircle2 size={40} style={{ color: '#e5b800', margin: '0 auto 16px' }} />
+        <h3 className="text-white font-bold text-xl mb-2">Mensagem Enviada!</h3>
+        <p className="text-white/60 text-sm" style={{ fontWeight: 300 }}>Nossa equipe entrará em contato em até 24h. Obrigado pelo interesse na Recognise.</p>
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl p-8" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+      <div>
+        <label className="block text-xs text-white/50 mb-1.5 font-medium uppercase tracking-wider">Nome Completo *</label>
+        <input
+          type="text" required
+          value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
+          className="w-full rounded-xl px-4 py-3 text-sm outline-none transition"
+          style={{ background: 'rgba(255,255,255,0.08)', color: 'white', border: '1px solid rgba(255,255,255,0.12)' }}
+          placeholder="Seu nome completo"
+        />
+      </div>
+      <div>
+        <label className="block text-xs text-white/50 mb-1.5 font-medium uppercase tracking-wider">E-mail *</label>
+        <input
+          type="email" required
+          value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
+          className="w-full rounded-xl px-4 py-3 text-sm outline-none transition"
+          style={{ background: 'rgba(255,255,255,0.08)', color: 'white', border: '1px solid rgba(255,255,255,0.12)' }}
+          placeholder="seu@email.com"
+        />
+      </div>
+      <div>
+        <label className="block text-xs text-white/50 mb-1.5 font-medium uppercase tracking-wider">WhatsApp</label>
+        <input
+          type="tel"
+          value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
+          className="w-full rounded-xl px-4 py-3 text-sm outline-none transition"
+          style={{ background: 'rgba(255,255,255,0.08)', color: 'white', border: '1px solid rgba(255,255,255,0.12)' }}
+          placeholder="+55 11 99999-9999"
+        />
+      </div>
+      <div>
+        <label className="block text-xs text-white/50 mb-1.5 font-medium uppercase tracking-wider">Conte seu momento</label>
+        <textarea
+          rows={3}
+          value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
+          className="w-full rounded-xl px-4 py-3 text-sm outline-none transition resize-none"
+          style={{ background: 'rgba(255,255,255,0.08)', color: 'white', border: '1px solid rgba(255,255,255,0.12)' }}
+          placeholder="Qual o seu desafio ou objetivo com IA neste momento?"
+        />
+      </div>
+      <button type="submit" disabled={sending}
+        className="w-full rounded-full py-3 font-bold text-sm text-white transition"
+        style={{ background: '#7a6207' }}>
+        {sending ? 'Enviando...' : 'Enviar Mensagem'}
+      </button>
+    </form>
+  )
+}
+
 export default function ProgramasPage() {
   const [activeCategory, setActiveCategory] = useState('todos')
 
@@ -266,6 +353,67 @@ export default function ProgramasPage() {
           </div>
         </section>
 
+        {/* ── SEÇÃO INTRODUTÓRIA PERSUASIVA ── */}
+        <section className="py-16 md:py-24" style={{ background: '#f8f9fb' }}>
+          <div className="max-w-6xl mx-auto px-4 md:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-center mb-14"
+            >
+              <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
+                style={{ background: 'rgba(122,98,7,0.1)', color: '#7a6207' }}>
+                Metodologia Exclusiva
+              </span>
+              <h2 className="text-primary font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                Por que escolher a Recognise?
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed" style={{ fontWeight: 300 }}>
+                Não somos uma escola de tecnologia. Somos uma empresa especializada em <strong className="text-primary">desenvolvimento de novas capacidades cognitivas e culturais para a era da IA</strong> — formada por especialistas que a constroem, diariamente, em empresas reais.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+              {[
+                { icon: Target, title: 'Geração AI First™', desc: 'Metodologia proprietária desenvolvida a partir de 500+ casos reais de líderes transformados. Não ensinamos ferramentas — desenvolvemos o novo modelo mental que cada profissional precisa para liderar com IA.' },
+                { icon: Users, title: 'Corpo Docente de Referência', desc: 'Tom Queiroz, CEO da Pareto e criador da TESS AI — pioneiro em IA Generativa no Brasil desde 2021, Professor FGV e palestrante em +200 eventos executivos. Um time que constrói IA, não só a comenta.' },
+                { icon: TrendingUp, title: 'Diagnóstico e Personalização Total', desc: 'Cada programa começa com um diagnóstico profundo do seu perfil, cultura, setor e momento. Nunca vendemos pacotes genéricos — cada proposta é construída para você.' },
+                { icon: CheckCircle2, title: 'Módulos Práticos com KPIs', desc: 'Cada módulo é desenhado com entregáveis concretos, projetos aplicados ao seu negócio real e métricas claras de progresso. Aprendizado que se mede em resultado, não em horas de vídeo.' },
+                { icon: Stethoscope, title: 'Recomendado Para Quem', desc: 'C-Level, VPs, diretores, fundadores e high-performers que já decidiram agir — e querem um parceiro que entende tanto de negócio quanto de IA para guiar essa jornada com segurança.' },
+                { icon: Clock, title: 'Formatos que Encaixam na Sua Agenda', desc: 'Mentoria 1:1, cohorts, imersões in-company, masterclasses e cursos digitais — com formatos que se adaptam ao ritmo da sua liderança, sem comprometer a profundidade.' },
+              ].map((item, i) => (
+                <motion.div key={item.title}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="bg-white rounded-2xl p-7 border border-border shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                >
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(122,98,7,0.1)' }}>
+                    <item.icon size={20} style={{ color: '#7a6207' }} />
+                  </div>
+                  <h3 className="font-bold text-primary mb-2 text-base" style={{ fontFamily: 'Montserrat, sans-serif' }}>{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed" style={{ fontWeight: 300 }}>{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://calendly.com/tom-queiroz-pareto/30min" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-semibold text-sm text-white transition"
+                style={{ background: '#7a6207' }}>
+                Agendar com Especialista
+              </a>
+              <a href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise."
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-semibold text-sm border-2 transition"
+                style={{ borderColor: '#7a6207', color: '#7a6207', background: 'transparent' }}>
+                Falar com Especialista no WhatsApp
+              </a>
+            </div>
+          </div>
+        </section>
+
         <div className="sticky top-[72px] z-30 bg-background/95 backdrop-blur border-b border-border py-3">
           <div className="max-w-7xl mx-auto px-4 overflow-x-auto">
             <div className="flex gap-2">
@@ -300,29 +448,56 @@ export default function ProgramasPage() {
           )}
         </div>
 
-        <section className="bg-primary py-16 text-center">
-          <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-white font-black text-3xl md:text-4xl mb-4">
-              Pronto para o Próximo Nível?
-            </h2>
-            <p className="text-white/70 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-              Cada programa é desenhado para acelerar sua transformação executiva. Vamos conversar sobre o seu momento e objetivos.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/programas"
-                className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-full px-8 py-4 font-semibold hover:bg-accent/90 transition"
-              >
-                Explorar Programas
-              </Link>
-              <a
-                href="https://wa.me/5511915513210?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white rounded-full px-8 py-4 font-semibold hover:bg-white/10 transition"
-              >
-                Falar com Especialista
-              </a>
+        <section id="contato" className="py-20 md:py-28" style={{ background: '#001123' }}>
+          <div className="max-w-4xl mx-auto px-4 md:px-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(122,98,7,0.2)', color: '#e5b800' }}>Fale Conosco</span>
+              <h2 className="text-white mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>Pronto para o Próximo Nível?</h2>
+              <p className="text-white/60 max-w-xl mx-auto" style={{ fontWeight: 300 }}>Cada programa começa com uma conversa. Conte o seu momento e nosso time entrará em contato em até 24h com uma proposta personalizada.</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div className="space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(122,98,7,0.15)' }}>
+                    <CheckCircle2 size={18} style={{ color: '#e5b800' }} />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Diagnóstico Gratuito</p>
+                    <p className="text-white/50 text-xs mt-0.5" style={{ fontWeight: 300 }}>Agende 30 min e receba análise de maturidade em IA sem custo ou compromisso.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(122,98,7,0.15)' }}>
+                    <TrendingUp size={18} style={{ color: '#e5b800' }} />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Proposta 100% Personalizada</p>
+                    <p className="text-white/50 text-xs mt-0.5" style={{ fontWeight: 300 }}>Nenhum preço exibido aqui — porque cada proposta é construída para a sua realidade.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(122,98,7,0.15)' }}>
+                    <Users size={18} style={{ color: '#e5b800' }} />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Atendimento Direto</p>
+                    <p className="text-white/50 text-xs mt-0.5" style={{ fontWeight: 300 }}>Você fala diretamente com Tom Queiroz ou com um especialista sênior da Recognise.</p>
+                  </div>
+                </div>
+                <div className="mt-6 space-y-3">
+                  <a href="https://calendly.com/tom-queiroz-pareto/30min" target="_blank" rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold text-white transition"
+                    style={{ background: '#7a6207' }}>
+                    Agendar com Especialista
+                  </a>
+                  <a href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise." target="_blank" rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold transition"
+                    style={{ border: '1px solid rgba(229,184,0,0.4)', color: '#e5b800', background: 'transparent' }}>
+                    <FaWhatsapp size={14} /> Falar no WhatsApp
+                  </a>
+                </div>
+              </div>
+              <ProgramContactForm />
             </div>
           </div>
         </section>
