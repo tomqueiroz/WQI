@@ -637,11 +637,11 @@ export function Layout({ children }: LayoutProps) {
               <h6 className="text-white/40 text-xs uppercase tracking-widest mb-4">Links Rápidos</h6>
               <nav className="flex flex-col gap-2">
                 {/* Links principais — todos são rotas /*, usar Link + scroll to top */}
-                {NAV_ITEMS.map((item) => (
+                {NAV_ITEMS.filter(item => !item.children).map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-white/70 hover:text-accent text-sm transition"
                   >
                     {item.label}
@@ -650,21 +650,27 @@ export function Layout({ children }: LayoutProps) {
                 {/* Links extras sem duplicar NAV_ITEMS */}
                 <Link
                   to={LMS_ROUTES.PRIVACY}
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}
                   className="text-white/70 hover:text-accent text-sm transition"
                 >
                   Privacidade
                 </Link>
                 <Link
                   to={LMS_ROUTES.TERMS}
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}
                   className="text-white/70 hover:text-accent text-sm transition"
                 >
                   Termos de Uso
                 </Link>
                 <Link
-                  to={`${LMS_ROUTES.BLOG}#coming-up`}
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  to={LMS_ROUTES.BLOG}
+                  onClick={() => {
+                    // Navega para o blog e depois rola até Coming Up
+                    setTimeout(() => {
+                      const el = document.getElementById('coming-up');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 400);
+                  }}
                   className="text-white/70 hover:text-accent text-sm transition"
                 >
                   Eventos de IA
@@ -708,10 +714,18 @@ export function Layout({ children }: LayoutProps) {
           <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/40 text-xs">© 2026 Recognise. Todos os direitos reservados.</p>
             <div className="flex items-center gap-4">
-              <Link to={LMS_ROUTES.PRIVACY} className="text-white/40 hover:text-white/70 text-xs transition">
+              <Link
+                to={LMS_ROUTES.PRIVACY}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}
+                className="text-white/40 hover:text-white/70 text-xs transition"
+              >
                 Política de Privacidade
               </Link>
-              <Link to={LMS_ROUTES.TERMS} className="text-white/40 hover:text-white/70 text-xs transition">
+              <Link
+                to={LMS_ROUTES.TERMS}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}
+                className="text-white/40 hover:text-white/70 text-xs transition"
+              >
                 Termos de Uso
               </Link>
             </div>

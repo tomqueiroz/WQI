@@ -64,15 +64,24 @@ export default function ContatoPage() {
 
   return (
     <Layout>
-      {/* ── HERO PRÓPRIA — foto de evento ao fundo ── */}
+      {/* ── HERO com vídeo BG ── */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden" style={{ background: '#001123' }}>
-        {/* Detalhe luz copper */}
-        <div className="absolute inset-0 opacity-20 hidden lg:block"
-          style={{ background: 'radial-gradient(ellipse at 30% 60%, #7a6207 0%, transparent 60%)' }} />
-
-        {/* Grid decorativo */}
-        <div className="absolute inset-0 opacity-5"
-          style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        {/* Vídeo de fundo */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay muted loop playsInline
+            className="w-full h-full object-cover"
+            style={{ opacity: 0.6 }}
+            onError={(e) => { (e.currentTarget as HTMLVideoElement).style.display = 'none'; }}
+          >
+            <source src="/video/future-bg.mp4" type="video/mp4" />
+            <source src="/video/hero-bg.mp4" type="video/mp4" />
+          </video>
+          {/* Máscara preta 40% */}
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.40)' }} />
+          {/* Gradiente da marca */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,17,35,0.55) 0%, rgba(13,32,64,0.40) 100%)' }} />
+        </div>
 
         <div className="relative z-10 container mx-auto px-4 md:px-8 py-32 md:py-44 max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>

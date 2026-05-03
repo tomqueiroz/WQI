@@ -77,6 +77,12 @@ export interface BlogPost {
   author_bio?: string;
   read_time_minutes: number;
   read_time?: number;
+  readTime?: number;
+  date?: string;
+  views?: number;
+  image?: string;
+  isFeatured?: boolean;
+  categoryColor?: string;
   is_published: boolean;
   is_featured: boolean;
   views_count: number;

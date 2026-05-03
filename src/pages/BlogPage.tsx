@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { AiFirstTm } from '@/components/AiFirstTm';
+import { useBlogPosts } from '@/hooks/useBlog';
 
 // ─── Constantes de cores ──────────────────────────────────────────────────────
 const NAVY = '#001123';
@@ -633,6 +634,12 @@ export default function BlogPage() {
   const [searchMain, setSearchMain] = useState('');
   const [eventFilter, setEventFilter] = useState('todos');
   const [eventSearch, setEventSearch] = useState('');
+  // Sanfona todos os posts
+  const [showAllPosts, setShowAllPosts] = useState(false);
+  const [allPostsPage, setAllPostsPage] = useState(1);
+  const [allPostsSearch, setAllPostsSearch] = useState('');
+  const { data: supabasePosts, loading: supabaseLoading } = useBlogPosts();
+  const ALL_POSTS_PER_PAGE = 10;
 
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -672,17 +679,23 @@ export default function BlogPage() {
 
   return (
     <Layout>
-      {/* ── Hero ── */}
+      {/* ── Hero com vídeo BG ── */}
       <section ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '55vh', background: NAVY }}>
-        <motion.div style={{ y: heroY, position: 'absolute', inset: 0 }}>
-          <img
-            src={IMAGES.PARALLAX_AI_MARKETING}
-            alt=""
+        {/* Vídeo de fundo */}
+        <motion.div style={{ y: heroY, position: 'absolute', inset: 0 }} className="w-full h-full">
+          <video
+            autoPlay muted loop playsInline
             className="w-full h-full object-cover"
-            style={{ opacity: 0.12 }}
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-          />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,17,35,0.92) 0%, rgba(13,32,64,0.85) 100%)' }} />
+            style={{ opacity: 0.6 }}
+            onError={(e) => { (e.currentTarget as HTMLVideoElement).style.display = 'none'; }}
+          >
+            <source src="/video/future-bg.mp4" type="video/mp4" />
+            <source src="/video/hero-bg.mp4" type="video/mp4" />
+          </video>
+          {/* Máscara preta 40% */}
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.40)' }} />
+          {/* Gradiente da marca */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,17,35,0.55) 0%, rgba(13,32,64,0.40) 100%)' }} />
         </motion.div>
 
         {/* Linhas decorativas */}
@@ -900,6 +913,114 @@ export default function BlogPage() {
                 </div>
               </div>
             )}
+
+            {/* ── SANFONA: Ver todos os artigos (26 posts do Supabase) ── */}
+            <div className="mb-10 mt-2">
+              <button
+                onClick={() => { setShowAllPosts(v => !v); setAllPostsPage(1); }}
+                className="w-full flex items-center justify-between px-6 py-4 rounded-2xl border font-semibold text-sm transition-all"
+                style={{
+                  borderColor: showAllPosts ? NAVY : '#e4e7ed',
+                  background: showAllPosts ? NAVY : 'transparent',
+                  color: showAllPosts ? 'white' : NAVY,
+                }}
+              >
+                <span className="flex items-center gap-2">
+                  <BookOpen size={16} />
+                  {supabaseLoading ? 'Carregando artigos...' : `Ver todos os ${supabasePosts?.length || 26} artigos publicados`}
+                </span>
+                <ChevronRight size={16} className="transition-transform" style={{ transform: showAllPosts ? 'rotate(90deg)' : 'rotate(0deg)' }} />
+              </button>
+
+              {showAllPosts && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 rounded-2xl border overflow-hidden"
+                  style={{ borderColor: '#e4e7ed' }}
+                >
+                  {/* Busca */}
+                  <div className="p-4 border-b" style={{ borderColor: '#e4e7ed', background: '#f8fafc' }}>
+                    <div className="relative">
+                      <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: '#94a3b8' }} />
+                      <input
+                        type="text"
+                        placeholder="Buscar em todos os artigos..."
+                        value={allPostsSearch}
+                        onChange={e => { setAllPostsSearch(e.target.value); setAllPostsPage(1); }}
+                        className="w-full pl-8 pr-4 py-2 rounded-xl border text-sm focus:outline-none focus:ring-2"
+                        style={{ borderColor: '#e4e7ed', '--tw-ring-color': COPPER } as React.CSSProperties}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Lista de posts */}
+                  {(() => {
+                    const sourcePosts = supabasePosts && supabasePosts.length > 0 ? supabasePosts : STATIC_POSTS;
+                    const searched = allPostsSearch
+                      ? sourcePosts.filter(p =>
+                          p.title?.toLowerCase().includes(allPostsSearch.toLowerCase()) ||
+                          p.excerpt?.toLowerCase().includes(allPostsSearch.toLowerCase()) ||
+                          (Array.isArray(p.tags) && p.tags.some((t: string) => t.toLowerCase().includes(allPostsSearch.toLowerCase())))
+                        )
+                      : sourcePosts;
+                    const totalPages = Math.ceil(searched.length / ALL_POSTS_PER_PAGE);
+                    const paginated = searched.slice((allPostsPage - 1) * ALL_POSTS_PER_PAGE, allPostsPage * ALL_POSTS_PER_PAGE);
+
+                    return (
+                      <>
+                        <div>
+                          {paginated.map((post, i) => (
+                            <Link
+                              key={post.id || post.slug}
+                              to={`/blog/${post.slug}`}
+                              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                              className="flex items-start gap-3 px-4 py-3 border-b hover:bg-gray-50 transition-colors group"
+                              style={{ borderColor: '#f1f5f9' }}
+                            >
+                              <span className="text-xs font-bold mt-0.5 w-5 text-center flex-shrink-0" style={{ color: '#94a3b8' }}>{(allPostsPage - 1) * ALL_POSTS_PER_PAGE + i + 1}</span>
+                              <div className="flex-1 min-w-0">
+                                <span
+                                  className="text-[10px] font-bold px-2 py-0.5 rounded-full mr-2"
+                                  style={{ background: 'rgba(122,98,7,0.1)', color: COPPER }}
+                                >
+                                  {post.category}
+                                </span>
+                                <p className="text-sm font-semibold mt-1 group-hover:text-accent transition-colors leading-snug" style={{ color: NAVY }}>{post.title}</p>
+                                <p className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>{post.date || post.published_at} · {post.readTime || post.read_time || 8} min leitura</p>
+                              </div>
+                              <ChevronRight size={14} className="flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" style={{ color: COPPER }} />
+                            </Link>
+                          ))}
+                        </div>
+                        {/* Paginação */}
+                        {totalPages > 1 && (
+                          <div className="flex items-center justify-between px-4 py-3" style={{ background: '#f8fafc' }}>
+                            <span className="text-xs" style={{ color: '#94a3b8' }}>{searched.length} artigos · Página {allPostsPage} de {totalPages}</span>
+                            <div className="flex gap-2">
+                              <button
+                                onClick={() => setAllPostsPage(p => Math.max(1, p - 1))}
+                                disabled={allPostsPage === 1}
+                                className="px-3 py-1 rounded-lg text-xs font-semibold disabled:opacity-30 transition"
+                                style={{ background: NAVY, color: 'white' }}
+                              >← Anterior</button>
+                              <button
+                                onClick={() => setAllPostsPage(p => Math.min(totalPages, p + 1))}
+                                disabled={allPostsPage === totalPages}
+                                className="px-3 py-1 rounded-lg text-xs font-semibold disabled:opacity-30 transition"
+                                style={{ background: NAVY, color: 'white' }}
+                              >Próxima →</button>
+                            </div>
+                          </div>
+                        )}
+                      </>
+                    );
+                  })()}
+                </motion.div>
+              )}
+            </div>
 
             {/* Parallax banner */}
             <ParallaxBanner />
