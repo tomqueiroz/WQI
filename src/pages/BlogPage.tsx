@@ -989,7 +989,7 @@ export default function BlogPage() {
                                   {post.category}
                                 </span>
                                 <p className="text-sm font-semibold mt-1 group-hover:text-accent transition-colors leading-snug" style={{ color: NAVY }}>{post.title}</p>
-                                <p className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>{post.date || post.published_at} · {post.readTime || post.read_time || 8} min leitura</p>
+                                <p className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>{(post as {date?: string; published_at?: string}).date || (post as {published_at?: string}).published_at || ''} · {(post as {readTime?: number}).readTime || (post as {read_time?: number}).read_time || 8} min leitura</p>
                               </div>
                               <ChevronRight size={14} className="flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" style={{ color: COPPER }} />
                             </Link>
