@@ -656,17 +656,18 @@ export default function Home() {
       {/* ============ SOBRE ============ */}
       <section id="sobre" className="py-20 md:py-32 bg-background overflow-hidden">
         <div className="site-container">
-          {/* Logo parallax no topo da seção */}
-          <div className="flex justify-center mb-10">
+          {/* Logo parallax no topo da seção — triplicado, margem -30% */}
+          <div className="flex justify-center mb-7">
             <motion.img
               src={IMAGES.LOGO_RECOGNISE_COLOR}
               alt="Recognise"
-              className="h-16 md:h-24 w-auto object-contain"
-              style={{ opacity: 0.3 }}
-              initial={{ y: -20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 0.3 }}
+              className="w-auto object-contain"
+              style={{ opacity: 0.3, height: 'clamp(4.5rem, 10vw, 8rem)' }}
+              initial={{ y: -40, opacity: 0, scale: 0.85 }}
+              whileInView={{ y: 0, opacity: 0.3, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: 'easeOut' }}
+              transition={{ duration: 1.4, ease: 'easeOut' }}
+              whileHover={{ scale: 1.04, opacity: 0.4 }}
             />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

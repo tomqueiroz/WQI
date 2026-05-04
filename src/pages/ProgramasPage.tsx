@@ -316,16 +316,24 @@ export default function ProgramasPage() {
   return (
     <Layout>
       <div className="min-h-screen bg-background">
-        <section className="relative overflow-hidden" style={{ minHeight: '70vh', paddingTop: '120px' }}>
+        <section className="relative overflow-hidden" style={{ minHeight: '70vh', paddingTop: '120px', background: '#001123' }}>
+          {/* Vídeo de fundo */}
           <div className="absolute inset-0 w-full h-full">
-            <img
-              src={IMAGES.PARALLAX_EXECUTIVE}
-              alt="Executive Background"
-              className="absolute inset-0 w-full h-full object-cover opacity-25"
-            />
+            <video
+              autoPlay muted loop playsInline
+              className="w-full h-full object-cover"
+              style={{ opacity: 0.55 }}
+              onError={(e) => { (e.currentTarget as HTMLVideoElement).style.display = 'none'; }}
+            >
+              <source src="/video/bg_programas.mp4" type="video/mp4" />
+              <source src="/video/future-bg.mp4" type="video/mp4" />
+              <source src="/video/hero-bg.mp4" type="video/mp4" />
+            </video>
+            {/* Máscara preta 40% */}
+            <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.40)' }} />
+            {/* Gradiente marca */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,17,35,0.6) 0%, rgba(0,17,35,0.3) 60%, rgba(0,17,35,0.7) 100%)' }} />
           </div>
-
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary/80 to-primary/70" />
 
           <div className="relative z-20 flex flex-col justify-end pb-16 px-4 max-w-7xl mx-auto h-full" style={{ minHeight: '50vh' }}>
             <p className="text-white/40 text-xs mb-4">
