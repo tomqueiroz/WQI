@@ -516,7 +516,7 @@ export default function EmpresasPage() {
 
                 <div className="flex flex-col gap-2">
                   {sol.link && (
-                    <Link to={sol.link} onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}>
+                    <Link to={sol.link}>
                       <Button
                         variant="outline"
                         className="w-full rounded-xl font-semibold text-sm"

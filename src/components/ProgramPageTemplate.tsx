@@ -118,6 +118,11 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
+  // ── Scroll ao topo ao montar a página ──────────────────────────────────────
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+  }, []);
+
   // Sticky tab bar
   const tabBarRef = useRef<HTMLDivElement>(null);
   const [tabBarSticky, setTabBarSticky] = useState(false);

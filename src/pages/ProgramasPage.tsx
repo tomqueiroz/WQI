@@ -97,7 +97,7 @@ function ProductCard({ product }: { product: ProductData }) {
 
           <div className="flex gap-2 mt-4">
             {product.link && (
-              <Link to={product.link} onClick={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}>
+              <Link to={product.link}>
                 <Button
                   size="sm"
                   className="bg-primary text-white hover:bg-primary/90 text-xs rounded-full"

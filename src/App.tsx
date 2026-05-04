@@ -2,7 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { LMS_ROUTES } from "@/lib/index";
 import Home from "@/pages/Home";
 import ProgramasPage from "@/pages/ProgramasPage";
@@ -33,10 +34,22 @@ const queryClient = new QueryClient({
   },
 });
 
+// Componente que rola ao topo a cada mudança de rota
+function ScrollToTop(): null {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  }, [pathname, hash]);
+  return null;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <HashRouter>
+        <ScrollToTop />
         <Toaster />
         <Sonner />
         <Routes>
