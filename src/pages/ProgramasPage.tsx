@@ -248,7 +248,7 @@ function ProgramContactForm() {
   if (sent) {
     return (
       <div className="rounded-2xl p-8 text-center" style={{ background: 'rgba(122,98,7,0.1)', border: '1px solid rgba(122,98,7,0.3)' }}>
-        <CheckCircle2 size={40} style={{ color: '#e5b800', margin: '0 auto 16px' }} />
+        <CheckCircle2 size={40} style={{ color: '#c9a227', margin: '0 auto 16px' }} />
         <h3 className="text-white font-bold text-xl mb-2">Mensagem Enviada!</h3>
         <p className="text-white/60 text-sm" style={{ fontWeight: 300 }}>Nossa equipe entrará em contato em até 24h. Obrigado pelo interesse na Recognise.</p>
       </div>
@@ -451,7 +451,7 @@ export default function ProgramasPage() {
         <section id="contato" className="py-20 md:py-28" style={{ background: '#001123' }}>
           <div className="max-w-4xl mx-auto px-4 md:px-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(122,98,7,0.2)', color: '#e5b800' }}>Fale Conosco</span>
+              <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(122,98,7,0.2)', color: '#c9a227' }}>Fale Conosco</span>
               <h2 className="text-white mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>Pronto para o Próximo Nível?</h2>
               <p className="text-white/60 max-w-xl mx-auto" style={{ fontWeight: 300 }}>Cada programa começa com uma conversa. Conte o seu momento e nosso time entrará em contato em até 24h com uma proposta personalizada.</p>
             </motion.div>
@@ -459,7 +459,7 @@ export default function ProgramasPage() {
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(122,98,7,0.15)' }}>
-                    <CheckCircle2 size={18} style={{ color: '#e5b800' }} />
+                    <CheckCircle2 size={18} style={{ color: '#c9a227' }} />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">Diagnóstico Gratuito</p>
@@ -468,7 +468,7 @@ export default function ProgramasPage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(122,98,7,0.15)' }}>
-                    <TrendingUp size={18} style={{ color: '#e5b800' }} />
+                    <TrendingUp size={18} style={{ color: '#c9a227' }} />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">Proposta 100% Personalizada</p>
@@ -477,7 +477,7 @@ export default function ProgramasPage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(122,98,7,0.15)' }}>
-                    <Users size={18} style={{ color: '#e5b800' }} />
+                    <Users size={18} style={{ color: '#c9a227' }} />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">Atendimento Direto</p>
@@ -492,7 +492,7 @@ export default function ProgramasPage() {
                   </a>
                   <a href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise." target="_blank" rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold transition"
-                    style={{ border: '1px solid rgba(229,184,0,0.4)', color: '#e5b800', background: 'transparent' }}>
+                    style={{ border: '1px solid rgba(229,184,0,0.4)', color: '#c9a227', background: 'transparent' }}>
                     <FaWhatsapp size={14} /> Falar no WhatsApp
                   </a>
                 </div>

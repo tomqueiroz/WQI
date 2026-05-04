@@ -402,7 +402,7 @@ export default function Home() {
               </h1>
 
               <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0" style={{ fontWeight: 300 }}>
-                A Recognise não forma usuários de IA. Desenvolvemos um <strong style={{ color: '#e5b800', fontWeight: 600 }}>novo modelo mental</strong> — com <strong style={{ color: '#e5b800', fontWeight: 600 }}>especialistas em IA e Machine Learning atuantes desde 2013</strong>, pioneiros deste mercado no Brasil, ao seu lado em cada etapa. Para visionários que já decidiram agir: a revolução da IA está em curso. Só quem se move agora vai liderar.
+                A Recognise não forma usuários de IA. Desenvolvemos um <strong style={{ color: '#c9a227', fontWeight: 600 }}>novo modelo mental</strong> — com <strong style={{ color: '#c9a227', fontWeight: 600 }}>especialistas em IA e Machine Learning atuantes desde 2013</strong>, pioneiros deste mercado no Brasil, ao seu lado em cada etapa. Para visionários que já decidiram agir: a revolução da IA está em curso. Só quem se move agora vai liderar.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8 justify-center lg:justify-start">
@@ -427,7 +427,7 @@ export default function Home() {
                   { value: '72%', label: 'sem talento em IA · ManpowerGroup' },
                 ].map((s) => (
                   <div key={s.value} className="border border-white/10 rounded-xl p-3 text-center bg-white/5 backdrop-blur-sm">
-                    <div className="text-xl font-black" style={{ color: '#e5b800' }}>{s.value}</div>
+                    <div className="text-xl font-black" style={{ color: '#c9a227' }}>{s.value}</div>
                     <div className="text-white/55 text-xs mt-0.5" style={{ fontWeight: 300 }}>{s.label}</div>
                   </div>
                 ))}
@@ -556,7 +556,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center"
               >
-                <div className="text-4xl md:text-5xl font-black" style={{ color: '#e5b800' }}>{item.stat}</div>
+                <div className="text-4xl md:text-5xl font-black" style={{ color: '#c9a227' }}>{item.stat}</div>
                 <p className="text-white/70 text-sm mt-2 leading-relaxed" style={{ fontWeight: 300 }}>{item.label}</p>
                 <p className="text-white/30 text-xs mt-3 font-semibold tracking-wider">{item.source}</p>
               </motion.div>
@@ -690,8 +690,8 @@ export default function Home() {
                   "Não ensino o que li. Ensino o que executei — em salas de conselho, em campanhas de 9 dígitos."
                 </blockquote>
               </div>
-              <div className="absolute -top-3 -right-3 text-white rounded-xl px-4 py-3 shadow-xl text-center hidden md:block" style={{ background: '#001123', border: '2px solid #e5b800' }}>
-                <div className="text-2xl font-black leading-none" style={{ color: '#e5b800' }}>500+</div>
+              <div className="absolute -top-3 -right-3 text-white rounded-xl px-4 py-3 shadow-xl text-center hidden md:block" style={{ background: '#001123', border: '2px solid #c9a227' }}>
+                <div className="text-2xl font-black leading-none" style={{ color: '#c9a227' }}>500+</div>
                 <div className="text-[10px] font-light mt-0.5 leading-tight">Executivos<br/>mentoreados</div>
               </div>
             </motion.div>
@@ -704,7 +704,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="order-1 lg:order-2"
             >
-              <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: '#e5b800' }}>Especialistas em IA e Machine Learning atuantes desde 2013 como pioneiros deste mercado no Brasil</p>
+              <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: '#c9a227' }}>Especialistas em IA e Machine Learning atuantes desde 2013 como pioneiros deste mercado no Brasil</p>
               <h2 className="text-2xl md:text-3xl lg:text-4xl text-primary mb-2">Reconhecidos pelo Mercado.<br />Comprometidos com Resultado.</h2>
               <p className="text-accent text-sm font-medium mb-6">Time Recognise · Talentos de referência em IA no Brasil e LATAM</p>
 
