@@ -229,14 +229,36 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      // Define environment variables for build-time configuration
-      // In production, this will be false by default unless explicitly set to 'true'
-      // In development and test, this will be true by default
       __ROUTE_MESSAGING_ENABLED__: JSON.stringify(
-        mode === 'production' 
+        mode === 'production'
           ? process.env.VITE_ENABLE_ROUTE_MESSAGING === 'true'
           : process.env.VITE_ENABLE_ROUTE_MESSAGING !== 'false'
       ),
+    },
+    build: {
+      sourcemap: false,
+      chunkSizeWarningLimit: 3000,
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            // Vendor chunk — pacotes grandes de node_modules
+            if (id.includes('node_modules')) {
+              if (id.includes('framer-motion')) return 'vendor-motion';
+              if (id.includes('@radix-ui') || id.includes('shadcn') || id.includes('cmdk')) return 'vendor-ui';
+              if (id.includes('supabase')) return 'vendor-supabase';
+              if (id.includes('react-router')) return 'vendor-router';
+              if (id.includes('recharts') || id.includes('d3-')) return 'vendor-charts';
+              return 'vendor';
+            }
+            // Posts de blog em chunk separado
+            if (id.includes('/pages/Blog') || id.includes('/hooks/useBlog')) return 'blog';
+            // Landing pages de programas em chunk separado
+            if (id.includes('/pages/programs/') || id.includes('/pages/corp/') || id.includes('ProgramPageTemplate')) return 'programs';
+            // Admin em chunk separado
+            if (id.includes('/pages/admin/') || id.includes('/pages/student/')) return 'lms';
+          },
+        },
+      },
     },
   }
 });
