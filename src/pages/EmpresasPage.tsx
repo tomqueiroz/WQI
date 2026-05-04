@@ -692,10 +692,10 @@ export default function EmpresasPage() {
                   Falar com Tom Queiroz <ArrowRight size={14} />
                 </a>
               </div>
-              <div className="relative min-h-[220px]">
-                <img src={IMAGES.EMPRESAS_DIGITAL_3} alt="Tom Queiroz keynote"
-                  className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: 'rgba(0,17,35,0.35)' }} />
+              <div className="relative min-h-[280px]">
+                <img src={IMAGES.TOM_SPEAKING_6_137} alt="Tom Queiroz palestrando"
+                  className="absolute inset-0 w-full h-full object-cover object-top" />
+                <div className="absolute inset-0" style={{ background: 'rgba(0,17,35,0.30)' }} />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="flex items-center gap-2 text-white text-xs" style={{ fontWeight: 300 }}>
                     <a href="https://www.linkedin.com/in/wellingtonqueiroz/" target="_blank" rel="noopener noreferrer"

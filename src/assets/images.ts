@@ -1,7 +1,6 @@
 // Do not edit manually
 
 export const IMAGES = {
-  TOM_SPEAKING_STAGE: "/images/tom speaking 7.png",
   AI_FACE_BLUE: "/images/ai-face-blue.jpg",
   AI_GLOBE_HAND: "/images/ai-globe-hand.jpg",
   ANIMA_19: "/images/anima.png",
@@ -133,7 +132,9 @@ export const IMAGES = {
   TOM_HERO_PORTRAIT: "/images/1.png",
   TOM_PROFILE_ALT: "/images/magnific_photo-a-40yearold-middle-_2905621111.png",
   TOM_SOBRE: "/images/tom speaking 11.png",
+  TOM_SPEAKING_6_137: "/images/tom speaking 6.png",
   TOM_SPEAKING_7_135: "/images/tom speaking 7.png",
+  TOM_SPEAKING_STAGE: "/images/tom speaking 7.png",
   TOM_SPEAKING_YOUNG_58: "/images/tom speaking young.png",
   UNIVERSAL_20: "/images/universal.png",
   WMC_29: "/images/wmc.png",
