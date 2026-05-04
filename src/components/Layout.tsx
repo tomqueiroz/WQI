@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin, ChevronDown, ChevronRight, Building2 } from 'lucide-react';
+import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin, ChevronDown, ChevronRight, Building2, Calendar } from 'lucide-react';
 import { FaLinkedinIn, FaInstagram, FaXTwitter, FaWhatsapp } from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -355,9 +355,12 @@ export function Layout({ children }: LayoutProps) {
                   </Button>
                   <Button
                     asChild
-                    className="hidden md:inline-flex bg-accent text-white text-xs font-semibold h-8 px-4 rounded-full hover:bg-accent/90"
+                    className="hidden md:inline-flex text-xs font-semibold h-8 px-4 rounded-full transition-all hover:scale-105"
+                    style={{ background: '#7a6207', color: 'white' }}
                   >
-                    <Link to={LMS_ROUTES.LOGIN}>Acesso Mentorando</Link>
+                    <a href="https://calendly.com/tom-queiroz-pareto/30min" target="_blank" rel="noopener noreferrer">
+                      Agende com Especialista
+                    </a>
                   </Button>
                 </>
               )}
@@ -489,10 +492,15 @@ export function Layout({ children }: LayoutProps) {
                               Entrar
                             </Link>
                           </Button>
-                          <Button asChild className="w-full bg-accent text-white hover:bg-accent/90">
-                            <Link to={LMS_ROUTES.LOGIN} onClick={() => setMobileMenuOpen(false)}>
-                              Acesso Mentorando
-                            </Link>
+                          <Button asChild className="w-full text-white font-semibold" style={{ background: '#7a6207' }}>
+                            <a
+                              href="https://calendly.com/tom-queiroz-pareto/30min"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              Agende com Especialista
+                            </a>
                           </Button>
                         </>
                       )}
@@ -507,6 +515,7 @@ export function Layout({ children }: LayoutProps) {
 
       <main className="flex-1">{children}</main>
 
+      {/* WhatsApp flutuante - acima do botão Calendly */}
       <AnimatePresence>
         <motion.a
           href="https://wa.me/5511915513210?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20programas%20Recognise."
@@ -514,11 +523,28 @@ export function Layout({ children }: LayoutProps) {
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="fixed bottom-6 left-6 z-40 bg-accent text-white rounded-full px-5 py-3 shadow-xl text-sm font-semibold flex items-center gap-2 hover:bg-accent/90 transition-colors"
+          transition={{ delay: 1.2 }}
+          className="fixed bottom-24 left-6 z-40 bg-green-600 text-white rounded-full px-5 py-3 shadow-xl text-sm font-semibold flex items-center gap-2 hover:bg-green-700 transition-colors"
         >
-          <MessageCircle className="w-4 h-4" />
+          <FaWhatsapp className="w-4 h-4" />
           Falar com Especialista
+        </motion.a>
+      </AnimatePresence>
+
+      {/* Diagnóstico Gratuito - link Calendly - inferior esquerdo */}
+      <AnimatePresence>
+        <motion.a
+          href="https://calendly.com/tom-queiroz-pareto/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="fixed bottom-6 left-6 z-40 text-white rounded-full px-5 py-3 shadow-xl text-sm font-semibold flex items-center gap-2 transition-colors hover:opacity-90"
+          style={{ background: '#7a6207' }}
+        >
+          <Calendar className="w-4 h-4" />
+          Diagnóstico Gratuito
         </motion.a>
       </AnimatePresence>
 
@@ -542,9 +568,26 @@ export function Layout({ children }: LayoutProps) {
           <DialogHeader>
             <DialogTitle>Antes de ir...</DialogTitle>
             <DialogDescription>
-              Receba insights exclusivos sobre Marketing Digital e IA diretamente no seu email.
+              Deixe seu contato ou agende um diagnóstico gratuito com nossos especialistas em IA.
             </DialogDescription>
           </DialogHeader>
+
+          {/* Opção de agendamento em destaque */}
+          <div className="flex flex-col gap-2 pb-1">
+            <a
+              href="https://calendly.com/tom-queiroz-pareto/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setExitIntentOpen(false)}
+              className="w-full flex items-center justify-center gap-2 rounded-full py-2.5 text-sm font-bold text-white transition hover:opacity-90"
+              style={{ background: '#7a6207' }}
+            >
+              <Calendar className="w-4 h-4" />
+              Agendar Diagnóstico Gratuito (30 min)
+            </a>
+            <p className="text-center text-xs text-muted-foreground">— ou deixe seu contato —</p>
+          </div>
+
           {exitFormSuccess ? (
             <div className="py-8 text-center">
               <p className="text-lg font-semibold text-accent">Obrigado!</p>
@@ -583,7 +626,7 @@ export function Layout({ children }: LayoutProps) {
                 />
               </div>
               <Button type="submit" disabled={exitFormLoading} className="w-full bg-accent text-white hover:bg-accent/90">
-                {exitFormLoading ? 'Enviando...' : 'Quero Receber'}
+                {exitFormLoading ? 'Enviando...' : 'Quero ser contactado'}
               </Button>
             </form>
           )}
@@ -680,11 +723,22 @@ export function Layout({ children }: LayoutProps) {
 
             <div>
               <h6 className="text-white/40 text-xs uppercase tracking-widest mb-4">Contato</h6>
+              <div className="mb-4">
+                <a
+                  href="https://calendly.com/tom-queiroz-pareto/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
+                  style={{ background: '#7a6207' }}
+                >
+                  <Calendar className="w-4 h-4" /> Agendar com Especialista
+                </a>
+              </div>
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-white/60" />
                   <a
-                    href="mailto:tom@midia-digital.com"
+                    href="mailto:tom@recognise.com.br"
                     className="text-white/70 hover:text-accent text-sm transition"
                   >
                     tom@midia-digital.com

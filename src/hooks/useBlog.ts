@@ -149,11 +149,8 @@ export function useBlogPost(slug: string): UseBlogPostResult {
         if (fetchError) throw fetchError;
 
         if (post) {
-          // Increment view count (fire-and-forget)
-          void supabase
-            .from('blog_posts')
-            .update({ views_count: (Number(post.views_count) || 0) + 1 })
-            .eq('id', post.id);
+          // Increment view count via RPC (evita erro 400 de RLS no UPDATE direto)
+          try { void supabase.rpc('increment_blog_views', { post_slug: slug }); } catch (_) { /* ignore */ }
 
           setData(mapPost({ ...post as Record<string, unknown>, views_count: (Number(post.views_count) || 0) + 1 }));
         } else {

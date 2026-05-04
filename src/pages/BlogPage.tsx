@@ -136,7 +136,7 @@ const STATIC_POSTS = [
   },
 ];
 
-const ALL_CATEGORIES = ['Todos', 'Insights', 'Liderança', 'Tendências', 'Inovação', 'Carreira', 'Bem-Estar'];
+const ALL_CATEGORIES = ['Todos', 'Insights', 'Liderança', 'Tendências', 'Inovação', 'Estratégia', 'Carreira', 'Bem-Estar', 'Governança', 'Tech & IA', 'Eventos'];
 
 // ─── Eventos de IA (estáticos) ─────────────────────────────────────────────
 const AI_EVENTS = [
@@ -656,7 +656,7 @@ export default function BlogPage() {
   const regularPosts = displayPosts.filter(p => !p.isFeatured && !p.is_featured);
 
   const filteredPosts = displayPosts.filter(p => {
-    const matchCat = activeCategory === 'Todos' || p.category === activeCategory;
+    const matchCat = activeCategory === 'Todos' || p.category?.toLowerCase() === activeCategory.toLowerCase();
     const matchSearch = !searchMain ||
       p.title.toLowerCase().includes(searchMain.toLowerCase()) ||
       (p.excerpt || '').toLowerCase().includes(searchMain.toLowerCase()) ||

@@ -472,7 +472,7 @@ function parseMarkdown(content: string): React.ReactNode[] {
 const OTHER_POSTS = Object.values(STATIC_POSTS_MAP);
 
 // ─── Categorias para crossnavigation ─────────────────────────────────────────
-const BLOG_CATEGORIES_NAV = ['Insights', 'Liderança', 'Estratégia', 'IA & Negócios', 'Tendências', 'Carreira'];
+const BLOG_CATEGORIES_NAV = ['Insights', 'Liderança', 'Tendências', 'Inovação', 'Estratégia', 'Carreira', 'Bem-Estar', 'Governança', 'Tech & IA', 'Eventos'];
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -565,7 +565,7 @@ export default function BlogPostPage() {
 
   // Crossnavigation: posts filtrados por categoria
   const filteredByCategory = activeCatFilter
-    ? (allPosts || []).filter(p => p.category === activeCatFilter && p.slug !== slug).slice(0, 4)
+    ? (allPosts || []).filter(p => p.category?.toLowerCase() === activeCatFilter?.toLowerCase() && p.slug !== slug).slice(0, 4)
     : (allPosts || []).filter(p => p.slug !== slug).slice(0, 4);
 
   if (loading && !staticPost) {
@@ -676,6 +676,25 @@ export default function BlogPostPage() {
 
           {/* ── ARTICLE ──────────────────────────────────────────────────────── */}
           <div className="flex-1 min-w-0">
+
+            {/* Back navigation bar */}
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b" style={{ borderColor: '#e4e7ed' }}>
+              <button
+                onClick={() => navigate(-1)}
+                className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-full transition-all hover:opacity-80"
+                style={{ background: 'rgba(0,17,35,0.06)', color: NAVY }}
+              >
+                <ArrowLeft size={14} /> Voltar
+              </button>
+              <Link
+                to={LMS_ROUTES.BLOG}
+                onClick={() => window.scrollTo(0, 0)}
+                className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-full transition-all hover:opacity-80"
+                style={{ background: `rgba(122,98,7,0.1)`, color: COPPER }}
+              >
+                <Home size={14} /> Blog & Eventos
+              </Link>
+            </div>
 
             {/* Author card */}
             <motion.div
