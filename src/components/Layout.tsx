@@ -24,6 +24,7 @@ const EMPRESAS_SUBMENU = [
 ];
 
 const PROGRAM_SUBMENU = [
+  { label: '⭐ Plataformas para Mentores — NOVO', href: LMS_ROUTES.NOVOS_MENTORES, highlight: true },
   { label: 'Mentoria Executiva 1:1', href: LMS_ROUTES.PROG_1ON1 },
   { label: 'Cohort Executivo', href: LMS_ROUTES.PROG_COHORT },
   { label: 'In-Company Transformation', href: LMS_ROUTES.PROG_INHOUSE },
@@ -191,10 +192,10 @@ export function Layout({ children }: LayoutProps) {
                               <button
                                 key={subItem.href}
                                 onClick={() => { handleNavClick(subItem.href); setShowProgramasMenu(false); }}
-                                className="flex items-center gap-2 px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors w-full text-left"
+                                className={`flex items-center gap-2 px-4 py-3 hover:bg-white/5 transition-colors w-full text-left ${'highlight' in subItem && subItem.highlight ? 'bg-amber-900/20' : ''}`}
                               >
                                 <ChevronRight className="w-4 h-4" style={{ color: '#7a6207' }} />
-                                <span className="text-sm" style={{ fontWeight: 300, letterSpacing: '0.03em' }}>
+                                <span className="text-sm" style={{ fontWeight: 'highlight' in subItem && subItem.highlight ? 600 : 300, letterSpacing: '0.03em', color: 'highlight' in subItem && subItem.highlight ? '#c9a227' : 'rgba(255,255,255,0.8)' }}>
                                   {subItem.label}
                                 </span>
                               </button>

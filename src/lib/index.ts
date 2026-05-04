@@ -9,6 +9,7 @@ export const LMS_ROUTES = {
   PROG_MASTERCLASS: '/programas/masterclass-ai',
   PROG_KEYNOTE: '/programas/keynote',
   PROG_DIGITAL: '/programas/cursos-digitais',
+  NOVOS_MENTORES: '/plataformas-para-mentores',
   SOBRE: '/sobre',
   CONTATO: '/contato',
   EMPRESAS: '/para-empresas',

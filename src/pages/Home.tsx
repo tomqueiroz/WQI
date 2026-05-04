@@ -768,6 +768,53 @@ export default function Home() {
             </p>
           </motion.div>
 
+          {/* ★ Card Destaque: Plataformas para Novos Mentores */}
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="mb-8 rounded-2xl overflow-hidden shadow-xl"
+            style={{ background: 'linear-gradient(135deg, #001123 0%, #0a1e35 60%, #001123 100%)', border: '1.5px solid rgba(201,162,39,0.45)' }}>
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="p-8 md:p-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+                  style={{ background: 'rgba(201,162,39,0.15)', color: '#c9a227', border: '1px solid rgba(201,162,39,0.3)' }}>
+                  ⭐ Novo Serviço em Destaque
+                </div>
+                <h3 className="text-white text-xl md:text-2xl font-bold mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  Plataformas para Novos Mentores
+                </h3>
+                <p className="text-white/60 text-sm mb-5" style={{ fontWeight: 300, lineHeight: 1.7 }}>
+                  Sua mentoria pronta em até <strong className="text-white/90">3 semanas</strong>, com plataforma exclusiva powered by IA.
+                  Sem Hotmart. Sem mensalidades. Sem plataformas genéricas. 100% customizado para você.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {['Mentoria Top', 'Mentoria Full + LMS', 'Powered by IA', '3 semanas'].map(t => (
+                    <span key={t} className="text-xs px-2.5 py-1 rounded-full" style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.1)' }}>{t}</span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <Link to={LMS_ROUTES.NOVOS_MENTORES}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white text-sm font-bold transition-all hover:scale-105"
+                    style={{ background: 'linear-gradient(135deg, #7a6207, #c9a227)' }}>
+                    Saiba Mais
+                  </Link>
+                  <a href="https://calendly.com/tom-queiroz-pareto/30min" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white/80 text-sm font-semibold transition-all hover:bg-white/10 border border-white/15">
+                    Agendar Conversa
+                  </a>
+                </div>
+              </div>
+              <div className="relative min-h-[220px] md:min-h-0">
+                <img src="/images/307768.jpg" alt="Plataformas para Mentores" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,17,35,0.8) 0%, transparent 70%)' }} />
+                <div className="absolute bottom-6 right-6 flex flex-col items-end gap-2">
+                  <div className="text-right">
+                    <p className="text-white text-2xl font-black" style={{ color: '#c9a227' }}>20 vagas</p>
+                    <p className="text-white/50 text-xs">condições especiais — 45 dias</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PRODUCTS_DATA.map((product, i) => (
               <motion.div

@@ -24,6 +24,7 @@ import CorpAiLeadershipPage from "@/pages/empresas/CorpAiLeadershipPage";
 import CorpAiImmersionPage from "@/pages/empresas/CorpAiImmersionPage";
 import CorpMentorFormPage from "@/pages/empresas/CorpMentorFormPage";
 import CorpExecAdvisoryPage from "@/pages/empresas/CorpExecAdvisoryPage";
+import NovosMentoresPage from "@/pages/NovosMentoresPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -72,6 +73,7 @@ const App = () => (
           <Route path={LMS_ROUTES.BLOG_POST} element={<BlogPostPage />} />
           <Route path={LMS_ROUTES.PRIVACY} element={<PrivacyPage />} />
           <Route path={LMS_ROUTES.TERMS} element={<TermsPage />} />
+          <Route path={LMS_ROUTES.NOVOS_MENTORES} element={<NovosMentoresPage />} />
           <Route path="*" element={<Navigate to={LMS_ROUTES.HOME} replace />} />
         </Routes>
       </HashRouter>
