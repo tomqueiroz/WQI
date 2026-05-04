@@ -74,6 +74,8 @@ const DELIVERABLES_FULL = [
   { icon: BarChart3, title: 'Dashboard do Mentorando', desc: 'Painel individual com progresso, badges e certificados automáticos' },
   { icon: Award, title: 'Área do Mentorando Premium', desc: 'Login exclusivo, histórico de sessões, recursos e comunicação direta' },
   { icon: Shield, title: 'Suporte Pós-Lançamento', desc: 'Suporte técnico e estratégico por 30 dias após o go-live' },
+  { icon: FileText, title: 'Avaliações com Provas Eletrônicas', desc: 'Banco de questões, provas cronometradas, correção automática e relatório de desempenho individual' },
+  { icon: Award, title: 'Certificação Automatizada', desc: 'Emissão e validação digital de certificados ao concluir trilhas — com registro e compartilhamento no LinkedIn' },
 ];
 
 const STATS = [
@@ -801,9 +803,9 @@ export default function NovosMentoresPage() {
                 </div>
               </div>
               <div className="relative min-h-[260px]">
-                <img src={IMAGES.IMG_93703_4} alt="Parceria e excelência"
+                <img src={IMAGES.AI_TECH_HANDS_20260504_225912_167} alt="IA aplicada à mentoria"
                   className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: 'rgba(0,17,35,0.3)' }} />
+                <div className="absolute inset-0" style={{ background: 'rgba(0,17,35,0.15)' }} />
               </div>
             </div>
           </motion.div>
