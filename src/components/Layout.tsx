@@ -1,23 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, User, LogOut, LayoutDashboard, Shield, ChevronUp, MessageCircle, Mail, MapPin, ChevronDown, ChevronRight, Building2, Calendar } from 'lucide-react';
+import { Menu, X, ChevronUp, Mail, MapPin, ChevronDown, ChevronRight, Building2, Calendar } from 'lucide-react';
 import { FaLinkedinIn, FaInstagram, FaXTwitter, FaWhatsapp } from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { NAV_ITEMS, LMS_ROUTES } from '@/lib/index';
-import { useAuth } from '@/contexts/AuthContext';
 import { IMAGES } from '@/assets/images';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -55,7 +46,6 @@ export function Layout({ children }: LayoutProps) {
   const [showEmpresasMenu, setShowEmpresasMenu] = useState(false);
   const [programasMobileOpen, setProgramasMobileOpen] = useState(false);
   const [empresasMobileOpen, setEmpresasMobileOpen] = useState(false);
-  const { user, profile, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,19 +83,6 @@ export function Layout({ children }: LayoutProps) {
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [exitIntentShown]);
-
-  const getInitials = (name: string) => {
-    return name
-      .split(' ')
-      .map((n) => n[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2);
-  };
-
-  const handleSignOut = async () => {
-    await signOut();
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -305,65 +282,15 @@ export function Layout({ children }: LayoutProps) {
             </nav>
 
             <div className="flex items-center gap-2">
-              {user && profile ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <button className="focus:outline-none focus:ring-2 focus:ring-accent rounded-full">
-                      <Avatar className="w-9 h-9 bg-accent text-white cursor-pointer">
-                        <AvatarFallback className="bg-accent text-white font-semibold">
-                          {getInitials(profile.full_name)}
-                        </AvatarFallback>
-                      </Avatar>
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-48">
-                    <DropdownMenuItem asChild>
-                      <Link to={LMS_ROUTES.DASHBOARD} className="cursor-pointer">
-                        <LayoutDashboard className="w-4 h-4 mr-2" />
-                        Dashboard
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to={LMS_ROUTES.PROFILE} className="cursor-pointer">
-                        <User className="w-4 h-4 mr-2" />
-                        Meu Perfil
-                      </Link>
-                    </DropdownMenuItem>
-                    {(profile.role === 'admin' || profile.role === 'mentor') && (
-                      <DropdownMenuItem asChild>
-                        <Link to={LMS_ROUTES.ADMIN} className="cursor-pointer">
-                          <Shield className="w-4 h-4 mr-2" />
-                          Admin
-                        </Link>
-                      </DropdownMenuItem>
-                    )}
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
-                      <LogOut className="w-4 h-4 mr-2" />
-                      Sair
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <>
-                  <Button
-                    variant="ghost"
-                    asChild
-                    className="hidden md:inline-flex border border-white/25 text-white/80 text-xs h-8 px-3 hover:bg-white/10"
-                  >
-                    <Link to={LMS_ROUTES.LOGIN}>Entrar</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    className="hidden md:inline-flex text-xs font-semibold h-8 px-4 rounded-full transition-all hover:scale-105"
-                    style={{ background: '#7a6207', color: 'white' }}
-                  >
-                    <a href="https://calendly.com/tom-queiroz-pareto/30min" target="_blank" rel="noopener noreferrer">
-                      Agende com Especialista
-                    </a>
-                  </Button>
-                </>
-              )}
+              <Button
+                asChild
+                className="hidden md:inline-flex text-xs font-semibold h-8 px-4 rounded-full transition-all hover:scale-105"
+                style={{ background: '#7a6207', color: 'white' }}
+              >
+                <a href="https://calendly.com/tom-queiroz-pareto/30min" target="_blank" rel="noopener noreferrer">
+                  Agende com Especialista
+                </a>
+              </Button>
 
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
@@ -472,38 +399,16 @@ export function Layout({ children }: LayoutProps) {
                       );
                     })}
                     <div className="border-t pt-4 mt-4 flex flex-col gap-2">
-                      {user && profile ? (
-                        <>
-                          <Button asChild variant="outline" className="w-full">
-                            <Link to={LMS_ROUTES.DASHBOARD} onClick={() => setMobileMenuOpen(false)}>
-                              <LayoutDashboard className="w-4 h-4 mr-2" />
-                              Dashboard
-                            </Link>
-                          </Button>
-                          <Button onClick={handleSignOut} variant="outline" className="w-full">
-                            <LogOut className="w-4 h-4 mr-2" />
-                            Sair
-                          </Button>
-                        </>
-                      ) : (
-                        <>
-                          <Button asChild variant="outline" className="w-full">
-                            <Link to={LMS_ROUTES.LOGIN} onClick={() => setMobileMenuOpen(false)}>
-                              Entrar
-                            </Link>
-                          </Button>
-                          <Button asChild className="w-full text-white font-semibold" style={{ background: '#7a6207' }}>
-                            <a
-                              href="https://calendly.com/tom-queiroz-pareto/30min"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              Agende com Especialista
-                            </a>
-                          </Button>
-                        </>
-                      )}
+                      <Button asChild className="w-full text-white font-semibold" style={{ background: '#7a6207' }}>
+                        <a
+                          href="https://calendly.com/tom-queiroz-pareto/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          Agende com Especialista
+                        </a>
+                      </Button>
                     </div>
                   </nav>
                 </SheetContent>

@@ -222,10 +222,6 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
-        // Proxy react-router-dom to our wrapper
-        "react-router-dom": path.resolve(__dirname, "./src/lib/react-router-dom-proxy.tsx"),
-        // Original react-router-dom under a different name
-        "react-router-dom-original": "react-router-dom",
       },
     },
     define: {
@@ -238,27 +234,6 @@ export default defineConfig(({ mode }) => {
     build: {
       sourcemap: false,
       chunkSizeWarningLimit: 3000,
-      rollupOptions: {
-        output: {
-          manualChunks: (id) => {
-            // Vendor chunk — pacotes grandes de node_modules
-            if (id.includes('node_modules')) {
-              if (id.includes('framer-motion')) return 'vendor-motion';
-              if (id.includes('@radix-ui') || id.includes('shadcn') || id.includes('cmdk')) return 'vendor-ui';
-              if (id.includes('supabase')) return 'vendor-supabase';
-              if (id.includes('react-router')) return 'vendor-router';
-              if (id.includes('recharts') || id.includes('d3-')) return 'vendor-charts';
-              return 'vendor';
-            }
-            // Posts de blog em chunk separado
-            if (id.includes('/pages/Blog') || id.includes('/hooks/useBlog')) return 'blog';
-            // Landing pages de programas em chunk separado
-            if (id.includes('/pages/programs/') || id.includes('/pages/corp/') || id.includes('ProgramPageTemplate')) return 'programs';
-            // Admin em chunk separado
-            if (id.includes('/pages/admin/') || id.includes('/pages/student/')) return 'lms';
-          },
-        },
-      },
     },
   }
 });
