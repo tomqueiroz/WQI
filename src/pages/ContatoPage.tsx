@@ -24,8 +24,8 @@ const CONTACT_OPTIONS = [
     Icon: Mail,
     title: 'E-mail Corporativo',
     desc: 'Para propostas formais, apresentações e documentações detalhadas.',
-    action: 'mailto:tom@midia-digital.com',
-    label: 'tom@midia-digital.com',
+    action: 'mailto:tom@recognise.com.br',
+    label: 'tom@recognise.com.br',
     external: false,
   },
   {
@@ -65,7 +65,7 @@ export default function ContatoPage() {
   return (
     <Layout>
       {/* ── HERO com vídeo BG ── */}
-      <section className="relative min-h-[55vh] flex items-center overflow-hidden" style={{ background: '#001123' }}>
+      <section className="relative min-h-[70vh] flex items-end overflow-hidden" style={{ background: '#001123', paddingTop: '120px' }}>
         {/* Vídeo de fundo */}
         <div className="absolute inset-0 w-full h-full">
           <video
@@ -83,7 +83,7 @@ export default function ContatoPage() {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,17,35,0.55) 0%, rgba(13,32,64,0.40) 100%)' }} />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 md:px-8 py-32 md:py-44 max-w-3xl">
+        <div className="relative z-10 container mx-auto px-4 md:px-8 pb-16 md:pb-24 pt-8 max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>

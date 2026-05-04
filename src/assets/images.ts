@@ -1,6 +1,9 @@
 // Do not edit manually
 
 export const IMAGES = {
+  TOM_SPEAKING_STAGE: "/images/tom speaking 7.png",
+  AI_FACE_BLUE: "/images/ai-face-blue.jpg",
+  AI_GLOBE_HAND: "/images/ai-globe-hand.jpg",
   ANIMA_19: "/images/anima.png",
   CEA_18: "/images/cea.png",
   COBASI_38: "/images/cobasi.png",
@@ -25,6 +28,7 @@ export const IMAGES = {
   CORP_MENTOR_7: "https://images.unsplash.com/photo-1758519288417-d359ac3c494d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTk0NTh8MHwxfHNlYXJjaHw0fHxleGVjdXRpdmUlMjBtZW50b3IlMjBjb2FjaGluZyUyMGxlYWRlcnNoaXAlMjBtZWV0aW5nfGVufDB8MHx8fDE3Nzc3NDU4Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
   CORP_MENTOR_8: "https://images.unsplash.com/photo-1757405960576-0698c7a8717c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTk0NTh8MHwxfHNlYXJjaHwyfHxleGVjdXRpdmUlMjBtZW50b3IlMjBjb2FjaGluZyUyMGxlYWRlcnNoaXAlMjBtZWV0aW5nfGVufDB8MHx8fDE3Nzc3NDU4Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
   CORP_MENTOR_9: "https://images.unsplash.com/photo-1637979911089-bf0d73f0b9c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTk0NTh8MHwxfHNlYXJjaHw5fHxleGVjdXRpdmUlMjBtZW50b3IlMjBjb2FjaGluZyUyMGxlYWRlcnNoaXAlMjBtZWV0aW5nfGVufDB8MHx8fDE3Nzc3NDU4Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  DEVELOPER_AI: "/images/developer-ai.jpg",
   EMPRESAS_DIGITAL_1: "https://images.unsplash.com/photo-1516618317270-b99d1715c58d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDU2OTd8MHwxfHNlYXJjaHw0fHxkaWdpdGFsJTIwdHJhbnNmb3JtYXRpb24lMjBjb3Jwb3JhdGUlMjB0ZWNobm9sb2d5JTIwZnV0dXJlfGVufDB8MHx8fDE3Nzc3NDAzOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
   EMPRESAS_DIGITAL_2: "https://images.unsplash.com/photo-1760037034697-eee0b07ae072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDU2OTd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwdHJhbnNmb3JtYXRpb24lMjBjb3Jwb3JhdGUlMjB0ZWNobm9sb2d5JTIwZnV0dXJlfGVufDB8MHx8fDE3Nzc3NDAzOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
   EMPRESAS_DIGITAL_3: "https://images.unsplash.com/photo-1762968274962-20c12e6e8ecd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDU2OTd8MHwxfHNlYXJjaHwyfHxkaWdpdGFsJTIwdHJhbnNmb3JtYXRpb24lMjBjb3Jwb3JhdGUlMjB0ZWNobm9sb2d5JTIwZnV0dXJlfGVufDB8MHx8fDE3Nzc3NDAzOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -53,6 +57,7 @@ export const IMAGES = {
   FLAM_33: "/images/flam.png",
   GPA_17: "/images/gpa.png",
   GREENP_16: "/images/greenp.png",
+  HANDSHAKE_STARS: "/images/handshake-stars.jpg",
   HERING_15: "/images/hering.png",
   IBM_37: "/images/ibm.png",
   IMG_10_38: "/images/10.png",
@@ -117,6 +122,7 @@ export const IMAGES = {
   PROG_MASTERCLASS_4: "https://images.unsplash.com/photo-1770233621425-5d9ee7a0a700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDU5NTF8MHwxfHNlYXJjaHw0fHxBSSUyMHRlY2hub2xvZ3klMjBtYXN0ZXJjbGFzcyUyMGRpZ2l0YWwlMjBpbm5vdmF0aW9uJTIwZnV0dXJpc3RpY3xlbnwwfDB8fHwxNzc3NzA1OTg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
   PUBLI_23: "/images/publi.png",
   REMAX_31: "/images/remax.png",
+  ROCKET_BULB: "/images/rocket-bulb.jpg",
   SALTA_35: "/images/salta.png",
   SAMS_22: "/images/sams.png",
   SG_27: "/images/sg.png",
@@ -127,14 +133,10 @@ export const IMAGES = {
   TOM_HERO_PORTRAIT: "/images/1.png",
   TOM_PROFILE_ALT: "/images/magnific_photo-a-40yearold-middle-_2905621111.png",
   TOM_SOBRE: "/images/tom speaking 11.png",
+  TOM_SPEAKING_7_135: "/images/tom speaking 7.png",
   TOM_SPEAKING_YOUNG_58: "/images/tom speaking young.png",
   UNIVERSAL_20: "/images/universal.png",
   WMC_29: "/images/wmc.png",
-  HANDSHAKE_STARS: "/images/handshake-stars.jpg",
-  ROCKET_BULB: "/images/rocket-bulb.jpg",
-  AI_FACE_BLUE: "/images/ai-face-blue.jpg",
-  DEVELOPER_AI: "/images/developer-ai.jpg",
-  AI_GLOBE_HAND: "/images/ai-globe-hand.jpg",
 } as const;
 
 export type ImageKey = keyof typeof IMAGES;

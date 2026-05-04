@@ -686,7 +686,7 @@ export default function BlogPage() {
   return (
     <Layout>
       {/* ── Hero com vídeo BG ── */}
-      <section ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '55vh', background: NAVY }}>
+      <section ref={heroRef} className="relative overflow-hidden" style={{ minHeight: '70vh', background: NAVY, paddingTop: '120px' }}>
         {/* Vídeo de fundo */}
         <motion.div style={{ y: heroY, position: 'absolute', inset: 0 }} className="w-full h-full">
           <video
@@ -712,8 +712,8 @@ export default function BlogPage() {
         </div>
 
         <motion.div
-          style={{ opacity: heroOpacity, minHeight: '55vh' }}
-          className="relative z-20 flex flex-col justify-end pb-14 px-4 max-w-7xl mx-auto"
+          style={{ opacity: heroOpacity }}
+          className="relative z-20 flex flex-col justify-end pb-14 px-4 max-w-7xl mx-auto min-h-[30vh]"
         >
           <div className="flex items-center gap-2 mb-4">
             <div className="h-px flex-1 max-w-[36px]" style={{ background: COPPER }} />

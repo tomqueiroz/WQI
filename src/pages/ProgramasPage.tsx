@@ -316,7 +316,7 @@ export default function ProgramasPage() {
   return (
     <Layout>
       <div className="min-h-screen bg-background">
-        <section className="relative overflow-hidden" style={{ minHeight: '65vh' }}>
+        <section className="relative overflow-hidden" style={{ minHeight: '70vh', paddingTop: '120px' }}>
           <div className="absolute inset-0 w-full h-full">
             <img
               src={IMAGES.PARALLAX_EXECUTIVE}
@@ -327,7 +327,7 @@ export default function ProgramasPage() {
 
           <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary/80 to-primary/70" />
 
-          <div className="relative z-20 flex flex-col justify-end pb-16 px-4 max-w-7xl mx-auto h-full" style={{ minHeight: '65vh' }}>
+          <div className="relative z-20 flex flex-col justify-end pb-16 px-4 max-w-7xl mx-auto h-full" style={{ minHeight: '50vh' }}>
             <p className="text-white/40 text-xs mb-4">
               <Link to="/" className="hover:text-white/60 transition">Início</Link> / Programas
             </p>
@@ -356,24 +356,56 @@ export default function ProgramasPage() {
         {/* ── SEÇÃO INTRODUTÓRIA PERSUASIVA ── */}
         <section className="py-16 md:py-24" style={{ background: '#f8f9fb' }}>
           <div className="max-w-6xl mx-auto px-4 md:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="text-center mb-14"
-            >
-              <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
-                style={{ background: 'rgba(122,98,7,0.1)', color: '#7a6207' }}>
-                Metodologia Exclusiva
-              </span>
-              <h2 className="text-primary font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                Por que escolher a Recognise?
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed" style={{ fontWeight: 300 }}>
-                Não somos uma escola de tecnologia. Somos uma empresa especializada em <strong className="text-primary">desenvolvimento de novas capacidades cognitivas e culturais para a era da IA</strong> — formada por especialistas que a constroem, diariamente, em empresas reais.
-              </p>
-            </motion.div>
+
+            {/* Imagem + Copy lado a lado */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: '4/3' }}>
+                  <img
+                    src={IMAGES.TOM_SPEAKING_STAGE}
+                    alt="Tom Queiroz palestrando"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,17,35,0.6) 0%, transparent 60%)' }} />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <p className="text-white font-semibold text-sm" style={{ fontFamily: 'Montserrat, sans-serif' }}>Tom Queiroz</p>
+                    <p className="text-white/70 text-xs">CEO & CAIO Pareto · Prof. FGV · Pioneiro em IA no Brasil desde 2013</p>
+                  </div>
+                </div>
+                {/* Badge flutuante */}
+                <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-5 py-3 border border-border">
+                  <p className="text-xs font-bold" style={{ color: '#7a6207' }}>500+</p>
+                  <p className="text-xs text-muted-foreground">Líderes formados</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
+                  style={{ background: 'rgba(122,98,7,0.1)', color: '#7a6207' }}>
+                  Metodologia Exclusiva
+                </span>
+                <h2 className="text-primary font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  Por que escolher a Recognise?
+                </h2>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6" style={{ fontWeight: 300 }}>
+                  Não somos uma escola de tecnologia. Somos uma empresa especializada em <strong className="text-primary">desenvolvimento de novas capacidades cognitivas e culturais para a era da IA</strong> — formada por especialistas que a constroem, diariamente, em empresas reais.
+                </p>
+                <p className="text-muted-foreground text-base leading-relaxed" style={{ fontWeight: 300 }}>
+                  Com mais de <strong className="text-primary">13 anos no mercado de IA aplicada ao negócio</strong>, a Recognise é a vertical de formação executiva da Pareto — a maior empresa de IA do Brasil. Conhecimento de quem está na linha de frente.
+                </p>
+              </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
               {[

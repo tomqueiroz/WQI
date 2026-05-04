@@ -429,14 +429,14 @@ export function Layout({ children }: LayoutProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
-          className="fixed bottom-24 left-6 z-40 bg-green-600 text-white rounded-full px-5 py-3 shadow-xl text-sm font-semibold flex items-center gap-2 hover:bg-green-700 transition-colors"
+          className="fixed bottom-24 right-6 z-40 bg-green-600 text-white rounded-full px-5 py-3 shadow-xl text-sm font-semibold flex items-center gap-2 hover:bg-green-700 transition-colors"
         >
           <FaWhatsapp className="w-4 h-4" />
           Falar com Especialista
         </motion.a>
       </AnimatePresence>
 
-      {/* Diagnóstico Gratuito - link Calendly - inferior esquerdo */}
+      {/* Diagnóstico Gratuito - link Calendly - inferior direito */}
       <AnimatePresence>
         <motion.a
           href="https://calendly.com/tom-queiroz-pareto/30min"
@@ -445,7 +445,7 @@ export function Layout({ children }: LayoutProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="fixed bottom-6 left-6 z-40 text-white rounded-full px-5 py-3 shadow-xl text-sm font-semibold flex items-center gap-2 transition-colors hover:opacity-90"
+          className="fixed bottom-6 right-6 z-40 text-white rounded-full px-5 py-3 shadow-xl text-sm font-semibold flex items-center gap-2 transition-colors hover:opacity-90"
           style={{ background: '#7a6207' }}
         >
           <Calendar className="w-4 h-4" />
@@ -460,7 +460,7 @@ export function Layout({ children }: LayoutProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={scrollToTop}
-            className="fixed bottom-6 right-6 z-40 bg-primary/80 text-white rounded-full p-3 shadow-xl hover:bg-primary transition-colors"
+            className="fixed bottom-6 right-24 z-40 bg-primary/80 text-white rounded-full p-3 shadow-xl hover:bg-primary transition-colors"
             aria-label="Voltar ao topo"
           >
             <ChevronUp className="w-5 h-5" />
@@ -646,7 +646,7 @@ export function Layout({ children }: LayoutProps) {
                     href="mailto:tom@recognise.com.br"
                     className="text-white/70 hover:text-accent text-sm transition"
                   >
-                    tom@midia-digital.com
+                    tom@recognise.com.br
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
