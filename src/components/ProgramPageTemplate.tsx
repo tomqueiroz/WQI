@@ -209,7 +209,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
         {/* Decorative copper line */}
         <div className="absolute top-0 left-0 right-0 h-1 z-10" style={{ background: 'linear-gradient(90deg, transparent, #7a6207, transparent)' }} />
 
-        <div className="container mx-auto px-6 relative z-10 pt-28 pb-20">
+        <div className="site-container relative z-10 pt-28 pb-20">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-block text-xs font-bold tracking-widest px-4 py-2 rounded-full mb-6" style={{ background: '#7a6207', color: 'white', fontFamily: 'Montserrat, sans-serif' }}>
@@ -287,7 +287,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
         className={`sticky top-[72px] z-40 border-b border-border transition-all ${tabBarSticky ? 'shadow-lg' : ''}`}
         style={{ background: 'rgba(0,17,35,0.97)', backdropFilter: 'blur(16px)' }}
       >
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-0">
             {TABS.map(tab => (
               <button
@@ -305,7 +305,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
 
       {/* ── CONTEXTO (Challenge + Stats) ── */}
       <AnimatedSection id="contexto" className="py-24" style={{ background: '#f8f9fa' }}>
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: '#7a6207', fontFamily: 'Montserrat, sans-serif' }}>
               O Contexto que Não Pode Ser Ignorado
@@ -342,7 +342,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
 
       {/* ── PARA QUEM É ── */}
       <AnimatedSection id="para-quem" className="py-24" style={{ background: '#001123' }}>
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: '#7a6207', fontFamily: 'Montserrat, sans-serif' }}>
@@ -376,7 +376,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
 
       {/* ── METODOLOGIA ── */}
       <AnimatedSection id="metodologia" className="py-24 bg-background">
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
             <div>
               <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: '#7a6207', fontFamily: 'Montserrat, sans-serif' }}>
@@ -426,7 +426,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
 
       {/* ── MÓDULOS ── */}
       <section id="modulos" className="py-24" style={{ background: '#f8f9fa' }}>
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="text-center mb-16">
             <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: '#7a6207', fontFamily: 'Montserrat, sans-serif' }}>
               Conteúdo Programático
@@ -446,7 +446,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
 
       {/* ── RESULTADOS ── */}
       <AnimatedSection id="resultados" className="py-24" style={{ background: '#001123' }}>
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="text-center mb-16">
             <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: '#7a6207', fontFamily: 'Montserrat, sans-serif' }}>
               O Que Você Vai Ganhar
@@ -495,7 +495,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
 
       {/* ── FORMULÁRIO ── */}
       <section id="inscricao" className="py-24 bg-background">
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: '#7a6207', fontFamily: 'Montserrat, sans-serif' }}>
@@ -751,7 +751,7 @@ export function ProgramPageTemplate({ programData, formType, tableName }: Progra
 
       {/* ── BOTTOM CTA ── */}
       <section className="py-16" style={{ background: '#7a6207' }}>
-        <div className="container mx-auto px-6 text-center">
+        <div className="site-container text-center">
           <h2 className="text-white mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
             Pronto para dar o próximo passo?
           </h2>

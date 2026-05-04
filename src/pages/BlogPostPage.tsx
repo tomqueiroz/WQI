@@ -671,7 +671,7 @@ export default function BlogPostPage() {
       </div>
 
       {/* ── MAIN CONTENT + SIDEBAR ─────────────────────────────────────────── */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
+      <div className="site-container py-10 md:py-14">
         <div className="flex flex-col lg:flex-row gap-10">
 
           {/* ── ARTICLE ──────────────────────────────────────────────────────── */}

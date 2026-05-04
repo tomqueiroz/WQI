@@ -355,7 +355,7 @@ export default function ProgramasPage() {
 
         {/* ── SEÇÃO INTRODUTÓRIA PERSUASIVA ── */}
         <section className="py-16 md:py-24" style={{ background: '#f8f9fb' }}>
-          <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <div className="site-container">
 
             {/* Imagem + Copy lado a lado */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -481,7 +481,7 @@ export default function ProgramasPage() {
         </div>
 
         <section id="contato" className="py-20 md:py-28" style={{ background: '#001123' }}>
-          <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <div className="site-container">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
               <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(122,98,7,0.2)', color: '#c9a227' }}>Fale Conosco</span>
               <h2 className="text-white mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>Pronto para o Próximo Nível?</h2>

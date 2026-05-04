@@ -745,7 +745,7 @@ export default function BlogPage() {
 
       {/* ── Filtros ── */}
       <div className="sticky top-[72px] z-30 border-b border-border bg-white/90 backdrop-blur-md shadow-sm" id="artigos">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center gap-2">
+        <div className="site-container py-3 flex flex-wrap items-center gap-2">
           <div className="relative flex-1 min-w-[160px] max-w-[240px]">
             <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
             <input
@@ -780,7 +780,7 @@ export default function BlogPage() {
       </div>
 
       {/* ── Conteúdo principal ── */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="site-container py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
           {/* ── Coluna de artigos ── */}

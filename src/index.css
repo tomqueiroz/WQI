@@ -281,6 +281,22 @@
   }
 }
 
+/* ─── Site Container — Mesmas margens do header (max-w-7xl, px-4 md:px-6) ── */
+@layer components {
+  .site-container {
+    @apply max-w-7xl mx-auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 /* ─── Mobile-first tweaks ─────────────────────────────────── */
 @media (max-width: 767px) {
   /* Hero: prevent content overflow on small screens */

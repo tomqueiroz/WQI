@@ -83,7 +83,7 @@ export default function ContatoPage() {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,17,35,0.55) 0%, rgba(13,32,64,0.40) 100%)' }} />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 md:px-8 pb-16 md:pb-24 pt-8 max-w-3xl">
+        <div className="relative z-10 site-container pb-16 md:pb-24 pt-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>
@@ -102,7 +102,7 @@ export default function ContatoPage() {
 
       {/* ── OPÇÕES DE CONTATO ── */}
       <section className="py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {CONTACT_OPTIONS.map((opt, i) => (
               <motion.a key={opt.title} href={opt.action}
@@ -259,7 +259,7 @@ export default function ContatoPage() {
 
       {/* ── CTA — Diagnóstico gratuito ── */}
       <section className="py-16 md:py-20" style={{ background: '#001123' }}>
-        <div className="container mx-auto px-4 md:px-8 max-w-3xl text-center">
+        <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'rgba(122,98,7,0.85)' }}>
               Próximas turmas com vagas limitadas

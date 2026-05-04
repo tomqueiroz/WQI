@@ -368,7 +368,7 @@ export default function Home() {
         </div>
 
         {/* Content — z-index 5, acima dos logos e overlays */}
-        <div className="relative container mx-auto px-4 flex flex-1 items-center" style={{ zIndex: 5, paddingTop: '80px', paddingBottom: '40px' }}>
+        <div className="relative site-container flex flex-1 items-center" style={{ zIndex: 5, paddingTop: '80px', paddingBottom: '40px' }}>
           {/* 2-column layout: copy left (5/12) + photo right (7/12) */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
@@ -489,7 +489,7 @@ export default function Home() {
           DEVELOPMENT &amp; GROWTH
         </p>
         {/* Frase legível em cobre, 50% opaca */}
-        <div className="relative z-10 container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+        <div className="relative z-10 site-container flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
           <p
             style={{
               fontFamily: "'Roboto', sans-serif",
@@ -526,7 +526,7 @@ export default function Home() {
 
       {/* ============ O GRANDE DESAFIO — KEY PAIN POINTS ============ */}
       <section className="py-20 md:py-28 bg-[#001123]">
-        <div className="container mx-auto px-4">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -655,7 +655,7 @@ export default function Home() {
 
       {/* ============ SOBRE ============ */}
       <section id="sobre" className="py-20 md:py-32 bg-background overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="site-container">
           {/* Logo parallax no topo da seção */}
           <div className="flex justify-center mb-10">
             <motion.img
@@ -752,7 +752,7 @@ export default function Home() {
 
       {/* ============ PROGRAMAS PREVIEW ============ */}
       <section id="produtos" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -845,7 +845,7 @@ export default function Home() {
 
       {/* ============ COMO FUNCIONA ============ */}
       <section id="mentoria" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -887,7 +887,7 @@ export default function Home() {
 
       {/* ============ TESTEMUNHAIS — RÉGUA DINÂMICA AUTO-SCROLL ============ */}
       <section id="resultados" className="py-20 bg-muted/30 overflow-hidden">
-        <div className="container mx-auto px-4 mb-10">
+        <div className="site-container mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -946,7 +946,7 @@ export default function Home() {
 
       {/* ============ CTA SECTION ============ */}
       <section className="py-20 bg-primary">
-        <div className="container mx-auto px-4 text-center">
+        <div className="site-container text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -975,7 +975,7 @@ export default function Home() {
 
       {/* ============ INSIGHTS & EVENTOS ============ */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1168,7 +1168,7 @@ export default function Home() {
 
       {/* ============ FAQ ============ */}
       <section id="faq" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1196,7 +1196,7 @@ export default function Home() {
 
       {/* ============ CONTATO ============ */}
       <section id="contato" className="py-20 md:py-28" style={{ background: '#001123' }}>
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
             {/* Left — value proposition */}

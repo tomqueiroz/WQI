@@ -172,7 +172,7 @@ export default function SobrePage() {
 
       {/* ── O QUE É A RECOGNISE ── */}
       <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           {/* Logo parallax no topo da seção */}
           <div className="flex justify-center mb-10">
             <motion.img
@@ -220,7 +220,7 @@ export default function SobrePage() {
 
       {/* ── FILOSOFIA DA RECOGNISE ── */}
       <section className="py-20 md:py-28" style={{ background: '#f4f5f7' }}>
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#7a6207' }}>Nossa Filosofia</p>
             <h2 className="text-primary mb-4" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>
@@ -248,7 +248,7 @@ export default function SobrePage() {
 
       {/* ── PERFIL TOM QUEIROZ — Head de Conteúdo ── */}
       <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#7a6207' }}>Quem Lidera Nosso Conteúdo</p>
             <h2 className="text-primary" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>Tom Queiroz</h2>
@@ -314,7 +314,7 @@ export default function SobrePage() {
 
       {/* ── TRAJETÓRIA — Timeline ── */}
       <section className="py-20 md:py-28" style={{ background: '#f4f5f7' }}>
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-16">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#7a6207' }}>Trajetória</p>
@@ -356,7 +356,7 @@ export default function SobrePage() {
 
       {/* ── CREDENCIAIS ── */}
       <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#7a6207' }}>Credenciais & Resultados</p>
@@ -378,7 +378,7 @@ export default function SobrePage() {
 
       {/* ── QUOTE — Recognise ── */}
       <section className="py-20" style={{ background: '#001123' }}>
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <motion.blockquote initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-white/90 italic leading-relaxed" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)', fontWeight: 300 }}>
             "A revolução da IA não espera. Ela está em curso agora. Apenas aqueles que escolhem se mover com propósito, com o modelo mental certo e com especialistas ao lado, permanecem relevantes — e lideram."
@@ -389,7 +389,7 @@ export default function SobrePage() {
 
       {/* ── CTA FINAL ── */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-8 max-w-3xl text-center">
+        <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <Award size={32} style={{ color: '#7a6207', margin: '0 auto 16px' }} />
             <h2 className="text-primary mb-4" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>

@@ -269,7 +269,7 @@ export default function EmpresasPage() {
         </div>
 
         {/* Conteúdo */}
-        <div className="relative z-10 container mx-auto px-4 md:px-8 py-32 md:py-40">
+        <div className="relative z-10 site-container py-32 md:py-40">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6"
@@ -333,7 +333,7 @@ export default function EmpresasPage() {
           className="absolute bottom-0 left-0 right-0 z-10"
           style={{ background: 'rgba(0,17,35,0.85)', backdropFilter: 'blur(12px)', borderTop: '1px solid rgba(122,98,7,0.2)' }}
         >
-          <div className="container mx-auto px-4 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="site-container py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { value: '95%', label: 'dos projetos de IA falham · MIT 2025', icon: BarChart3 },
               { value: '$5,5T', label: 'em perdas pelo gap de talentos · IDC', icon: TrendingUp },
@@ -355,7 +355,7 @@ export default function EmpresasPage() {
       {/* ── ÍNDICE HORIZONTAL ────────────────────────────────────────── */}
       <div className="sticky top-14 md:top-16 z-40 overflow-x-auto"
         style={{ background: 'rgba(0,17,35,0.97)', backdropFilter: 'blur(8px)', borderBottom: '1px solid rgba(122,98,7,0.2)' }}>
-        <div className="container mx-auto px-4 flex gap-1 py-1 min-w-max md:min-w-0 md:justify-center">
+        <div className="site-container flex gap-1 py-1 min-w-max md:min-w-0 md:justify-center">
           {PAGE_SECTIONS.map((s, i) => (
             <button
               key={s.id}
@@ -376,7 +376,7 @@ export default function EmpresasPage() {
 
       {/* ── O DESAFIO ────────────────────────────────────────────────── */}
       <section id="desafio" className="py-20 md:py-28" style={{ background: '#f4f5f7' }}>
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <div className="max-w-4xl mx-auto text-center mb-14">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>O Diagnóstico Global · Geração AI First™</p>
@@ -438,7 +438,7 @@ export default function EmpresasPage() {
 
       {/* ── SOLUÇÕES ─────────────────────────────────────────────────── */}
       <section id="solucoes" className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Portfólio Corporativo · Geração AI First™</p>
@@ -555,7 +555,7 @@ export default function EmpresasPage() {
           <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${NAVY} 50%, rgba(0,17,35,0.88) 100%)` }} />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 md:px-8">
+        <div className="relative z-10 site-container">
           <div className="max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="text-center mb-16">
@@ -645,7 +645,7 @@ export default function EmpresasPage() {
 
       {/* ── METODOLOGIA ──────────────────────────────────────────────── */}
       <section id="metodologia" className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Como funciona</p>
@@ -715,7 +715,7 @@ export default function EmpresasPage() {
 
       {/* ── RESULTADOS / CTA CENTRAL ─────────────────────────────────── */}
       <section id="resultados" className="py-20 md:py-28" style={{ background: '#f4f5f7' }}>
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Resultados Esperados</p>
@@ -775,7 +775,7 @@ export default function EmpresasPage() {
 
       {/* ── FAQ ──────────────────────────────────────────────────────── */}
       <section id="faq" className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-8 max-w-3xl">
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-12">
             <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: COPPER }}>Dúvidas Frequentes</p>
@@ -827,7 +827,7 @@ export default function EmpresasPage() {
           <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${NAVY} 0%, rgba(0,17,35,0.92) 100%)` }} />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 md:px-8">
+        <div className="relative z-10 site-container">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
             {/* Lado esquerdo */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
