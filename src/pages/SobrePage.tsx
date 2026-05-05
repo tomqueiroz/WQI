@@ -111,11 +111,11 @@ export default function SobrePage() {
         <div className="absolute right-0 top-0 w-2/3 h-full z-[2] pointer-events-none hidden lg:block"
           style={{ background: 'radial-gradient(ellipse at 90% 50%, rgba(122,98,7,0.15) 0%, transparent 60%)' }} />
 
-        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 min-h-[85vh]">
-          {/* ── Copy (5 cols) ── */}
+        <div className="relative z-10 w-full flex items-center min-h-[85vh]">
+          {/* ── Copy centralizada ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
-            className="lg:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-32 lg:py-40">
+            className="w-full max-w-2xl flex flex-col justify-center px-6 md:px-16 lg:px-24 py-32 lg:py-40">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>
               Especialistas LATAM em IA Aplicada
@@ -154,31 +154,11 @@ export default function SobrePage() {
             </div>
           </motion.div>
 
-          {/* ── Foto (7 cols) ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.15 }}
-            className="lg:col-span-7 relative hidden lg:block">
-            <img
-              src={IMAGES.TOM_PROFILE_ALT}
-              alt="Tom Queiroz — Head de Conteúdo e Mentor Sênior Recognise"
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #001123 0%, rgba(0,17,35,0.35) 35%, transparent 65%)' }} />
-            <div className="absolute bottom-10 right-8 rounded-2xl px-5 py-4 shadow-2xl text-center z-10"
-              style={{ background: 'rgba(122,98,7,0.92)', backdropFilter: 'blur(8px)', color: 'white' }}>
-              <div className="text-3xl font-black leading-none">AI First</div>
-              <div className="text-[11px] font-light mt-1 leading-tight opacity-90">Metodologia<br />Proprietária Recognise</div>
-            </div>
-          </motion.div>
-
-          {/* Foto mobile */}
-          <div className="lg:hidden relative w-full" style={{ height: 340 }}>
-            <img
-              src={IMAGES.TOM_PROFILE_ALT}
-              alt="Tom Queiroz"
-              className="w-full h-full object-cover object-center"
-            />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #001123 0%, transparent 30%, transparent 70%, #001123 100%)' }} />
+          {/* Badge AI First fixo sobre o vídeo */}
+          <div className="absolute bottom-10 right-8 rounded-2xl px-5 py-4 shadow-2xl text-center z-20"
+            style={{ background: 'rgba(122,98,7,0.92)', backdropFilter: 'blur(8px)', color: 'white' }}>
+            <div className="text-3xl font-black leading-none">AI First</div>
+            <div className="text-[11px] font-light mt-1 leading-tight opacity-90">Metodologia<br />Proprietária Recognise</div>
           </div>
         </div>
       </section>
