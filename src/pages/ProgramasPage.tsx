@@ -325,8 +325,7 @@ export default function ProgramasPage() {
               style={{ opacity: 0.55 }}
               onError={(e) => { (e.currentTarget as HTMLVideoElement).style.display = 'none'; }}
             >
-              <source src="/video/bg_programas.mp4" type="video/mp4" />
-              <source src="/video/future-bg.mp4" type="video/mp4" />
+              <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_programas.mp4" type="video/mp4" />
               <source src="/video/hero-bg.mp4" type="video/mp4" />
             </video>
             {/* Máscara preta 40% */}

@@ -332,7 +332,7 @@ export default function NovosMentoresPage() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: 1, opacity: 0.45 }}
         >
-          <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_programas.mp4" type="video/mp4" />
+          <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_novoproduto.mp4" type="video/mp4" />
           <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
 

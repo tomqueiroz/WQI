@@ -265,8 +265,8 @@ export default function EmpresasPage() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ opacity: 0.45 }}
           >
-            <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_programas.mp4" type="video/mp4" />
-            <source src="/video/bg_programas.mp4" type="video/mp4" />
+            <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_empresas.mp4" type="video/mp4" />
+            <source src="/video/hero-bg.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0"
             style={{ background: `linear-gradient(to right, ${NAVY} 0%, rgba(0,17,35,0.92) 45%, rgba(0,17,35,0.55) 75%, rgba(0,17,35,0.30) 100%)` }} />
