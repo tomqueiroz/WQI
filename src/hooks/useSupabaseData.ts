@@ -128,25 +128,32 @@ export function useSubmitLead(tableName: string = 'leads') {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Tabelas que aceitam source/status
+  const tablesWithSourceStatus = ['leads'];
+
   async function submitLead(leadData: LeadData) {
     setLoading(true);
     setError(null);
     setSuccess(false);
 
     try {
+      // Montar payload com apenas campos que existem na tabela
+      const payload: Record<string, string | null> = {
+        full_name: leadData.full_name,
+        email: leadData.email,
+      };
+      if (leadData.company !== undefined) payload.company = leadData.company || null;
+      if (leadData.role !== undefined) payload.role = leadData.role || null;
+      if (leadData.whatsapp !== undefined) payload.whatsapp = leadData.whatsapp || null;
+      if (leadData.message !== undefined) payload.message = leadData.message || null;
+      if (tablesWithSourceStatus.includes(tableName)) {
+        payload.source = 'website_form';
+        payload.status = 'new';
+      }
+
       const { error: dbError } = await supabase
         .from(tableName)
-        .insert([{
-          full_name: leadData.full_name,
-          email: leadData.email,
-          company: leadData.company || null,
-          role: leadData.role || null,
-          whatsapp: leadData.whatsapp || null,
-          message: leadData.message || null,
-          source: 'website_form',
-          status: 'new',
-          created_at: new Date().toISOString(),
-        }]);
+        .insert([payload]);
 
       if (dbError) throw dbError;
       setSuccess(true);
