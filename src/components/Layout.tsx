@@ -148,10 +148,10 @@ export function Layout({ children }: LayoutProps) {
               aria-label="Ir para página inicial"
             >
               <img
-                src={IMAGES.LOGO_RECOGNISE_BRANCO}
+                src={scrolled ? IMAGES.LOGO_RECOGNISE_COLOR : IMAGES.LOGO_RECOGNISE_BRANCO}
                 alt="Recognise"
-                className="h-10 md:h-[52px] w-auto object-contain"
-                style={{ minWidth: '130px', opacity: 0.8 }}
+                className="h-10 md:h-[52px] w-auto object-contain transition-all duration-500"
+                style={{ minWidth: '130px', opacity: scrolled ? 1 : 0.8 }}
               />
             </button>
 

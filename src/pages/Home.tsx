@@ -662,12 +662,12 @@ export default function Home() {
               src={IMAGES.LOGO_RECOGNISE_COLOR}
               alt="Recognise"
               className="w-auto object-contain"
-              style={{ opacity: 0.3, height: 'clamp(4.5rem, 10vw, 8rem)' }}
+              style={{ opacity: 1, height: 'clamp(4.5rem, 10vw, 8rem)' }}
               initial={{ y: -40, opacity: 0, scale: 0.85 }}
-              whileInView={{ y: 0, opacity: 0.3, scale: 1 }}
+              whileInView={{ y: 0, opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.4, ease: 'easeOut' }}
-              whileHover={{ scale: 1.04, opacity: 0.4 }}
+              whileHover={{ scale: 1.04, opacity: 1 }}
             />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
