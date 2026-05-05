@@ -293,7 +293,7 @@ export default function EmpresasPage() {
                 className="text-white mb-6"
                 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.8vw, 3.2rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
               >
-                Forme a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span><br />
+                <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span><br />
                 na sua organização.
               </motion.h1>
 

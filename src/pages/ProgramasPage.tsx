@@ -325,13 +325,11 @@ export default function ProgramasPage() {
               style={{ opacity: 0.55 }}
               onError={(e) => { (e.currentTarget as HTMLVideoElement).style.display = 'none'; }}
             >
-              <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_programas.mp4" type="video/mp4" />
+              <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_programas2.mp4" type="video/mp4" />
               <source src="/video/hero-bg.mp4" type="video/mp4" />
             </video>
-            {/* Máscara preta 40% */}
-            <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.40)' }} />
-            {/* Gradiente marca */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,17,35,0.6) 0%, rgba(0,17,35,0.3) 60%, rgba(0,17,35,0.7) 100%)' }} />
+            {/* Máscara azul escuro 60% */}
+            <div className="absolute inset-0" style={{ background: 'rgba(0,17,35,0.60)' }} />
           </div>
 
           <div className="relative z-20 flex flex-col justify-end pb-16 px-4 max-w-7xl mx-auto h-full" style={{ minHeight: '50vh' }}>
