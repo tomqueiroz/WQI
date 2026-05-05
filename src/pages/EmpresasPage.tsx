@@ -257,13 +257,18 @@ export default function EmpresasPage() {
         className="relative min-h-screen flex items-center overflow-hidden"
         style={{ background: NAVY }}
       >
-        {/* Imagem de fundo com overlay */}
+        {/* Vídeo de fundo */}
         <div className="absolute inset-0 z-0">
-          <img
-            src={IMAGES.EMPRESAS_HERO_2}
-            alt=""
-            className="w-full h-full object-cover object-center opacity-20"
-          />
+          {/* Fundo sólido enquanto o vídeo carrega */}
+          <div className="absolute inset-0" style={{ background: NAVY }} />
+          <video
+            autoPlay muted loop playsInline preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.45 }}
+          >
+            <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_programas.mp4" type="video/mp4" />
+            <source src="/video/bg_programas.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0"
             style={{ background: `linear-gradient(135deg, ${NAVY} 35%, rgba(0,17,35,0.6) 65%, rgba(0,17,35,0.85) 100%)` }} />
         </div>
