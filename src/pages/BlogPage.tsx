@@ -695,6 +695,7 @@ export default function BlogPage() {
             style={{ opacity: 0.6 }}
             onError={(e) => { (e.currentTarget as HTMLVideoElement).style.display = 'none'; }}
           >
+            <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_blog.mp4" type="video/mp4" />
             <source src="/video/future-bg.mp4" type="video/mp4" />
             <source src="/video/hero-bg.mp4" type="video/mp4" />
           </video>

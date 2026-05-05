@@ -112,10 +112,10 @@ export default function SobrePage() {
           style={{ background: 'radial-gradient(ellipse at 90% 50%, rgba(122,98,7,0.15) 0%, transparent 60%)' }} />
 
         <div className="relative z-10 w-full flex items-center min-h-[85vh]">
-          {/* ── Copy centralizada ── */}
+          {/* ── Copy — ocupa até 60% da largura desktop ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
-            className="w-full max-w-2xl flex flex-col justify-center px-6 md:px-16 lg:px-24 py-32 lg:py-40">
+            className="w-full max-w-3xl flex flex-col justify-center px-6 md:px-10 lg:px-16 xl:px-24 py-32 lg:py-40">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
               style={{ color: '#7a6207', background: 'rgba(122,98,7,0.12)', border: '1px solid rgba(122,98,7,0.25)' }}>
               Especialistas LATAM em IA Aplicada
@@ -123,10 +123,10 @@ export default function SobrePage() {
             <h1 className="text-white mb-5" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 'clamp(1.8rem,3.5vw,3.2rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Uma nova era de<br /><span style={{ color: '#7a6207' }}>liderança em IA</span><br />começa aqui.
             </h1>
-            <p className="text-white/70 leading-relaxed mb-4 max-w-md" style={{ fontWeight: 300, fontSize: '1.05rem' }}>
+            <p className="text-white/70 leading-relaxed mb-4 max-w-lg" style={{ fontWeight: 300, fontSize: '1.05rem' }}>
               A <strong className="text-white/90">Recognise</strong> é uma empresa especializada em desenvolvimento de capacidades baseadas em IA para profissionais e corporações — nascida de dentro de uma empresa de implementação de IA. Não ensinamos ferramentas. Desenvolvemos um novo modelo mental.
             </p>
-            <p className="text-white/55 leading-relaxed mb-8 max-w-md" style={{ fontWeight: 300, fontSize: '0.95rem' }}>
+            <p className="text-white/55 leading-relaxed mb-8 max-w-lg" style={{ fontWeight: 300, fontSize: '0.95rem' }}>
               Nossa equipe é formada por talentos reconhecidos no mercado LATAM de IA Aplicada — executivos que construíram padrões de implementação de IA no Brasil, líderes de suas próprias empresas de IA, professores de universidades de topo e formadores da próxima <strong className="text-white/75 font-medium"><GeracaoAiFirstTm /></strong>.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -152,8 +152,13 @@ export default function SobrePage() {
                 </div>
               ))}
             </div>
-          </motion.div>
 
+            {/* Seta scroll-down */}
+            <div className="flex items-center gap-1.5 mt-7">
+              <span className="text-white/35 text-xs">Role para baixo</span>
+              <ArrowRight className="rotate-90 animate-bounce" size={15} style={{ color: '#c9a227' }} />
+            </div>
+          </motion.div>
           {/* Badge AI First fixo sobre o vídeo */}
           <div className="absolute bottom-10 right-8 rounded-2xl px-5 py-4 shadow-2xl text-center z-20"
             style={{ background: 'rgba(122,98,7,0.92)', backdropFilter: 'blur(8px)', color: 'white' }}>

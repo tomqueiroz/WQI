@@ -254,12 +254,11 @@ export default function EmpresasPage() {
     <Layout>
       {/* ── HERO ───────────────────────────────────────────────────── */}
       <section
-        className="relative min-h-screen flex items-center overflow-hidden"
+        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
         style={{ background: NAVY }}
       >
         {/* Vídeo de fundo */}
         <div className="absolute inset-0 z-0">
-          {/* Fundo sólido enquanto o vídeo carrega */}
           <div className="absolute inset-0" style={{ background: NAVY }} />
           <video
             autoPlay muted loop playsInline preload="metadata"
@@ -270,87 +269,133 @@ export default function EmpresasPage() {
             <source src="/video/bg_programas.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0"
-            style={{ background: `linear-gradient(135deg, ${NAVY} 35%, rgba(0,17,35,0.6) 65%, rgba(0,17,35,0.85) 100%)` }} />
+            style={{ background: `linear-gradient(to right, ${NAVY} 0%, rgba(0,17,35,0.92) 45%, rgba(0,17,35,0.55) 75%, rgba(0,17,35,0.30) 100%)` }} />
         </div>
 
-        {/* Conteúdo */}
-        <div className="relative z-10 site-container py-32 md:py-40">
-          <div className="max-w-3xl">
-            <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6"
-                style={{ background: `rgba(122,98,7,0.18)`, color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}>
-                <Building2 size={12} /> Geração AI First™ · Soluções Corporativas
-              </span>
-            </motion.div>
+        {/* Conteúdo em grid 2 colunas — texto esquerda, visual direita */}
+        <div className="relative z-10 site-container flex-1 flex items-center" style={{ paddingTop: '100px', paddingBottom: '120px' }}>
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-white mb-6"
-              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(2.04rem, 4.25vw, 3.4rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
-            >
-              Forme a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span><br />
-              na sua organização.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-white/65 mb-4 max-w-2xl"
-              style={{ fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.7 }}
-            >
-              Mais de 95% dos projetos de IA nas empresas falham — não por falta de tecnologia, mas por ausência de líderes e times capacitados para operá-la. A Recognise é a referência no Brasil para acelerar a formação da Geração AI First™: lideranças e times que compreendem, planejam, implementam e operam IA como vantagem competitiva real e decisiva.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}
-              className="text-white/45 mb-10 max-w-xl"
-              style={{ fontWeight: 300, fontSize: '0.95rem' }}
-            >
-              Liderado por Tom Queiroz — CEO da Pareto, criador da TESS AI e pioneiro em IA Generativa corporativa no Brasil desde 2021.
-            </motion.p>
-
+            {/* ── COLUNA ESQUERDA — Copy + CTAs (5 colunas) ── */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35 }}
-              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}
+              className="lg:col-span-5 text-center lg:text-left"
             >
-              <Button
-                onClick={() => scrollToSection('contato')}
-                className="text-white font-semibold px-8 py-4 rounded-xl text-base shadow-lg transition-all hover:scale-105"
-                style={{ background: COPPER, border: 'none' }}
+              <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6"
+                  style={{ background: `rgba(122,98,7,0.18)`, color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}>
+                  <Building2 size={12} /> Geração AI First™ · Soluções Corporativas
+                </span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
+                className="text-white mb-6"
+                style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 'clamp(1.9rem, 3.8vw, 3.2rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
               >
-                Solicitar Diagnóstico Gratuito
-              </Button>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline"
-                  className="border-white/25 text-white/90 hover:bg-white/10 px-8 py-4 rounded-xl text-base"
-                  style={{ background: 'transparent' }}
+                Forme a <span style={{ color: '#c9a227' }}><GeracaoAiFirstTm /></span><br />
+                na sua organização.
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-white/70 mb-4"
+                style={{ fontWeight: 300, fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)', lineHeight: 1.75 }}
+              >
+                Mais de 95% dos projetos de IA nas empresas falham — não por falta de tecnologia, mas por ausência de líderes e times capacitados para operá-la. A Recognise é a referência no Brasil para acelerar a formação da Geração AI First™.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}
+                className="text-white/45 mb-8"
+                style={{ fontWeight: 300, fontSize: '0.9rem' }}
+              >
+                Liderado por Tom Queiroz — CEO da Pareto, criador da TESS AI e pioneiro em IA Generativa corporativa no Brasil desde 2021.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35 }}
+                className="flex flex-wrap gap-4 justify-center lg:justify-start"
+              >
+                <Button
+                  onClick={() => scrollToSection('contato')}
+                  className="text-white font-semibold px-7 py-3.5 rounded-xl text-sm shadow-lg transition-all hover:scale-105"
+                  style={{ background: COPPER, border: 'none' }}
                 >
-                  <FaWhatsapp size={18} className="mr-2" style={{ color: '#25D366' }} />
-                  Falar com Especialista
+                  Solicitar Diagnóstico Gratuito
                 </Button>
-              </a>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline"
+                    className="border-white/25 text-white/90 hover:bg-white/10 px-7 py-3.5 rounded-xl text-sm"
+                    style={{ background: 'transparent' }}
+                  >
+                    <FaWhatsapp size={16} className="mr-2" style={{ color: '#25D366' }} />
+                    Falar com Especialista
+                  </Button>
+                </a>
+              </motion.div>
+
+              {/* Seta scroll-down */}
+              <div className="hidden lg:flex items-center gap-1.5 mt-8">
+                <span className="text-white/40 text-xs">Role para baixo</span>
+                <ChevronDown className="animate-bounce" size={16} style={{ color: '#c9a227' }} />
+              </div>
             </motion.div>
+
+            {/* ── COLUNA DIREITA — Stats cards (7 colunas) ── */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:col-span-7 grid grid-cols-2 gap-4"
+            >
+              {[
+                { value: '95%', label: 'dos projetos de IA falham', sub: 'MIT Sloan 2025', icon: BarChart3 },
+                { value: '$5,5T', label: 'em perdas pelo gap de talentos', sub: 'IDC Global', icon: TrendingUp },
+                { value: '72%', label: 'empresas sem talentos em IA', sub: 'ManpowerGroup', icon: Users },
+                { value: '500+', label: 'Líderes AI First formados', sub: 'Pela Recognise', icon: Award },
+              ].map((s) => (
+                <motion.div key={s.label}
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  className="rounded-2xl p-5 flex flex-col gap-2"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(122,98,7,0.22)', backdropFilter: 'blur(8px)' }}
+                >
+                  <s.icon size={22} style={{ color: '#c9a227' }} />
+                  <div className="text-3xl font-black text-white leading-none" style={{ fontFamily: 'Montserrat, sans-serif' }}>{s.value}</div>
+                  <div className="text-white/65 text-sm leading-tight" style={{ fontWeight: 300 }}>{s.label}</div>
+                  <div className="text-white/30 text-[11px]">{s.sub}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+
           </div>
         </div>
 
-        {/* Stats flutuantes */}
+        {/* Seta scroll-down centralizada — mobile/tablet */}
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+          className="absolute bottom-8 left-0 right-0 flex justify-center z-20 lg:hidden"
+        >
+          <button onClick={() => scrollToSection('desafio')} className="flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors">
+            <span className="text-xs">Role para baixo</span>
+            <ChevronDown size={20} className="animate-bounce" style={{ color: '#c9a227' }} />
+          </button>
+        </motion.div>
+
+        {/* Stats bar flutuante — apenas desktop, na base */}
         <motion.div
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
-          className="absolute bottom-0 left-0 right-0 z-10"
+          className="hidden lg:block absolute bottom-0 left-0 right-0 z-10"
           style={{ background: 'rgba(0,17,35,0.85)', backdropFilter: 'blur(12px)', borderTop: '1px solid rgba(122,98,7,0.2)' }}
         >
-          <div className="site-container py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="site-container py-3.5 flex items-center justify-between gap-4">
             {[
-              { value: '95%', label: 'dos projetos de IA falham · MIT 2025', icon: BarChart3 },
-              { value: '$5,5T', label: 'em perdas pelo gap de talentos · IDC', icon: TrendingUp },
-              { value: '72%', label: 'empresas sem talentos em IA · ManpowerGroup', icon: Users },
-              { value: '500+', label: 'Líderes AI First formados pela Recognise', icon: Award },
+              { value: '95%', label: 'projetos de IA falham · MIT 2025' },
+              { value: '$5,5T', label: 'perdidos no gap · IDC' },
+              { value: '72%', label: 'sem talento em IA · ManpowerGroup' },
+              { value: '500+', label: 'Líderes AI First formados' },
             ].map((s) => (
-              <div key={s.label} className="flex items-center gap-3">
-                <s.icon size={20} style={{ color: COPPER, flexShrink: 0 }} />
-                <div>
-                  <div className="text-white font-black text-lg leading-none">{s.value}</div>
-                  <div className="text-white/50 text-[11px] mt-0.5" style={{ fontWeight: 300 }}>{s.label}</div>
-                </div>
+              <div key={s.label} className="flex items-center gap-2">
+                <div className="text-white font-black text-base leading-none" style={{ color: '#c9a227' }}>{s.value}</div>
+                <div className="text-white/45 text-[11px]" style={{ fontWeight: 300 }}>{s.label}</div>
               </div>
             ))}
           </div>
