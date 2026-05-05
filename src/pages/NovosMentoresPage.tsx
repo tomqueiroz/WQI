@@ -63,7 +63,7 @@ const DELIVERABLES_TOP = [
   { icon: BookOpen, title: 'Blog Estratégico', desc: 'Blog com SEO e estrutura para posicionamento de autoridade' },
   { icon: Users, title: 'Captação de Leads', desc: 'Formulários integrados, pop-ups e automações iniciais' },
   { icon: Zap, title: 'Diagnóstico + Planejamento', desc: 'Entrevista em profundidade + pesquisa de mercado + plano editorial' },
-  { icon: Sparkles, title: 'Powered by IA', desc: 'Copy, imagens e otimizações geradas por IA especializada no seu nicho' },
+  { icon: Sparkles, title: 'Impulsionado por IA', desc: 'Textos, imagens e otimizações geradas por IA especializada no seu nicho' },
 ];
 
 const DELIVERABLES_FULL = [
@@ -73,7 +73,7 @@ const DELIVERABLES_FULL = [
   { icon: Headphones, title: 'Podcasts & Materiais Ricos', desc: 'Upload de qualquer formato de conteúdo com player integrado' },
   { icon: BarChart3, title: 'Dashboard do Mentorando', desc: 'Painel individual com progresso, badges e certificados automáticos' },
   { icon: Award, title: 'Área do Mentorando Premium', desc: 'Login exclusivo, histórico de sessões, recursos e comunicação direta' },
-  { icon: Shield, title: 'Suporte Pós-Lançamento', desc: 'Suporte técnico e estratégico por 30 dias após o go-live' },
+  { icon: Shield, title: 'Suporte Pós-Lançamento', desc: 'Suporte técnico e estratégico por 30 dias após o lançamento' },
   { icon: FileText, title: 'Avaliações com Provas Eletrônicas', desc: 'Banco de questões, provas cronometradas, correção automática e relatório de desempenho individual' },
   { icon: Award, title: 'Certificação Automatizada', desc: 'Emissão e validação digital de certificados ao concluir trilhas — com registro e compartilhamento no LinkedIn' },
 ];
@@ -107,14 +107,14 @@ const PROCESS_STEPS = [
   { step: '01', title: 'Diagnóstico Profundo', icon: Sparkles, desc: 'Entrevista em profundidade. Pesquisa de mercado, concorrentes, público-alvo e seu diferencial único.' },
   { step: '02', title: 'Planejamento Estratégico', icon: BarChart3, desc: 'Nossa equipe cria o plano completo: arquitetura da plataforma, copy, conteúdo, identidade e funil.' },
   { step: '03', title: 'Desenvolvimento com IA', icon: Zap, desc: 'Time tech + IA em ação. Construímos tudo em tempo recorde com tecnologia exclusiva e qualidade premium.' },
-  { step: '04', title: 'Lançamento & Suporte', icon: Rocket, desc: 'Go-live com checklist completo, suporte técnico e estratégico pós-lançamento para você conquistar mentorandos.' },
+  { step: '04', title: 'Lançamento & Suporte', icon: Rocket, desc: 'Ativação com lista de verificação completa, suporte técnico e estratégico pós-lançamento para você conquistar mentorandos.' },
 ];
 
 const WHY_RECOGNISE = [
   'Especialistas em IA aplicada ao negócio de mentoria',
   'Plataformas 100% customizadas — sem template genérico',
   'Time multidisciplinar: tech, copy, design e estratégia',
-  'Powered by IA proprietária da Recognise (TESS AI)',
+  'Impulsionado pela IA proprietária da Recognise (TESS AI)',
   'Entrega rápida sem abrir mão da qualidade premium',
   'Suporte estratégico pós-lançamento incluído',
 ];
@@ -384,7 +384,7 @@ export default function NovosMentoresPage() {
                   letterSpacing: '0.1em',
                 }}>
                 <Sparkles size={11} />
-                Novo Serviço · Plataformas para Mentores · Powered by IA
+                Novo Serviço · Plataformas para Mentores · Potencializado por IA
               </div>
 
               {/* H1 */}
@@ -690,7 +690,7 @@ export default function NovosMentoresPage() {
                     Plataforma + LMS Proprietário
                   </h3>
                   <p className="text-white/50 text-sm" style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 300 }}>
-                    O ecossistema digital completo da sua mentoria — exclusivo, sem mensalidades, powered by IA.
+                    O ecossistema digital completo da sua mentoria — exclusivo, sem mensalidades, potencializado por IA.
                   </p>
                 </div>
               </div>

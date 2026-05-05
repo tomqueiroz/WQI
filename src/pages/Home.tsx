@@ -693,7 +693,7 @@ export default function Home() {
               </div>
               <div className="absolute -top-3 -right-3 text-white rounded-xl px-4 py-3 shadow-xl text-center hidden md:block" style={{ background: '#001123', border: '2px solid #c9a227' }}>
                 <div className="text-2xl font-black leading-none" style={{ color: '#c9a227' }}>500+</div>
-                <div className="text-[10px] font-light mt-0.5 leading-tight">Executivos<br/>mentoreados</div>
+                <div className="text-[10px] font-light mt-0.5 leading-tight">Executivos<br/>mentorados</div>
               </div>
             </motion.div>
 

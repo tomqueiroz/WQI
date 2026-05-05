@@ -127,10 +127,10 @@ const SOLUTIONS = [
 // ── Programa Formação de Mentores (detalhado) ────────────────────────
 const MENTOR_MODULES = [
   { num: '01', title: 'Fundamentos do Mentoring com IA', hours: '3h', desc: 'O que é mentoring autêntico, papel do mentor, diferenças de coaching e consultoria. Como IA transforma a dinâmica de desenvolvimento humano nas organizações.' },
-  { num: '02', title: 'Competências do Mentor Corporativo Digital', hours: '3h', desc: 'Escuta ativa, questionamento poderoso, feedback de alta performance. Integração de ferramentas de IA para personalizar jornadas de desenvolvimento.' },
+  { num: '02', title: 'Competências do Mentor Corporativo Digital', hours: '3h', desc: 'Escuta ativa, questionamento poderoso, retorno de alta performance. Integração de ferramentas de IA para personalizar jornadas de desenvolvimento.' },
   { num: '03', title: 'Metodologia AI-First em Mentoring', hours: '3h', desc: 'Aplicação do AI-First Framework™ no contexto de desenvolvimento de pessoas. Uso de dados e IA para diagnóstico, matching e acompanhamento de mentorados.' },
   { num: '04', title: 'Gestão de Programas de Mentoria Corporativa', hours: '3h', desc: 'Estruturação, matching, governança e métricas de programas internos de mentoria. KPIs de desenvolvimento, retenção e impacto organizacional.' },
-  { num: '05', title: 'Prática Supervisionada e Certificação', hours: '4h', desc: 'Simulações de sessões de mentoria com feedback especializado. Projeto final de estruturação de programa interno. Certificação internacional.' },
+  { num: '05', title: 'Prática Supervisionada e Certificação', hours: '4h', desc: 'Simulações de sessões de mentoria com avaliação especializada. Projeto final de estruturação de programa interno. Certificação internacional.' },
 ];
 
 const MENTOR_BENEFITS = [
