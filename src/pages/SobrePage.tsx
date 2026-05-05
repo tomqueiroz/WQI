@@ -92,11 +92,24 @@ export default function SobrePage() {
     <Layout>
       {/* ── HERO — Recognise: Sobre Nós ── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden" style={{ background: '#001123' }}>
-        {/* Gradiente de fundo */}
-        <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(120deg, #001123 45%, #0a1e38 100%)' }} />
+        {/* Vídeo de fundo */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ opacity: 0.45 }}
+        >
+          <source src="https://lbrtshklxkhvlewwdpfb.supabase.co/storage/v1/object/public/VIDEOS/bg_programas.mp4" type="video/mp4" />
+        </video>
+        {/* Máscara escura sobre o vídeo */}
+        <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(0,17,35,0.55)' }} />
+        {/* Gradiente lateral para a copy */}
+        <div className="absolute inset-0 z-[2] hidden lg:block" style={{ background: 'linear-gradient(to right, rgba(0,17,35,0.85) 0%, rgba(0,17,35,0.5) 40%, transparent 70%)' }} />
         {/* Luz copper */}
-        <div className="absolute right-0 top-0 w-2/3 h-full z-0 pointer-events-none hidden lg:block"
-          style={{ background: 'radial-gradient(ellipse at 90% 50%, rgba(122,98,7,0.18) 0%, transparent 60%)' }} />
+        <div className="absolute right-0 top-0 w-2/3 h-full z-[2] pointer-events-none hidden lg:block"
+          style={{ background: 'radial-gradient(ellipse at 90% 50%, rgba(122,98,7,0.15) 0%, transparent 60%)' }} />
 
         <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 min-h-[85vh]">
           {/* ── Copy (5 cols) ── */}
