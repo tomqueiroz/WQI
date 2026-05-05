@@ -4,21 +4,37 @@
   "tables_source_info": [],
   "images": [
     {
-      "original_name": "1543",
-      "file_name": "1543.jpg",
-      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/1543.jpg",
-      "rel_path": "images/1543.jpg",
-      "file_type": "jpg",
+      "original_name": "logo horiz branco",
+      "file_name": "logo horiz branco.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/logo horiz branco.png",
+      "rel_path": "images/logo horiz branco.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "logo horiz color",
+      "file_name": "logo horiz color.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/logo horiz color.png",
+      "rel_path": "images/logo horiz color.png",
+      "file_type": "png",
+      "category": "images"
+    },
+    {
+      "original_name": "favicon",
+      "file_name": "favicon.png",
+      "file_path": "/data/workspace/18bd890d-cb38-452c-a247-5c0d4357f1c0/WQI_Mentorship/public/images/favicon.png",
+      "rel_path": "images/favicon.png",
+      "file_type": "png",
       "category": "images"
     }
   ],
   "summary": {
-    "total_files": 1,
+    "total_files": 3,
     "by_category": {
       "documents": 0,
       "tables_parsed": 0,
       "tables_source_info": 0,
-      "images": 1
+      "images": 3
     },
     "processing_time": null
   }
