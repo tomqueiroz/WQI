@@ -137,8 +137,8 @@ export function Layout({ children }: LayoutProps) {
         <div
         className={`h-14 md:h-16 rounded-2xl transition-all duration-500 ${
             scrolled
-              ? 'bg-white/90 backdrop-blur-2xl border border-gray-200/80 shadow-xl'
-              : 'bg-white/75 backdrop-blur-xl border border-white/60 shadow-lg'
+              ? 'bg-white/65 backdrop-blur-2xl border border-gray-200/60 shadow-xl'
+              : 'bg-white/50 backdrop-blur-xl border border-white/40 shadow-lg'
           }`}
         >
           <div className="flex items-center justify-between h-full px-4 md:px-6">
@@ -172,7 +172,7 @@ export function Layout({ children }: LayoutProps) {
                       <button
                         onClick={() => handleNavClick(item.href)}
                         className="text-[#001123]/80 hover:text-[#001123] transition nav-item flex items-center gap-1 cursor-pointer"
-                        style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
+                        style={{ fontSize: '0.9375rem', fontWeight: 700, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
                       >
                         {item.label}
                         <ChevronDown className="w-3.5 h-3.5" />
@@ -263,7 +263,7 @@ export function Layout({ children }: LayoutProps) {
                       key={item.href}
                       onClick={() => handleNavClick(item.href)}
                       className="text-[#001123]/80 hover:text-[#001123] transition nav-item cursor-pointer"
-                      style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
+                      style={{ fontSize: '0.9375rem', fontWeight: 700, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
                     >
                       {item.label}
                     </button>
@@ -274,7 +274,7 @@ export function Layout({ children }: LayoutProps) {
                     key={item.href}
                     href={item.href}
                     className="text-[#001123]/80 hover:text-[#001123] transition nav-item"
-                    style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                    style={{ fontSize: '0.9375rem', fontWeight: 700, letterSpacing: '0.055em' }}
                   >
                     {item.label}
                   </a>
@@ -315,7 +315,7 @@ export function Layout({ children }: LayoutProps) {
                             <button
                               onClick={() => setProgramasMobileOpen(!programasMobileOpen)}
                               className="w-full flex items-center justify-between px-4 py-2.5 text-foreground hover:bg-muted rounded-md transition-colors"
-                              style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                              style={{ fontSize: '0.9375rem', fontWeight: 700, letterSpacing: '0.055em' }}
                             >
                               <span>{item.label}</span>
                               <ChevronDown className={`w-4 h-4 transition-transform ${programasMobileOpen ? 'rotate-180' : ''}`} />
@@ -381,7 +381,7 @@ export function Layout({ children }: LayoutProps) {
                             key={item.href}
                             onClick={() => handleNavClickMobile(item.href)}
                             className="px-4 py-2.5 text-foreground hover:bg-muted rounded-md transition-colors w-full text-left"
-                            style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none' }}
+                            style={{ fontSize: '0.9375rem', fontWeight: 700, letterSpacing: '0.055em', background: 'none', border: 'none' }}
                           >
                             {item.label}
                           </button>
@@ -393,7 +393,7 @@ export function Layout({ children }: LayoutProps) {
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className="px-4 py-2.5 text-foreground hover:bg-muted rounded-md transition-colors"
-                          style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
+                          style={{ fontSize: '0.9375rem', fontWeight: 700, letterSpacing: '0.055em' }}
                         >
                           {item.label}
                         </a>
