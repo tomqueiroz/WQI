@@ -137,8 +137,8 @@ export function Layout({ children }: LayoutProps) {
         <div
         className={`h-14 md:h-16 rounded-2xl transition-all duration-500 ${
             scrolled
-              ? 'bg-white/80 backdrop-blur-2xl border border-white/60 shadow-xl'
-              : 'bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg'
+              ? 'bg-white/90 backdrop-blur-2xl border border-gray-200/80 shadow-xl'
+              : 'bg-white/75 backdrop-blur-xl border border-white/60 shadow-lg'
           }`}
         >
           <div className="flex items-center justify-between h-full px-4 md:px-6">
