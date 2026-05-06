@@ -137,8 +137,8 @@ export function Layout({ children }: LayoutProps) {
         <div
         className={`h-14 md:h-16 rounded-2xl transition-all duration-500 ${
             scrolled
-              ? 'bg-gray-800/70 backdrop-blur-2xl border border-white/10 shadow-xl'
-              : 'bg-gray-900/30 backdrop-blur-sm border border-white/5'
+              ? 'bg-white/80 backdrop-blur-2xl border border-white/60 shadow-xl'
+              : 'bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg'
           }`}
         >
           <div className="flex items-center justify-between h-full px-4 md:px-6">
@@ -171,7 +171,7 @@ export function Layout({ children }: LayoutProps) {
                     >
                       <button
                         onClick={() => handleNavClick(item.href)}
-                        className="text-white/85 hover:text-white transition nav-item flex items-center gap-1 cursor-pointer"
+                        className="text-[#001123]/80 hover:text-[#001123] transition nav-item flex items-center gap-1 cursor-pointer"
                         style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
                       >
                         {item.label}
@@ -218,7 +218,7 @@ export function Layout({ children }: LayoutProps) {
                       <button
                         onClick={() => handleNavClick(item.href)}
                         className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all hover:scale-105 nav-item cursor-pointer"
-                        style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.18)', color: '#c9a227', border: '1px solid rgba(122,98,7,0.35)' }}
+                        style={{ fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '0.055em', background: 'rgba(122,98,7,0.12)', color: '#7a6207', border: '1px solid rgba(122,98,7,0.40)' }}
                       >
                         <Building2 className="w-3.5 h-3.5" />
                         {item.label}
@@ -262,7 +262,7 @@ export function Layout({ children }: LayoutProps) {
                     <button
                       key={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-white/85 hover:text-white transition nav-item cursor-pointer"
+                      className="text-[#001123]/80 hover:text-[#001123] transition nav-item cursor-pointer"
                       style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em', background: 'none', border: 'none', padding: 0 }}
                     >
                       {item.label}
@@ -273,7 +273,7 @@ export function Layout({ children }: LayoutProps) {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="text-white/85 hover:text-white transition nav-item"
+                    className="text-[#001123]/80 hover:text-[#001123] transition nav-item"
                     style={{ fontSize: '0.9375rem', fontWeight: 300, letterSpacing: '0.055em' }}
                   >
                     {item.label}
@@ -296,7 +296,7 @@ export function Layout({ children }: LayoutProps) {
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <button
-                    className="md:hidden p-2 text-white hover:bg-white/10 rounded-md transition-colors"
+                    className="md:hidden p-2 text-[#001123] hover:bg-[#001123]/10 rounded-md transition-colors"
                     aria-label="Toggle menu"
                   >
                     {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
