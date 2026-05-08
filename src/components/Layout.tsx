@@ -562,7 +562,7 @@ export function Layout({ children }: LayoutProps) {
                   <FaLinkedinIn size={18} />
                 </a>
                 <a
-                  href="https://instagram.com/wellingtonqueiroz"
+                  href="https://instagram.com/recognise.br"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-accent transition"
