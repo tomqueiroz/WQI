@@ -553,7 +553,7 @@ export function Layout({ children }: LayoutProps) {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://linkedin.com/in/wellingtonqueiroz"
+                  href="https://www.linkedin.com/company/recognise-mentorias/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-accent transition"
